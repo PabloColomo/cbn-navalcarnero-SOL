@@ -1,0 +1,1384 @@
+/*
+ * Pista Viva: registration page.
+ * Scoped to .cbn-sol-registration-page so the form contract and shared
+ * components remain unaffected on every other template.
+ */
+
+body.page-template-page-inscripcion {
+  background: var(--cbn-sol-paper);
+}
+
+.cbn-sol-registration-page {
+  --cbn-registration-cut: 26px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 89% 7%, rgba(201, 0, 24, 0.08), transparent 25%),
+    var(--cbn-sol-paper);
+}
+
+.cbn-sol-registration-page__route {
+  opacity: 0.72;
+}
+
+.cbn-sol-registration-page__route .cbn-sol-route__ball {
+  width: 30px;
+  height: 30px;
+}
+
+/* Hero and registration board */
+
+.cbn-sol-registration-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(520px, 1.18fr);
+  gap: clamp(48px, 7vw, 116px);
+  align-items: center;
+  min-height: min(940px, calc(100svh - 84px));
+  padding: clamp(72px, 9vw, 138px) var(--cbn-sol-pad) clamp(88px, 10vw, 148px);
+  overflow: hidden;
+}
+
+.cbn-sol-registration-hero::before {
+  position: absolute;
+  top: 0;
+  right: -10%;
+  width: min(62vw, 940px);
+  height: 100%;
+  transform: skewX(-7deg);
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.24), transparent 46%),
+    var(--cbn-sol-red);
+  content: "";
+  clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.cbn-sol-registration-hero::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 12px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--cbn-sol-ink) 0 50px,
+    transparent 50px 61px
+  );
+  content: "";
+}
+
+.cbn-sol-registration-hero__court {
+  position: absolute;
+  top: -14%;
+  right: -4%;
+  bottom: -14%;
+  width: min(69vw, 980px);
+  transform: rotate(-5deg);
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.cbn-sol-registration-hero__court svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cbn-sol-registration-hero__court path,
+.cbn-sol-registration-hero__court circle {
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.cbn-sol-registration-hero__copy,
+.cbn-sol-registration-board {
+  position: relative;
+  z-index: 2;
+}
+
+.cbn-sol-registration-hero__copy .cbn-sol-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin-bottom: clamp(30px, 4vw, 54px);
+}
+
+.cbn-sol-registration-hero__copy h1 {
+  display: grid;
+  margin: 0;
+  font-family: var(--cbn-font-display);
+  font-size: clamp(72px, 8.5vw, 142px);
+  font-weight: 950;
+  letter-spacing: -0.065em;
+  line-height: 0.76;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-hero__copy h1 span {
+  overflow-wrap: anywhere;
+}
+
+.cbn-sol-registration-hero__copy h1 em {
+  position: relative;
+  width: max-content;
+  max-width: calc(100vw - 48px);
+  margin-left: clamp(18px, 4vw, 68px);
+  color: var(--cbn-sol-red);
+  font-size: 0.67em;
+  font-style: normal;
+}
+
+.cbn-sol-registration-hero__copy h1 em::after {
+  position: absolute;
+  z-index: -1;
+  right: -20px;
+  bottom: 0;
+  left: -12px;
+  height: 15%;
+  transform: rotate(-1deg);
+  background: rgba(201, 0, 24, 0.12);
+  content: "";
+}
+
+.cbn-sol-registration-hero__lead {
+  max-width: 620px;
+  margin: clamp(36px, 5vw, 64px) 0 0;
+  color: var(--cbn-sol-grey);
+  font-size: clamp(16px, 1.45vw, 21px);
+  line-height: 1.55;
+}
+
+.cbn-sol-registration-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 34px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.cbn-sol-registration-hero__audio {
+  margin-top: 28px;
+}
+
+.cbn-sol-registration-board {
+  --sol-parallax-x: 0px;
+  --sol-parallax-y: 0px;
+  width: 100%;
+  max-width: 830px;
+  min-width: 0;
+  justify-self: end;
+  transform: translate3d(var(--sol-parallax-x), var(--sol-parallax-y), 0)
+    rotate(1deg);
+  padding: clamp(25px, 3.2vw, 46px);
+  overflow: hidden;
+  background: var(--cbn-sol-ink);
+  color: white;
+  box-shadow:
+    24px 24px 0 rgba(109, 0, 13, 0.44),
+    0 34px 80px rgba(14, 14, 15, 0.25);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 34px) 0,
+    100% 34px,
+    100% 100%,
+    34px 100%,
+    0 calc(100% - 34px)
+  );
+  transition: transform 220ms ease;
+}
+
+.cbn-sol-ready .cbn-sol-registration-board[data-sol-reveal].is-visible {
+  transform: translate3d(var(--sol-parallax-x), var(--sol-parallax-y), 0)
+    rotate(1deg);
+}
+
+.cbn-sol-registration-board::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 28px 28px;
+  content: "";
+  pointer-events: none;
+}
+
+.cbn-sol-registration-board::after {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 22%;
+  height: 4px;
+  background: var(--cbn-sol-red);
+  box-shadow: 185px 0 0 rgba(255, 255, 255, 0.25);
+  content: "";
+}
+
+.cbn-sol-registration-board > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cbn-sol-registration-board__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.58);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-board__header > span:first-child {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  color: white;
+}
+
+.cbn-sol-registration-board__header i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff3048;
+  box-shadow: 0 0 0 6px rgba(255, 48, 72, 0.12);
+}
+
+.cbn-sol-registration-board__identity {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(21px, 3vw, 40px);
+  align-items: center;
+  padding: clamp(30px, 4vw, 54px) 0 36px;
+}
+
+.cbn-sol-registration-board__identity img {
+  width: clamp(78px, 9vw, 128px);
+  height: clamp(78px, 9vw, 128px);
+  border: 5px solid white;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+  object-fit: contain;
+}
+
+.cbn-sol-registration-board__identity small {
+  color: var(--cbn-sol-red);
+  font-size: 8px;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-board__identity h2 {
+  margin: 9px 0 0;
+  font-family: var(--cbn-font-display);
+  font-size: clamp(38px, 4.8vw, 70px);
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  line-height: 0.82;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-board__steps {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  list-style: none;
+}
+
+.cbn-sol-registration-board__steps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  min-height: 66px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.cbn-sol-registration-board__steps li > span {
+  color: rgba(255, 255, 255, 0.34);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 9px;
+}
+
+.cbn-sol-registration-board__steps strong {
+  font-family: var(--cbn-font-display);
+  font-size: clamp(16px, 1.7vw, 23px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-board__steps i {
+  color: var(--cbn-sol-red);
+  font-size: 15px;
+  font-style: normal;
+}
+
+.cbn-sol-registration-board__privacy {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  margin: 21px 0 0;
+  color: rgba(255, 255, 255, 0.53);
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.cbn-sol-registration-board__privacy span {
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--cbn-sol-red);
+  color: white;
+  font-size: 10px;
+  font-weight: 950;
+}
+
+.cbn-sol-registration-hero__shot-clock {
+  position: absolute;
+  z-index: 4;
+  right: var(--cbn-sol-pad);
+  bottom: 31px;
+  display: grid;
+  justify-items: end;
+  color: white;
+}
+
+.cbn-sol-registration-hero__shot-clock small {
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-hero__shot-clock strong {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 36px;
+  line-height: 1;
+}
+
+/* Process rail */
+
+.cbn-sol-registration-ticker {
+  position: relative;
+  z-index: 13 !important;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(14, 14, 15, 0.2);
+  background: var(--cbn-sol-red);
+  color: white;
+}
+
+.cbn-sol-registration-ticker > div {
+  display: flex;
+  width: max-content;
+  min-width: 200%;
+  gap: clamp(25px, 4vw, 64px);
+  align-items: center;
+  padding: 19px 0;
+  font-family: var(--cbn-font-display);
+  font-size: clamp(18px, 1.9vw, 28px);
+  font-weight: 950;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+  animation: cbn-sol-registration-ticker 32s linear infinite;
+}
+
+.cbn-sol-registration-ticker i {
+  color: var(--cbn-sol-ink);
+  font-size: 10px;
+  font-style: normal;
+}
+
+/* Four-step playbook */
+
+.cbn-sol-registration-process {
+  position: relative;
+  scroll-margin-top: 92px;
+  padding: clamp(90px, 11vw, 170px) var(--cbn-sol-pad);
+  background:
+    linear-gradient(90deg, transparent 49.9%, rgba(14, 14, 15, 0.05) 50%, transparent 50.1%),
+    var(--cbn-sol-paper);
+}
+
+.cbn-sol-registration-process::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(24vw, 320px);
+  aspect-ratio: 2 / 1;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(14, 14, 15, 0.08);
+  border-radius: 0 0 999px 999px;
+  content: "";
+}
+
+.cbn-sol-registration-process__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: clamp(42px, 8vw, 130px);
+  align-items: end;
+  margin-bottom: clamp(48px, 7vw, 92px);
+}
+
+.cbn-sol-registration-process__header h2 {
+  margin: 14px 0 0;
+  font-family: var(--cbn-font-display);
+  font-size: clamp(62px, 8.5vw, 132px);
+  font-weight: 950;
+  letter-spacing: -0.055em;
+  line-height: 0.76;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-process__header h2 em {
+  color: var(--cbn-sol-red);
+  font-style: normal;
+}
+
+.cbn-sol-registration-process__header > p {
+  max-width: 38ch;
+  margin: 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(14, 14, 15, 0.38);
+  color: var(--cbn-sol-grey);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.cbn-sol-registration-process__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 1px;
+  background: rgba(14, 14, 15, 0.18);
+  list-style: none;
+}
+
+.cbn-sol-registration-process__list > li {
+  --sol-tilt-x: 0deg;
+  --sol-tilt-y: 0deg;
+  position: relative;
+  display: flex;
+  min-height: 480px;
+  flex-direction: column;
+  padding: clamp(24px, 3vw, 38px);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.92);
+  transform: perspective(1000px) rotateX(var(--sol-tilt-y)) rotateY(var(--sol-tilt-x));
+  transform-style: preserve-3d;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.cbn-sol-registration-process__list > li:nth-child(2),
+.cbn-sol-registration-process__list > li:nth-child(4) {
+  background: var(--cbn-sol-ink);
+  color: white;
+}
+
+.cbn-sol-ready .cbn-sol-registration-process__list > li[data-sol-reveal].is-visible {
+  transform: perspective(1000px) rotateX(var(--sol-tilt-y)) rotateY(var(--sol-tilt-x));
+}
+
+.cbn-sol-registration-process__list > li:hover {
+  background: var(--cbn-sol-red);
+  color: white;
+}
+
+.cbn-sol-registration-process__list header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(14, 14, 15, 0.17);
+}
+
+.cbn-sol-registration-process__list > li:nth-child(2) header,
+.cbn-sol-registration-process__list > li:nth-child(4) header,
+.cbn-sol-registration-process__list > li:hover header {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cbn-sol-registration-process__list header span {
+  color: var(--cbn-sol-red);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.cbn-sol-registration-process__list > li:hover header span {
+  color: white;
+}
+
+.cbn-sol-registration-process__list header small {
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-process__diagram {
+  position: relative;
+  width: 138px;
+  height: 105px;
+  margin: 33px 0 0 auto;
+  opacity: 0.28;
+}
+
+.cbn-sol-registration-process__diagram::before,
+.cbn-sol-registration-process__diagram::after,
+.cbn-sol-registration-process__diagram span,
+.cbn-sol-registration-process__diagram i {
+  position: absolute;
+  content: "";
+}
+
+.cbn-sol-registration-process__diagram::before {
+  inset: 0;
+  border: 1px solid currentcolor;
+}
+
+.cbn-sol-registration-process__diagram::after {
+  top: 50%;
+  right: 0;
+  left: 0;
+  border-top: 1px solid currentcolor;
+}
+
+.cbn-sol-registration-process__diagram span {
+  top: 17px;
+  left: 50%;
+  width: 45px;
+  height: 72px;
+  transform: translateX(-50%);
+  border: 1px solid currentcolor;
+}
+
+.cbn-sol-registration-process__diagram i {
+  top: 16px;
+  left: 15px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--cbn-sol-red);
+  box-shadow:
+    45px 30px 0 currentcolor,
+    92px 66px 0 rgba(201, 0, 24, 0.55);
+}
+
+.cbn-sol-registration-process__list > li:hover .cbn-sol-registration-process__diagram i {
+  background: white;
+}
+
+.cbn-sol-registration-process__list h3 {
+  position: relative;
+  z-index: 2;
+  margin: auto 0 0;
+  font-family: var(--cbn-font-display);
+  font-size: clamp(27px, 3vw, 43px);
+  font-weight: 950;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-process__list p {
+  position: relative;
+  z-index: 2;
+  margin: 18px 0 0;
+  color: var(--cbn-sol-grey);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cbn-sol-registration-process__list > li:nth-child(2) p,
+.cbn-sol-registration-process__list > li:nth-child(4) p,
+.cbn-sol-registration-process__list > li:hover p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Registration form zone */
+
+.cbn-sol-registration-form-zone {
+  isolation: isolate;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(300px, 0.62fr) minmax(0, 1.38fr);
+  gap: clamp(36px, 7vw, 112px);
+  align-items: start;
+  scroll-margin-top: 92px;
+  padding: clamp(92px, 11vw, 170px) var(--cbn-sol-pad);
+  overflow: hidden;
+  background: var(--cbn-sol-ink);
+  color: white;
+}
+
+.cbn-sol-registration-form-zone::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(circle at 91% 8%, rgba(201, 0, 24, 0.34), transparent 23%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: auto, 46px 46px, 46px 46px;
+  content: "";
+}
+
+.cbn-sol-registration-form-zone__intro {
+  position: sticky;
+  top: 110px;
+  min-width: 0;
+}
+
+.cbn-sol-registration-form-zone__intro .cbn-sol-section-index {
+  color: #ff3048;
+}
+
+.cbn-sol-registration-form-zone__intro > h2 {
+  margin: 16px 0 0;
+  font-family: var(--cbn-font-display);
+  font-size: clamp(52px, 6.2vw, 92px);
+  font-weight: 950;
+  letter-spacing: -0.05em;
+  line-height: 0.8;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.cbn-sol-registration-form-zone__intro > p:not(.cbn-sol-section-index) {
+  max-width: 43ch;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.cbn-sol-registration-form-zone__privacy {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 13px;
+  margin-top: 38px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.cbn-sol-registration-form-zone__privacy > span {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--cbn-sol-red);
+  color: white;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.cbn-sol-registration-form-zone__privacy strong {
+  display: block;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-form-zone__privacy p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.cbn-sol-registration-form-zone__nav {
+  display: grid;
+  margin-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cbn-sol-registration-form-zone__nav a {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.42);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 9px;
+  text-decoration: none;
+}
+
+.cbn-sol-registration-form-zone__nav a span {
+  color: white;
+  font-family: var(--cbn-font-ui);
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-form-zone__nav a:hover span {
+  color: #ff4055;
+}
+
+.cbn-sol-registration-form-panel {
+  position: relative;
+  min-width: 0;
+  padding: clamp(27px, 4.2vw, 60px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--cbn-sol-paper);
+  color: var(--cbn-sol-ink);
+  box-shadow: 20px 20px 0 rgba(201, 0, 24, 0.18);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 30px) 0,
+    100% 30px,
+    100% 100%,
+    30px 100%,
+    0 calc(100% - 30px)
+  );
+}
+
+.cbn-sol-registration-form-panel::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38%;
+  height: 4px;
+  background: var(--cbn-sol-red);
+  content: "";
+}
+
+.cbn-sol-registration-form-panel__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 34px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(14, 14, 15, 0.14);
+  color: var(--cbn-sol-grey);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-form-panel__header > span:first-child {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  color: var(--cbn-sol-ink);
+}
+
+.cbn-sol-registration-form-panel__header i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cbn-sol-red);
+  box-shadow: 0 0 0 5px rgba(201, 0, 24, 0.09);
+}
+
+.cbn-sol-registration-page .cbn-contact-notice {
+  margin: 0 0 30px;
+  padding: 17px 18px;
+  border: 1px solid var(--cbn-sol-ink);
+  border-left: 6px solid var(--cbn-sol-ink);
+  border-radius: 0;
+  background: white;
+  color: var(--cbn-sol-ink);
+  font-size: 13px;
+}
+
+.cbn-sol-registration-page .cbn-contact-notice--ok {
+  border-color: var(--cbn-sol-red);
+}
+
+.cbn-sol-registration-page .cbn-sol-registration-form {
+  display: grid;
+  gap: 0;
+}
+
+.cbn-sol-registration-page .cbn-contact-form__hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.cbn-sol-registration-page .cbn-registration-fieldset {
+  position: relative;
+  display: block;
+  scroll-margin-top: 110px;
+  margin: 0;
+  padding: 38px 0 clamp(42px, 6vw, 72px);
+  border: 0;
+  border-top: 1px solid rgba(14, 14, 15, 0.15);
+}
+
+.cbn-sol-registration-page .cbn-registration-fieldset:first-of-type {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.cbn-sol-registration-page .cbn-registration-fieldset legend {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  width: 100%;
+  margin: 0 0 32px;
+  padding: 0;
+  color: var(--cbn-sol-ink);
+  font-family: var(--cbn-font-display);
+  font-size: clamp(28px, 3.4vw, 45px);
+  font-weight: 950;
+  letter-spacing: -0.025em;
+  line-height: 0.93;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-page .cbn-registration-fieldset legend span {
+  color: var(--cbn-sol-red);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0;
+}
+
+.cbn-sol-registration-page .cbn-registration-fieldset__hint {
+  max-width: 62ch;
+  margin: -20px 0 30px;
+  padding-left: 24px;
+  border-left: 2px solid var(--cbn-sol-red);
+  color: var(--cbn-sol-grey);
+  font-size: 12px;
+}
+
+.cbn-sol-registration-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px 22px;
+}
+
+.cbn-sol-registration-page .cbn-form-row {
+  position: relative;
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+  padding-top: 24px;
+}
+
+.cbn-sol-registration-page .cbn-form-row::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgba(14, 14, 15, 0.31);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 8px;
+  font-weight: 850;
+  content: attr(data-field-index);
+}
+
+.cbn-sol-registration-page .cbn-form-row--wide {
+  grid-column: 1 / -1;
+}
+
+.cbn-sol-registration-page .cbn-form-row label {
+  color: var(--cbn-sol-ink);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.cbn-sol-registration-page .cbn-form-row label > span {
+  color: var(--cbn-sol-red);
+}
+
+.cbn-sol-registration-page .cbn-form-row input[type="text"],
+.cbn-sol-registration-page .cbn-form-row input[type="email"],
+.cbn-sol-registration-page .cbn-form-row input[type="tel"],
+.cbn-sol-registration-page .cbn-form-row input[type="date"],
+.cbn-sol-registration-page .cbn-form-row input[type="number"],
+.cbn-sol-registration-page .cbn-form-row select {
+  width: 100%;
+  min-height: 58px;
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 2px solid rgba(14, 14, 15, 0.24);
+  border-radius: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--cbn-sol-ink);
+  font-size: 16px;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    padding 180ms ease;
+}
+
+.cbn-sol-registration-page .cbn-form-row select,
+.cbn-sol-registration-page .cbn-form-row input[type="date"] {
+  cursor: pointer;
+}
+
+.cbn-sol-registration-page .cbn-form-row:focus-within::before {
+  color: var(--cbn-sol-red);
+}
+
+.cbn-sol-registration-page .cbn-form-row input:focus-visible,
+.cbn-sol-registration-page .cbn-form-row select:focus-visible {
+  padding-inline: 12px;
+  border-color: var(--cbn-sol-red);
+  outline: 3px solid transparent;
+  background: rgba(201, 0, 24, 0.045);
+  box-shadow: 0 3px 0 rgba(201, 0, 24, 0.12);
+}
+
+.cbn-sol-registration-page .cbn-registration-fieldset--consent {
+  display: grid;
+  gap: 14px;
+}
+
+.cbn-sol-registration-page .cbn-registration-fieldset--consent legend {
+  margin-bottom: 18px;
+}
+
+.cbn-sol-registration-page .cbn-form-row--checkbox {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 13px;
+  align-items: start;
+  padding: 21px;
+  border: 1px solid rgba(14, 14, 15, 0.14);
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.cbn-sol-registration-page .cbn-form-row--checkbox::before {
+  display: none;
+}
+
+.cbn-sol-registration-page .cbn-form-row--checkbox:focus-within {
+  border-color: var(--cbn-sol-red);
+  background: rgba(201, 0, 24, 0.04);
+}
+
+.cbn-sol-registration-page .cbn-form-row--checkbox input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  min-width: 25px;
+  margin: 0;
+  accent-color: var(--cbn-sol-red);
+}
+
+.cbn-sol-registration-page .cbn-form-row--checkbox label {
+  color: var(--cbn-sol-grey);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.cbn-sol-registration-page .cbn-registration-note {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  margin: 0 0 26px;
+  padding: 20px;
+  border: 1px dashed rgba(14, 14, 15, 0.28);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.45);
+  color: var(--cbn-sol-grey);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.cbn-sol-registration-page .cbn-registration-note > span {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--cbn-sol-red);
+  color: white;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.cbn-sol-registration-form__submit {
+  width: 100%;
+}
+
+@keyframes cbn-sol-registration-ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1220px) {
+  .cbn-sol-registration-hero {
+    grid-template-columns: minmax(0, 0.7fr) minmax(490px, 1.3fr);
+    gap: 42px;
+  }
+
+  .cbn-sol-registration-hero__copy h1 {
+    font-size: clamp(66px, 8vw, 104px);
+  }
+
+  .cbn-sol-registration-board {
+    padding: 28px;
+  }
+
+  .cbn-sol-registration-process__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  .cbn-sol-registration-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 84px;
+  }
+
+  .cbn-sol-registration-hero::before {
+    top: auto;
+    right: -14%;
+    bottom: 0;
+    width: 102%;
+    height: 59%;
+    transform: none;
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .cbn-sol-registration-hero__court {
+    top: 37%;
+    width: 100%;
+    height: 66%;
+  }
+
+  .cbn-sol-registration-hero__copy {
+    max-width: 740px;
+  }
+
+  .cbn-sol-registration-hero__copy h1 {
+    font-size: clamp(76px, 14vw, 130px);
+  }
+
+  .cbn-sol-registration-board {
+    max-width: 770px;
+    justify-self: center;
+    margin-top: 44px;
+  }
+
+  .cbn-sol-registration-hero__shot-clock {
+    display: none;
+  }
+
+  .cbn-sol-registration-process__header,
+  .cbn-sol-registration-form-zone {
+    grid-template-columns: 1fr;
+  }
+
+  .cbn-sol-registration-process__header > p {
+    max-width: 540px;
+  }
+
+  .cbn-sol-registration-form-zone__intro {
+    position: relative;
+    top: auto;
+    max-width: 680px;
+  }
+
+  .cbn-sol-registration-form-zone__nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .cbn-sol-registration-page {
+    --cbn-registration-cut: 15px;
+  }
+
+  .cbn-sol-registration-page__route {
+    display: none;
+  }
+
+  .cbn-sol-registration-hero {
+    gap: 28px;
+    padding: 58px 18px 82px;
+  }
+
+  .cbn-sol-registration-hero::before {
+    right: -28%;
+    width: 132%;
+    height: 57%;
+  }
+
+  .cbn-sol-registration-hero__copy .cbn-sol-kicker {
+    display: grid;
+    margin-bottom: 28px;
+  }
+
+  .cbn-sol-registration-hero__copy .cbn-sol-kicker span + span::before {
+    display: none;
+  }
+
+  .cbn-sol-registration-hero__copy h1 {
+    font-size: clamp(60px, 19vw, 94px);
+    line-height: 0.79;
+  }
+
+  .cbn-sol-registration-hero__copy h1 em {
+    margin-left: 13px;
+    font-size: 0.57em;
+  }
+
+  .cbn-sol-registration-hero__lead {
+    margin-top: 34px;
+    font-size: 15px;
+  }
+
+  .cbn-sol-registration-hero__actions {
+    display: grid;
+    justify-items: start;
+  }
+
+  .cbn-sol-registration-hero__actions .cbn-sol-button,
+  .cbn-sol-registration-hero__audio {
+    width: 100%;
+  }
+
+  .cbn-sol-registration-board {
+    width: calc(100% + 2px);
+    margin-top: 30px;
+    padding: 24px 18px;
+    box-shadow: 11px 11px 0 rgba(109, 0, 13, 0.4);
+    clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+  }
+
+  .cbn-sol-registration-board__header {
+    display: grid;
+    gap: 9px;
+  }
+
+  .cbn-sol-registration-board__identity {
+    grid-template-columns: 65px 1fr;
+    padding-block: 29px;
+  }
+
+  .cbn-sol-registration-board__identity img {
+    width: 65px;
+    height: 65px;
+    border-width: 3px;
+  }
+
+  .cbn-sol-registration-board__identity h2 {
+    font-size: 38px;
+  }
+
+  .cbn-sol-registration-board__steps li {
+    gap: 10px;
+  }
+
+  .cbn-sol-registration-board__steps strong {
+    font-size: 17px;
+  }
+
+  .cbn-sol-registration-process,
+  .cbn-sol-registration-form-zone {
+    padding: 84px 18px;
+  }
+
+  .cbn-sol-registration-process__header {
+    gap: 30px;
+    margin-bottom: 44px;
+  }
+
+  .cbn-sol-registration-process__header h2 {
+    font-size: clamp(56px, 18vw, 88px);
+  }
+
+  .cbn-sol-registration-process__list {
+    grid-template-columns: 1fr;
+  }
+
+  .cbn-sol-registration-process__list > li {
+    min-height: 390px;
+    padding: 26px 23px;
+  }
+
+  .cbn-sol-registration-form-zone__intro > h2 {
+    font-size: clamp(51px, 17vw, 78px);
+  }
+
+  .cbn-sol-registration-form-zone__nav {
+    grid-template-columns: 1fr;
+  }
+
+  .cbn-sol-registration-form-panel {
+    padding: 29px 20px;
+    box-shadow: 10px 10px 0 rgba(201, 0, 24, 0.18);
+    clip-path: polygon(0 0, calc(100% - 19px) 0, 100% 19px, 100% 100%, 19px 100%, 0 calc(100% - 19px));
+  }
+
+  .cbn-sol-registration-form-panel__header {
+    display: grid;
+    gap: 8px;
+  }
+
+  .cbn-sol-registration-page .cbn-registration-fieldset legend {
+    display: grid;
+    gap: 8px;
+    font-size: 31px;
+  }
+
+  .cbn-sol-registration-field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cbn-sol-registration-page .cbn-form-row,
+  .cbn-sol-registration-page .cbn-form-row--wide {
+    grid-column: auto;
+  }
+
+  .cbn-sol-registration-page .cbn-form-row--checkbox {
+    padding: 17px;
+  }
+}
+
+@media (max-width: 390px) {
+  .cbn-sol-registration-board__steps li > span,
+  .cbn-sol-registration-board__steps li > i {
+    display: none;
+  }
+
+  .cbn-sol-registration-board__steps li {
+    grid-template-columns: 1fr;
+  }
+
+  .cbn-sol-registration-page .cbn-form-row--checkbox {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cbn-sol-registration-ticker > div {
+    transform: none;
+    animation: none !important;
+  }
+
+  .cbn-sol-registration-board,
+  .cbn-sol-ready .cbn-sol-registration-board[data-sol-reveal].is-visible,
+  .cbn-sol-registration-process__list > li,
+  .cbn-sol-ready .cbn-sol-registration-process__list > li[data-sol-reveal].is-visible {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .cbn-sol-registration-hero::before,
+  .cbn-sol-registration-hero::after,
+  .cbn-sol-registration-hero__court,
+  .cbn-sol-registration-process::before,
+  .cbn-sol-registration-form-zone::before,
+  .cbn-sol-registration-process__diagram {
+    display: none;
+  }
+
+  .cbn-sol-registration-board,
+  .cbn-sol-registration-process__list > li,
+  .cbn-sol-registration-form-panel,
+  .cbn-sol-registration-page .cbn-form-row--checkbox {
+    border: 2px solid currentcolor;
+    clip-path: none;
+  }
+
+  .cbn-sol-registration-page .cbn-form-row input[type="text"],
+  .cbn-sol-registration-page .cbn-form-row input[type="email"],
+  .cbn-sol-registration-page .cbn-form-row input[type="tel"],
+  .cbn-sol-registration-page .cbn-form-row input[type="date"],
+  .cbn-sol-registration-page .cbn-form-row input[type="number"],
+  .cbn-sol-registration-page .cbn-form-row select {
+    border: 2px solid currentcolor;
+  }
+}
+
+@media print {
+  .cbn-sol-registration-page__route,
+  .cbn-sol-registration-hero__court,
+  .cbn-sol-registration-hero__audio,
+  .cbn-sol-registration-hero__shot-clock,
+  .cbn-sol-registration-ticker,
+  .cbn-sol-registration-process__diagram,
+  .cbn-sol-registration-form-zone__nav {
+    display: none !important;
+  }
+
+  .cbn-sol-registration-hero,
+  .cbn-sol-registration-process,
+  .cbn-sol-registration-form-zone {
+    display: block;
+    min-height: 0;
+    padding: 28px 0;
+    background: white;
+    color: black;
+  }
+
+  .cbn-sol-registration-board,
+  .cbn-sol-registration-process__list > li,
+  .cbn-sol-registration-form-panel {
+    break-inside: avoid;
+    border: 1px solid #777;
+    background: white;
+    color: black;
+    box-shadow: none;
+    clip-path: none;
+  }
+
+  .cbn-sol-registration-process__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 20px;
+  }
+
+  .cbn-sol-registration-process__list > li {
+    min-height: 0;
+  }
+
+  .cbn-sol-registration-board__header,
+  .cbn-sol-registration-board__privacy,
+  .cbn-sol-registration-process__list p,
+  .cbn-sol-registration-process__list > li:nth-child(2) p,
+  .cbn-sol-registration-process__list > li:nth-child(4) p,
+  .cbn-sol-registration-form-zone__intro > p:not(.cbn-sol-section-index),
+  .cbn-sol-registration-form-zone__privacy p {
+    color: #333;
+  }
+
+  .cbn-sol-registration-form-zone__intro {
+    position: relative;
+    top: auto;
+  }
+}

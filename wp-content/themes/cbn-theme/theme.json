@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "slug": "cbn-black",
+          "color": "#111111",
+          "name": "CBN Black"
+        },
+        {
+          "slug": "cbn-red",
+          "color": "#c90018",
+          "name": "CBN Red"
+        },
+        {
+          "slug": "cbn-red-dark",
+          "color": "#970014",
+          "name": "CBN Dark Red"
+        },
+        {
+          "slug": "cbn-white",
+          "color": "#ffffff",
+          "name": "CBN White"
+        },
+        {
+          "slug": "cbn-soft",
+          "color": "#f6f6f7",
+          "name": "CBN Soft White"
+        }
+      ]
+    },
+    "layout": {
+      "contentSize": "1120px",
+      "wideSize": "1440px"
+    },
+    "spacing": {
+      "units": ["px", "rem", "%", "vw", "vh"]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "Inter, Manrope, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+          "slug": "ui",
+          "name": "UI Sans"
+        }
+      ]
+    }
+  }
+}

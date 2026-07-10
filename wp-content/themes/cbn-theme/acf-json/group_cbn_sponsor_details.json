@@ -1,0 +1,248 @@
+{
+  "key": "group_cbn_sponsor_details",
+  "title": "CBN Sponsor Details",
+  "fields": [
+    {
+      "key": "field_cbn_sponsor_tab_public",
+      "label": "Datos publicos",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_sponsor_display_name",
+      "label": "Nombre visible",
+      "name": "cbn_sponsor_display_name",
+      "type": "text",
+      "instructions": "Sobrescribe el titulo si el nombre publico debe mostrarse de otra forma.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_url",
+      "label": "Enlace",
+      "name": "cbn_sponsor_url",
+      "type": "text",
+      "instructions": "URL publica del sponsor.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_logo_alt",
+      "label": "Texto alternativo del logo",
+      "name": "cbn_sponsor_logo_alt",
+      "type": "text",
+      "instructions": "Descripcion breve para accesibilidad si se usa un logo.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_tier_label",
+      "label": "Nivel visible",
+      "name": "cbn_sponsor_tier_label",
+      "type": "text",
+      "instructions": "Texto de respaldo si la taxonomia Nivel de sponsor no esta cargada.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_description",
+      "label": "Descripcion publica",
+      "name": "cbn_sponsor_description",
+      "type": "textarea",
+      "instructions": "Texto publico aprobado por el sponsor o por el club.",
+      "rows": 4,
+      "new_lines": "br"
+    },
+    {
+      "key": "field_cbn_sponsor_tab_visibility",
+      "label": "Visibilidad",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_sponsor_active",
+      "label": "Sponsor activo",
+      "name": "cbn_sponsor_active",
+      "type": "true_false",
+      "instructions": "Desactivar si el acuerdo termina o no debe mostrarse.",
+      "default_value": 1,
+      "ui": 1,
+      "wrapper": {
+        "width": "25"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_show_on_home",
+      "label": "Mostrar en portada",
+      "name": "cbn_sponsor_show_on_home",
+      "type": "true_false",
+      "instructions": "Permite destacar el sponsor en la home.",
+      "default_value": 0,
+      "ui": 1,
+      "wrapper": {
+        "width": "25"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_location",
+      "label": "Ubicacion preferente",
+      "name": "cbn_sponsor_location",
+      "type": "select",
+      "choices": {
+        "home": "Portada",
+        "footer": "Footer",
+        "team": "Pagina de equipo",
+        "all": "Global"
+      },
+      "default_value": "home",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 1,
+      "return_format": "value",
+      "wrapper": {
+        "width": "25"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_order",
+      "label": "Orden editorial",
+      "name": "cbn_sponsor_order",
+      "type": "number",
+      "instructions": "Numero menor aparece antes en listados controlados por el club.",
+      "min": 0,
+      "step": 1,
+      "wrapper": {
+        "width": "25"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_start_date",
+      "label": "Fecha de inicio",
+      "name": "cbn_sponsor_start_date",
+      "type": "date_picker",
+      "display_format": "d/m/Y",
+      "return_format": "Y-m-d",
+      "first_day": 1,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_end_date",
+      "label": "Fecha de fin",
+      "name": "cbn_sponsor_end_date",
+      "type": "date_picker",
+      "display_format": "d/m/Y",
+      "return_format": "Y-m-d",
+      "first_day": 1,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_tab_external",
+      "label": "Trazabilidad",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_sponsor_external_source",
+      "label": "Fuente externa",
+      "name": "cbn_sponsor_external_source",
+      "type": "select",
+      "instructions": "Origen del dato. Normalmente sera manual.",
+      "choices": {
+        "manual": "Manual",
+        "federation": "Federacion",
+        "other": "Otra fuente"
+      },
+      "default_value": "manual",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 1,
+      "return_format": "value",
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_external_id",
+      "label": "ID externo",
+      "name": "cbn_sponsor_external_id",
+      "type": "text",
+      "instructions": "Identificador estable si el sponsor viene de una fuente externa.",
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_external_sync_status",
+      "label": "Estado de sincronizacion",
+      "name": "cbn_sponsor_external_sync_status",
+      "type": "select",
+      "choices": {
+        "not_synced": "No sincronizado",
+        "synced": "Sincronizado",
+        "manual_override": "Editado manualmente",
+        "error": "Error"
+      },
+      "default_value": "not_synced",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 1,
+      "return_format": "value",
+      "wrapper": {
+        "width": "34"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_external_url",
+      "label": "URL externa",
+      "name": "cbn_sponsor_external_url",
+      "type": "text",
+      "instructions": "URL publica de fuente externa, si existe.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_sponsor_external_updated_at",
+      "label": "Actualizado externamente",
+      "name": "cbn_sponsor_external_updated_at",
+      "type": "text",
+      "instructions": "Fecha/hora ISO 8601 de la ultima lectura externa. Ejemplo: 2026-06-27T18:30:00+02:00.",
+      "wrapper": {
+        "width": "50"
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "cbn_sponsor"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos base para sponsors, visibilidad editorial y trazabilidad opcional.",
+  "show_in_rest": 0,
+  "modified": 1782518400
+}

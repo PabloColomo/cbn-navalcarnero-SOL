@@ -1,0 +1,7 @@
+﻿interface:
+  display_name: "CBN ImageGen Design Harness"
+  short_description: "Image Gen web design flow for CBN"
+  default_prompt: "Use $cbn-imagegen-design-harness to design this CBN web surface with Image Gen concepts, approval, WordPress implementation, and browser QA."
+
+policy:
+  allow_implicit_invocation: true

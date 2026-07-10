@@ -1,0 +1,212 @@
+<?php
+/**
+ * "Contacto" page content helpers and form handler.
+ *
+ * Follows the same placeholder-content pattern as inc/club-content.php:
+ * ACF fields (when present) override defaults, otherwise the theme falls
+ * back to verified public club details documented in docs/clubs/.
+ */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+function cbn_get_contact_content(): array
+{
+    $defaults = cbn_get_contact_defaults();
+
+    $content = [
+        'intro' => [
+            'label' => cbn_get_contact_acf_field('cbn_contact_intro_label', $defaults['intro']['label']),
+            'title' => cbn_get_contact_acf_field('cbn_contact_intro_title', $defaults['intro']['title']),
+            'lead' => cbn_get_contact_acf_field('cbn_contact_intro_lead', $defaults['intro']['lead']),
+        ],
+        'channels' => [
+            'email' => cbn_get_contact_acf_field('cbn_contact_email', $defaults['channels']['email']),
+            'phone' => cbn_get_contact_acf_field('cbn_contact_phone', $defaults['channels']['phone']),
+            'address' => cbn_get_contact_acf_field('cbn_contact_address', $defaults['channels']['address']),
+        ],
+        'form' => $defaults['form'],
+        'location' => $defaults['location'],
+        'social' => [
+            'heading' => $defaults['social']['heading'],
+            'items' => [
+                [
+                    'label' => 'Instagram',
+                    'url' => cbn_get_contact_acf_field('cbn_contact_social_instagram_url', $defaults['social']['items'][0]['url']),
+                ],
+                [
+                    'label' => 'Facebook',
+                    'url' => cbn_get_contact_acf_field('cbn_contact_social_facebook_url', $defaults['social']['items'][1]['url']),
+                ],
+                [
+                    'label' => 'X',
+                    'url' => cbn_get_contact_acf_field('cbn_contact_social_x_url', $defaults['social']['items'][2]['url']),
+                ],
+                [
+                    'label' => 'YouTube',
+                    'url' => $defaults['social']['items'][3]['url'],
+                ],
+            ],
+        ],
+    ];
+
+    return apply_filters('cbn_contact_content', $content);
+}
+
+function cbn_get_contact_defaults(): array
+{
+    return [
+        'intro' => [
+            'label' => 'Contacto',
+            'title' => 'Hablemos',
+            'lead' => 'Escríbenos para dudas sobre inscripciones, equipos, tienda o cualquier otra consulta. Te respondemos lo antes posible.',
+        ],
+        'channels' => [
+            'email' => 'administracion@cbnavalcarnero.es',
+            'phone' => '(+34) 696 849 235',
+            'address' => 'C/ Río Ebro, s/n — Pabellón Municipal La Estación, Navalcarnero (Madrid)',
+        ],
+        'form' => [
+            'heading' => 'Formulario de contacto',
+            'text' => 'Rellena el formulario y nos pondremos en contacto contigo lo antes posible.',
+            'subject_options' => [
+                'inscripciones' => 'Inscripciones',
+                'equipos' => 'Equipos',
+                'tienda' => 'Tienda',
+                'otro' => 'Otro',
+            ],
+            'consent_text' => 'Acepto que mis datos se utilicen para responder a esta consulta (texto legal definitivo pendiente de aprobación).',
+            'messages' => [
+                'ok' => 'Gracias por tu mensaje. Te responderemos lo antes posible.',
+                'invalid' => 'Revisa los campos obligatorios y el consentimiento antes de enviar el formulario.',
+                'error' => 'No se ha podido enviar el mensaje. Inténtalo de nuevo más tarde.',
+            ],
+        ],
+        'location' => [
+            'heading' => 'Dónde estamos',
+            'facilities' => [
+                [
+                    'name' => 'Pabellón Municipal La Estación',
+                    'address' => 'C/ Río Ebro, s/n, 28600 Navalcarnero (Madrid)',
+                    'note' => 'Sede principal de entrenamientos y partidos del club.',
+                    'maps_url' => 'https://www.google.com/maps/search/?api=1&query=Polideportivo+La+Estacion+Navalcarnero',
+                ],
+                [
+                    'name' => 'Pabellones del Colegio María Martín',
+                    'address' => 'C/ Víctimas del Terrorismo, s/n, Navalcarnero (Madrid)',
+                    'note' => 'Instalaciones complementarias para escuela y categorías inferiores.',
+                    'maps_url' => 'https://www.google.com/maps/search/?api=1&query=Colegio+Maria+Martin+Navalcarnero',
+                ],
+            ],
+        ],
+        'social' => [
+            'heading' => 'Síguenos',
+            'items' => [
+                ['label' => 'Instagram', 'url' => '#'],
+                ['label' => 'Facebook', 'url' => 'https://www.facebook.com/NavalcarneroCB'],
+                ['label' => 'X', 'url' => 'https://twitter.com/navalcarnerocb'],
+                ['label' => 'YouTube', 'url' => 'https://www.youtube.com/embed/videoseries?list=PL_92L61ehE_rTO5oEm6eM-w0veWg70sco'],
+            ],
+        ],
+    ];
+}
+
+function cbn_get_contact_acf_field(string $field_name, mixed $default): mixed
+{
+    if (!function_exists('get_field')) {
+        return $default;
+    }
+
+    $source_id = get_queried_object_id();
+    $value = get_field($field_name, $source_id ?: false);
+
+    if ($value === null || $value === false || $value === '') {
+        return $default;
+    }
+
+    return $value;
+}
+
+/**
+ * Whether a social link is a real URL rather than the unset "#" placeholder.
+ */
+function cbn_contact_social_is_placeholder(string $url): bool
+{
+    return '' === trim($url) || '#' === trim($url);
+}
+
+add_action('admin_post_cbn_contact_submit', 'cbn_handle_contact_submit');
+add_action('admin_post_nopriv_cbn_contact_submit', 'cbn_handle_contact_submit');
+
+/**
+ * Handles the native contact form POST. Verifies nonce and honeypot,
+ * sanitizes all input, requires RGPD consent and a valid email, sends a
+ * plaintext notification to the site admin email, and redirects back to
+ * the contacto page with a status query var. Never stores submissions.
+ */
+function cbn_handle_contact_submit(): void
+{
+    $fallback_redirect = home_url('/contacto/');
+    $redirect_raw = isset($_POST['cbn_contact_redirect'])
+        ? esc_url_raw(wp_unslash($_POST['cbn_contact_redirect']))
+        : '';
+    $redirect_base = wp_validate_redirect($redirect_raw, $fallback_redirect);
+
+    $nonce = isset($_POST['cbn_contact_nonce']) ? sanitize_text_field(wp_unslash($_POST['cbn_contact_nonce'])) : '';
+
+    if (!wp_verify_nonce($nonce, 'cbn_contact_submit')) {
+        wp_safe_redirect(add_query_arg('cbn_contact', 'error', $redirect_base));
+        exit;
+    }
+
+    // Honeypot: real visitors never fill this hidden field. Bots that do
+    // are silently told the form "worked" so they do not keep probing.
+    $honeypot = isset($_POST['cbn_contact_website'])
+        ? sanitize_text_field(wp_unslash($_POST['cbn_contact_website']))
+        : '';
+
+    if ('' !== $honeypot) {
+        wp_safe_redirect(add_query_arg('cbn_contact', 'ok', $redirect_base));
+        exit;
+    }
+
+    $name = isset($_POST['cbn_contact_name']) ? sanitize_text_field(wp_unslash($_POST['cbn_contact_name'])) : '';
+    $email = isset($_POST['cbn_contact_email']) ? sanitize_email(wp_unslash($_POST['cbn_contact_email'])) : '';
+    $subject_key = isset($_POST['cbn_contact_subject']) ? sanitize_text_field(wp_unslash($_POST['cbn_contact_subject'])) : '';
+    $message = isset($_POST['cbn_contact_message']) ? sanitize_textarea_field(wp_unslash($_POST['cbn_contact_message'])) : '';
+    $consent = isset($_POST['cbn_contact_consent']) ? sanitize_text_field(wp_unslash($_POST['cbn_contact_consent'])) : '';
+
+    $subject_options = cbn_get_contact_defaults()['form']['subject_options'];
+    $subject_label = $subject_options[$subject_key] ?? '';
+
+    $is_valid = '' !== $name
+        && '' !== $message
+        && '' !== $subject_label
+        && '1' === $consent
+        && is_email($email);
+
+    if (!$is_valid) {
+        wp_safe_redirect(add_query_arg('cbn_contact', 'invalid', $redirect_base));
+        exit;
+    }
+
+    $admin_email = get_option('admin_email');
+    $mail_subject = sprintf('[Contacto CBN] %s', $subject_label);
+    $mail_body = implode(
+        "\n",
+        [
+            sprintf('Nombre: %s', $name),
+            sprintf('Email: %s', $email),
+            sprintf('Asunto: %s', $subject_label),
+            '',
+            'Mensaje:',
+            $message,
+        ]
+    );
+
+    $sent = wp_mail($admin_email, $mail_subject, $mail_body, ['Reply-To: ' . $name . ' <' . $email . '>']);
+
+    wp_safe_redirect(add_query_arg('cbn_contact', $sent ? 'ok' : 'error', $redirect_base));
+    exit;
+}

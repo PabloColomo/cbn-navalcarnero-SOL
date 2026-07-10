@@ -1,0 +1,143 @@
+Resumen del plan y de la conversacion
+=====================================
+
+Proyecto
+--------
+
+El objetivo del repositorio Israelcodigo/club-baloncesto-navalcarnero es preparar una nueva pagina web para el Club Baloncesto Navalcarnero.
+
+La web actual del club es:
+https://www.cbnavalcarnero.es/
+
+La referencia conceptual indicada para el rediseno es Manchester Basketball Club:
+https://manchesterbasketballclub.co.uk/
+
+La referencia de Manchester se usara solo como inspiracion de estilo, energia deportiva, estructura de contenidos, animaciones, presencia de marca, modulos de partidos/resultados, noticias, sponsors y llamadas a la accion. No se copiara codigo, diseno exacto, textos, imagenes, assets ni identidad visual.
+
+Resumen de la conversacion
+--------------------------
+
+1. Se localizo y conecto el repositorio nuevo de GitHub:
+   Israelcodigo/club-baloncesto-navalcarnero
+
+2. Se clono el repositorio en local:
+   C:\Users\EMPRESA\Desktop\higgsfield cli\club-baloncesto-navalcarnero
+
+3. Se investigo la web oficial del Club Baloncesto Navalcarnero:
+   https://www.cbnavalcarnero.es/
+
+4. Se extrajo informacion publica del club y se abrio un PR previo con:
+   - Ficha institucional del club.
+   - Datos de contacto.
+   - Categorias/equipos.
+   - Instalaciones.
+   - Sponsors.
+   - Activos oficiales de marca descargados.
+
+5. Se recibio un briefing para redisenar la web de Navalcarnero tomando como inspiracion conceptual la web de Manchester Basketball Club.
+
+6. Se preparo un plan profesional de rediseno en:
+   docs/redesign/navalcarnero-redesign-plan.md
+
+7. Se confirmaron requisitos posteriores al plan inicial:
+   - La proporcion cromatica de toda la web sera 60% blanco, 30% rojo y 10% negro.
+   - Los permisos de imagen y datos estan confirmados por el responsable del proyecto.
+   - La primera version debe incluir pasarela de pago para ropa del club e inscripciones.
+   - El enfoque recomendado para pagos en WordPress es WooCommerce + Stripe.
+
+8. Estos requisitos quedaron documentados en:
+   docs/redesign/navalcarnero-requirements-update-2026-06-27.md
+
+Descripcion del plan
+--------------------
+
+El plan propone crear una web moderna, original y mantenible para el Club Baloncesto Navalcarnero. La nueva web debe convertirse en el centro digital del club, con foco en:
+
+- Identidad del CBN.
+- Equipos y categorias.
+- Cantera y escuela.
+- Calendario de partidos.
+- Resultados y clasificaciones.
+- Noticias y comunicados.
+- Inscripciones y pruebas.
+- Tienda de ropa del club.
+- Pagos online para inscripciones y productos.
+- Sponsors y colaboraciones.
+- Contacto, ubicacion y formularios.
+
+La direccion visual recomendada es deportiva, local y familiar, usando la identidad propia del club. La proporcion cromatica aprobada para la interfaz es 60% blanco, 30% rojo y 10% negro. La referencia de Manchester aporta energia y estructura, pero la solucion para Navalcarnero debe ser mas ligera, clara y mantenible.
+
+Stack recomendado
+-----------------
+
+- WordPress como CMS.
+- Tema custom ligero o base tipo GeneratePress / Bricks con plantillas controladas.
+- ACF Pro para contenido estructurado.
+- Custom Post Types para equipos, jugadores, partidos, sponsors, documentos y noticias.
+- WooCommerce para tienda, pedidos, productos de ropa e inscripciones con pago.
+- Stripe como pasarela principal recomendada.
+- SportsPress solo si aporta valor real para fixtures, resultados y clasificaciones.
+- Gravity Forms o Fluent Forms para contacto y formularios no transaccionales, o integracion con WooCommerce para inscripciones con pago.
+- GSAP + ScrollTrigger para animaciones selectivas.
+- Lenis para scroll suave, con respeto a reduced motion.
+- Swiper para carruseles.
+- Cloudflare y plugin de cache.
+- Buenas practicas SEO, rendimiento, accesibilidad, seguridad y privacidad.
+
+Backlog inicial
+---------------
+
+Imprescindible:
+
+- Home moderna con CTA principal.
+- Header y menu movil.
+- Sistema visual 60% blanco, 30% rojo y 10% negro.
+- Paginas Club, Equipos, Noticias, Contacto y Sponsors.
+- Modelo basico de Equipos y Partidos.
+- Formularios de contacto e inscripcion/prueba.
+- WooCommerce configurado para productos de ropa e inscripciones.
+- Stripe configurado y probado en modo test.
+- Footer legal y contacto.
+- Politicas de compra, devolucion, privacidad e inscripcion.
+- SEO basico, rendimiento movil y redirecciones.
+
+Recomendable:
+
+- Jugadores y staff por equipo.
+- Resultados y calendario filtrable.
+- Clasificaciones.
+- Bloques ACF reutilizables.
+- Sponsors por nivel.
+- Manual de edicion para el club.
+- Gestion administrativa de pedidos e inscritos.
+
+Futuro:
+
+- Area privada para familias.
+- Pagos recurrentes o cuotas periodicas si el club lo necesita.
+- Automatizacion con datos federativos si existe fuente viable.
+- Estadisticas avanzadas.
+
+Riesgos principales
+-------------------
+
+- Copiar demasiado la referencia Manchester.
+- Sobrecargar la web con animaciones.
+- Crear una web dificil de mantener por usuarios no tecnicos.
+- Depender demasiado de plugins.
+- No tener suficiente contenido real.
+- Publicar datos o imagenes sin mantener controles de privacidad, aunque los permisos esten confirmados.
+- Dejar desactualizados partidos, resultados o clasificaciones.
+- Lanzar pagos sin pruebas de checkout, webhooks, reembolsos, emails y condiciones legales claras.
+
+Proximo paso recomendado
+------------------------
+
+Validar el alcance MVP actualizado:
+
+1. Web institucional + equipos + noticias + sponsors + formularios + tienda/pagos.
+2. Decidir si partidos, resultados y clasificaciones entran en la primera version o en una fase posterior.
+3. Reunir contenido real del club: fotos, escudo vectorial, equipos 2025/2026, sponsors, instalaciones, textos legales, productos de ropa y formularios de inscripcion.
+4. Elegir enfoque tecnico final: tema custom/GeneratePress/Bricks y CPT propio o SportsPress.
+5. Confirmar flujo de pagos: Stripe solo, o Stripe mas TPV bancario/Redsys.
+6. Pasar a wireframes y direccion visual original para CBN respetando 60/30/10.

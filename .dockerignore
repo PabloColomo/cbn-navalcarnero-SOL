@@ -1,0 +1,14 @@
+.git
+.env
+node_modules
+vendor
+downloads
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+wp-content/cache
+wp-content/upgrade
+wp-content/uploads
+wp-content/debug.log
+wp-content/themes/cbn-theme/assets/dist

@@ -1,0 +1,87 @@
+name: ${COMPOSE_PROJECT_NAME:-cbn}
+
+services:
+  wordpress:
+    image: ${WORDPRESS_IMAGE:-wordpress:php8.3-apache}
+    restart: unless-stopped
+    ports:
+      - "${WORDPRESS_PORT:-8080}:80"
+    environment:
+      WORDPRESS_DB_HOST: database:3306
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-cbn_wordpress}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-cbn}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-cbn_password}
+      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX:-wp_}
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG:-1}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ENVIRONMENT_TYPE', '${WORDPRESS_ENVIRONMENT_TYPE:-local}');
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+        define('SCRIPT_DEBUG', true);
+        define('WP_MEMORY_LIMIT', '${WORDPRESS_MEMORY_LIMIT:-256M}');
+        @ini_set('display_errors', 0);
+    volumes:
+      - wordpress-core:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
+      - ./docker/wordpress/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
+    depends_on:
+      database:
+        condition: service_healthy
+
+  database:
+    image: ${MARIADB_IMAGE:-mariadb:11}
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${WORDPRESS_DB_NAME:-cbn_wordpress}
+      MARIADB_USER: ${WORDPRESS_DB_USER:-cbn}
+      MARIADB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-cbn_password}
+      MARIADB_ROOT_PASSWORD: ${WORDPRESS_DB_ROOT_PASSWORD:-root_password}
+    volumes:
+      - database-data:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mariadb-admin ping -h 127.0.0.1 -u root -p$${MARIADB_ROOT_PASSWORD} --silent",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  phpmyadmin:
+    image: ${PHPMYADMIN_IMAGE:-phpmyadmin:apache}
+    restart: unless-stopped
+    profiles:
+      - tools
+    ports:
+      - "${PHPMYADMIN_PORT:-8081}:80"
+    environment:
+      PMA_HOST: database
+      PMA_USER: ${WORDPRESS_DB_USER:-cbn}
+      PMA_PASSWORD: ${WORDPRESS_DB_PASSWORD:-cbn_password}
+    depends_on:
+      database:
+        condition: service_healthy
+
+  wpcli:
+    image: ${WORDPRESS_CLI_IMAGE:-wordpress:cli-php8.3}
+    profiles:
+      - tools
+    environment:
+      WORDPRESS_DB_HOST: database:3306
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-cbn_wordpress}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-cbn}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-cbn_password}
+      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX:-wp_}
+    volumes:
+      - wordpress-core:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
+    depends_on:
+      database:
+        condition: service_healthy
+    working_dir: /var/www/html
+
+volumes:
+  wordpress-core:
+  database-data:

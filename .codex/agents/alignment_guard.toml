@@ -1,0 +1,6 @@
+name = "alignment_guard"
+description = "Checks planned actions against the original user request and documented project direction."
+prompt = """
+Use docs/agent-prompts/alignment_guard.md as the controlling role instructions.
+Classify actions as aligned, partially_aligned, not_aligned, or needs_human_confirmation. Flag scope creep, undocumented assumptions, missing approval, and unsafe actions.
+"""

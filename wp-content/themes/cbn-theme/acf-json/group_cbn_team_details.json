@@ -1,0 +1,287 @@
+{
+  "key": "group_cbn_team_details",
+  "title": "CBN Team Details",
+  "fields": [
+    {
+      "key": "field_cbn_team_tab_identity",
+      "label": "Identidad",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_team_federation_name",
+      "label": "Nombre en federacion",
+      "name": "cbn_team_federation_name",
+      "type": "text",
+      "instructions": "Nombre literal de la fuente oficial si difiere del titulo publico.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_team_category_label",
+      "label": "Categoria visible",
+      "name": "cbn_team_category_label",
+      "type": "text",
+      "instructions": "Texto de respaldo si la taxonomia Categoria deportiva no esta cargada.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_team_season_name",
+      "label": "Temporada visible",
+      "name": "cbn_team_season_name",
+      "type": "text",
+      "instructions": "Texto de respaldo si la taxonomia Temporada no esta cargada.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_team_competition_name",
+      "label": "Competicion visible",
+      "name": "cbn_team_competition_name",
+      "type": "text",
+      "instructions": "Texto de respaldo si la taxonomia Competicion no esta cargada.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_team_home_venue_name",
+      "label": "Instalacion habitual",
+      "name": "cbn_team_home_venue_name",
+      "type": "text",
+      "instructions": "Pabellón o pista habitual del equipo.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_team_order",
+      "label": "Orden editorial",
+      "name": "cbn_team_order",
+      "type": "number",
+      "instructions": "Numero menor aparece antes en listados controlados por el club.",
+      "min": 0,
+      "step": 1,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_team_tab_staff",
+      "label": "Cuerpo tecnico",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_team_coach",
+      "label": "Entrenador principal",
+      "name": "cbn_team_coach",
+      "type": "text",
+      "instructions": "Nombre publico del entrenador principal.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_team_staff",
+      "label": "Cuerpo tecnico",
+      "name": "cbn_team_staff",
+      "type": "textarea",
+      "instructions": "Ayudantes, delegados o equipo tecnico. No incluir datos privados.",
+      "rows": 4,
+      "new_lines": "br",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_team_training_schedule",
+      "label": "Horario de entrenamiento",
+      "name": "cbn_team_training_schedule",
+      "type": "textarea",
+      "instructions": "Horario publico editable por el club.",
+      "rows": 4,
+      "new_lines": "br"
+    },
+    {
+      "key": "field_cbn_team_tab_roster",
+      "label": "Plantilla",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_team_public_roster",
+      "label": "Mostrar plantilla publica",
+      "name": "cbn_team_public_roster",
+      "type": "true_false",
+      "instructions": "Debe respetar permisos de imagen y privacidad, especialmente en menores.",
+      "default_value": 0,
+      "ui": 1,
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_team_show_on_home",
+      "label": "Mostrar en portada",
+      "name": "cbn_team_show_on_home",
+      "type": "true_false",
+      "instructions": "Permite destacar este equipo en la home.",
+      "default_value": 0,
+      "ui": 1,
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_team_featured_label",
+      "label": "Etiqueta destacada",
+      "name": "cbn_team_featured_label",
+      "type": "text",
+      "maxlength": 40,
+      "wrapper": {
+        "width": "34"
+      }
+    },
+    {
+      "key": "field_cbn_team_players",
+      "label": "Jugadores relacionados",
+      "name": "cbn_team_players",
+      "type": "relationship",
+      "instructions": "Relación manual opcional con jugadores. La taxonomía Temporada sigue siendo la referencia principal.",
+      "post_type": ["cbn_player"],
+      "taxonomy": "",
+      "filters": ["search"],
+      "elements": ["featured_image"],
+      "min": "",
+      "max": "",
+      "return_format": "id"
+    },
+    {
+      "key": "field_cbn_team_roster_notes",
+      "label": "Notas de plantilla",
+      "name": "cbn_team_roster_notes",
+      "type": "textarea",
+      "instructions": "Notas publicas de plantilla. No incluir datos sensibles.",
+      "rows": 4,
+      "new_lines": "br"
+    },
+    {
+      "key": "field_cbn_team_tab_external",
+      "label": "Trazabilidad",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_team_external_source",
+      "label": "Fuente externa",
+      "name": "cbn_team_external_source",
+      "type": "select",
+      "instructions": "Origen del dato. No guardar credenciales ni tokens.",
+      "choices": {
+        "manual": "Manual",
+        "federation": "Federacion",
+        "other": "Otra fuente"
+      },
+      "default_value": "manual",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 1,
+      "return_format": "value",
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_team_external_id",
+      "label": "ID externo",
+      "name": "cbn_team_external_id",
+      "type": "text",
+      "instructions": "Identificador estable de la fuente oficial para evitar duplicados.",
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_team_external_sync_status",
+      "label": "Estado de sincronizacion",
+      "name": "cbn_team_external_sync_status",
+      "type": "select",
+      "choices": {
+        "not_synced": "No sincronizado",
+        "synced": "Sincronizado",
+        "manual_override": "Editado manualmente",
+        "error": "Error"
+      },
+      "default_value": "not_synced",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 1,
+      "return_format": "value",
+      "wrapper": {
+        "width": "34"
+      }
+    },
+    {
+      "key": "field_cbn_team_external_url",
+      "label": "URL externa",
+      "name": "cbn_team_external_url",
+      "type": "text",
+      "instructions": "URL publica de federacion o fuente oficial, si existe.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_team_external_updated_at",
+      "label": "Actualizado externamente",
+      "name": "cbn_team_external_updated_at",
+      "type": "text",
+      "instructions": "Fecha/hora ISO 8601 de la ultima lectura externa. Ejemplo: 2026-06-27T18:30:00+02:00.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_team_external_hash",
+      "label": "Huella externa",
+      "name": "cbn_team_external_hash",
+      "type": "text",
+      "instructions": "Hash tecnico opcional para detectar cambios sin guardar respuestas completas.",
+      "wrapper": {
+        "width": "50"
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "cbn_team"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos base para equipos, separando identidad oficial, edicion editorial y trazabilidad externa.",
+  "show_in_rest": 0,
+  "modified": 1782518400
+}

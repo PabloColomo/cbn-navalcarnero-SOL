@@ -1,0 +1,652 @@
+{
+  "key": "group_cbn_home_content",
+  "title": "CBN Home Content",
+  "fields": [
+    {
+      "key": "field_cbn_home_tab_hero",
+      "label": "Hero",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_home_hero_line_1",
+      "label": "Hero title line 1",
+      "name": "cbn_home_hero_line_1",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Primera línea del titular.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "La cantera",
+      "maxlength": 24,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_hero_line_2",
+      "label": "Hero title line 2",
+      "name": "cbn_home_hero_line_2",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Segunda línea del titular.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "que mueve",
+      "maxlength": 24,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_hero_line_3",
+      "label": "Hero title line 3",
+      "name": "cbn_home_hero_line_3",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Tercera línea del titular. Se muestra en rojo.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Navalcarnero",
+      "maxlength": 24,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_hero_lead",
+      "label": "Hero lead",
+      "name": "cbn_home_hero_lead",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Texto introductorio corto. Mantenerlo en una o dos frases.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Formamos personas, entrenamos equipos y construimos comunidad. Baloncesto de base, cantera y valores.",
+      "maxlength": 180,
+      "rows": 3,
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_cbn_home_hero_primary_label",
+      "label": "Primary CTA label",
+      "name": "cbn_home_hero_primary_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Quiero jugar",
+      "maxlength": 32,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_hero_primary_url",
+      "label": "Primary CTA URL",
+      "name": "cbn_home_hero_primary_url",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Puede ser una ruta interna como /equipos/ o una URL completa.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "/inscripcion/",
+      "placeholder": "/inscripcion/",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_hero_secondary_label",
+      "label": "Secondary CTA label",
+      "name": "cbn_home_hero_secondary_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Ver equipos",
+      "maxlength": 32,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_hero_secondary_url",
+      "label": "Secondary CTA URL",
+      "name": "cbn_home_hero_secondary_url",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Puede ser una ruta interna como /inscripcion/ o una URL completa.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "/equipos/",
+      "placeholder": "/equipos/",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_hero_image",
+      "label": "Hero image",
+      "name": "cbn_home_hero_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Imagen opcional del hero. Si se deja vacía se usa el asset del tema.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "jpg,jpeg,png,webp",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_cbn_home_tab_match",
+      "label": "Partido destacado",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_home_match_label",
+      "label": "Match label",
+      "name": "cbn_home_match_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Próximo partido",
+      "maxlength": 40,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_match_home",
+      "label": "Home team",
+      "name": "cbn_home_match_home",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "CBN",
+      "maxlength": 28,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_match_away",
+      "label": "Away team",
+      "name": "cbn_home_match_away",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Por confirmar",
+      "maxlength": 28,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_match_date",
+      "label": "Match date",
+      "name": "cbn_home_match_date",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Ejemplo: Sábado 18:00.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Fecha por confirmar",
+      "maxlength": 40,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_match_venue",
+      "label": "Match venue",
+      "name": "cbn_home_match_venue",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Pabellón Municipal La Estación",
+      "maxlength": 80,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_match_url",
+      "label": "Match CTA URL",
+      "name": "cbn_home_match_url",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Puede ser una ruta interna como /partidos/ o una URL completa.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "/partidos/",
+      "placeholder": "/partidos/",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_tab_sections",
+      "label": "Secciones",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_home_teams_heading",
+      "label": "Teams heading",
+      "name": "cbn_home_teams_heading",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Una pista. Todas las edades.",
+      "maxlength": 48,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_teams_link_label",
+      "label": "Teams link label",
+      "name": "cbn_home_teams_link_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Ver todos los equipos",
+      "maxlength": 48,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_teams_link_url",
+      "label": "Teams link URL",
+      "name": "cbn_home_teams_link_url",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Puede ser una ruta interna como /equipos/ o una URL completa.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "/equipos/",
+      "placeholder": "/equipos/",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_news_heading",
+      "label": "News heading",
+      "name": "cbn_home_news_heading",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Desde la banda",
+      "maxlength": 40,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_sponsors_heading",
+      "label": "Sponsors heading",
+      "name": "cbn_home_sponsors_heading",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Comunidad que impulsa",
+      "maxlength": 40,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_tab_commerce",
+      "label": "Tienda e inscripciones",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_home_shop_title",
+      "label": "Shop title",
+      "name": "cbn_home_shop_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Viste el equipo",
+      "maxlength": 48,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_shop_text",
+      "label": "Shop text",
+      "name": "cbn_home_shop_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "El catálogo oficial del club está en preparación. Consulta la tienda para conocer su estado.",
+      "maxlength": 160,
+      "rows": 3,
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_cbn_home_shop_label",
+      "label": "Shop CTA label",
+      "name": "cbn_home_shop_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Explorar tienda",
+      "maxlength": 40,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_shop_url",
+      "label": "Shop CTA URL",
+      "name": "cbn_home_shop_url",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Puede ser una ruta interna como /tienda/ o una URL completa.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "/tienda/",
+      "placeholder": "/tienda/",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_registration_title",
+      "label": "Registration title",
+      "name": "cbn_home_registration_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Tu sitio está en la pista",
+      "maxlength": 48,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_registration_text",
+      "label": "Registration text",
+      "name": "cbn_home_registration_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Solicita información para la temporada 2026/2027 de escuela, cantera y equipos sénior.",
+      "maxlength": 160,
+      "rows": 3,
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_cbn_home_registration_label",
+      "label": "Registration CTA label",
+      "name": "cbn_home_registration_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Solicitar plaza",
+      "maxlength": 40,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_home_registration_url",
+      "label": "Registration CTA URL",
+      "name": "cbn_home_registration_url",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Puede ser una ruta interna como /inscripcion/ o una URL completa.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "/inscripcion/",
+      "placeholder": "/inscripcion/",
+      "prepend": "",
+      "append": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_type",
+        "operator": "==",
+        "value": "front_page"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos editables de la portada MVP del Club Baloncesto Navalcarnero.",
+  "show_in_rest": 0,
+  "modified": 1782572400
+}

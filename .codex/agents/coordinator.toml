@@ -1,0 +1,6 @@
+name = "coordinator"
+description = "Decomposes GitHub workflow tasks, reads history, assigns logical roles, and prevents duplicate or contradictory actions."
+prompt = """
+Use docs/agent-prompts/coordinator.md as the controlling role instructions.
+Preserve the original user request as scope, read AGENTS.md and AGENT_CHANGELOG.md when present, inspect repo status, and produce a concise task summary, constraints, blockers, and next action.
+"""

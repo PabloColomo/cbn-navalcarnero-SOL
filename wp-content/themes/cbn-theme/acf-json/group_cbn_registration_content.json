@@ -1,0 +1,105 @@
+{
+  "key": "group_cbn_registration_content",
+  "title": "CBN Registration Content",
+  "fields": [
+    {
+      "key": "field_cbn_registration_intro_label",
+      "label": "Label",
+      "name": "cbn_registration_intro_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Inscripciones",
+      "maxlength": 32,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_registration_intro_title",
+      "label": "Titulo",
+      "name": "cbn_registration_intro_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Únete al club",
+      "maxlength": 48,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_registration_season",
+      "label": "Temporada",
+      "name": "cbn_registration_season",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Se muestra bajo el texto introductorio.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Temporada 2026/2027",
+      "maxlength": 40,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_registration_intro_lead",
+      "label": "Texto introductorio",
+      "name": "cbn_registration_intro_lead",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Texto corto bajo el titular.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Envía la solicitud de inscripción y el club se pondrá en contacto contigo para confirmar plaza, categoría y siguientes pasos.",
+      "maxlength": 200,
+      "rows": 3,
+      "placeholder": "",
+      "new_lines": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-inscripcion.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos editables de la página Inscripción del Club Baloncesto Navalcarnero.",
+  "show_in_rest": 0,
+  "modified": 1783497600
+}

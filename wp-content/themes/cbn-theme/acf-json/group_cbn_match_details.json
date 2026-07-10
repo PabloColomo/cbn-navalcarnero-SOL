@@ -1,0 +1,385 @@
+{
+  "key": "group_cbn_match_details",
+  "title": "CBN Match Details",
+  "fields": [
+    {
+      "key": "field_cbn_match_tab_official",
+      "label": "Datos oficiales",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_match_status",
+      "label": "Estado del partido",
+      "name": "cbn_match_status",
+      "type": "select",
+      "instructions": "Estado operativo del partido. Mantenerlo alineado con la fuente oficial cuando exista.",
+      "choices": {
+        "scheduled": "Programado",
+        "live": "En directo",
+        "final": "Finalizado",
+        "postponed": "Aplazado",
+        "cancelled": "Cancelado"
+      },
+      "default_value": "scheduled",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 1,
+      "return_format": "value",
+      "wrapper": {
+        "width": "25"
+      }
+    },
+    {
+      "key": "field_cbn_match_date",
+      "label": "Fecha",
+      "name": "cbn_match_date",
+      "type": "date_picker",
+      "display_format": "d/m/Y",
+      "return_format": "Y-m-d",
+      "first_day": 1,
+      "wrapper": {
+        "width": "25"
+      }
+    },
+    {
+      "key": "field_cbn_match_time",
+      "label": "Hora",
+      "name": "cbn_match_time",
+      "type": "time_picker",
+      "display_format": "H:i",
+      "return_format": "H:i",
+      "wrapper": {
+        "width": "25"
+      }
+    },
+    {
+      "key": "field_cbn_match_round",
+      "label": "Jornada",
+      "name": "cbn_match_round",
+      "type": "text",
+      "instructions": "Jornada o fase visible en calendario y resultados.",
+      "wrapper": {
+        "width": "25"
+      }
+    },
+    {
+      "key": "field_cbn_match_club_team",
+      "label": "Equipo del club",
+      "name": "cbn_match_club_team",
+      "type": "post_object",
+      "instructions": "Relación opcional con el CPT Equipo. Se puede dejar vacío hasta cargar equipos reales.",
+      "post_type": ["cbn_team"],
+      "taxonomy": "",
+      "allow_null": 1,
+      "multiple": 0,
+      "return_format": "id",
+      "ui": 1,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_is_home_club",
+      "label": "Navalcarnero juega como local",
+      "name": "cbn_match_is_home_club",
+      "type": "true_false",
+      "instructions": "Activa este campo cuando el equipo del club sea el local.",
+      "default_value": 0,
+      "ui": 1,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_home_team_name",
+      "label": "Equipo local",
+      "name": "cbn_match_home_team_name",
+      "type": "text",
+      "instructions": "Nombre oficial o literal recibido de federacion.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_away_team_name",
+      "label": "Equipo visitante",
+      "name": "cbn_match_away_team_name",
+      "type": "text",
+      "instructions": "Nombre oficial o literal recibido de federacion.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_competition_name",
+      "label": "Competicion",
+      "name": "cbn_match_competition_name",
+      "type": "text",
+      "instructions": "Texto de respaldo si la taxonomia Competicion no esta cargada.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_season_name",
+      "label": "Temporada",
+      "name": "cbn_match_season_name",
+      "type": "text",
+      "instructions": "Texto de respaldo si la taxonomia Temporada no esta cargada.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_venue_name",
+      "label": "Instalacion",
+      "name": "cbn_match_venue_name",
+      "type": "text",
+      "instructions": "Pabellón, pista o sede del partido.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_venue_address",
+      "label": "Direccion",
+      "name": "cbn_match_venue_address",
+      "type": "text",
+      "instructions": "Direccion publica para calendario y ficha de partido.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_tab_result",
+      "label": "Resultado",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_match_home_score",
+      "label": "Puntos local",
+      "name": "cbn_match_home_score",
+      "type": "number",
+      "instructions": "Usar solo cuando el resultado sea oficial o este validado por el club.",
+      "min": 0,
+      "step": 1,
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_match_away_score",
+      "label": "Puntos visitante",
+      "name": "cbn_match_away_score",
+      "type": "number",
+      "instructions": "Usar solo cuando el resultado sea oficial o este validado por el club.",
+      "min": 0,
+      "step": 1,
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_match_result_verified",
+      "label": "Resultado validado",
+      "name": "cbn_match_result_verified",
+      "type": "true_false",
+      "instructions": "Indica que el resultado puede mostrarse como definitivo.",
+      "default_value": 0,
+      "ui": 1,
+      "wrapper": {
+        "width": "34"
+      }
+    },
+    {
+      "key": "field_cbn_match_tab_editorial",
+      "label": "Editorial",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_match_show_on_home",
+      "label": "Mostrar en portada",
+      "name": "cbn_match_show_on_home",
+      "type": "true_false",
+      "instructions": "Permite destacar este partido en la home sin depender del importador.",
+      "default_value": 0,
+      "ui": 1,
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_match_featured_label",
+      "label": "Etiqueta destacada",
+      "name": "cbn_match_featured_label",
+      "type": "text",
+      "instructions": "Ejemplo: Próximo partido, Derby, Fase final.",
+      "maxlength": 40,
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_match_display_title",
+      "label": "Titulo publico alternativo",
+      "name": "cbn_match_display_title",
+      "type": "text",
+      "instructions": "Sobrescribe el titulo publico si el titulo interno no es adecuado.",
+      "maxlength": 80,
+      "wrapper": {
+        "width": "34"
+      }
+    },
+    {
+      "key": "field_cbn_match_report_post",
+      "label": "Cronica relacionada",
+      "name": "cbn_match_report_post",
+      "type": "post_object",
+      "instructions": "Noticia o post nativo relacionado con el partido.",
+      "post_type": ["post"],
+      "taxonomy": "",
+      "allow_null": 1,
+      "multiple": 0,
+      "return_format": "id",
+      "ui": 1,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_report_url",
+      "label": "URL de cronica externa",
+      "name": "cbn_match_report_url",
+      "type": "text",
+      "instructions": "URL externa opcional si la cronica no vive en WordPress.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_public_notes",
+      "label": "Notas publicas",
+      "name": "cbn_match_public_notes",
+      "type": "textarea",
+      "instructions": "Avisos visibles: cambio de hora, entrada, convocatoria o informacion logistica.",
+      "rows": 4,
+      "new_lines": "br"
+    },
+    {
+      "key": "field_cbn_match_tab_external",
+      "label": "Trazabilidad",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_match_external_source",
+      "label": "Fuente externa",
+      "name": "cbn_match_external_source",
+      "type": "select",
+      "instructions": "Origen del dato. No guardar credenciales ni tokens.",
+      "choices": {
+        "manual": "Manual",
+        "federation": "Federacion",
+        "other": "Otra fuente"
+      },
+      "default_value": "manual",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 1,
+      "return_format": "value",
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_match_external_id",
+      "label": "ID externo",
+      "name": "cbn_match_external_id",
+      "type": "text",
+      "instructions": "Identificador estable de la fuente oficial para evitar duplicados.",
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_cbn_match_external_sync_status",
+      "label": "Estado de sincronizacion",
+      "name": "cbn_match_external_sync_status",
+      "type": "select",
+      "choices": {
+        "not_synced": "No sincronizado",
+        "synced": "Sincronizado",
+        "manual_override": "Editado manualmente",
+        "error": "Error"
+      },
+      "default_value": "not_synced",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 1,
+      "return_format": "value",
+      "wrapper": {
+        "width": "34"
+      }
+    },
+    {
+      "key": "field_cbn_match_external_url",
+      "label": "URL externa",
+      "name": "cbn_match_external_url",
+      "type": "text",
+      "instructions": "URL publica de federacion o fuente oficial, si existe.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_external_updated_at",
+      "label": "Actualizado externamente",
+      "name": "cbn_match_external_updated_at",
+      "type": "text",
+      "instructions": "Fecha/hora ISO 8601 de la ultima lectura externa. Ejemplo: 2026-06-27T18:30:00+02:00.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_cbn_match_external_hash",
+      "label": "Huella externa",
+      "name": "cbn_match_external_hash",
+      "type": "text",
+      "instructions": "Hash tecnico opcional para detectar cambios sin guardar respuestas completas.",
+      "wrapper": {
+        "width": "50"
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "cbn_match"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos base para partidos del Club Baloncesto Navalcarnero, separados entre dato oficial, editorial y trazabilidad.",
+  "show_in_rest": 0,
+  "modified": 1782518400
+}

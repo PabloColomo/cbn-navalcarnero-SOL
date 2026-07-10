@@ -1,0 +1,253 @@
+{
+  "key": "group_cbn_contact_content",
+  "title": "CBN Contact Content",
+  "fields": [
+    {
+      "key": "field_cbn_contact_tab_intro",
+      "label": "Introduccion",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_contact_intro_label",
+      "label": "Label",
+      "name": "cbn_contact_intro_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Contacto",
+      "maxlength": 32,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_contact_intro_title",
+      "label": "Titulo",
+      "name": "cbn_contact_intro_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Hablemos",
+      "maxlength": 48,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_contact_intro_lead",
+      "label": "Texto introductorio",
+      "name": "cbn_contact_intro_lead",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Texto corto bajo el titular.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Escríbenos para dudas sobre inscripciones, equipos, tienda o cualquier otra consulta. Te respondemos lo antes posible.",
+      "maxlength": 200,
+      "rows": 3,
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_cbn_contact_tab_channels",
+      "label": "Canales de contacto",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_contact_email",
+      "label": "Email",
+      "name": "cbn_contact_email",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Direccion de contacto publica. Placeholder pendiente de datos reales del club.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "administracion@cbnavalcarnero.es",
+      "maxlength": 80,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_contact_phone",
+      "label": "Teléfono",
+      "name": "cbn_contact_phone",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Placeholder pendiente de datos reales del club.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "(+34) 696 849 235",
+      "maxlength": 24,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_contact_address",
+      "label": "Direccion",
+      "name": "cbn_contact_address",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Placeholder pendiente de datos reales del club.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "C/ Río Ebro, s/n — Pabellón Municipal La Estación, Navalcarnero (Madrid)",
+      "maxlength": 120,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_contact_tab_social",
+      "label": "Redes sociales",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cbn_contact_social_instagram_url",
+      "label": "Instagram URL",
+      "name": "cbn_contact_social_instagram_url",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Dejar en # si el enlace todavía no está disponible.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#",
+      "placeholder": "#",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_contact_social_facebook_url",
+      "label": "Facebook URL",
+      "name": "cbn_contact_social_facebook_url",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Dejar en # si el enlace todavía no está disponible.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "https://www.facebook.com/NavalcarneroCB",
+      "placeholder": "#",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_cbn_contact_social_x_url",
+      "label": "X (Twitter) URL",
+      "name": "cbn_contact_social_x_url",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Dejar en # si el enlace todavía no está disponible.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "https://twitter.com/navalcarnerocb",
+      "placeholder": "#",
+      "prepend": "",
+      "append": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-contacto.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos editables de la pagina Contacto del Club Baloncesto Navalcarnero.",
+  "show_in_rest": 0,
+  "modified": 1783497600
+}

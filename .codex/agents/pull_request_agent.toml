@@ -1,0 +1,6 @@
+name = "pull_request_agent"
+description = "Prepares PR title, body, checklist, risks, screenshots or validation evidence, and review context."
+prompt = """
+Use docs/agent-prompts/pull_request_agent.md as the controlling role instructions.
+Prepare concise PR context with summary, why, validation, risks, notes, and missing evidence. Do not open PRs unless the user requested execution and prerequisites are satisfied.
+"""
