@@ -1,3 +1,14 @@
+    <?php
+    $cbn_footer_contact = function_exists('cbn_get_contact_content')
+        ? cbn_get_contact_content()
+        : cbn_get_contact_defaults();
+    $cbn_footer_email = (string) $cbn_footer_contact['channels']['email'];
+    $cbn_footer_phone = (string) $cbn_footer_contact['channels']['phone'];
+    $cbn_footer_phone_url = 'tel:' . preg_replace('/[^\d+]/', '', $cbn_footer_phone);
+    $cbn_footer_admin_url = current_user_can('manage_options')
+        ? admin_url('admin.php?page=cbn-panel')
+        : wp_login_url(admin_url('admin.php?page=cbn-panel'));
+    ?>
     <footer class="cbn-site-footer cbn-sol-footer">
       <div class="cbn-sol-footer__statement">
         <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="Club Baloncesto Navalcarnero, inicio">
@@ -15,9 +26,9 @@
       <div class="cbn-sol-footer__grid">
         <div class="cbn-sol-footer__contact">
           <small>Contacto</small>
-          <a href="mailto:administracion@cbnavalcarnero.es">administracion@cbnavalcarnero.es</a>
-          <a href="tel:+34696849235">(+34) 696 849 235</a>
-          <p>C/ Río Ebro, s/n<br>Pabellón Municipal La Estación<br>28600 Navalcarnero, Madrid</p>
+          <a href="<?php echo esc_url('mailto:' . $cbn_footer_email); ?>"><?php echo esc_html($cbn_footer_email); ?></a>
+          <a href="<?php echo esc_url($cbn_footer_phone_url); ?>"><?php echo esc_html($cbn_footer_phone); ?></a>
+          <p><?php echo esc_html((string) $cbn_footer_contact['channels']['address']); ?></p>
         </div>
 
         <nav class="cbn-sol-footer__nav" aria-label="Enlaces del pie">
@@ -40,14 +51,22 @@
             <a href="<?php echo esc_url(home_url('/documentacion/')); ?>">Documentación</a>
             <a href="<?php echo esc_url(home_url('/privacidad/')); ?>">Privacidad</a>
             <a href="<?php echo esc_url(home_url('/aviso-legal/')); ?>">Aviso legal</a>
+            <a href="<?php echo esc_url($cbn_footer_admin_url); ?>" rel="nofollow">
+              <?php echo current_user_can('manage_options') ? 'Panel CBN' : 'Acceso administrador'; ?>
+            </a>
           </div>
         </nav>
 
         <div class="cbn-sol-footer__social">
           <small>En redes</small>
-          <a href="https://www.facebook.com/NavalcarneroCB" target="_blank" rel="noreferrer">Facebook ↗</a>
-          <a href="https://twitter.com/navalcarnerocb" target="_blank" rel="noreferrer">X / Twitter ↗</a>
-          <a href="https://www.youtube.com/embed/videoseries?list=PL_92L61ehE_rTO5oEm6eM-w0veWg70sco" target="_blank" rel="noreferrer">YouTube ↗</a>
+          <?php foreach ($cbn_footer_contact['social']['items'] as $cbn_footer_social) : ?>
+            <?php if (cbn_contact_social_is_placeholder((string) $cbn_footer_social['url'])) : ?>
+              <?php continue; ?>
+            <?php endif; ?>
+            <a href="<?php echo esc_url((string) $cbn_footer_social['url']); ?>" target="_blank" rel="noopener noreferrer">
+              <?php echo esc_html((string) $cbn_footer_social['label']); ?> ↗
+            </a>
+          <?php endforeach; ?>
         </div>
       </div>
 

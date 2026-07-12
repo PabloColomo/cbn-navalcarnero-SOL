@@ -152,7 +152,7 @@ get_header();
         <span aria-hidden="true">00</span>
         <div>
           <p class="cbn-sol-section-index"><?php esc_html_e('Archivo pendiente', 'cbn'); ?></p>
-          <h2><?php esc_html_e('Todavia no hay documentos publicos', 'cbn'); ?></h2>
+          <h2><?php esc_html_e('Todavía no hay documentos públicos', 'cbn'); ?></h2>
           <p><?php esc_html_e('El club publicara aqui los archivos cuando esten preparados para consulta general.', 'cbn'); ?></p>
           <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/contacto/')); ?>"><?php esc_html_e('Contactar', 'cbn'); ?> <span aria-hidden="true">&#8599;</span></a>
         </div>

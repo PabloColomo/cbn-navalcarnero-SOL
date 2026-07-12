@@ -39,7 +39,7 @@
           <span></span>
           <span></span>
         </span>
-        <span class="cbn-nav-toggle__label">Menu</span>
+        <span class="cbn-nav-toggle__label">Menú</span>
       </button>
 
       <?php if (has_nav_menu('primary')) : ?>
@@ -50,7 +50,7 @@
                 'container' => 'nav',
                 'container_class' => 'cbn-primary-nav',
                 'container_id' => 'cbn-primary-nav',
-                'container_aria_label' => 'Menu principal',
+                'container_aria_label' => 'Menú principal',
                 'menu_class' => 'cbn-primary-nav__list',
                 'depth' => 1,
                 'fallback_cb' => false,
@@ -58,7 +58,7 @@
         );
         ?>
       <?php else : ?>
-        <nav id="cbn-primary-nav" class="cbn-primary-nav" aria-label="Menu principal">
+        <nav id="cbn-primary-nav" class="cbn-primary-nav" aria-label="Menú principal">
           <ul class="cbn-primary-nav__list">
             <li><a href="<?php echo esc_url(home_url('/')); ?>">Inicio</a></li>
             <li><a href="<?php echo esc_url(home_url('/el-club/')); ?>">El club</a></li>
@@ -84,8 +84,14 @@
           <span class="cbn-sound-toggle__label">Sonido pista</span>
           <span class="cbn-sound-toggle__state" data-cbn-sound-state>OFF</span>
         </button>
-        <a class="cbn-header-cta" href="<?php echo esc_url(home_url('/inscripcion/')); ?>">
-          Inscribirse <span aria-hidden="true">&rarr;</span>
-        </a>
+        <?php if (current_user_can('manage_options')) : ?>
+          <a class="cbn-header-cta cbn-header-cta--admin" href="<?php echo esc_url(admin_url('admin.php?page=cbn-panel')); ?>">
+            Panel CBN <span aria-hidden="true">&rarr;</span>
+          </a>
+        <?php else : ?>
+          <a class="cbn-header-cta" href="<?php echo esc_url(home_url('/inscripcion/')); ?>">
+            Inscribirse <span aria-hidden="true">&rarr;</span>
+          </a>
+        <?php endif; ?>
       </div>
     </header>

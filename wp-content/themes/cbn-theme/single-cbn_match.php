@@ -113,7 +113,8 @@ if ('' !== $cbn_match['venue_name']) {
 
 $cbn_match_summary = [
     $cbn_status_label,
-    $cbn_home_label . ' contra ' . $cbn_away_label,
+    'Equipo local: ' . $cbn_home_label,
+    'Equipo visitante: ' . $cbn_away_label,
     $cbn_date_label,
 ];
 

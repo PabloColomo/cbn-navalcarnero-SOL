@@ -115,10 +115,10 @@
     },
     {
       "key": "field_cbn_match_competition_name",
-      "label": "Competicion",
+      "label": "Competición",
       "name": "cbn_match_competition_name",
       "type": "text",
-      "instructions": "Texto de respaldo si la taxonomia Competicion no esta cargada.",
+      "instructions": "Texto de respaldo si la taxonomía Competición no está cargada.",
       "wrapper": {
         "width": "50"
       }
@@ -128,14 +128,14 @@
       "label": "Temporada",
       "name": "cbn_match_season_name",
       "type": "text",
-      "instructions": "Texto de respaldo si la taxonomia Temporada no esta cargada.",
+      "instructions": "Texto de respaldo si la taxonomía Temporada no está cargada.",
       "wrapper": {
         "width": "50"
       }
     },
     {
       "key": "field_cbn_match_venue_name",
-      "label": "Instalacion",
+      "label": "Instalación",
       "name": "cbn_match_venue_name",
       "type": "text",
       "instructions": "Pabellón, pista o sede del partido.",
@@ -145,10 +145,10 @@
     },
     {
       "key": "field_cbn_match_venue_address",
-      "label": "Direccion",
+      "label": "Dirección",
       "name": "cbn_match_venue_address",
       "type": "text",
-      "instructions": "Direccion publica para calendario y ficha de partido.",
+      "instructions": "Dirección pública para calendario y ficha de partido.",
       "wrapper": {
         "width": "50"
       }
@@ -230,7 +230,7 @@
     },
     {
       "key": "field_cbn_match_display_title",
-      "label": "Titulo publico alternativo",
+      "label": "Título público alternativo",
       "name": "cbn_match_display_title",
       "type": "text",
       "instructions": "Sobrescribe el titulo publico si el titulo interno no es adecuado.",
@@ -241,7 +241,7 @@
     },
     {
       "key": "field_cbn_match_report_post",
-      "label": "Cronica relacionada",
+      "label": "Crónica relacionada",
       "name": "cbn_match_report_post",
       "type": "post_object",
       "instructions": "Noticia o post nativo relacionado con el partido.",
@@ -267,7 +267,7 @@
     },
     {
       "key": "field_cbn_match_public_notes",
-      "label": "Notas publicas",
+      "label": "Notas públicas",
       "name": "cbn_match_public_notes",
       "type": "textarea",
       "instructions": "Avisos visibles: cambio de hora, entrada, convocatoria o informacion logistica.",
@@ -290,7 +290,7 @@
       "instructions": "Origen del dato. No guardar credenciales ni tokens.",
       "choices": {
         "manual": "Manual",
-        "federation": "Federacion",
+        "federation": "Federación",
         "other": "Otra fuente"
       },
       "default_value": "manual",
@@ -314,7 +314,7 @@
     },
     {
       "key": "field_cbn_match_external_sync_status",
-      "label": "Estado de sincronizacion",
+      "label": "Estado de sincronización",
       "name": "cbn_match_external_sync_status",
       "type": "select",
       "choices": {
@@ -337,7 +337,7 @@
       "label": "URL externa",
       "name": "cbn_match_external_url",
       "type": "text",
-      "instructions": "URL publica de federacion o fuente oficial, si existe.",
+      "instructions": "URL pública de federación o fuente oficial, si existe.",
       "wrapper": {
         "width": "50"
       }

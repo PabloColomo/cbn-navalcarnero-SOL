@@ -156,12 +156,10 @@ function cbn_get_club_defaults(): array
 
 function cbn_get_club_acf_field(string $field_name, mixed $default): mixed
 {
-    if (!function_exists('get_field')) {
-        return $default;
-    }
-
     $source_id = get_queried_object_id();
-    $value = get_field($field_name, $source_id ?: false);
+    $value = function_exists('get_field')
+        ? get_field($field_name, $source_id ?: false)
+        : ($source_id ? get_post_meta($source_id, $field_name, true) : null);
 
     if ($value === null || $value === false || $value === '') {
         return $default;

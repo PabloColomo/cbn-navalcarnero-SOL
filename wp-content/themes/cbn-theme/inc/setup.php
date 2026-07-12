@@ -19,8 +19,8 @@ function cbn_theme_setup(): void
 
     register_nav_menus(
         [
-            'primary' => __('Menu principal', 'cbn'),
-            'footer' => __('Menu pie', 'cbn'),
+            'primary' => __('Menú principal', 'cbn'),
+            'footer' => __('Menú del pie', 'cbn'),
         ]
     );
 }

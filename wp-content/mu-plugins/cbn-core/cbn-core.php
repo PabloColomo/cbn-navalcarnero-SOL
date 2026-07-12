@@ -10,6 +10,9 @@ if (!defined('ABSPATH')) {
 $cbn_core_files = [
     'inc/post-types.php',
     'inc/taxonomies.php',
+    'inc/access-control.php',
+    'inc/native-fields.php',
+    'inc/admin-dashboard.php',
 ];
 
 foreach ($cbn_core_files as $cbn_core_file) {

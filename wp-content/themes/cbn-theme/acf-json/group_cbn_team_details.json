@@ -25,7 +25,7 @@
       "label": "Categoria visible",
       "name": "cbn_team_category_label",
       "type": "text",
-      "instructions": "Texto de respaldo si la taxonomia Categoria deportiva no esta cargada.",
+      "instructions": "Texto de respaldo si la taxonomía Categoría deportiva no está cargada.",
       "wrapper": {
         "width": "50"
       }
@@ -35,24 +35,24 @@
       "label": "Temporada visible",
       "name": "cbn_team_season_name",
       "type": "text",
-      "instructions": "Texto de respaldo si la taxonomia Temporada no esta cargada.",
+      "instructions": "Texto de respaldo si la taxonomía Temporada no está cargada.",
       "wrapper": {
         "width": "50"
       }
     },
     {
       "key": "field_cbn_team_competition_name",
-      "label": "Competicion visible",
+      "label": "Competición visible",
       "name": "cbn_team_competition_name",
       "type": "text",
-      "instructions": "Texto de respaldo si la taxonomia Competicion no esta cargada.",
+      "instructions": "Texto de respaldo si la taxonomía Competición no está cargada.",
       "wrapper": {
         "width": "50"
       }
     },
     {
       "key": "field_cbn_team_home_venue_name",
-      "label": "Instalacion habitual",
+      "label": "Instalación habitual",
       "name": "cbn_team_home_venue_name",
       "type": "text",
       "instructions": "Pabellón o pista habitual del equipo.",
@@ -121,7 +121,7 @@
     },
     {
       "key": "field_cbn_team_public_roster",
-      "label": "Mostrar plantilla publica",
+      "label": "Mostrar plantilla pública",
       "name": "cbn_team_public_roster",
       "type": "true_false",
       "instructions": "Debe respetar permisos de imagen y privacidad, especialmente en menores.",
@@ -172,7 +172,7 @@
       "label": "Notas de plantilla",
       "name": "cbn_team_roster_notes",
       "type": "textarea",
-      "instructions": "Notas publicas de plantilla. No incluir datos sensibles.",
+      "instructions": "Notas públicas de plantilla. No incluir datos sensibles.",
       "rows": 4,
       "new_lines": "br"
     },
@@ -192,7 +192,7 @@
       "instructions": "Origen del dato. No guardar credenciales ni tokens.",
       "choices": {
         "manual": "Manual",
-        "federation": "Federacion",
+        "federation": "Federación",
         "other": "Otra fuente"
       },
       "default_value": "manual",
@@ -216,7 +216,7 @@
     },
     {
       "key": "field_cbn_team_external_sync_status",
-      "label": "Estado de sincronizacion",
+      "label": "Estado de sincronización",
       "name": "cbn_team_external_sync_status",
       "type": "select",
       "choices": {
@@ -239,7 +239,7 @@
       "label": "URL externa",
       "name": "cbn_team_external_url",
       "type": "text",
-      "instructions": "URL publica de federacion o fuente oficial, si existe.",
+      "instructions": "URL pública de federación o fuente oficial, si existe.",
       "wrapper": {
         "width": "50"
       }
@@ -281,7 +281,7 @@
   "instruction_placement": "label",
   "hide_on_screen": "",
   "active": true,
-  "description": "Campos base para equipos, separando identidad oficial, edicion editorial y trazabilidad externa.",
+  "description": "Campos base para equipos, separando identidad oficial, edición editorial y trazabilidad externa.",
   "show_in_rest": 0,
   "modified": 1782518400
 }

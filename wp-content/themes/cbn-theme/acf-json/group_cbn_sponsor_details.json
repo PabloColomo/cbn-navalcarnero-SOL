@@ -4,7 +4,7 @@
   "fields": [
     {
       "key": "field_cbn_sponsor_tab_public",
-      "label": "Datos publicos",
+      "label": "Datos públicos",
       "name": "",
       "type": "tab",
       "placement": "top",
@@ -25,7 +25,7 @@
       "label": "Enlace",
       "name": "cbn_sponsor_url",
       "type": "text",
-      "instructions": "URL publica del sponsor.",
+      "instructions": "URL pública del sponsor.",
       "wrapper": {
         "width": "50"
       }
@@ -35,7 +35,7 @@
       "label": "Texto alternativo del logo",
       "name": "cbn_sponsor_logo_alt",
       "type": "text",
-      "instructions": "Descripcion breve para accesibilidad si se usa un logo.",
+      "instructions": "Descripción breve para accesibilidad si se usa un logo.",
       "wrapper": {
         "width": "50"
       }
@@ -45,14 +45,14 @@
       "label": "Nivel visible",
       "name": "cbn_sponsor_tier_label",
       "type": "text",
-      "instructions": "Texto de respaldo si la taxonomia Nivel de sponsor no esta cargada.",
+      "instructions": "Texto de respaldo si la taxonomía Nivel de sponsor no está cargada.",
       "wrapper": {
         "width": "50"
       }
     },
     {
       "key": "field_cbn_sponsor_description",
-      "label": "Descripcion publica",
+      "label": "Descripción pública",
       "name": "cbn_sponsor_description",
       "type": "textarea",
       "instructions": "Texto publico aprobado por el sponsor o por el club.",
@@ -93,13 +93,13 @@
     },
     {
       "key": "field_cbn_sponsor_location",
-      "label": "Ubicacion preferente",
+      "label": "Ubicación preferente",
       "name": "cbn_sponsor_location",
       "type": "select",
       "choices": {
         "home": "Portada",
         "footer": "Footer",
-        "team": "Pagina de equipo",
+        "team": "Página de equipo",
         "all": "Global"
       },
       "default_value": "home",
@@ -163,7 +163,7 @@
       "instructions": "Origen del dato. Normalmente sera manual.",
       "choices": {
         "manual": "Manual",
-        "federation": "Federacion",
+        "federation": "Federación",
         "other": "Otra fuente"
       },
       "default_value": "manual",
@@ -187,7 +187,7 @@
     },
     {
       "key": "field_cbn_sponsor_external_sync_status",
-      "label": "Estado de sincronizacion",
+      "label": "Estado de sincronización",
       "name": "cbn_sponsor_external_sync_status",
       "type": "select",
       "choices": {
@@ -210,7 +210,7 @@
       "label": "URL externa",
       "name": "cbn_sponsor_external_url",
       "type": "text",
-      "instructions": "URL publica de fuente externa, si existe.",
+      "instructions": "URL pública de fuente externa, si existe.",
       "wrapper": {
         "width": "50"
       }

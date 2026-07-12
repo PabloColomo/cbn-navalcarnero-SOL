@@ -239,13 +239,11 @@ function cbn_get_home_defaults(): array
 
 function cbn_get_home_acf_field(string $field_name, mixed $default): mixed
 {
-    if (!function_exists('get_field')) {
-        return $default;
-    }
-
     $front_page_id = (int) get_option('page_on_front');
     $source_id = $front_page_id > 0 ? $front_page_id : get_queried_object_id();
-    $value = get_field($field_name, $source_id ?: false);
+    $value = function_exists('get_field')
+        ? get_field($field_name, $source_id ?: false)
+        : ($source_id ? get_post_meta($source_id, $field_name, true) : null);
 
     if ($value === null || $value === false || $value === '') {
         return $default;
@@ -265,6 +263,19 @@ function cbn_get_home_hero_image(array $default): array
             'width' => isset($image['width']) ? (int) $image['width'] : $default['width'],
             'height' => isset($image['height']) ? (int) $image['height'] : $default['height'],
         ];
+    }
+
+    if (is_numeric($image) && (int) $image > 0) {
+        $source = wp_get_attachment_image_src((int) $image, 'full');
+
+        if ($source) {
+            return [
+                'url' => $source[0],
+                'alt' => (string) get_post_meta((int) $image, '_wp_attachment_image_alt', true) ?: $default['alt'],
+                'width' => (int) $source[1],
+                'height' => (int) $source[2],
+            ];
+        }
     }
 
     return $default;
