@@ -340,7 +340,9 @@
   border-right: 1px solid var(--cbn-sol-line);
   border-bottom: 1px solid var(--cbn-sol-line);
   background: white;
-  transition: background-color 200ms ease, color 200ms ease;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 .cbn-sol-club-value__number {
@@ -520,7 +522,8 @@
   background: var(--cbn-sol-ink);
 }
 
-.cbn-sol-club-facility:not(.cbn-sol-club-facility--featured) .cbn-sol-club-facility__media {
+.cbn-sol-club-facility:not(.cbn-sol-club-facility--featured)
+  .cbn-sol-club-facility__media {
   aspect-ratio: 4 / 5;
 }
 
@@ -844,7 +847,8 @@
     margin-top: 0;
   }
 
-  .cbn-sol-club-facility:not(.cbn-sol-club-facility--featured) .cbn-sol-club-facility__media {
+  .cbn-sol-club-facility:not(.cbn-sol-club-facility--featured)
+    .cbn-sol-club-facility__media {
     aspect-ratio: 16 / 10;
   }
 

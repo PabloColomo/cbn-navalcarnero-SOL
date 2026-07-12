@@ -18,9 +18,7 @@
     const filters = [
       ...page.querySelectorAll("[data-cbn-team-archive-filter]"),
     ];
-    const cards = [
-      ...page.querySelectorAll("[data-cbn-team-archive-card]"),
-    ];
+    const cards = [...page.querySelectorAll("[data-cbn-team-archive-card]")];
     const status = page.querySelector("[data-cbn-team-filter-status]");
 
     if (!filters.length || !cards.length) {
@@ -81,25 +79,23 @@
       return;
     }
 
-    page
-      .querySelectorAll("[data-cbn-team-archive-card]")
-      .forEach((card) => {
-        card.addEventListener(
-          "pointermove",
-          (event) => {
-            const rect = card.getBoundingClientRect();
-            card.style.setProperty(
-              "--cbn-team-light-x",
-              `${((event.clientX - rect.left) / rect.width) * 100}%`,
-            );
-            card.style.setProperty(
-              "--cbn-team-light-y",
-              `${((event.clientY - rect.top) / rect.height) * 100}%`,
-            );
-          },
-          { passive: true },
-        );
-      });
+    page.querySelectorAll("[data-cbn-team-archive-card]").forEach((card) => {
+      card.addEventListener(
+        "pointermove",
+        (event) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty(
+            "--cbn-team-light-x",
+            `${((event.clientX - rect.left) / rect.width) * 100}%`,
+          );
+          card.style.setProperty(
+            "--cbn-team-light-y",
+            `${((event.clientY - rect.top) / rect.height) * 100}%`,
+          );
+        },
+        { passive: true },
+      );
+    });
   };
 
   pages.forEach((page) => {

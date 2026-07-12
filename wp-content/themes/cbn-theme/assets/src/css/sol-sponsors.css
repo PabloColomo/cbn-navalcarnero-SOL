@@ -430,7 +430,8 @@ body.single-cbn_sponsor {
   border: 1px solid var(--cbn-sol-line);
   background: white;
   color: var(--cbn-sol-ink);
-  transform: perspective(1200px) rotateX(var(--sol-tilt-y, 0deg)) rotateY(var(--sol-tilt-x, 0deg));
+  transform: perspective(1200px) rotateX(var(--sol-tilt-y, 0deg))
+    rotateY(var(--sol-tilt-x, 0deg));
   clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
   transition:
     border-color 220ms ease,
@@ -729,7 +730,9 @@ body.single-cbn_sponsor {
   aspect-ratio: 1;
   border: 2px solid rgba(255, 255, 255, 0.17);
   border-radius: 50%;
-  box-shadow: 0 0 0 100px transparent, 0 0 0 101px rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 0 0 100px transparent,
+    0 0 0 101px rgba(255, 255, 255, 0.09);
   content: "";
 }
 
@@ -790,7 +793,8 @@ body.single-cbn_sponsor {
 
 .cbn-sol-sponsor-detail-hero__copy {
   align-self: center;
-  padding: clamp(58px, 8vw, 120px) clamp(34px, 5vw, 84px) clamp(70px, 9vw, 130px) var(--cbn-sol-pad);
+  padding: clamp(58px, 8vw, 120px) clamp(34px, 5vw, 84px)
+    clamp(70px, 9vw, 130px) var(--cbn-sol-pad);
 }
 
 .cbn-sol-sponsor-back {

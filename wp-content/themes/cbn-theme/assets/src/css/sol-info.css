@@ -41,7 +41,9 @@
   aspect-ratio: 1;
   border: 1px solid rgba(201, 0, 24, 0.12);
   border-radius: 50%;
-  box-shadow: inset 0 0 0 110px var(--cbn-sol-paper), inset 0 0 0 111px rgba(201, 0, 24, 0.12);
+  box-shadow:
+    inset 0 0 0 110px var(--cbn-sol-paper),
+    inset 0 0 0 111px rgba(201, 0, 24, 0.12);
   content: "";
 }
 
@@ -226,7 +228,9 @@
   background: var(--cbn-sol-paper);
   color: var(--cbn-sol-ink);
   text-decoration: none;
-  transition: background-color 180ms ease, color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
 }
 
 .cbn-sol-document-card__media {
@@ -701,7 +705,9 @@
   border-bottom: 1px solid var(--cbn-sol-line);
   color: var(--cbn-sol-ink);
   text-decoration: none;
-  transition: background-color 180ms ease, color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
 }
 
 .cbn-sol-info-post-nav__next {

@@ -438,7 +438,12 @@ body.page-template-page-contacto {
   scroll-margin-top: 92px;
   padding: clamp(88px, 11vw, 170px) var(--cbn-sol-pad);
   background:
-    linear-gradient(90deg, transparent 49.9%, rgba(14, 14, 15, 0.05) 50%, transparent 50.1%),
+    linear-gradient(
+      90deg,
+      transparent 49.9%,
+      rgba(14, 14, 15, 0.05) 50%,
+      transparent 50.1%
+    ),
     var(--cbn-sol-paper);
 }
 
@@ -756,7 +761,10 @@ body.page-template-page-contacto {
     radial-gradient(circle at 90% 17%, rgba(201, 0, 24, 0.32), transparent 25%),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: auto, 46px 46px, 46px 46px;
+  background-size:
+    auto,
+    46px 46px,
+    46px 46px;
   content: "";
 }
 
@@ -821,7 +829,8 @@ body.page-template-page-contacto {
     var(--cbn-contact-cut) 100%,
     0 calc(100% - var(--cbn-contact-cut))
   );
-  transform: perspective(1100px) rotateX(var(--sol-tilt-y)) rotateY(var(--sol-tilt-x));
+  transform: perspective(1100px) rotateX(var(--sol-tilt-y))
+    rotateY(var(--sol-tilt-x));
   transform-style: preserve-3d;
   transition:
     transform 180ms ease,
@@ -835,7 +844,8 @@ body.page-template-page-contacto {
 }
 
 .cbn-sol-ready .cbn-sol-contact-location-card[data-sol-reveal].is-visible {
-  transform: perspective(1100px) rotateX(var(--sol-tilt-y)) rotateY(var(--sol-tilt-x));
+  transform: perspective(1100px) rotateX(var(--sol-tilt-y))
+    rotateY(var(--sol-tilt-x));
 }
 
 .cbn-sol-contact-location-card:hover {
@@ -953,7 +963,8 @@ body.page-template-page-contacto {
   pointer-events: none;
 }
 
-.cbn-sol-contact-location-card:nth-child(even) .cbn-sol-contact-location-card__court {
+.cbn-sol-contact-location-card:nth-child(even)
+  .cbn-sol-contact-location-card__court {
   border-color: rgba(255, 255, 255, 0.16);
 }
 
@@ -979,8 +990,10 @@ body.page-template-page-contacto {
   border-left: 1px solid rgba(14, 14, 15, 0.1);
 }
 
-.cbn-sol-contact-location-card:nth-child(even) .cbn-sol-contact-location-card__court::before,
-.cbn-sol-contact-location-card:nth-child(even) .cbn-sol-contact-location-card__court::after {
+.cbn-sol-contact-location-card:nth-child(even)
+  .cbn-sol-contact-location-card__court::before,
+.cbn-sol-contact-location-card:nth-child(even)
+  .cbn-sol-contact-location-card__court::after {
   border-color: rgba(255, 255, 255, 0.16);
 }
 
@@ -990,7 +1003,9 @@ body.page-template-page-contacto {
   border-radius: 50%;
 }
 
-.cbn-sol-contact-location-card:nth-child(even) .cbn-sol-contact-location-card__court span {
+.cbn-sol-contact-location-card:nth-child(even)
+  .cbn-sol-contact-location-card__court
+  span {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
@@ -1006,7 +1021,9 @@ body.page-template-page-contacto {
     142px 133px 0 rgba(201, 0, 24, 0.28);
 }
 
-.cbn-sol-contact-location-card:nth-child(even) .cbn-sol-contact-location-card__court i {
+.cbn-sol-contact-location-card:nth-child(even)
+  .cbn-sol-contact-location-card__court
+  i {
   background: white;
   box-shadow:
     96px 45px 0 rgba(255, 255, 255, 0.44),
@@ -1358,7 +1375,14 @@ a.cbn-sol-contact-social__link:hover em {
     margin-top: 30px;
     padding: 24px 18px;
     box-shadow: 11px 11px 0 rgba(109, 0, 13, 0.4);
-    clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+    clip-path: polygon(
+      0 0,
+      calc(100% - 22px) 0,
+      100% 22px,
+      100% 100%,
+      22px 100%,
+      0 calc(100% - 22px)
+    );
   }
 
   .cbn-sol-contact-board__header {

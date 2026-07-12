@@ -177,7 +177,14 @@ body.search {
   box-shadow:
     24px 24px 0 rgba(109, 0, 13, 0.44),
     0 34px 80px rgba(14, 14, 15, 0.25);
-  clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 34px 100%, 0 calc(100% - 34px));
+  clip-path: polygon(
+    0 0,
+    calc(100% - 34px) 0,
+    100% 34px,
+    100% 100%,
+    34px 100%,
+    0 calc(100% - 34px)
+  );
   transition: transform 220ms ease;
 }
 
@@ -455,7 +462,14 @@ body.search {
   background: var(--cbn-sol-ink);
   color: white;
   box-shadow: 17px 17px 0 rgba(109, 0, 13, 0.38);
-  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+  clip-path: polygon(
+    0 0,
+    calc(100% - 22px) 0,
+    100% 22px,
+    100% 100%,
+    22px 100%,
+    0 calc(100% - 22px)
+  );
 }
 
 /* Results */
@@ -532,13 +546,15 @@ body.search {
   --sol-tilt-x: 0deg;
   --sol-tilt-y: 0deg;
   min-width: 0;
-  transform: perspective(1100px) rotateX(var(--sol-tilt-y)) rotateY(var(--sol-tilt-x));
+  transform: perspective(1100px) rotateX(var(--sol-tilt-y))
+    rotateY(var(--sol-tilt-x));
   transform-style: preserve-3d;
   transition: transform 180ms ease;
 }
 
 .cbn-sol-ready .cbn-sol-system-results__list > li[data-sol-reveal].is-visible {
-  transform: perspective(1100px) rotateX(var(--sol-tilt-y)) rotateY(var(--sol-tilt-x));
+  transform: perspective(1100px) rotateX(var(--sol-tilt-y))
+    rotateY(var(--sol-tilt-x));
 }
 
 .cbn-sol-system-result-card {
@@ -557,7 +573,14 @@ body.search {
   background: var(--cbn-sol-paper);
   color: var(--cbn-sol-ink);
   text-decoration: none;
-  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+  clip-path: polygon(
+    0 0,
+    calc(100% - 22px) 0,
+    100% 22px,
+    100% 100%,
+    22px 100%,
+    0 calc(100% - 22px)
+  );
   transition:
     border-color 180ms ease,
     box-shadow 180ms ease;
@@ -756,8 +779,17 @@ body.search {
   border: 2px solid var(--cbn-sol-ink);
   border-radius: 50%;
   background:
-    linear-gradient(90deg, transparent 48%, var(--cbn-sol-ink) 49% 51%, transparent 52%),
-    linear-gradient(transparent 48%, var(--cbn-sol-ink) 49% 51%, transparent 52%),
+    linear-gradient(
+      90deg,
+      transparent 48%,
+      var(--cbn-sol-ink) 49% 51%,
+      transparent 52%
+    ),
+    linear-gradient(
+      transparent 48%,
+      var(--cbn-sol-ink) 49% 51%,
+      transparent 52%
+    ),
     var(--cbn-sol-red);
   box-shadow: 12px 12px 0 rgba(14, 14, 15, 0.11);
 }
@@ -917,7 +949,14 @@ body.search {
     width: calc(100% + 2px);
     padding: 24px 18px;
     box-shadow: 11px 11px 0 rgba(109, 0, 13, 0.4);
-    clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+    clip-path: polygon(
+      0 0,
+      calc(100% - 22px) 0,
+      100% 22px,
+      100% 100%,
+      22px 100%,
+      0 calc(100% - 22px)
+    );
   }
 
   .cbn-sol-system-scoreboard > header {
@@ -1026,7 +1065,9 @@ body.search {
   .cbn-sol-system-scoreboard,
   .cbn-sol-ready .cbn-sol-system-scoreboard[data-sol-reveal].is-visible,
   .cbn-sol-system-results__list > li,
-  .cbn-sol-ready .cbn-sol-system-results__list > li[data-sol-reveal].is-visible {
+  .cbn-sol-ready
+    .cbn-sol-system-results__list
+    > li[data-sol-reveal].is-visible {
     transform: none !important;
     transition: none !important;
   }

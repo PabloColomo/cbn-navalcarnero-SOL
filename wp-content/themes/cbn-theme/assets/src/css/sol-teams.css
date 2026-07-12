@@ -489,7 +489,12 @@ body.single-cbn_team {
   place-items: center;
   overflow: hidden;
   background:
-    linear-gradient(135deg, transparent 0 49.7%, rgba(255, 255, 255, 0.08) 50% 50.3%, transparent 50.6%),
+    linear-gradient(
+      135deg,
+      transparent 0 49.7%,
+      rgba(255, 255, 255, 0.08) 50% 50.3%,
+      transparent 50.6%
+    ),
     var(--cbn-sol-ink);
 }
 
@@ -682,8 +687,18 @@ body.single-cbn_team {
   border: 5px solid var(--cbn-sol-ink);
   border-radius: 50%;
   background:
-    linear-gradient(90deg, transparent 48%, var(--cbn-sol-ink) 48% 52%, transparent 52%),
-    linear-gradient(0deg, transparent 48%, var(--cbn-sol-ink) 48% 52%, transparent 52%),
+    linear-gradient(
+      90deg,
+      transparent 48%,
+      var(--cbn-sol-ink) 48% 52%,
+      transparent 52%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 48%,
+      var(--cbn-sol-ink) 48% 52%,
+      transparent 52%
+    ),
     var(--cbn-sol-red);
   box-shadow: 18px 18px 0 var(--cbn-sol-paper-deep);
 }
@@ -778,7 +793,8 @@ body.single-cbn_team {
 
 .cbn-sol-team-detail-hero__copy {
   align-self: center;
-  padding: clamp(58px, 8vw, 120px) clamp(34px, 5vw, 84px) clamp(70px, 9vw, 130px) var(--cbn-sol-pad);
+  padding: clamp(58px, 8vw, 120px) clamp(34px, 5vw, 84px)
+    clamp(70px, 9vw, 130px) var(--cbn-sol-pad);
 }
 
 .cbn-sol-team-back {

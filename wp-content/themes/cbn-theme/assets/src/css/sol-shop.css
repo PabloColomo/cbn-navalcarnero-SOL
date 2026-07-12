@@ -276,7 +276,9 @@
   border-right: 1px solid var(--cbn-sol-line);
   border-bottom: 1px solid var(--cbn-sol-line);
   background: white;
-  transition: background-color 180ms ease, color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
 }
 
 .cbn-sol-shop-roadmap__grid li > span {

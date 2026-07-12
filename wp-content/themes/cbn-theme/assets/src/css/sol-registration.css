@@ -406,7 +406,12 @@ body.page-template-page-inscripcion {
   scroll-margin-top: 92px;
   padding: clamp(90px, 11vw, 170px) var(--cbn-sol-pad);
   background:
-    linear-gradient(90deg, transparent 49.9%, rgba(14, 14, 15, 0.05) 50%, transparent 50.1%),
+    linear-gradient(
+      90deg,
+      transparent 49.9%,
+      rgba(14, 14, 15, 0.05) 50%,
+      transparent 50.1%
+    ),
     var(--cbn-sol-paper);
 }
 
@@ -475,7 +480,8 @@ body.page-template-page-inscripcion {
   padding: clamp(24px, 3vw, 38px);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.92);
-  transform: perspective(1000px) rotateX(var(--sol-tilt-y)) rotateY(var(--sol-tilt-x));
+  transform: perspective(1000px) rotateX(var(--sol-tilt-y))
+    rotateY(var(--sol-tilt-x));
   transform-style: preserve-3d;
   transition:
     transform 180ms ease,
@@ -489,8 +495,11 @@ body.page-template-page-inscripcion {
   color: white;
 }
 
-.cbn-sol-ready .cbn-sol-registration-process__list > li[data-sol-reveal].is-visible {
-  transform: perspective(1000px) rotateX(var(--sol-tilt-y)) rotateY(var(--sol-tilt-x));
+.cbn-sol-ready
+  .cbn-sol-registration-process__list
+  > li[data-sol-reveal].is-visible {
+  transform: perspective(1000px) rotateX(var(--sol-tilt-y))
+    rotateY(var(--sol-tilt-x));
 }
 
 .cbn-sol-registration-process__list > li:hover {
@@ -582,7 +591,10 @@ body.page-template-page-inscripcion {
     92px 66px 0 rgba(201, 0, 24, 0.55);
 }
 
-.cbn-sol-registration-process__list > li:hover .cbn-sol-registration-process__diagram i {
+.cbn-sol-registration-process__list
+  > li:hover
+  .cbn-sol-registration-process__diagram
+  i {
   background: white;
 }
 
@@ -637,7 +649,10 @@ body.page-template-page-inscripcion {
     radial-gradient(circle at 91% 8%, rgba(201, 0, 24, 0.34), transparent 23%),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: auto, 46px 46px, 46px 46px;
+  background-size:
+    auto,
+    46px 46px,
+    46px 46px;
   content: "";
 }
 
@@ -1175,7 +1190,14 @@ body.page-template-page-inscripcion {
     margin-top: 30px;
     padding: 24px 18px;
     box-shadow: 11px 11px 0 rgba(109, 0, 13, 0.4);
-    clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+    clip-path: polygon(
+      0 0,
+      calc(100% - 22px) 0,
+      100% 22px,
+      100% 100%,
+      22px 100%,
+      0 calc(100% - 22px)
+    );
   }
 
   .cbn-sol-registration-board__header {
@@ -1240,7 +1262,14 @@ body.page-template-page-inscripcion {
   .cbn-sol-registration-form-panel {
     padding: 29px 20px;
     box-shadow: 10px 10px 0 rgba(201, 0, 24, 0.18);
-    clip-path: polygon(0 0, calc(100% - 19px) 0, 100% 19px, 100% 100%, 19px 100%, 0 calc(100% - 19px));
+    clip-path: polygon(
+      0 0,
+      calc(100% - 19px) 0,
+      100% 19px,
+      100% 100%,
+      19px 100%,
+      0 calc(100% - 19px)
+    );
   }
 
   .cbn-sol-registration-form-panel__header {
@@ -1292,7 +1321,9 @@ body.page-template-page-inscripcion {
   .cbn-sol-registration-board,
   .cbn-sol-ready .cbn-sol-registration-board[data-sol-reveal].is-visible,
   .cbn-sol-registration-process__list > li,
-  .cbn-sol-ready .cbn-sol-registration-process__list > li[data-sol-reveal].is-visible {
+  .cbn-sol-ready
+    .cbn-sol-registration-process__list
+    > li[data-sol-reveal].is-visible {
     transform: none !important;
     transition: none !important;
   }

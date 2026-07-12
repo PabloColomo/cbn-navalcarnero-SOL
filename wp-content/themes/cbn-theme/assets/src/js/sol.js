@@ -377,7 +377,10 @@
       const squeakFilter = context.createBiquadFilter();
       squeak.type = "triangle";
       squeak.frequency.setValueAtTime(1280 * variation, now);
-      squeak.frequency.exponentialRampToValueAtTime(710 * variation, now + 0.095);
+      squeak.frequency.exponentialRampToValueAtTime(
+        710 * variation,
+        now + 0.095,
+      );
       squeakFilter.type = "bandpass";
       squeakFilter.frequency.value = 1250 * variation;
       squeakFilter.Q.value = 7;
