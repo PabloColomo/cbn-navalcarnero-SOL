@@ -19,6 +19,18 @@ Every relevant action should add a new entry. Keep entries factual, short, and t
 
 ## Entries
 
+### 2026-07-12 19:37 +02:00 - CBN Sol branch pushed and draft PR #1 opened
+
+- Agent: github_operator (coordinator fallback).
+- Action: Published the three reviewed commits on `codex/reproducible-cbn-sol` to `PabloColomo/cbn-navalcarnero-SOL` and opened draft PR #1 (`https://github.com/PabloColomo/cbn-navalcarnero-SOL/pull/1`) against `main`. The GitHub connector could read the repository but returned 403 when creating the PR, so the coordinator used the existing Git Credential Manager authorization without exposing its token; GitHub confirmed the PR is open, draft and mergeable.
+- Reason: The user explicitly requested the complete updated project to be uploaded so a teammate can reproduce the same styled website.
+- Files affected: GitHub branch and draft PR state; `AGENT_CHANGELOG.md` for this publication record.
+- Relation to original instruction: Makes the complete CBN Sol code, roles, styles, effects and reproducible bootstrap available remotely without merging or changing `main` before human approval.
+- Result: branch push and draft PR completed; merge intentionally not performed. GitHub CI started and was still in progress when this entry was written.
+- Validation: Remote `main` remained at `c87e13f`; the pushed head was `33c28e4`; PR #1 reported `mergeable: true`, 3 commits and 51 changed files. Local and isolated-clean-environment validation is recorded in the preceding 18:53 entry.
+- Risks or doubts: Until PR #1 is merged, a teammate must explicitly use `codex/reproducible-cbn-sol` or wait for the merge. The first-run bootstrap creates local structure and credentials but intentionally does not copy production/editorial databases, uploads or secrets.
+- Next recommended action: Wait for CI to finish, run final_validator, then request explicit human approval before any merge. After merge, the teammate can update `main` and run the documented bootstrap.
+
 ### 2026-07-12 18:53 +02:00 - CBN Sol made reproducible for a clean checkout
 
 - Agent: coordinator + alignment_guard + repro_audit + git_scope_audit + code_reviewer.
