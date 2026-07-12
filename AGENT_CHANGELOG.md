@@ -19,6 +19,42 @@ Every relevant action should add a new entry. Keep entries factual, short, and t
 
 ## Entries
 
+### 2026-07-12 18:53 +02:00 - CBN Sol made reproducible for a clean checkout
+
+- Agent: coordinator + alignment_guard + repro_audit + git_scope_audit + code_reviewer.
+- Action: Consolidated the complete CBN Sol/Pista Viva implementation at the repository root, removed the obsolete nested `club-baloncesto-navalcarnero` gitlink, included the pending public/admin WordPress workspace, made Vite manifests yield to newer tracked sources and use `filemtime` cache keys, replaced the obsolete branch/dump bootstrap with an idempotent Windows setup for dependencies, Docker, WordPress, theme activation and essential pages, and updated the setup documentation for a fresh clone. Existing page publication states are preserved on reruns.
+- Reason: The user requested that a teammate using the GitHub repository sees the same styled website and administration experience as the validated local copy.
+- Files affected: `.gitignore`, removed `club-baloncesto-navalcarnero` gitlink, `README.md`, `docs/{LOCAL_DOCKER.md,PROJECT_SETUP.md,access-model-cbn-2026-07-10.md}`, `docs/redesign/pista-viva-cbn-sol-2026-07-10.md`, `scripts/{README.md,bootstrap-local.ps1,start-docker.ps1,start-local.ps1}`, `wp-content/mu-plugins/cbn-core/**`, and the CBN theme templates, ACF JSON definitions, source CSS/JS and `inc/assets.php`.
+- Relation to original instruction: Ensures the visual layer, modern interactions, sounds, club cursor and differentiated public/admin roles are versioned and reproducible instead of depending on an ignored build, an old nested repository or one developer's WordPress database.
+- Result: completed and validated locally; staging, commit, push and draft pull request remain pending at this entry.
+- Validation: `npm run verify` passed with Prettier and Vite 8.1; PHP 8.3 lint, JavaScript syntax, ACF JSON parsing, PowerShell parsing and `git diff --check` passed. The bootstrap completed against the existing environment and an isolated empty WordPress on port 8092; the clean instance activated `cbn-theme`, disabled registration, created/configured the essential pages, loaded the compiled bundle plus Pista Viva assets, returned HTTP 200 on ten public/admin routes and preserved a deliberately drafted page on rerun. Desktop/mobile browser QA found one H1, no horizontal overflow or console errors, a loaded hero image and a working single-toggle mobile menu.
+- Risks or doubts: WordPress editorial data, users, uploads and production secrets intentionally remain outside Git. The bootstrap reproduces structure and fallback content, while real news, sports records, authorised media, SMTP and final legal/commercial data still require environment-specific configuration.
+- Next recommended action: Stage only the intentional root project paths, commit and push `codex/reproducible-cbn-sol`, open a draft PR to `main`, then record the GitHub publication result without merging until explicit approval.
+
+### 2026-07-10 22:30 +02:00 - Two-surface public/admin access model implemented
+
+- Agent: coordinator (Codex main thread).
+- Action: Implemented the requested public-versus-administrator model on native WordPress authentication. Public self-registration is forced off; non-admin accounts cannot mutate content or enter the dashboard; CBN custom post types and taxonomies now use administrator-only capabilities. Added a branded CBN login, a task-focused Panel CBN with publishing shortcuts/counts/privacy guidance, native dependency-free Datos CBN meta boxes generated from the existing ACF JSON definitions, a club-page native field group, media selection, dynamic header/footer admin access, and theme helper fallback to post meta when ACF is absent.
+- Reason: The user requested two differentiated roles: an unregistered public visitor and an administrator able to edit the site, upload news and perform every necessary club content task.
+- Files affected: `wp-content/mu-plugins/cbn-core/{cbn-core.php,inc/post-types.php,inc/taxonomies.php,inc/access-control.php,inc/native-fields.php,inc/admin-dashboard.php,assets/admin.css,assets/login.css,assets/admin.js}`, theme `header.php`, `footer.php`, `inc/{home-content,contact-content,registration-content,club-content}.php`, `acf-json/group_cbn_contact_content.json`, `docs/access-model-cbn-2026-07-10.md`, `AGENT_CHANGELOG.md`.
+- Relation to original instruction: Directly creates the two requested access experiences without introducing a separate password system, public accounts, third-party dependencies, credentials, WooCommerce or payment changes.
+- Result: completed locally; no commit, push, PR or merge requested or performed.
+- Validation: Local database audit found one Administrator and no other user roles; registration is disabled. PHP 8.3 lint passed for all role/admin/theme PHP files; admin capability audit confirmed custom CBN edit/publish capabilities and `manage_cbn_content`; a simulated Editor loses `edit_posts`; guest cannot manage options; Panel CBN output, privacy warnings and 32 Home/13 Contact/31 Match native fields were verified; public routes and branded `/wp-login.php` return their expected HTTP status.
+- Risks or doubts: Production email delivery still needs SMTP/provider configuration; legal copy and real club content remain client inputs. Existing WordPress role records are preserved intentionally, but only Administrators can write under this model.
+- Next recommended action: Log in with the existing administrator account, visually review Panel CBN and the Datos CBN meta boxes, then configure production SMTP and create additional administrator accounts only if operationally necessary.
+
+### 2026-07-10 21:30 +02:00 - Pista Viva expanded page-by-page by the subagent team
+
+- Agent: coordinator + page_club + page_teams + page_matches.
+- Action: Expanded the Home design language across every public WordPress surface in isolated page assignments: El Club; team archive/detail; match archive/detail; news archive/category/detail; sponsor archive/detail; Contact; Registration; Shop; Documentation archive/detail/landing; generic legal/info pages; search; and 404. Added conditionally loaded `sol-{surface}.css` layers and a team filter script, while preserving WordPress loops, ACF/post-meta data, forms, pagination, privacy gates and factual empty states.
+- Reason: The user explicitly requested a team of subagents working separately on each page of the website.
+- Files affected: Theme page/archive/single templates and template parts for all listed surfaces, `assets/src/css/sol-{club,teams,matches,news,sponsors,contact,registration,shop,info,system}.css`, `assets/src/js/sol-teams.js`, shared asset routing, factual content defaults and ACF JSON defaults.
+- Relation to original instruction: Directly fulfils the requested page-by-page multiagent implementation inside `VERSIONES/cbn sol`; subagents used non-overlapping ownership and the coordinator integrated and reviewed their outputs.
+- Result: completed locally; no commit, push, PR or merge requested or performed.
+- Validation: PHP 8.3 lint passed per page and in the coordinator batch; JS syntax passed; all public URLs return expected HTTP 200/404; each rendered main page has one H1 and no duplicate IDs or mojibake; CSS loads only on its surface; desktop and mobile Home screenshots were reviewed, plus live visual inspection of representative El Club, Contact and login surfaces. Empty states were validated where local sports/news/sponsor/document data is absent.
+- Risks or doubts: Individual single templates cannot be exercised with real URLs until the club publishes real records. Generated sports images remain conceptual placeholders, and production legal/shop/payment inputs are still pending.
+- Next recommended action: Load verified club content and authorised photography, then run the same visual matrix with populated archives and singles before production launch.
+
 ### 2026-07-10 19:00 +02:00 - CBN Sol "Pista Viva" Home implemented and browser-validated
 
 - Agent: coordinator (Codex main thread) + content_inventory + tech_audit + design_concept.

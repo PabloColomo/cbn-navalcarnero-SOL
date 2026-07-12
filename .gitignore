@@ -26,3 +26,6 @@ wp-content/themes/*
 !wp-content/themes/cbn-theme/
 !wp-content/themes/cbn-theme/**
 wp-content/themes/cbn-theme/assets/dist/
+
+# Local legacy copy. The complete CBN Sol project lives at this repository root.
+club-baloncesto-navalcarnero/

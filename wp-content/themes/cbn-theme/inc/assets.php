@@ -19,20 +19,24 @@ function cbn_enqueue_assets(): void
 
         if (!empty($entry['css'])) {
             foreach ($entry['css'] as $index => $css_file) {
+                $css_relative = '/assets/dist/' . ltrim((string) $css_file, '/');
+
                 wp_enqueue_style(
                     'cbn-theme-' . $index,
-                    CBN_THEME_URI . '/assets/dist/' . $css_file,
+                    CBN_THEME_URI . $css_relative,
                     [],
-                    CBN_THEME_VERSION
+                    cbn_asset_version(CBN_THEME_DIR . $css_relative)
                 );
             }
         }
 
+        $script_relative = '/assets/dist/' . ltrim((string) $entry['file'], '/');
+
         wp_enqueue_script(
             'cbn-theme',
-            CBN_THEME_URI . '/assets/dist/' . $entry['file'],
+            CBN_THEME_URI . $script_relative,
             [],
-            CBN_THEME_VERSION,
+            cbn_asset_version(CBN_THEME_DIR . $script_relative),
             true
         );
 
@@ -45,7 +49,7 @@ function cbn_enqueue_assets(): void
         'cbn-theme-source',
         CBN_THEME_URI . '/assets/src/css/main.css',
         [],
-        CBN_THEME_VERSION
+        cbn_asset_version(CBN_THEME_DIR . '/assets/src/css/main.css')
     );
 
     cbn_enqueue_experience_assets(false);
@@ -159,9 +163,32 @@ function cbn_get_vite_manifest(): ?array
         return null;
     }
 
+    // dist/ is intentionally ignored by Git. A checkout can therefore retain
+    // an old manifest after source changes; prefer the tracked CSS fallback
+    // until npm run build produces a manifest newer than both source entries.
+    $manifest_mtime = (int) filemtime($manifest_path);
+    $source_entries = [
+        CBN_THEME_DIR . '/assets/src/css/main.css',
+        CBN_THEME_DIR . '/assets/src/js/main.js',
+    ];
+
+    foreach ($source_entries as $source_entry) {
+        if (file_exists($source_entry) && (int) filemtime($source_entry) > $manifest_mtime) {
+            return null;
+        }
+    }
+
     $manifest = json_decode((string) file_get_contents($manifest_path), true);
 
     return is_array($manifest) ? $manifest : null;
+}
+
+/**
+ * Uses the file modification time as a cache key whenever the asset exists.
+ */
+function cbn_asset_version(string $asset_path): string
+{
+    return file_exists($asset_path) ? (string) filemtime($asset_path) : CBN_THEME_VERSION;
 }
 
 function cbn_module_script_tag(string $tag, string $handle, string $src): string
