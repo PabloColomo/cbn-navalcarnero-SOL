@@ -12,25 +12,39 @@ if (!defined('ABSPATH')) {
 $cbn_news_card_index = isset($args['index']) ? (int) $args['index'] : 0;
 $cbn_news_categories = get_the_category();
 $cbn_news_category_name = $cbn_news_categories ? $cbn_news_categories[0]->name : __('Club', 'cbn');
-$cbn_news_image = get_the_post_thumbnail_url(get_the_ID(), 'large');
-$cbn_news_card_class = 0 === $cbn_news_card_index ? ' cbn-sol-news-card--lead' : '';
+$cbn_news_thumbnail_id = get_post_thumbnail_id();
+$cbn_news_fallback_ids = cbn_get_club_photo_features('news_fallbacks', ['club-002']);
 
-if (!$cbn_news_image) {
-    $cbn_news_image = get_theme_file_uri('assets/src/images/home-team-community.png');
+if (!$cbn_news_fallback_ids) {
+    $cbn_news_fallback_ids = ['club-002'];
 }
+
+$cbn_news_photo_id = $cbn_news_thumbnail_id
+    ? null
+    : $cbn_news_fallback_ids[$cbn_news_card_index % count($cbn_news_fallback_ids)];
+$cbn_news_card_class = 0 === $cbn_news_card_index ? ' cbn-sol-news-card--lead' : '';
 ?>
 <article <?php post_class('cbn-sol-news-card' . $cbn_news_card_class); ?> data-sol-reveal data-cbn-tilt>
   <a href="<?php the_permalink(); ?>" data-cbn-swish>
     <span class="cbn-sol-news-card__image" aria-hidden="true">
-      <img
-        src="<?php echo esc_url($cbn_news_image); ?>"
-        alt=""
-        width="1672"
-        height="941"
-        loading="<?php echo 0 === $cbn_news_card_index ? 'eager' : 'lazy'; ?>"
-        decoding="async"
-      >
-      <span><?php echo esc_html(str_pad((string) ($cbn_news_card_index + 1), 2, '0', STR_PAD_LEFT)); ?></span>
+      <?php if ($cbn_news_thumbnail_id) : ?>
+        <?php
+        echo wp_get_attachment_image(
+            $cbn_news_thumbnail_id,
+            'large',
+            false,
+            [
+                'alt' => '',
+                'loading' => 'lazy',
+                'decoding' => 'async',
+                'sizes' => '(max-width: 760px) 100vw, 44vw',
+            ]
+        );
+        ?>
+      <?php else : ?>
+        <?php cbn_render_club_photo($cbn_news_photo_id, ['decorative' => true, 'sizes' => '(max-width: 760px) 100vw, 44vw']); ?>
+      <?php endif; ?>
+      <span class="cbn-photo-credit">&copy; CBN</span>
     </span>
     <span class="cbn-sol-news-card__copy">
       <span class="cbn-sol-news-card__meta">

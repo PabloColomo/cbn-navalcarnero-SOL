@@ -223,7 +223,6 @@ get_header();
           $cbn_team = $cbn_card['post'];
           $cbn_meta = $cbn_card['meta'];
           $cbn_permalink = get_permalink($cbn_team);
-          $cbn_card_number = str_pad((string) ($cbn_index + 1), 2, '0', STR_PAD_LEFT);
           ?>
           <article
             class="cbn-sol-teams-card"
@@ -251,8 +250,7 @@ get_header();
                     <img src="<?php echo esc_url($cbn_logo_url); ?>" alt="" width="400" height="400" loading="lazy">
                   </span>
                 <?php endif; ?>
-                <span class="cbn-sol-teams-card__number" aria-hidden="true"><?php echo esc_html($cbn_card_number); ?></span>
-                <span class="cbn-sol-teams-card__category"><?php echo esc_html($cbn_card['category']); ?></span>
+                <span class="cbn-sol-teams-card__credit cbn-photo-credit" aria-hidden="true">&copy; CBN</span>
               </span>
 
               <span class="cbn-sol-teams-card__body">
@@ -290,6 +288,8 @@ get_header();
       </article>
     <?php endif; ?>
   </section>
+
+  <?php cbn_render_club_photo_story('teams'); ?>
 
   <section class="cbn-sol-teams-join" aria-labelledby="cbn-teams-join-title" data-sol-reveal>
     <div>

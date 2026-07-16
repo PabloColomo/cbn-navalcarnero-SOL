@@ -315,17 +315,15 @@
 
 .cbn-sol-news-card__image > span {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: 14px;
+  bottom: 14px;
   display: grid;
-  width: 66px;
-  aspect-ratio: 1;
+  min-height: 28px;
+  padding: 7px 9px;
   place-items: center;
-  background: var(--cbn-sol-red);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(14, 14, 15, 0.76);
   color: white;
-  font-family: var(--cbn-font-display);
-  font-size: 23px;
-  font-weight: 950;
 }
 
 .cbn-sol-news-card__copy {

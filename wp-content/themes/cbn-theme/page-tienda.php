@@ -39,10 +39,10 @@ get_header();
         $cbn_shop_title = get_the_title() ?: __('Tienda CBN', 'cbn');
         $cbn_shop_content = trim((string) get_the_content());
         $cbn_shop_has_featured_image = has_post_thumbnail();
-        $cbn_shop_image_url = $cbn_shop_has_featured_image
-            ? get_the_post_thumbnail_url(get_the_ID(), 'full')
-            : get_theme_file_uri('assets/src/images/home-shop-merch.png');
-        $cbn_shop_image_alt = '';
+        $cbn_shop_photo_id = $cbn_shop_has_featured_image
+            ? null
+            : (cbn_get_club_photo_feature('shop_hero') ?: 'club-025');
+        $cbn_shop_image_alt = $cbn_shop_has_featured_image ? '' : (cbn_get_club_photo($cbn_shop_photo_id)['alt'] ?? '');
 
         if ($cbn_shop_has_featured_image) {
             $cbn_shop_thumbnail_id = get_post_thumbnail_id();
@@ -90,18 +90,27 @@ get_header();
 
           <figure class="cbn-sol-shop-hero__visual" data-sol-reveal data-cbn-parallax>
             <div class="cbn-sol-shop-hero__image">
-              <img
-                src="<?php echo esc_url($cbn_shop_image_url); ?>"
-                alt="<?php echo esc_attr($cbn_shop_image_alt); ?>"
-                width="1672"
-                height="941"
-                fetchpriority="high"
-                decoding="async"
-              >
+              <?php if ($cbn_shop_photo_id) : ?>
+                <?php cbn_render_club_photo($cbn_shop_photo_id, ['sizes' => '(max-width: 760px) 100vw, 46vw', 'loading' => 'eager', 'fetchpriority' => 'high']); ?>
+              <?php else : ?>
+                <?php
+                echo wp_get_attachment_image(
+                    $cbn_shop_thumbnail_id,
+                    'full',
+                    false,
+                    [
+                        'alt' => $cbn_shop_image_alt,
+                        'loading' => 'eager',
+                        'fetchpriority' => 'high',
+                        'decoding' => 'async',
+                        'sizes' => '(max-width: 760px) 100vw, 46vw',
+                    ]
+                );
+                ?>
+              <?php endif; ?>
             </div>
-            <figcaption>
-              <small><?php echo $cbn_shop_has_featured_image ? esc_html__('Imagen editorial de la pagina', 'cbn') : esc_html__('Imagen conceptual, no catalogo', 'cbn'); ?></small>
-              <strong><?php esc_html_e('La equipacion empieza por el equipo', 'cbn'); ?></strong>
+            <figcaption aria-hidden="true">
+              <strong class="cbn-photo-credit">&copy; CBN</strong>
             </figcaption>
             <span class="cbn-sol-shop-hero__label" aria-hidden="true">CBN<br>STORE</span>
           </figure>
@@ -146,6 +155,8 @@ get_header();
             <span aria-hidden="true">00</span>
           </aside>
         </section>
+
+        <?php cbn_render_club_photo_story('shop'); ?>
 
         <section class="cbn-sol-shop-contact" aria-labelledby="cbn-sol-shop-contact-title">
           <div class="cbn-sol-shop-contact__ball" aria-hidden="true"><span></span><i></i><b></b></div>

@@ -631,7 +631,7 @@ button {
   border-radius: var(--cbn-radius);
   background:
     linear-gradient(180deg, rgba(15, 15, 16, 0.08), rgba(15, 15, 16, 0.86)),
-    url("../images/home-hero-basketball.jpg") center / cover;
+    url("../images/club/club-002-960.webp") center / cover;
   color: var(--cbn-color-white);
   overflow: hidden;
   text-decoration: none;

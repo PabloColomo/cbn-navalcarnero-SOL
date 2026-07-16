@@ -11,6 +11,16 @@
   --cbn-sol-cut: 24px;
 }
 
+.cbn-photo-credit {
+  font-family: inherit !important;
+  font-size: 10px !important;
+  font-weight: 950 !important;
+  letter-spacing: 0.14em !important;
+  line-height: 1 !important;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
 body.home {
   background: var(--cbn-sol-paper);
 }
@@ -517,6 +527,31 @@ body.home {
   background: #ddd;
   box-shadow: 0 30px 80px rgba(14, 14, 15, 0.17);
   clip-path: polygon(9% 0, 100% 0, 100% 91%, 91% 100%, 0 100%, 0 12%);
+}
+
+.cbn-sol-photo-collage {
+  display: grid;
+  grid-template-columns: 0.82fr 1.22fr 0.82fr;
+  gap: 5px;
+  background: var(--cbn-sol-ink);
+}
+
+.cbn-sol-photo-collage .cbn-club-photo {
+  min-width: 0;
+  grid-row: 1;
+}
+
+.cbn-sol-photo-collage .cbn-club-photo:first-child {
+  z-index: 1;
+  grid-column: 2;
+}
+
+.cbn-sol-photo-collage .cbn-club-photo:nth-child(2) {
+  grid-column: 1;
+}
+
+.cbn-sol-photo-collage .cbn-club-photo:nth-child(3) {
+  grid-column: 3;
 }
 
 .cbn-sol-hero__image-wrap::after {
@@ -1046,8 +1081,9 @@ body.home {
   left: 18px;
   z-index: 1;
   color: white;
-  font-family: monospace;
-  font-size: 12px;
+  padding: 7px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(14, 14, 15, 0.7);
 }
 
 .cbn-sol-team-card__copy {
@@ -1322,9 +1358,14 @@ body.home {
   margin: 28px 0;
 }
 
-.cbn-sol-commerce__card > img {
+.cbn-sol-commerce__card > img,
+.cbn-sol-commerce__card > .cbn-club-photo {
   width: 100%;
   height: 100%;
+}
+
+.cbn-sol-commerce__card > img,
+.cbn-sol-commerce__card > .cbn-club-photo img {
   object-fit: cover;
   mix-blend-mode: multiply;
 }
@@ -1338,7 +1379,8 @@ body.home {
   color: white;
 }
 
-.cbn-sol-commerce__card--join > img {
+.cbn-sol-commerce__card--join > img,
+.cbn-sol-commerce__card--join > .cbn-club-photo img {
   filter: grayscale(1) contrast(1.15);
   opacity: 0.55;
   mix-blend-mode: screen;
@@ -1348,7 +1390,8 @@ body.home {
   background: var(--cbn-sol-paper);
 }
 
-.cbn-sol-commerce__card--shop > img {
+.cbn-sol-commerce__card--shop > img,
+.cbn-sol-commerce__card--shop > .cbn-club-photo img {
   object-position: 65% center;
 }
 
@@ -1542,64 +1585,45 @@ body.home {
   opacity: 1;
 }
 
-.cbn-custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  width: 38px;
-  height: 38px;
-  overflow: hidden;
-  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
-  border: 2px solid white;
-  border-radius: 50%;
-  background: white;
-  box-shadow:
-    0 0 0 1px var(--cbn-sol-ink),
-    0 9px 25px rgba(14, 14, 15, 0.25);
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    width 160ms ease,
-    height 160ms ease,
-    opacity 160ms ease,
-    border-color 160ms ease;
-}
-
-.cbn-custom-cursor img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.cbn-custom-cursor.is-visible {
-  opacity: 1;
-}
-
-.cbn-custom-cursor.is-active {
-  width: 50px;
-  height: 50px;
-  border-color: var(--cbn-sol-red);
-}
-
-.cbn-custom-cursor.is-down {
-  width: 31px;
-  height: 31px;
-}
-
 @media (hover: hover) and (pointer: fine) {
-  html.cbn-cursor-active,
-  html.cbn-cursor-active body,
-  html.cbn-cursor-active a,
-  html.cbn-cursor-active button {
-    cursor: none;
+  :where(
+    html,
+    body,
+    a,
+    button,
+    label,
+    summary,
+    select,
+    [role="button"],
+    [tabindex]
+  ) {
+    cursor:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M3 2.5v16.1l4.6-4.3 3.2 7.2 3.1-1.4-3.2-7.1H17L3 2.5Z' fill='%23930012' stroke='%23fff' stroke-width='1.35' stroke-linejoin='round'/%3E%3C/svg%3E")
+        3 3,
+      default !important;
   }
 
-  html.cbn-cursor-active input,
-  html.cbn-cursor-active textarea,
-  html.cbn-cursor-active select {
-    cursor: text;
+  :where(
+    input:not(
+      [type="button"],
+      [type="checkbox"],
+      [type="color"],
+      [type="file"],
+      [type="image"],
+      [type="radio"],
+      [type="range"],
+      [type="reset"],
+      [type="submit"]
+    ),
+    textarea,
+    [contenteditable="true"]
+  ) {
+    cursor: text !important;
+  }
+
+  :where(button, input, select, textarea):disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed !important;
   }
 }
 
@@ -2010,8 +2034,13 @@ body.home {
     padding: 60px 24px 30px;
   }
 
-  .cbn-sol-commerce__card > img {
+  .cbn-sol-commerce__card > img,
+  .cbn-sol-commerce__card > .cbn-club-photo {
     height: 320px;
+  }
+
+  .cbn-sol-commerce__card > img,
+  .cbn-sol-commerce__card > .cbn-club-photo img {
     object-position: center;
   }
 
@@ -2086,8 +2115,7 @@ body.home {
     stroke-dashoffset: 0 !important;
   }
 
-  .cbn-sol-route__ball,
-  .cbn-custom-cursor {
+  .cbn-sol-route__ball {
     display: none;
   }
 
@@ -2099,9 +2127,25 @@ body.home {
 
 @media (forced-colors: active) {
   .cbn-sol__grain,
-  .cbn-sol-route,
-  .cbn-custom-cursor {
+  .cbn-sol-route {
     display: none;
+  }
+
+  :where(
+    html,
+    body,
+    a,
+    button,
+    label,
+    summary,
+    input,
+    select,
+    textarea,
+    [role="button"],
+    [tabindex],
+    [contenteditable="true"]
+  ) {
+    cursor: auto !important;
   }
 
   .cbn-sol-button,

@@ -26,8 +26,8 @@ ha copiado código, layout, texto, recursos ni identidad de otra web.
 
 ## Interacción y sonido
 
-- Cursor del escudo CBN para ratón/trackpad, con cursor estándar en táctil,
-  reduced motion y forced colors.
+- Flecha convencional en granate CBN para ratón/trackpad, con cursores nativos
+  en campos editables, táctil y `forced-colors`.
 - Control de sonido visible y apagado por defecto en la primera visita de la
   sesión.
 - Pisadas y chirridos de zapatilla sobre parqué sintetizados con Web Audio al

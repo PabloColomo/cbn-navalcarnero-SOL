@@ -139,10 +139,8 @@ get_header();
             <img src="<?php echo esc_url($cbn_logo_url); ?>" alt="" width="400" height="400">
           </span>
         <?php endif; ?>
-        <span class="cbn-sol-team-detail-hero__number" aria-hidden="true"><?php echo esc_html($cbn_team_number); ?></span>
-        <figcaption>
-          <span>Ficha de equipo</span>
-          <strong><?php echo esc_html($cbn_category); ?></strong>
+        <figcaption aria-hidden="true">
+          <strong class="cbn-photo-credit">&copy; CBN</strong>
         </figcaption>
       </figure>
     </section>

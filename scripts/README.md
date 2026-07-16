@@ -39,3 +39,23 @@ staging/produccion.
 
 Los dumps, ZIP, uploads, `.env`, contrasenas y datos de produccion no deben
 subirse al repositorio.
+
+## Fotografías reales del club
+
+`prepare-club-photos.py` audita `images/`, conserva un representante por escena
+curada y genera los derivados responsive utilizados por el tema:
+
+```powershell
+python .\scripts\prepare-club-photos.py
+```
+
+Requiere Pillow con soporte JPEG, WebP y AVIF. No instala dependencias ni toca
+los originales. El resultado se escribe en
+`wp-content/themes/cbn-theme/assets/src/images/club/` junto al manifiesto de
+IDs, derivados y ubicaciones que consume el tema. Los nombres y hashes de
+auditoría no se exponen en ese asset web. Si las dependencias del proyecto ya
+están instaladas, el script aplica también el Prettier local al manifiesto; en
+caso contrario avisa para formatearlo después de instalar esas dependencias.
+Los IDs están fijados por hash de contenido y la publicación usa staging con
+restauración de la versión anterior ante fallos; renombrar un original no
+reasigna por accidente sus textos o ubicaciones.

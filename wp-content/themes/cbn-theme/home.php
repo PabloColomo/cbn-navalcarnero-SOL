@@ -65,6 +65,8 @@ get_header();
     <?php get_template_part('template-parts/news-filters'); ?>
     <?php get_template_part('template-parts/news-listing'); ?>
   </section>
+
+  <?php cbn_render_club_photo_story('news'); ?>
 </main>
 
 <?php get_footer(); ?>

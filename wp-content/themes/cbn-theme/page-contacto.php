@@ -229,6 +229,8 @@ get_header();
     </div>
   </section>
 
+  <?php cbn_render_club_photo_story('contact'); ?>
+
   <section class="cbn-sol-contact-locations" aria-labelledby="cbn-contact-location-title">
     <header class="cbn-sol-contact-locations__header" data-sol-reveal>
       <div>

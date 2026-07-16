@@ -19,6 +19,30 @@ Every relevant action should add a new entry. Keep entries factual, short, and t
 
 ## Entries
 
+### 2026-07-16 17:51 +02:00 - Galerías diferenciadas y cursor granate
+
+- Agent: coordinator + auditoria_galerias + auditoria_cursor.
+- Action: Se retiraron los índices y categorías superpuestos en todas las superficies fotográficas y se unificó el crédito visual como `© CBN`. Los nueve raíles recibieron composiciones independientes: secuencia cinematográfica, archivo impreso, alineación solapada, ráfaga panorámica, mosaico editorial, arcos de cantera, pedestales cuadrados, tríptico y cartelería premium. También se eliminó el cursor animado del escudo del JavaScript, CSS y configuración, sustituyéndolo por una flecha convencional SVG en granate CBN con fallbacks accesibles.
+- Reason: El usuario pidió eliminar las etiquetas repetitivas `01 / Acción`, acreditar las fotos con CBN, diferenciar cada carrusel y recuperar una flecha de cursor granate.
+- Files affected: `inc/photo-library.php`, `inc/assets.php`, `front-page.php`, `archive-cbn_team.php`, `page-el-club.php`, `page-tienda.php`, `single-cbn_match.php`, `single-cbn_team.php`, `template-parts/news-card.php`, `assets/src/js/sol.js`, `assets/src/css/{sol,sol-photography,sol-news,sol-teams,sol-club,sol-matches}.css`, documentación fotográfica y este registro.
+- Relation to original instruction: Aplica el cambio de rotulación a todas las fotografías afectadas, mantiene numeraciones funcionales ajenas a las fotos y convierte cada una de las nueve galerías en una experiencia visual distinta sin añadir dependencias.
+- Result: completed locally; no se solicitaron ni realizaron staging, commit, push, PR o merge.
+- Validation: PHP 8.3 lint pasó en todo el tema; `node --check`, `git diff --check`, `npm run format:check`, `npm run build` y `npm run verify` pasaron. El navegador validó las nueve rutas a 390, 768 y escritorio: créditos correctos, layouts diferenciados, scroll horizontal disponible, cero imágenes rotas, cero overflow de página y cero errores de consola. El DOM final no contiene `.cbn-custom-cursor` ni `cbn-cursor-active`, y el cursor calculado usa la flecha granate `#930012`.
+- Risks or doubts: CSS necesita una imagen SVG para colorear la flecha porque los navegadores no permiten recolorear el cursor nativo; si un navegador no admite ese formato se usa automáticamente la flecha del sistema.
+- Next recommended action: Revisión visual del club en `http://localhost:8090/` antes de versionar los cambios.
+
+### 2026-07-16 15:41 +02:00 - Fotografía real del CBN integrada en toda la web
+
+- Agent: coordinator + inventario_fotos + auditoria_tema + revision_final.
+- Action: Se auditaron visual y técnicamente los 94 JPEG entregados; se conservaron 63 escenas publicables tras descartar 28 copias exactas y 3 reexportaciones casi idénticas. Se generaron 378 derivados responsive sin EXIF (JPEG, WebP y AVIF a 480/960 px), un manifiesto runtime sin nombres ni hashes originales y un helper WordPress `<picture>`. Se sustituyeron las cuatro imágenes conceptuales `home-*`, se preservó la prioridad de imágenes reales del CMS y cada escena única quedó en un rail editorial incondicional. El generador fija los IDs por SHA-256 y publica desde staging con restauración ante fallos.
+- Reason: El usuario solicitó personalizar por completo la web con fotografía real autorizada del Club Baloncesto Navalcarnero, sin stock ni generación artificial, usando todo el material único válido.
+- Files affected: `scripts/prepare-club-photos.py`, `scripts/README.md`, `docs/photography/club-photo-integration-2026-07-16.md`, `wp-content/themes/cbn-theme/inc/photo-library.php`, el manifiesto y derivados bajo `assets/src/images/club/`, `assets/src/css/{main,sol,sol-photography}.css`, `inc/{assets,club-content,home-content}.php`, `functions.php` y las plantillas de Inicio, Club, Equipos, Partidos, Noticias, Inscripción, Tienda, Contacto y Sponsors; `.gitignore` y este registro.
+- Relation to original instruction: Cumple el inventario, deduplicación, dirección de arte, uso integral, tratamiento no destructivo, privacidad, rendimiento, accesibilidad y QA responsive pedidos, sin editar manualmente `assets/dist` ni borrar los assets antiguos.
+- Result: completed locally; no se solicitaron ni realizaron staging, commit, push, PR o merge.
+- Validation: Los 94 hashes originales coinciden con el inventario inicial. Los 378 derivados abren correctamente, respetan el ancho esperado y no contienen EXIF. El manifiesto registra 63 escenas, 31 descartes y las 63 aparecen en al menos un rail incondicional. PHP 8.3 lint pasó en todo el tema. `npm run format:check`, `npm run build` y `npm run verify` pasaron. Playwright recorrió 9 rutas a 390, 768 y 1440 px: 27/27 respuestas HTTP 200, un H1 por página, sin imágenes rotas, `alt` ausentes, overflow horizontal, errores de consola ni peticiones fallidas; AVIF fue seleccionado y `prefers-reduced-motion` no ocultó contenido. La búsqueda final encontró 0 referencias a los cuatro recursos conceptuales.
+- Risks or doubts: La autorización editorial y el registro legal de consentimientos, especialmente cuando aparezcan menores, siguen siendo responsabilidad del club. Los originales y los assets conceptuales antiguos permanecen intactos y sin borrar porque el usuario prohibió eliminar recursos sin demostrar obsolescencia total; ya no se renderizan desde el tema.
+- Next recommended action: Revisar la selección con el responsable del club y confirmar consentimientos antes de publicar; después versionar solo los archivos intencionales si el usuario decide crear una rama o PR.
+
 ### 2026-07-12 19:37 +02:00 - CBN Sol branch pushed and draft PR #1 opened
 
 - Agent: github_operator (coordinator fallback).

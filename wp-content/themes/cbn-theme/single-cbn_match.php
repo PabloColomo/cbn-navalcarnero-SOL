@@ -339,9 +339,8 @@ get_header();
             ]
         );
         ?>
-        <figcaption>
-          <span>Partido CBN</span>
-          <strong><?php echo esc_html($cbn_display_title); ?></strong>
+        <figcaption aria-hidden="true">
+          <strong class="cbn-photo-credit">&copy; CBN</strong>
         </figcaption>
       </figure>
     <?php endif; ?>

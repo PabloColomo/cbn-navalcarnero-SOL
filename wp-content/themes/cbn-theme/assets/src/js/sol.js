@@ -9,7 +9,6 @@
   const finePointer = window.matchMedia(
     "(hover: hover) and (pointer: fine)",
   ).matches;
-  const forcedColors = window.matchMedia("(forced-colors: active)").matches;
 
   const initFallbackNavigation = () => {
     if (config.mainBundle) {
@@ -210,68 +209,6 @@
       value = value <= 0 ? 24 : value - 1;
       clock.textContent = String(value).padStart(2, "0");
     }, 1000);
-  };
-
-  const initCursor = () => {
-    if (!finePointer || reducedMotion || forcedColors) {
-      return;
-    }
-
-    const logoUrl =
-      config.logoUrl || document.querySelector(".cbn-brand-mark")?.currentSrc;
-
-    if (!logoUrl) {
-      return;
-    }
-
-    const cursor = document.createElement("span");
-    cursor.className = "cbn-custom-cursor";
-    cursor.setAttribute("aria-hidden", "true");
-    const image = document.createElement("img");
-    image.src = logoUrl;
-    image.alt = "";
-    cursor.append(image);
-    document.body.append(cursor);
-    document.documentElement.classList.add("cbn-cursor-active");
-
-    let x = -100;
-    let y = -100;
-    let frame = 0;
-
-    const render = () => {
-      cursor.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
-      frame = 0;
-    };
-
-    document.addEventListener(
-      "pointermove",
-      (event) => {
-        x = event.clientX;
-        y = event.clientY;
-        cursor.classList.add("is-visible");
-        cursor.classList.toggle(
-          "is-active",
-          Boolean(event.target.closest("a, button, [role='button']")),
-        );
-
-        if (!frame) {
-          frame = window.requestAnimationFrame(render);
-        }
-      },
-      { passive: true },
-    );
-
-    document.addEventListener("pointerdown", () => {
-      cursor.classList.add("is-down");
-    });
-    document.addEventListener("pointerup", () => {
-      cursor.classList.remove("is-down");
-    });
-    document.addEventListener("pointerout", (event) => {
-      if (!event.relatedTarget) {
-        cursor.classList.remove("is-visible");
-      }
-    });
   };
 
   const initCourtSound = () => {
@@ -583,6 +520,5 @@
   initTeamFilters();
   initPointerEffects();
   initShotClock();
-  initCursor();
   initCourtSound();
 })();

@@ -176,6 +176,8 @@ get_header();
     </section>
   <?php endif; ?>
 
+  <?php cbn_render_club_photo_story('sponsors'); ?>
+
   <section class="cbn-sol-sponsors-cta" aria-labelledby="cbn-sponsors-cta-title" data-sol-reveal>
     <div>
       <p class="cbn-sol-section-index">02 / Jugar en equipo</p>

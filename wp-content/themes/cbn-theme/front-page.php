@@ -1,7 +1,6 @@
 <?php
 $cbn_home = cbn_get_home_content();
 $cbn_logo_url = get_theme_file_uri('assets/src/images/cbn-logo.png');
-$cbn_theme_image_url = static fn (string $filename): string => get_theme_file_uri('assets/src/images/' . $filename);
 
 $cbn_match_away = trim((string) $cbn_home['match']['away']);
 $cbn_match_is_placeholder = in_array(strtolower($cbn_match_away), ['', 'rival', 'por confirmar'], true);
@@ -64,9 +63,9 @@ foreach (array_slice($cbn_home['teams'], 0, 4) as $cbn_team_index => $cbn_team) 
         'eyebrow' => $cbn_team['label'] ?? 'Equipo CBN',
         'title' => $cbn_team['title'] ?? 'Club Baloncesto Navalcarnero',
         'text' => $cbn_team_descriptions[$cbn_team_filter],
-        'image' => $cbn_team['image'] ?? $cbn_theme_image_url('home-team-community.png'),
+        'image' => $cbn_team['image'] ?? cbn_get_club_photo_url('club-057'),
+        'photo_id' => $cbn_team['photo_id'] ?? null,
         'url' => $cbn_team['url'] ?? home_url('/equipos/'),
-        'index' => str_pad((string) ($cbn_team_index + 1), 2, '0', STR_PAD_LEFT),
     ];
 }
 
@@ -135,19 +134,48 @@ get_header();
     </div>
 
     <figure class="cbn-sol-hero__visual" data-sol-reveal data-cbn-parallax>
-      <div class="cbn-sol-hero__image-wrap">
-        <img
-          src="<?php echo esc_url($cbn_home['hero']['image']['url']); ?>"
-          alt="<?php echo esc_attr($cbn_home['hero']['image']['alt']); ?>"
-          width="<?php echo esc_attr((string) $cbn_home['hero']['image']['width']); ?>"
-          height="<?php echo esc_attr((string) $cbn_home['hero']['image']['height']); ?>"
-          fetchpriority="high"
-          decoding="async"
-        >
+      <div class="cbn-sol-hero__image-wrap <?php echo empty($cbn_home['hero']['image']['photo_ids']) ? '' : 'cbn-sol-photo-collage'; ?>">
+        <?php if (!empty($cbn_home['hero']['image']['attachment_id'])) : ?>
+          <?php
+          echo wp_get_attachment_image(
+              (int) $cbn_home['hero']['image']['attachment_id'],
+              'full',
+              false,
+              [
+                  'alt' => $cbn_home['hero']['image']['alt'],
+                  'loading' => 'eager',
+                  'fetchpriority' => 'high',
+                  'decoding' => 'async',
+                  'sizes' => '(max-width: 760px) 100vw, 46vw',
+              ]
+          );
+          ?>
+        <?php elseif (!empty($cbn_home['hero']['image']['photo_ids'])) : ?>
+          <?php foreach ($cbn_home['hero']['image']['photo_ids'] as $cbn_hero_photo_index => $cbn_hero_photo_id) : ?>
+            <?php
+            cbn_render_club_photo(
+                $cbn_hero_photo_id,
+                [
+                    'sizes' => '(max-width: 760px) 32vw, 18vw',
+                    'loading' => 'eager',
+                    'fetchpriority' => 0 === $cbn_hero_photo_index ? 'high' : '',
+                ]
+            );
+            ?>
+          <?php endforeach; ?>
+        <?php else : ?>
+          <img
+            src="<?php echo esc_url($cbn_home['hero']['image']['url']); ?>"
+            alt="<?php echo esc_attr($cbn_home['hero']['image']['alt']); ?>"
+            width="<?php echo esc_attr((string) $cbn_home['hero']['image']['width']); ?>"
+            height="<?php echo esc_attr((string) $cbn_home['hero']['image']['height']); ?>"
+            fetchpriority="high"
+            decoding="async"
+          >
+        <?php endif; ?>
       </div>
-      <figcaption>
-        <span>Pista viva</span>
-        <strong>El pulso del CBN</strong>
+      <figcaption aria-hidden="true">
+        <strong class="cbn-photo-credit">&copy; CBN</strong>
       </figcaption>
       <img class="cbn-sol-hero__crest" src="<?php echo esc_url($cbn_logo_url); ?>" alt="" width="400" height="400">
       <span class="cbn-sol-shot-clock" aria-hidden="true">
@@ -244,8 +272,26 @@ get_header();
         <article class="cbn-sol-team-card" data-cbn-team="<?php echo esc_attr($cbn_team_group['filter']); ?>" data-sol-reveal data-cbn-tilt>
           <a href="<?php echo esc_url($cbn_team_group['url']); ?>" data-cbn-swish>
             <span class="cbn-sol-team-card__media">
-              <img src="<?php echo esc_url($cbn_team_group['image']); ?>" alt="" width="1718" height="916" loading="lazy" decoding="async">
-              <span><?php echo esc_html($cbn_team_group['index']); ?></span>
+              <?php if (!empty($cbn_team_group['attachment_id'])) : ?>
+                <?php
+                echo wp_get_attachment_image(
+                    (int) $cbn_team_group['attachment_id'],
+                    'large',
+                    false,
+                    [
+                        'alt' => '',
+                        'loading' => 'lazy',
+                        'decoding' => 'async',
+                        'sizes' => '(max-width: 760px) 100vw, 42vw',
+                    ]
+                );
+                ?>
+              <?php elseif (!empty($cbn_team_group['photo_id'])) : ?>
+                <?php cbn_render_club_photo($cbn_team_group['photo_id'], ['decorative' => true, 'sizes' => '(max-width: 760px) 100vw, 42vw']); ?>
+              <?php else : ?>
+                <img src="<?php echo esc_url($cbn_team_group['image']); ?>" alt="" width="960" height="640" loading="lazy" decoding="async">
+              <?php endif; ?>
+              <span class="cbn-photo-credit" aria-hidden="true">&copy; CBN</span>
             </span>
             <span class="cbn-sol-team-card__copy">
               <small><?php echo esc_html($cbn_team_group['eyebrow']); ?></small>
@@ -261,7 +307,7 @@ get_header();
 
   <section class="cbn-sol-manifesto" aria-labelledby="cbn-manifesto-title">
     <div class="cbn-sol-manifesto__media" data-sol-reveal data-cbn-parallax>
-      <img src="<?php echo esc_url($cbn_theme_image_url('home-team-community.png')); ?>" alt="Grupo de jugadores reunidos en una cancha de baloncesto" width="1672" height="941" loading="lazy" decoding="async">
+      <?php cbn_render_club_photo(cbn_get_club_photo_feature('home_manifesto') ?: 'club-031', ['sizes' => '(max-width: 760px) 100vw, 54vw']); ?>
       <span aria-hidden="true">CBN</span>
     </div>
     <div class="cbn-sol-manifesto__copy" data-sol-reveal>
@@ -277,6 +323,8 @@ get_header();
     </div>
   </section>
 
+  <?php cbn_render_club_photo_story('home'); ?>
+
   <section class="cbn-sol-news" aria-labelledby="cbn-news-title">
     <header class="cbn-sol-section-heading" data-sol-reveal>
       <div>
@@ -291,8 +339,26 @@ get_header();
         <article class="cbn-sol-news-card <?php echo 0 === $cbn_news_index ? 'cbn-sol-news-card--lead' : ''; ?>" data-sol-reveal data-cbn-tilt>
           <a href="<?php echo esc_url($cbn_news_item['url']); ?>" data-cbn-swish>
             <span class="cbn-sol-news-card__media">
-              <img src="<?php echo esc_url($cbn_news_item['image']); ?>" alt="" width="1672" height="941" loading="lazy" decoding="async">
-              <small><?php echo esc_html($cbn_news_item['category']); ?></small>
+              <?php if (!empty($cbn_news_item['attachment_id'])) : ?>
+                <?php
+                echo wp_get_attachment_image(
+                    (int) $cbn_news_item['attachment_id'],
+                    'large',
+                    false,
+                    [
+                        'alt' => '',
+                        'loading' => 'lazy',
+                        'decoding' => 'async',
+                        'sizes' => '(max-width: 760px) 100vw, 38vw',
+                    ]
+                );
+                ?>
+              <?php elseif (!empty($cbn_news_item['photo_id'])) : ?>
+                <?php cbn_render_club_photo($cbn_news_item['photo_id'], ['decorative' => true, 'sizes' => '(max-width: 760px) 100vw, 38vw']); ?>
+              <?php else : ?>
+                <img src="<?php echo esc_url($cbn_news_item['image']); ?>" alt="" width="960" height="640" loading="lazy" decoding="async">
+              <?php endif; ?>
+              <small class="cbn-photo-credit" aria-hidden="true">&copy; CBN</small>
             </span>
             <span class="cbn-sol-news-card__copy">
               <small><?php echo esc_html($cbn_news_item['date']); ?></small>
@@ -314,7 +380,7 @@ get_header();
         <p><?php echo esc_html($cbn_home['registration']['text']); ?></p>
         <a class="cbn-sol-button cbn-sol-button--light" href="<?php echo esc_url($cbn_home['registration']['url']); ?>" data-cbn-swish><?php echo esc_html($cbn_home['registration']['label']); ?> <span aria-hidden="true">↗</span></a>
       </div>
-      <img src="<?php echo esc_url($cbn_theme_image_url('home-hero-basketball.jpg')); ?>" alt="Jugador de baloncesto en movimiento" width="1717" height="916" loading="lazy" decoding="async">
+      <?php cbn_render_club_photo($cbn_home['registration']['image']['photo_id'] ?? 'club-064', ['sizes' => '(max-width: 760px) 100vw, 28vw']); ?>
     </article>
 
     <article class="cbn-sol-commerce__card cbn-sol-commerce__card--shop" data-sol-reveal>
@@ -324,7 +390,7 @@ get_header();
         <p><?php echo esc_html($cbn_home['shop']['text']); ?></p>
         <a class="cbn-sol-button cbn-sol-button--dark" href="<?php echo esc_url($cbn_home['shop']['url']); ?>" data-cbn-swish><?php echo esc_html($cbn_home['shop']['label']); ?> <span aria-hidden="true">↗</span></a>
       </div>
-      <img src="<?php echo esc_url($cbn_theme_image_url('home-shop-merch.png')); ?>" alt="Imagen conceptual de ropa deportiva roja y negra; no representa el catálogo definitivo" width="1672" height="941" loading="lazy" decoding="async">
+      <?php cbn_render_club_photo($cbn_home['shop']['image']['photo_id'] ?? 'club-025', ['sizes' => '(max-width: 760px) 100vw, 28vw']); ?>
     </article>
   </section>
 

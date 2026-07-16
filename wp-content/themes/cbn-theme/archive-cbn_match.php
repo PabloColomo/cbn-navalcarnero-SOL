@@ -339,6 +339,8 @@ get_header();
     <?php endif; ?>
   </section>
 
+  <?php cbn_render_club_photo_story('matches'); ?>
+
   <section class="cbn-sol-matches-cta" aria-labelledby="cbn-matches-cta-title">
     <div class="cbn-sol-matches-cta__court" aria-hidden="true">
       <span></span><span></span><span></span>

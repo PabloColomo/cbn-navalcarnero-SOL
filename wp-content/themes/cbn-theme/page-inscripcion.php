@@ -168,6 +168,8 @@ get_header();
     </ol>
   </section>
 
+  <?php cbn_render_club_photo_story('registration'); ?>
+
   <section id="solicitud-inscripcion" class="cbn-sol-registration-form-zone" aria-labelledby="cbn-registration-form-title">
     <div class="cbn-sol-registration-form-zone__intro" data-sol-reveal>
       <p class="cbn-sol-section-index">02 · Tu ficha</p>

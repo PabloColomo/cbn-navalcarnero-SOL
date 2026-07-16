@@ -1,0 +1,3411 @@
+{
+  "version": 1,
+  "generated_on": "2026-07-16",
+  "source_files": 94,
+  "exact_unique_files": 66,
+  "visual_unique_publishable": 63,
+  "discarded_files": 31,
+  "discarded_summary": {
+    "exact_duplicate_copies": 28,
+    "near_duplicate_reexports": 3,
+    "near_duplicate_ids": ["club-003", "club-060", "club-062"]
+  },
+  "processing": {
+    "widths": [480, 960],
+    "formats": ["jpeg", "webp", "avif"],
+    "exif_removed": true,
+    "orientation_corrected": true,
+    "crop": "none",
+    "treatment": "Ajuste tonal suave, contraste +3,5 %, color +2,5 % y enfoque +8 %."
+  },
+  "photos": {
+    "club-001": {
+      "id": "club-001",
+      "alt": "Detalle de zapatilla y pierna de un jugador sobre la pista.",
+      "content": "detalle",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-001-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 48073
+          },
+          {
+            "path": "club-001-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 154995
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-001-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 23772
+          },
+          {
+            "path": "club-001-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 67388
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-001-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 18094
+          },
+          {
+            "path": "club-001-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 58059
+          }
+        ]
+      },
+      "placements": ["story:club"]
+    },
+    "club-002": {
+      "id": "club-002",
+      "alt": "Jugador del CBN lanzando a canasta ante la defensa rival.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-002-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 68132
+          },
+          {
+            "path": "club-002-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 199757
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-002-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 41122
+          },
+          {
+            "path": "club-002-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 99336
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-002-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 26715
+          },
+          {
+            "path": "club-002-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 74122
+          }
+        ]
+      },
+      "placements": [
+        "story:matches",
+        "featured:home_news_fallbacks",
+        "featured:news_fallbacks"
+      ]
+    },
+    "club-004": {
+      "id": "club-004",
+      "alt": "Zapatillas negras de un jugador detenido sobre la pista.",
+      "content": "detalle",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-004-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 46194
+          },
+          {
+            "path": "club-004-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 170137
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-004-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 21832
+          },
+          {
+            "path": "club-004-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 78462
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-004-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 17406
+          },
+          {
+            "path": "club-004-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 67675
+          }
+        ]
+      },
+      "placements": ["story:club", "story:shop"]
+    },
+    "club-005": {
+      "id": "club-005",
+      "alt": "Jugador del CBN celebrando una acción del partido.",
+      "content": "emoción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-005-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 46519
+          },
+          {
+            "path": "club-005-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 146835
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-005-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 21914
+          },
+          {
+            "path": "club-005-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 58544
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-005-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 16387
+          },
+          {
+            "path": "club-005-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 50645
+          }
+        ]
+      },
+      "placements": ["story:club"]
+    },
+    "club-006": {
+      "id": "club-006",
+      "alt": "Jugador del CBN concentrado con el balón antes de un lanzamiento.",
+      "content": "concentración",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-006-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 55031
+          },
+          {
+            "path": "club-006-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 159315
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-006-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 28516
+          },
+          {
+            "path": "club-006-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 67874
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-006-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 19101
+          },
+          {
+            "path": "club-006-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 54569
+          }
+        ]
+      },
+      "placements": ["story:teams"]
+    },
+    "club-007": {
+      "id": "club-007",
+      "alt": "Jugador del CBN finalizando cerca del aro ante varios defensores.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-007-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 64668
+          },
+          {
+            "path": "club-007-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 178525
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-007-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 37774
+          },
+          {
+            "path": "club-007-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 85756
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-007-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 25344
+          },
+          {
+            "path": "club-007-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 66589
+          }
+        ]
+      },
+      "placements": ["story:home", "featured:news_fallbacks"]
+    },
+    "club-008": {
+      "id": "club-008",
+      "alt": "Jugadores del CBN preparando un lanzamiento desde la pista.",
+      "content": "equipo",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-008-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 58014
+          },
+          {
+            "path": "club-008-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 167148
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-008-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 31346
+          },
+          {
+            "path": "club-008-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 75206
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-008-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 21383
+          },
+          {
+            "path": "club-008-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 61052
+          }
+        ]
+      },
+      "placements": ["story:club", "story:teams"]
+    },
+    "club-009": {
+      "id": "club-009",
+      "alt": "Jugador del CBN elevando el balón para lanzar.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-009-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 46496
+          },
+          {
+            "path": "club-009-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 149359
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-009-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 22074
+          },
+          {
+            "path": "club-009-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 59326
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-009-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 16690
+          },
+          {
+            "path": "club-009-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 51355
+          }
+        ]
+      },
+      "placements": ["story:teams"]
+    },
+    "club-010": {
+      "id": "club-010",
+      "alt": "Jugador del CBN recuperando el aliento durante el partido.",
+      "content": "esfuerzo",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-010-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 55404
+          },
+          {
+            "path": "club-010-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 171635
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-010-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 29060
+          },
+          {
+            "path": "club-010-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 74642
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-010-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 19639
+          },
+          {
+            "path": "club-010-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 60230
+          }
+        ]
+      },
+      "placements": ["story:club"]
+    },
+    "club-011": {
+      "id": "club-011",
+      "alt": "Jugador del CBN avanzando con un bote bajo frente a un defensor.",
+      "content": "acción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-011-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 56368
+          },
+          {
+            "path": "club-011-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 159581
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-011-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 29284
+          },
+          {
+            "path": "club-011-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 67888
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-011-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 18900
+          },
+          {
+            "path": "club-011-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 53540
+          }
+        ]
+      },
+      "placements": ["story:home", "story:matches"]
+    },
+    "club-012": {
+      "id": "club-012",
+      "alt": "Lanzamiento del CBN con la defensa rival delante.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-012-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 68902
+          },
+          {
+            "path": "club-012-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 206881
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-012-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 41472
+          },
+          {
+            "path": "club-012-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 103312
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-012-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 25912
+          },
+          {
+            "path": "club-012-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 76159
+          }
+        ]
+      },
+      "placements": ["story:matches", "featured:news_fallbacks"]
+    },
+    "club-013": {
+      "id": "club-013",
+      "alt": "Detalle de unas zapatillas negras apoyadas en la línea de pista.",
+      "content": "detalle",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-013-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 35685
+          },
+          {
+            "path": "club-013-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 105308
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-013-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 14784
+          },
+          {
+            "path": "club-013-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 37858
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-013-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 12790
+          },
+          {
+            "path": "club-013-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 35463
+          }
+        ]
+      },
+      "placements": ["story:club"]
+    },
+    "club-014": {
+      "id": "club-014",
+      "alt": "Jugador del CBN expresando intensidad tras una jugada.",
+      "content": "emoción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-014-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 42893
+          },
+          {
+            "path": "club-014-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 136381
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-014-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 19360
+          },
+          {
+            "path": "club-014-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 52578
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-014-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 15012
+          },
+          {
+            "path": "club-014-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 46104
+          }
+        ]
+      },
+      "placements": ["story:home", "story:teams"]
+    },
+    "club-015": {
+      "id": "club-015",
+      "alt": "Jugador del CBN desplazándose con el balón.",
+      "content": "acción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-015-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 64674
+          },
+          {
+            "path": "club-015-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 191405
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-015-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 38704
+          },
+          {
+            "path": "club-015-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 93666
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-015-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 25744
+          },
+          {
+            "path": "club-015-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 72128
+          }
+        ]
+      },
+      "placements": ["story:teams"]
+    },
+    "club-016": {
+      "id": "club-016",
+      "alt": "Jugador del CBN reaccionando con energía durante el partido.",
+      "content": "emoción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-016-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 43266
+          },
+          {
+            "path": "club-016-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 138601
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-016-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 20144
+          },
+          {
+            "path": "club-016-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 53138
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-016-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 15014
+          },
+          {
+            "path": "club-016-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 46426
+          }
+        ]
+      },
+      "placements": ["story:club", "story:teams"]
+    },
+    "club-017": {
+      "id": "club-017",
+      "alt": "Jugador del CBN lanzando a canasta con el aro al fondo.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-017-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 41530
+          },
+          {
+            "path": "club-017-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 123913
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-017-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 18702
+          },
+          {
+            "path": "club-017-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 46640
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-017-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 14608
+          },
+          {
+            "path": "club-017-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 42022
+          }
+        ]
+      },
+      "placements": ["story:teams"]
+    },
+    "club-018": {
+      "id": "club-018",
+      "alt": "Jugador del CBN celebrando el esfuerzo de una posesión.",
+      "content": "emoción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-018-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 44899
+          },
+          {
+            "path": "club-018-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 142222
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-018-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 21256
+          },
+          {
+            "path": "club-018-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 58462
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-018-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 15908
+          },
+          {
+            "path": "club-018-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 48283
+          }
+        ]
+      },
+      "placements": ["story:club", "story:teams"]
+    },
+    "club-019": {
+      "id": "club-019",
+      "alt": "Jugador del CBN armando un lanzamiento frontal.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-019-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 54998
+          },
+          {
+            "path": "club-019-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 162260
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-019-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 28868
+          },
+          {
+            "path": "club-019-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 71586
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-019-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 20137
+          },
+          {
+            "path": "club-019-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 58965
+          }
+        ]
+      },
+      "placements": ["story:teams"]
+    },
+    "club-020": {
+      "id": "club-020",
+      "alt": "Jugador del CBN ejecutando un tiro libre.",
+      "content": "concentración",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-020-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 71565
+          },
+          {
+            "path": "club-020-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 207918
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-020-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 44822
+          },
+          {
+            "path": "club-020-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 107566
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-020-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 27354
+          },
+          {
+            "path": "club-020-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 77304
+          }
+        ]
+      },
+      "placements": ["story:teams"]
+    },
+    "club-021": {
+      "id": "club-021",
+      "alt": "Jugador del CBN penetrando con el balón ante la defensa.",
+      "content": "acción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-021-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 69452
+          },
+          {
+            "path": "club-021-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 204860
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-021-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 41756
+          },
+          {
+            "path": "club-021-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 102462
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-021-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 26686
+          },
+          {
+            "path": "club-021-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 76285
+          }
+        ]
+      },
+      "placements": ["story:home", "featured:news_fallbacks"]
+    },
+    "club-022": {
+      "id": "club-022",
+      "alt": "Detalle de zapatillas blancas sobre las líneas de la cancha.",
+      "content": "detalle",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-022-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 38213
+          },
+          {
+            "path": "club-022-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 137360
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-022-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 15524
+          },
+          {
+            "path": "club-022-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 50142
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-022-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 13206
+          },
+          {
+            "path": "club-022-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 48896
+          }
+        ]
+      },
+      "placements": ["story:shop", "featured:home_team_fallbacks"]
+    },
+    "club-023": {
+      "id": "club-023",
+      "alt": "Jugador del CBN entrando a canasta con el balón elevado.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-023-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 63852
+          },
+          {
+            "path": "club-023-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 183075
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-023-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 39154
+          },
+          {
+            "path": "club-023-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 89610
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-023-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 26258
+          },
+          {
+            "path": "club-023-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 70572
+          }
+        ]
+      },
+      "placements": ["story:matches", "featured:news_fallbacks"]
+    },
+    "club-024": {
+      "id": "club-024",
+      "alt": "Detalle de zapatillas blancas durante una pausa del partido.",
+      "content": "detalle",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-024-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 33771
+          },
+          {
+            "path": "club-024-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 106518
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-024-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 12998
+          },
+          {
+            "path": "club-024-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 35956
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-024-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 10545
+          },
+          {
+            "path": "club-024-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 33381
+          }
+        ]
+      },
+      "placements": ["story:club"]
+    },
+    "club-025": {
+      "id": "club-025",
+      "alt": "Detalle de la camiseta del CBN y el balón en las manos de un jugador.",
+      "content": "identidad",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-025-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 35717
+          },
+          {
+            "path": "club-025-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 103704
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-025-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 15130
+          },
+          {
+            "path": "club-025-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 38186
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-025-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 12699
+          },
+          {
+            "path": "club-025-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 34306
+          }
+        ]
+      },
+      "placements": ["story:club", "featured:home_shop", "featured:shop_hero"]
+    },
+    "club-026": {
+      "id": "club-026",
+      "alt": "Detalle de zapatillas de baloncesto apoyadas sobre el parqué.",
+      "content": "detalle",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-026-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 42630
+          },
+          {
+            "path": "club-026-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 154177
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-026-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 19048
+          },
+          {
+            "path": "club-026-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 65472
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-026-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 15995
+          },
+          {
+            "path": "club-026-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 60110
+          }
+        ]
+      },
+      "placements": [
+        "story:shop",
+        "featured:home_team_fallbacks",
+        "featured:club_facilities"
+      ]
+    },
+    "club-027": {
+      "id": "club-027",
+      "alt": "Jugador del CBN celebrando con intensidad una jugada.",
+      "content": "emoción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-027-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 47353
+          },
+          {
+            "path": "club-027-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 152815
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-027-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 22018
+          },
+          {
+            "path": "club-027-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 61750
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-027-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 16452
+          },
+          {
+            "path": "club-027-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 53533
+          }
+        ]
+      },
+      "placements": [
+        "story:club",
+        "featured:home_hero",
+        "featured:news_fallbacks"
+      ]
+    },
+    "club-028": {
+      "id": "club-028",
+      "alt": "Jugador con equipación blanca del CBN lanzando un tiro libre.",
+      "content": "concentración",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-028-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 70556
+          },
+          {
+            "path": "club-028-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 212354
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-028-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 41394
+          },
+          {
+            "path": "club-028-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 105618
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-028-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 24743
+          },
+          {
+            "path": "club-028-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 71555
+          }
+        ]
+      },
+      "placements": ["story:home", "story:news"]
+    },
+    "club-029": {
+      "id": "club-029",
+      "alt": "Jugador del CBN protegiendo el bote ante un rival.",
+      "content": "acción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-029-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 49668
+          },
+          {
+            "path": "club-029-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 143168
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-029-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 23970
+          },
+          {
+            "path": "club-029-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 57652
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-029-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 17743
+          },
+          {
+            "path": "club-029-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 50363
+          }
+        ]
+      },
+      "placements": ["story:home", "featured:news_fallbacks"]
+    },
+    "club-030": {
+      "id": "club-030",
+      "alt": "Jugador del CBN lanzando ante dos defensores.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-030-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 63143
+          },
+          {
+            "path": "club-030-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 186823
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-030-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 37200
+          },
+          {
+            "path": "club-030-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 91234
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-030-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 23357
+          },
+          {
+            "path": "club-030-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 66011
+          }
+        ]
+      },
+      "placements": ["story:matches", "featured:home_hero"]
+    },
+    "club-031": {
+      "id": "club-031",
+      "alt": "Jugadores y cuerpo técnico del CBN reunidos junto al banquillo.",
+      "content": "equipo",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-031-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 58010
+          },
+          {
+            "path": "club-031-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 169771
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-031-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 31400
+          },
+          {
+            "path": "club-031-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 76058
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-031-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 22193
+          },
+          {
+            "path": "club-031-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 60388
+          }
+        ]
+      },
+      "placements": [
+        "story:contact",
+        "featured:home_manifesto",
+        "featured:club_hero"
+      ]
+    },
+    "club-032": {
+      "id": "club-032",
+      "alt": "Jugador con equipación blanca del CBN elevándose para lanzar.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-032-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 70177
+          },
+          {
+            "path": "club-032-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 203239
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-032-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 43146
+          },
+          {
+            "path": "club-032-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 102070
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-032-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 27101
+          },
+          {
+            "path": "club-032-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 75037
+          }
+        ]
+      },
+      "placements": ["story:matches"]
+    },
+    "club-033": {
+      "id": "club-033",
+      "alt": "Jugador del CBN esperando con el balón junto a la banda.",
+      "content": "concentración",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-033-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 70935
+          },
+          {
+            "path": "club-033-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 212381
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-033-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 40128
+          },
+          {
+            "path": "club-033-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 100460
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-033-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 23132
+          },
+          {
+            "path": "club-033-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 69270
+          }
+        ]
+      },
+      "placements": ["story:news"]
+    },
+    "club-034": {
+      "id": "club-034",
+      "alt": "Jugador del CBN preparándose para un tiro libre.",
+      "content": "concentración",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-034-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 61647
+          },
+          {
+            "path": "club-034-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 186183
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-034-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 32682
+          },
+          {
+            "path": "club-034-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 82318
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-034-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 21426
+          },
+          {
+            "path": "club-034-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 62086
+          }
+        ]
+      },
+      "placements": ["story:news"]
+    },
+    "club-035": {
+      "id": "club-035",
+      "alt": "Lanzamiento del CBN en una pista con banderas y grada al fondo.",
+      "content": "competición",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-035-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 72578
+          },
+          {
+            "path": "club-035-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 207021
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-035-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 44688
+          },
+          {
+            "path": "club-035-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 101350
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-035-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 26265
+          },
+          {
+            "path": "club-035-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 70087
+          }
+        ]
+      },
+      "placements": ["story:home", "story:sponsors"]
+    },
+    "club-036": {
+      "id": "club-036",
+      "alt": "Jugador del CBN lanzando por encima de un defensor.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-036-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 78324
+          },
+          {
+            "path": "club-036-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 219972
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-036-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 50540
+          },
+          {
+            "path": "club-036-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 115020
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-036-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 29396
+          },
+          {
+            "path": "club-036-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 78135
+          }
+        ]
+      },
+      "placements": ["story:matches"]
+    },
+    "club-037": {
+      "id": "club-037",
+      "alt": "Detalle del brazo y la equipación de un jugador en la pista.",
+      "content": "identidad",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-037-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 37125
+          },
+          {
+            "path": "club-037-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 122892
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-037-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 14554
+          },
+          {
+            "path": "club-037-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 42758
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-037-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 12556
+          },
+          {
+            "path": "club-037-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 39942
+          }
+        ]
+      },
+      "placements": ["story:club"]
+    },
+    "club-038": {
+      "id": "club-038",
+      "alt": "Jugador del CBN de pie con el balón antes de reanudar el juego.",
+      "content": "concentración",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-038-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 62852
+          },
+          {
+            "path": "club-038-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 191735
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-038-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 34438
+          },
+          {
+            "path": "club-038-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 87256
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-038-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 21271
+          },
+          {
+            "path": "club-038-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 62724
+          }
+        ]
+      },
+      "placements": ["story:news"]
+    },
+    "club-039": {
+      "id": "club-039",
+      "alt": "Jugador del CBN finalizando cerca del aro en competición.",
+      "content": "competición",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-039-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 77892
+          },
+          {
+            "path": "club-039-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 219587
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-039-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 49556
+          },
+          {
+            "path": "club-039-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 111356
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-039-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 26987
+          },
+          {
+            "path": "club-039-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 72585
+          }
+        ]
+      },
+      "placements": ["story:sponsors"]
+    },
+    "club-040": {
+      "id": "club-040",
+      "alt": "Jugador del CBN elevándose con el balón hacia canasta.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-040-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 82118
+          },
+          {
+            "path": "club-040-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 233912
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-040-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 52836
+          },
+          {
+            "path": "club-040-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 122420
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-040-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 29475
+          },
+          {
+            "path": "club-040-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 79693
+          }
+        ]
+      },
+      "placements": ["story:sponsors"]
+    },
+    "club-041": {
+      "id": "club-041",
+      "alt": "Jugador del CBN protegiendo el balón de espaldas a la defensa.",
+      "content": "acción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-041-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 75056
+          },
+          {
+            "path": "club-041-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 208514
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-041-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 47758
+          },
+          {
+            "path": "club-041-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 106064
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-041-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 27809
+          },
+          {
+            "path": "club-041-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 73214
+          }
+        ]
+      },
+      "placements": [
+        "story:matches",
+        "featured:home_news_fallbacks",
+        "featured:news_fallbacks"
+      ]
+    },
+    "club-042": {
+      "id": "club-042",
+      "alt": "Jugador del CBN concentrado en la línea de tiro libre.",
+      "content": "concentración",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-042-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 63142
+          },
+          {
+            "path": "club-042-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 181055
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-042-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 36090
+          },
+          {
+            "path": "club-042-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 83930
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-042-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 22081
+          },
+          {
+            "path": "club-042-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 61081
+          }
+        ]
+      },
+      "placements": ["story:news"]
+    },
+    "club-043": {
+      "id": "club-043",
+      "alt": "Lanzamiento del CBN disputado por dos defensores.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-043-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 48309
+          },
+          {
+            "path": "club-043-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 137786
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-043-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 24134
+          },
+          {
+            "path": "club-043-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 56780
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-043-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 18509
+          },
+          {
+            "path": "club-043-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 48901
+          }
+        ]
+      },
+      "placements": ["story:matches"]
+    },
+    "club-044": {
+      "id": "club-044",
+      "alt": "Detalle de zapatillas de colores sobre las líneas de la pista.",
+      "content": "detalle",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-044-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 39250
+          },
+          {
+            "path": "club-044-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 130993
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-044-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 16826
+          },
+          {
+            "path": "club-044-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 44898
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-044-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 13034
+          },
+          {
+            "path": "club-044-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 41080
+          }
+        ]
+      },
+      "placements": ["story:shop"]
+    },
+    "club-045": {
+      "id": "club-045",
+      "alt": "Jugador del CBN caminando con el balón durante el partido.",
+      "content": "concentración",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-045-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 44558
+          },
+          {
+            "path": "club-045-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 137753
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-045-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 21456
+          },
+          {
+            "path": "club-045-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 54092
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-045-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 16023
+          },
+          {
+            "path": "club-045-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 46869
+          }
+        ]
+      },
+      "placements": ["story:news"]
+    },
+    "club-046": {
+      "id": "club-046",
+      "alt": "Jugador del CBN atacando el aro con la mano extendida.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-046-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 77152
+          },
+          {
+            "path": "club-046-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 215667
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-046-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 47980
+          },
+          {
+            "path": "club-046-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 108770
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-046-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 28163
+          },
+          {
+            "path": "club-046-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 74650
+          }
+        ]
+      },
+      "placements": ["story:home", "featured:news_fallbacks"]
+    },
+    "club-047": {
+      "id": "club-047",
+      "alt": "Primer plano de manos, balón y zapatillas antes de un lanzamiento.",
+      "content": "detalle",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-047-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 43575
+          },
+          {
+            "path": "club-047-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 133577
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-047-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 19834
+          },
+          {
+            "path": "club-047-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 53734
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-047-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 16467
+          },
+          {
+            "path": "club-047-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 48456
+          }
+        ]
+      },
+      "placements": ["story:home", "story:registration"]
+    },
+    "club-048": {
+      "id": "club-048",
+      "alt": "Jugador del CBN ejecutando un tiro libre en la pista.",
+      "content": "concentración",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-048-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 66600
+          },
+          {
+            "path": "club-048-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 202017
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-048-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 37914
+          },
+          {
+            "path": "club-048-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 96276
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-048-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 22382
+          },
+          {
+            "path": "club-048-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 67143
+          }
+        ]
+      },
+      "placements": ["story:registration"]
+    },
+    "club-049": {
+      "id": "club-049",
+      "alt": "Jugador del CBN avanzando entre varios defensores.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-049-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 72845
+          },
+          {
+            "path": "club-049-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 206747
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-049-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 44122
+          },
+          {
+            "path": "club-049-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 102682
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-049-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 27376
+          },
+          {
+            "path": "club-049-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 74829
+          }
+        ]
+      },
+      "placements": ["story:matches"]
+    },
+    "club-050": {
+      "id": "club-050",
+      "alt": "Jugador del CBN preparado con el balón en la línea de tiro libre.",
+      "content": "concentración",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-050-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 60159
+          },
+          {
+            "path": "club-050-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 181849
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-050-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 32608
+          },
+          {
+            "path": "club-050-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 79524
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-050-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 20456
+          },
+          {
+            "path": "club-050-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 60084
+          }
+        ]
+      },
+      "placements": ["story:news"]
+    },
+    "club-051": {
+      "id": "club-051",
+      "alt": "Entrada a canasta del CBN defendida por un rival.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-051-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 71850
+          },
+          {
+            "path": "club-051-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 210247
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-051-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 42302
+          },
+          {
+            "path": "club-051-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 102454
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-051-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 25237
+          },
+          {
+            "path": "club-051-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 73120
+          }
+        ]
+      },
+      "placements": ["story:matches", "featured:home_hero"]
+    },
+    "club-052": {
+      "id": "club-052",
+      "alt": "Entrenador y jugador del CBN conversando junto al banquillo.",
+      "content": "acompañamiento",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-052-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 43744
+          },
+          {
+            "path": "club-052-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 127552
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-052-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 21282
+          },
+          {
+            "path": "club-052-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 52206
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-052-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 16911
+          },
+          {
+            "path": "club-052-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 45910
+          }
+        ]
+      },
+      "placements": [
+        "story:contact",
+        "featured:home_news_fallbacks",
+        "featured:club_hero"
+      ]
+    },
+    "club-053": {
+      "id": "club-053",
+      "alt": "Jugador del CBN lanzando a canasta ante un defensor.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-053-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 56665
+          },
+          {
+            "path": "club-053-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 173887
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-053-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 30578
+          },
+          {
+            "path": "club-053-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 78860
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-053-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 19532
+          },
+          {
+            "path": "club-053-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 57648
+          }
+        ]
+      },
+      "placements": ["story:sponsors"]
+    },
+    "club-054": {
+      "id": "club-054",
+      "alt": "Jugador del CBN luchando por el balón cerca del aro.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-054-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 66995
+          },
+          {
+            "path": "club-054-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 190959
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-054-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 41500
+          },
+          {
+            "path": "club-054-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 97666
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-054-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 26182
+          },
+          {
+            "path": "club-054-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 69426
+          }
+        ]
+      },
+      "placements": ["story:matches"]
+    },
+    "club-055": {
+      "id": "club-055",
+      "alt": "Jugador del CBN esperando con el balón y la canasta al fondo.",
+      "content": "concentración",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-055-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 61182
+          },
+          {
+            "path": "club-055-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 184052
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-055-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 32444
+          },
+          {
+            "path": "club-055-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 80668
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-055-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 20565
+          },
+          {
+            "path": "club-055-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 60212
+          }
+        ]
+      },
+      "placements": ["story:news"]
+    },
+    "club-056": {
+      "id": "club-056",
+      "alt": "Jugador del CBN entrando a canasta ante la oposición rival.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-056-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 66597
+          },
+          {
+            "path": "club-056-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 193897
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-056-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 38228
+          },
+          {
+            "path": "club-056-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 90700
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-056-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 24563
+          },
+          {
+            "path": "club-056-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 69359
+          }
+        ]
+      },
+      "placements": ["story:matches"]
+    },
+    "club-057": {
+      "id": "club-057",
+      "alt": "Balón de baloncesto apoyado sobre las líneas de la pista.",
+      "content": "detalle",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-057-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 37606
+          },
+          {
+            "path": "club-057-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 126276
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-057-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 16614
+          },
+          {
+            "path": "club-057-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 48988
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-057-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 12777
+          },
+          {
+            "path": "club-057-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 42594
+          }
+        ]
+      },
+      "placements": [
+        "story:registration",
+        "featured:home_team_fallbacks",
+        "featured:club_facilities"
+      ]
+    },
+    "club-058": {
+      "id": "club-058",
+      "alt": "Jugador del CBN atacando el aro entre varios rivales.",
+      "content": "acción",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-058-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 74551
+          },
+          {
+            "path": "club-058-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 217289
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-058-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 45116
+          },
+          {
+            "path": "club-058-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 109170
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-058-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 26290
+          },
+          {
+            "path": "club-058-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 75044
+          }
+        ]
+      },
+      "placements": ["story:home", "featured:news_fallbacks"]
+    },
+    "club-059": {
+      "id": "club-059",
+      "alt": "Jugador del CBN acelerando el bote frente a un defensor.",
+      "content": "acción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-059-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 54779
+          },
+          {
+            "path": "club-059-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 154911
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-059-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 28946
+          },
+          {
+            "path": "club-059-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 68958
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-059-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 20468
+          },
+          {
+            "path": "club-059-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 55139
+          }
+        ]
+      },
+      "placements": ["story:registration"]
+    },
+    "club-061": {
+      "id": "club-061",
+      "alt": "Balones de baloncesto preparados junto a la pista.",
+      "content": "detalle",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-061-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 43626
+          },
+          {
+            "path": "club-061-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 136128
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-061-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 18936
+          },
+          {
+            "path": "club-061-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 49464
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-061-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 14094
+          },
+          {
+            "path": "club-061-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 43892
+          }
+        ]
+      },
+      "placements": [
+        "story:registration",
+        "featured:home_team_fallbacks",
+        "featured:home_news_fallbacks",
+        "featured:club_school"
+      ]
+    },
+    "club-063": {
+      "id": "club-063",
+      "alt": "Jugador del CBN avanzando con el balón en velocidad.",
+      "content": "acción",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-063-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 53080
+          },
+          {
+            "path": "club-063-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 155919
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-063-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 27598
+          },
+          {
+            "path": "club-063-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 66430
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-063-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 18688
+          },
+          {
+            "path": "club-063-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 52879
+          }
+        ]
+      },
+      "placements": ["story:registration"]
+    },
+    "club-064": {
+      "id": "club-064",
+      "alt": "Integrantes del CBN uniendo las manos en un gesto de equipo.",
+      "content": "comunidad",
+      "focal_position": "50% 50%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-064-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 39562
+          },
+          {
+            "path": "club-064-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 130204
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-064-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 16430
+          },
+          {
+            "path": "club-064-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 46726
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-064-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 13266
+          },
+          {
+            "path": "club-064-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 43171
+          }
+        ]
+      },
+      "placements": [
+        "story:contact",
+        "featured:home_registration",
+        "featured:club_hero"
+      ]
+    },
+    "club-065": {
+      "id": "club-065",
+      "alt": "Jugador del CBN concentrado antes de lanzar un tiro libre.",
+      "content": "concentración",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-065-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 61868
+          },
+          {
+            "path": "club-065-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 183928
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-065-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 33510
+          },
+          {
+            "path": "club-065-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 81126
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-065-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 21343
+          },
+          {
+            "path": "club-065-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 61780
+          }
+        ]
+      },
+      "placements": ["story:registration"]
+    },
+    "club-066": {
+      "id": "club-066",
+      "alt": "Jugador del CBN preparando un lanzamiento junto al banquillo.",
+      "content": "concentración",
+      "focal_position": "50% 38%",
+      "derivatives": {
+        "jpeg": [
+          {
+            "path": "club-066-480.jpg",
+            "width": 480,
+            "height": 725,
+            "bytes": 83098
+          },
+          {
+            "path": "club-066-960.jpg",
+            "width": 960,
+            "height": 1450,
+            "bytes": 241208
+          }
+        ],
+        "webp": [
+          {
+            "path": "club-066-480.webp",
+            "width": 480,
+            "height": 725,
+            "bytes": 55550
+          },
+          {
+            "path": "club-066-960.webp",
+            "width": 960,
+            "height": 1450,
+            "bytes": 133190
+          }
+        ],
+        "avif": [
+          {
+            "path": "club-066-480.avif",
+            "width": 480,
+            "height": 725,
+            "bytes": 29706
+          },
+          {
+            "path": "club-066-960.avif",
+            "width": 960,
+            "height": 1450,
+            "bytes": 85097
+          }
+        ]
+      },
+      "placements": ["story:registration"]
+    }
+  },
+  "stories": {
+    "home": {
+      "eyebrow": "El club en imágenes",
+      "title": "La pista se vive desde dentro",
+      "photos": [
+        "club-007",
+        "club-011",
+        "club-014",
+        "club-021",
+        "club-028",
+        "club-029",
+        "club-035",
+        "club-046",
+        "club-047",
+        "club-058"
+      ]
+    },
+    "club": {
+      "eyebrow": "Comunidad CBN",
+      "title": "Esfuerzo, identidad y equipo",
+      "photos": [
+        "club-001",
+        "club-005",
+        "club-010",
+        "club-013",
+        "club-024",
+        "club-008",
+        "club-037",
+        "club-016",
+        "club-018",
+        "club-004",
+        "club-025",
+        "club-027"
+      ]
+    },
+    "teams": {
+      "eyebrow": "Equipos CBN",
+      "title": "Concentración, compromiso y juego",
+      "photos": [
+        "club-006",
+        "club-008",
+        "club-009",
+        "club-014",
+        "club-015",
+        "club-016",
+        "club-017",
+        "club-018",
+        "club-019",
+        "club-020"
+      ]
+    },
+    "matches": {
+      "eyebrow": "Competición",
+      "title": "Cada posesión cuenta",
+      "photos": [
+        "club-002",
+        "club-011",
+        "club-012",
+        "club-023",
+        "club-030",
+        "club-032",
+        "club-036",
+        "club-041",
+        "club-043",
+        "club-049",
+        "club-051",
+        "club-054",
+        "club-056"
+      ]
+    },
+    "news": {
+      "eyebrow": "Actualidad CBN",
+      "title": "Momentos que cuentan la temporada",
+      "photos": [
+        "club-028",
+        "club-033",
+        "club-034",
+        "club-038",
+        "club-042",
+        "club-045",
+        "club-050",
+        "club-055"
+      ]
+    },
+    "registration": {
+      "eyebrow": "Tu primera jugada",
+      "title": "Aprender, disfrutar y formar parte",
+      "photos": [
+        "club-047",
+        "club-048",
+        "club-059",
+        "club-063",
+        "club-065",
+        "club-066",
+        "club-057",
+        "club-061"
+      ]
+    },
+    "shop": {
+      "eyebrow": "Identidad CBN",
+      "title": "Los detalles que nos acompañan",
+      "photos": ["club-004", "club-022", "club-026", "club-044"]
+    },
+    "contact": {
+      "eyebrow": "Cerca de la pista",
+      "title": "Un club que escucha y acompaña",
+      "photos": ["club-031", "club-052", "club-064"]
+    },
+    "sponsors": {
+      "eyebrow": "Comunidad local",
+      "title": "Impulsamos el baloncesto juntos",
+      "photos": ["club-035", "club-039", "club-040", "club-053"]
+    }
+  },
+  "featured_placements": {
+    "home_hero": ["club-051", "club-030", "club-027"],
+    "home_team_fallbacks": ["club-057", "club-061", "club-022", "club-026"],
+    "home_manifesto": ["club-031"],
+    "home_news_fallbacks": ["club-002", "club-052", "club-041", "club-061"],
+    "home_registration": ["club-064"],
+    "home_shop": ["club-025"],
+    "club_hero": ["club-031", "club-052", "club-064"],
+    "club_facilities": ["club-057", "club-026"],
+    "club_school": ["club-061"],
+    "shop_hero": ["club-025"],
+    "news_fallbacks": [
+      "club-002",
+      "club-007",
+      "club-021",
+      "club-027",
+      "club-029",
+      "club-041",
+      "club-046",
+      "club-058",
+      "club-012",
+      "club-023"
+    ]
+  }
+}

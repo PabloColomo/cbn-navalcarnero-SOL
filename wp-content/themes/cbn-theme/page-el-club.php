@@ -87,19 +87,33 @@ get_header();
     </div>
 
     <figure class="cbn-sol-club-hero__visual" data-sol-reveal data-cbn-parallax>
-      <div class="cbn-sol-club-hero__image">
-        <img
-          src="<?php echo esc_url($cbn_club['intro']['image']['url']); ?>"
-          alt="<?php echo esc_attr($cbn_club['intro']['image']['alt']); ?>"
-          width="<?php echo esc_attr((string) $cbn_club['intro']['image']['width']); ?>"
-          height="<?php echo esc_attr((string) $cbn_club['intro']['image']['height']); ?>"
-          fetchpriority="high"
-          decoding="async"
-        >
+      <div class="cbn-sol-club-hero__image <?php echo empty($cbn_club['intro']['image']['photo_ids']) ? '' : 'cbn-sol-photo-collage'; ?>">
+        <?php if (!empty($cbn_club['intro']['image']['photo_ids'])) : ?>
+          <?php foreach ($cbn_club['intro']['image']['photo_ids'] as $cbn_club_photo_index => $cbn_club_photo_id) : ?>
+            <?php
+            cbn_render_club_photo(
+                $cbn_club_photo_id,
+                [
+                    'sizes' => '(max-width: 760px) 32vw, 18vw',
+                    'loading' => 'eager',
+                    'fetchpriority' => 0 === $cbn_club_photo_index ? 'high' : '',
+                ]
+            );
+            ?>
+          <?php endforeach; ?>
+        <?php else : ?>
+          <img
+            src="<?php echo esc_url($cbn_club['intro']['image']['url']); ?>"
+            alt="<?php echo esc_attr($cbn_club['intro']['image']['alt']); ?>"
+            width="<?php echo esc_attr((string) $cbn_club['intro']['image']['width']); ?>"
+            height="<?php echo esc_attr((string) $cbn_club['intro']['image']['height']); ?>"
+            fetchpriority="high"
+            decoding="async"
+          >
+        <?php endif; ?>
       </div>
-      <figcaption>
-        <small>Club Baloncesto Navalcarnero</small>
-        <strong>Cantera. Equipo. Comunidad.</strong>
+      <figcaption aria-hidden="true">
+        <strong class="cbn-photo-credit">&copy; CBN</strong>
       </figcaption>
       <img class="cbn-sol-club-hero__crest" src="<?php echo esc_url($cbn_club_logo_url); ?>" alt="" width="400" height="400">
       <span class="cbn-sol-club-hero__stamp" aria-hidden="true">Desde<br>la base</span>
@@ -176,15 +190,12 @@ get_header();
       <?php foreach ($cbn_club['facilities'] as $cbn_facility_index => $cbn_facility) : ?>
         <article class="cbn-sol-club-facility <?php echo 0 === $cbn_facility_index ? 'cbn-sol-club-facility--featured' : ''; ?>" data-sol-reveal data-cbn-tilt>
           <div class="cbn-sol-club-facility__media">
-            <img
-              src="<?php echo esc_url($cbn_facility['image']); ?>"
-              alt=""
-              width="1718"
-              height="916"
-              loading="lazy"
-              decoding="async"
-            >
-            <span aria-hidden="true"><?php echo esc_html(str_pad((string) ($cbn_facility_index + 1), 2, '0', STR_PAD_LEFT)); ?></span>
+            <?php if (!empty($cbn_facility['photo_id'])) : ?>
+              <?php cbn_render_club_photo($cbn_facility['photo_id'], ['decorative' => true, 'sizes' => '(max-width: 760px) 100vw, 48vw']); ?>
+            <?php else : ?>
+              <img src="<?php echo esc_url($cbn_facility['image']); ?>" alt="" width="960" height="640" loading="lazy" decoding="async">
+            <?php endif; ?>
+            <span class="cbn-photo-credit" aria-hidden="true">&copy; CBN</span>
           </div>
           <div class="cbn-sol-club-facility__copy">
             <small>Nuestra pista</small>
@@ -198,14 +209,18 @@ get_header();
 
   <section class="cbn-sol-club-school" aria-labelledby="cbn-sol-club-school-title">
     <div class="cbn-sol-club-school__media" data-sol-reveal data-cbn-parallax>
-      <img
-        src="<?php echo esc_url($cbn_club['school']['image']['url']); ?>"
-        alt="<?php echo esc_attr($cbn_club['school']['image']['alt']); ?>"
-        width="<?php echo esc_attr((string) $cbn_club['school']['image']['width']); ?>"
-        height="<?php echo esc_attr((string) $cbn_club['school']['image']['height']); ?>"
-        loading="lazy"
-        decoding="async"
-      >
+      <?php if (!empty($cbn_club['school']['image']['photo_id'])) : ?>
+        <?php cbn_render_club_photo($cbn_club['school']['image']['photo_id'], ['sizes' => '(max-width: 760px) 100vw, 52vw']); ?>
+      <?php else : ?>
+        <img
+          src="<?php echo esc_url($cbn_club['school']['image']['url']); ?>"
+          alt="<?php echo esc_attr($cbn_club['school']['image']['alt']); ?>"
+          width="<?php echo esc_attr((string) $cbn_club['school']['image']['width']); ?>"
+          height="<?php echo esc_attr((string) $cbn_club['school']['image']['height']); ?>"
+          loading="lazy"
+          decoding="async"
+        >
+      <?php endif; ?>
       <span class="cbn-sol-club-school__word" aria-hidden="true">CRECER</span>
       <span class="cbn-sol-club-school__ball" aria-hidden="true"></span>
     </div>
@@ -227,6 +242,8 @@ get_header();
       </a>
     </div>
   </section>
+
+  <?php cbn_render_club_photo_story('club'); ?>
 
   <section class="cbn-sol-club-cta" aria-labelledby="cbn-sol-club-cta-title">
     <div class="cbn-sol-club-cta__mark" aria-hidden="true">

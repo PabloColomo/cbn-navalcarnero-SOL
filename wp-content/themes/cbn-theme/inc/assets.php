@@ -66,6 +66,7 @@ function cbn_enqueue_assets(): void
 function cbn_enqueue_experience_assets(bool $has_main_bundle): void
 {
     $style_path = CBN_THEME_DIR . '/assets/src/css/sol.css';
+    $photo_style_path = CBN_THEME_DIR . '/assets/src/css/sol-photography.css';
     $script_path = CBN_THEME_DIR . '/assets/src/js/sol.js';
     $style_version = file_exists($style_path) ? (string) filemtime($style_path) : CBN_THEME_VERSION;
     $script_version = file_exists($script_path) ? (string) filemtime($script_path) : CBN_THEME_VERSION;
@@ -76,6 +77,15 @@ function cbn_enqueue_experience_assets(bool $has_main_bundle): void
         [],
         $style_version
     );
+
+    if (file_exists($photo_style_path)) {
+        wp_enqueue_style(
+            'cbn-sol-photography',
+            CBN_THEME_URI . '/assets/src/css/sol-photography.css',
+            ['cbn-sol-experience'],
+            (string) filemtime($photo_style_path)
+        );
+    }
 
     wp_enqueue_script(
         'cbn-sol-experience',
@@ -90,7 +100,6 @@ function cbn_enqueue_experience_assets(bool $has_main_bundle): void
         'window.cbnSolConfig = ' . wp_json_encode(
             [
                 'mainBundle' => $has_main_bundle,
-                'logoUrl' => get_theme_file_uri('assets/src/images/cbn-logo.png'),
             ]
         ) . ';',
         'before'
