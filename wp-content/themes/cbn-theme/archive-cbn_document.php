@@ -43,7 +43,7 @@ get_header();
         <?php echo 1 === $cbn_document_count ? esc_html__('documento publicado', 'cbn') : esc_html__('documentos publicados', 'cbn'); ?>
       </p>
       <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/documentacion/')); ?>" data-cbn-swish>
-        <?php esc_html_e('Ir a documentacion', 'cbn'); ?> <span aria-hidden="true">&#8599;</span>
+        <?php esc_html_e('Ir a documentación', 'cbn'); ?> <span aria-hidden="true">&#8599;</span>
       </a>
     </div>
 
@@ -113,7 +113,7 @@ get_header();
         <span aria-hidden="true">00</span>
         <div>
           <p class="cbn-sol-section-index"><?php esc_html_e('Archivo pendiente', 'cbn'); ?></p>
-          <h2><?php esc_html_e('Todavia no hay documentos publicos', 'cbn'); ?></h2>
+          <h2><?php esc_html_e('Todavía no hay documentos públicos', 'cbn'); ?></h2>
           <p><?php esc_html_e('El club publicara aqui los archivos cuando esten preparados para consulta general.', 'cbn'); ?></p>
           <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/contacto/')); ?>"><?php esc_html_e('Contactar', 'cbn'); ?> <span aria-hidden="true">&#8599;</span></a>
         </div>

@@ -120,14 +120,6 @@ get_header();
 <main id="primary" class="cbn-sol cbn-sol-teams-page cbn-sol-team-archive" data-cbn-sol data-cbn-teams-page>
   <div class="cbn-sol__grain" aria-hidden="true"></div>
 
-  <div class="cbn-sol-route cbn-sol-teams-route" aria-hidden="true" data-cbn-route-wrap>
-    <svg viewBox="0 0 100 500" preserveAspectRatio="none" focusable="false">
-      <path class="cbn-sol-route__ghost" d="M15 0 C85 55 84 112 42 151 S12 245 68 279 S92 388 35 430 S20 476 50 500"></path>
-      <path class="cbn-sol-route__active" data-cbn-route d="M15 0 C85 55 84 112 42 151 S12 245 68 279 S92 388 35 430 S20 476 50 500"></path>
-    </svg>
-    <span class="cbn-sol-route__ball" data-cbn-route-ball></span>
-  </div>
-
   <section class="cbn-sol-teams-hero" aria-labelledby="cbn-teams-title">
     <div class="cbn-sol-teams-hero__court" aria-hidden="true">
       <svg viewBox="0 0 900 620" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -151,7 +143,6 @@ get_header();
       </p>
       <a class="cbn-sol-button cbn-sol-button--shot" href="#mapa-equipos" data-cbn-swish>
         <span>Ver el mapa de equipos</span>
-        <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
       </a>
     </div>
 
@@ -161,7 +152,6 @@ get_header();
         <span>Temporada en juego</span>
       </div>
       <div class="cbn-sol-teams-hero__crest">
-        <span class="cbn-sol-teams-hero__orbit" aria-hidden="true"></span>
         <img src="<?php echo esc_url($cbn_logo_url); ?>" alt="" width="400" height="400">
       </div>
       <dl class="cbn-sol-teams-hero__stats">
@@ -223,7 +213,6 @@ get_header();
           $cbn_team = $cbn_card['post'];
           $cbn_meta = $cbn_card['meta'];
           $cbn_permalink = get_permalink($cbn_team);
-          $cbn_card_number = str_pad((string) ($cbn_index + 1), 2, '0', STR_PAD_LEFT);
           ?>
           <article
             class="cbn-sol-teams-card"
@@ -251,14 +240,13 @@ get_header();
                     <img src="<?php echo esc_url($cbn_logo_url); ?>" alt="" width="400" height="400" loading="lazy">
                   </span>
                 <?php endif; ?>
-                <span class="cbn-sol-teams-card__number" aria-hidden="true"><?php echo esc_html($cbn_card_number); ?></span>
-                <span class="cbn-sol-teams-card__category"><?php echo esc_html($cbn_card['category']); ?></span>
+                <span class="cbn-sol-teams-card__credit cbn-photo-credit" aria-hidden="true">&copy; CBN</span>
               </span>
 
               <span class="cbn-sol-teams-card__body">
                 <span class="cbn-sol-teams-card__topline">
                   <small>Equipo CBN</small>
-                  <i aria-hidden="true">↗</i>
+                  <i class="cbn-sol-arrow-up-right" aria-hidden="true"></i>
                 </span>
                 <strong><?php echo esc_html(get_the_title($cbn_team)); ?></strong>
                 <span class="cbn-sol-teams-card__facts">
@@ -280,7 +268,6 @@ get_header();
       </div>
     <?php else : ?>
       <article class="cbn-sol-teams-empty" role="status" data-sol-reveal>
-        <span class="cbn-sol-teams-empty__ball" aria-hidden="true"></span>
         <div>
           <p class="cbn-sol-section-index">El vestuario se está preparando</p>
           <h2>Equipos en actualización.</h2>
@@ -290,6 +277,8 @@ get_header();
       </article>
     <?php endif; ?>
   </section>
+
+  <?php cbn_render_club_photo_story('teams'); ?>
 
   <section class="cbn-sol-teams-join" aria-labelledby="cbn-teams-join-title" data-sol-reveal>
     <div>
@@ -301,9 +290,8 @@ get_header();
       <div>
         <a class="cbn-sol-button cbn-sol-button--light cbn-sol-button--shot" href="<?php echo esc_url(home_url('/inscripcion/')); ?>" data-cbn-swish>
           <span>Quiero jugar</span>
-          <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
         </a>
-        <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/contacto/')); ?>" data-cbn-swish>Resolver una duda <span aria-hidden="true">↗</span></a>
+        <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/contacto/')); ?>" data-cbn-swish>Resolver una duda <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
       </div>
     </div>
   </section>

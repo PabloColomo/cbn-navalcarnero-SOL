@@ -24,7 +24,7 @@
     },
     {
       "key": "field_cbn_registration_intro_title",
-      "label": "Titulo",
+      "label": "Título",
       "name": "cbn_registration_intro_title",
       "aria-label": "",
       "type": "text",

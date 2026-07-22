@@ -23,6 +23,15 @@ docker compose version
 Si esos comandos no existen, primero hay que instalar Docker Desktop y reiniciar
 la terminal.
 
+En Windows, el camino recomendado para una copia nueva es:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\bootstrap-local.ps1
+```
+
+Ese comando tambien compila el frontend, instala WordPress si hace falta,
+activa el tema y crea/configura las paginas esenciales.
+
 ## Servicios
 
 El archivo `compose.yaml` define:
@@ -93,8 +102,9 @@ docker compose run --rm wpcli wp --info
 
 ## Instalacion inicial de WordPress
 
-Cuando WordPress arranque por primera vez, completar el instalador en el
-navegador.
+`scripts/bootstrap-local.ps1` completa la instalacion local automaticamente y
+genera una contrasena que solo se muestra en la terminal. Si se usa el flujo
+manual, completar el instalador en el navegador.
 
 Recomendaciones locales:
 
@@ -107,6 +117,9 @@ Recomendaciones locales:
 
 ACF no se versiona como plugin. Se instala localmente para validar los grupos
 JSON del tema.
+
+El panel CBN incluye campos nativos de respaldo, por lo que ACF no es necesario
+para ver la web ni para la gestion basica del contenido.
 
 Instalar ACF desde WP-CLI:
 
@@ -129,12 +142,14 @@ Validar despues:
 Compilar assets:
 
 ```bash
-npm install
+npm ci
 npm run build
 ```
 
 El directorio `assets/dist` no se versiona. Se genera en local y en CI cuando
-corresponda.
+corresponda. WordPress solo usa su manifest cuando es mas reciente que
+`main.css` y `main.js`; si un `git pull` deja un build ignorado y antiguo, usa
+el CSS fuente con version basada en `filemtime` hasta el siguiente build.
 
 ## Reset local
 
@@ -158,9 +173,9 @@ quiera conservar.
 
 - `docker compose up -d` arranca sin errores.
 - WordPress carga en `http://localhost:8080`.
-- El instalador de WordPress se completa.
+- WordPress queda instalado mediante bootstrap o instalador manual.
 - El tema `cbn-theme` se activa.
-- ACF se instala y lee los JSON de `acf-json`.
+- El panel CBN funciona con campos nativos; ACF puede instalarse para validar sus JSON.
 - Los CPTs de `cbn-core` aparecen en el admin.
 - Se puede crear un equipo, partido y sponsor de prueba.
 - `npm run verify` pasa.

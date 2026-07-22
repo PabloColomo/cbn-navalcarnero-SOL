@@ -45,7 +45,7 @@ function cbn_get_contact_content(): array
                 ],
                 [
                     'label' => 'YouTube',
-                    'url' => $defaults['social']['items'][3]['url'],
+                    'url' => cbn_get_contact_acf_field('cbn_contact_social_youtube_url', $defaults['social']['items'][3]['url']),
                 ],
             ],
         ],
@@ -114,12 +114,17 @@ function cbn_get_contact_defaults(): array
 
 function cbn_get_contact_acf_field(string $field_name, mixed $default): mixed
 {
-    if (!function_exists('get_field')) {
-        return $default;
+    static $contact_page_id = null;
+
+    if (null === $contact_page_id) {
+        $contact_page = get_page_by_path('contacto', OBJECT, 'page');
+        $contact_page_id = $contact_page instanceof WP_Post ? $contact_page->ID : 0;
     }
 
-    $source_id = get_queried_object_id();
-    $value = get_field($field_name, $source_id ?: false);
+    $source_id = $contact_page_id > 0 ? $contact_page_id : get_queried_object_id();
+    $value = function_exists('get_field')
+        ? get_field($field_name, $source_id ?: false)
+        : ($source_id ? get_post_meta($source_id, $field_name, true) : null);
 
     if ($value === null || $value === false || $value === '') {
         return $default;

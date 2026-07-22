@@ -69,6 +69,18 @@ function cbn_get_home_content(): array
 
 function cbn_get_home_defaults(): array
 {
+    $hero_photo_ids = cbn_get_club_photo_features('home_hero', ['club-051', 'club-030', 'club-027']);
+    $team_photo_ids = cbn_get_club_photo_features(
+        'home_team_fallbacks',
+        ['club-057', 'club-061', 'club-022', 'club-026']
+    );
+    $news_photo_ids = cbn_get_club_photo_features(
+        'home_news_fallbacks',
+        ['club-002', 'club-052', 'club-041', 'club-061']
+    );
+    $registration_photo_id = cbn_get_club_photo_feature('home_registration') ?: 'club-064';
+    $shop_photo_id = cbn_get_club_photo_feature('home_shop') ?: 'club-025';
+
     return [
         'hero' => [
             'title_lines' => ['La cantera', 'que mueve', 'Navalcarnero'],
@@ -96,10 +108,11 @@ function cbn_get_home_defaults(): array
                 ],
             ],
             'image' => [
-                'url' => get_theme_file_uri('assets/src/images/home-hero-training.png'),
-                'alt' => 'Entrenamiento genérico de baloncesto con jugadores no identificables.',
-                'width' => 1718,
-                'height' => 916,
+                'url' => cbn_get_club_photo_url($hero_photo_ids[0]),
+                'alt' => 'Jugadores del Club Baloncesto Navalcarnero compitiendo en la pista.',
+                'width' => 960,
+                'height' => 1450,
+                'photo_ids' => $hero_photo_ids,
             ],
         ],
         'match' => [
@@ -147,25 +160,29 @@ function cbn_get_home_defaults(): array
                 'label' => 'Escuela CBN',
                 'title' => 'Babybasket mixto',
                 'url' => home_url('/equipos/'),
-                'image' => get_theme_file_uri('assets/src/images/home-team-community.png'),
+                'image' => cbn_get_club_photo_url($team_photo_ids[0]),
+                'photo_id' => $team_photo_ids[0],
             ],
             [
                 'label' => 'Cantera masculina',
                 'title' => 'De benjamín a Sub-22',
                 'url' => home_url('/equipos/'),
-                'image' => get_theme_file_uri('assets/src/images/home-hero-training.png'),
+                'image' => cbn_get_club_photo_url($team_photo_ids[1]),
+                'photo_id' => $team_photo_ids[1],
             ],
             [
                 'label' => 'Cantera femenina',
                 'title' => 'De alevín a Sub-22',
                 'url' => home_url('/equipos/'),
-                'image' => get_theme_file_uri('assets/src/images/home-team-community.png'),
+                'image' => cbn_get_club_photo_url($team_photo_ids[2]),
+                'photo_id' => $team_photo_ids[2],
             ],
             [
                 'label' => 'Senior',
                 'title' => 'Competición autonómica',
                 'url' => home_url('/equipos/'),
-                'image' => get_theme_file_uri('assets/src/images/home-hero-basketball.jpg'),
+                'image' => cbn_get_club_photo_url($team_photo_ids[3]),
+                'photo_id' => $team_photo_ids[3],
             ],
         ],
         'news_heading' => 'Desde la banda',
@@ -176,7 +193,8 @@ function cbn_get_home_defaults(): array
                 'excerpt' => 'Consulta los próximos partidos y las novedades de cada equipo.',
                 'date' => 'Actualidad CBN',
                 'url' => home_url('/noticias/'),
-                'image' => get_theme_file_uri('assets/src/images/home-team-community.png'),
+                'image' => cbn_get_club_photo_url($news_photo_ids[0]),
+                'photo_id' => $news_photo_ids[0],
             ],
             [
                 'category' => 'Inscripciones',
@@ -184,7 +202,8 @@ function cbn_get_home_defaults(): array
                 'excerpt' => 'Información para solicitar plaza y entrar en la familia CBN.',
                 'date' => 'Temporada 2026/2027',
                 'url' => home_url('/noticias/'),
-                'image' => get_theme_file_uri('assets/src/images/home-hero-training.png'),
+                'image' => cbn_get_club_photo_url($news_photo_ids[1]),
+                'photo_id' => $news_photo_ids[1],
             ],
             [
                 'category' => 'Cantera',
@@ -192,7 +211,8 @@ function cbn_get_home_defaults(): array
                 'excerpt' => 'Deporte de base, aprendizaje y valores para crecer en equipo.',
                 'date' => 'Comunidad CBN',
                 'url' => home_url('/noticias/'),
-                'image' => get_theme_file_uri('assets/src/images/home-hero-basketball.jpg'),
+                'image' => cbn_get_club_photo_url($news_photo_ids[2]),
+                'photo_id' => $news_photo_ids[2],
             ],
             [
                 'category' => 'Club',
@@ -200,7 +220,8 @@ function cbn_get_home_defaults(): array
                 'excerpt' => 'El club sigue construyendo un proyecto de formación cercano.',
                 'date' => 'Actualidad CBN',
                 'url' => home_url('/noticias/'),
-                'image' => get_theme_file_uri('assets/src/images/home-team-community.png'),
+                'image' => cbn_get_club_photo_url($news_photo_ids[3]),
+                'photo_id' => $news_photo_ids[3],
             ],
         ],
         'shop' => [
@@ -209,10 +230,11 @@ function cbn_get_home_defaults(): array
             'label' => 'Explorar tienda',
             'url' => home_url('/tienda/'),
             'image' => [
-                'url' => get_theme_file_uri('assets/src/images/home-shop-merch.png'),
-                'alt' => 'Imagen conceptual de ropa deportiva roja y negra; no representa el catálogo definitivo.',
-                'width' => 1672,
-                'height' => 941,
+                'url' => cbn_get_club_photo_url($shop_photo_id),
+                'alt' => 'Detalle de la camiseta del CBN y un balón durante un partido.',
+                'width' => 960,
+                'height' => 1450,
+                'photo_id' => $shop_photo_id,
             ],
         ],
         'registration' => [
@@ -221,10 +243,11 @@ function cbn_get_home_defaults(): array
             'label' => 'Solicitar plaza',
             'url' => home_url('/inscripcion/'),
             'image' => [
-                'url' => get_theme_file_uri('assets/src/images/home-hero-basketball.jpg'),
-                'alt' => 'Jugador genérico de baloncesto con trazo rojo.',
-                'width' => 1717,
-                'height' => 916,
+                'url' => cbn_get_club_photo_url($registration_photo_id),
+                'alt' => 'Integrantes del CBN uniendo las manos en un gesto de equipo.',
+                'width' => 960,
+                'height' => 1450,
+                'photo_id' => $registration_photo_id,
             ],
         ],
         'sponsors_heading' => 'Comunidad que impulsa',
@@ -239,13 +262,11 @@ function cbn_get_home_defaults(): array
 
 function cbn_get_home_acf_field(string $field_name, mixed $default): mixed
 {
-    if (!function_exists('get_field')) {
-        return $default;
-    }
-
     $front_page_id = (int) get_option('page_on_front');
     $source_id = $front_page_id > 0 ? $front_page_id : get_queried_object_id();
-    $value = get_field($field_name, $source_id ?: false);
+    $value = function_exists('get_field')
+        ? get_field($field_name, $source_id ?: false)
+        : ($source_id ? get_post_meta($source_id, $field_name, true) : null);
 
     if ($value === null || $value === false || $value === '') {
         return $default;
@@ -260,11 +281,26 @@ function cbn_get_home_hero_image(array $default): array
 
     if (is_array($image) && !empty($image['url'])) {
         return [
+            'attachment_id' => isset($image['ID']) ? (int) $image['ID'] : 0,
             'url' => $image['url'],
             'alt' => $image['alt'] ?? $default['alt'],
             'width' => isset($image['width']) ? (int) $image['width'] : $default['width'],
             'height' => isset($image['height']) ? (int) $image['height'] : $default['height'],
         ];
+    }
+
+    if (is_numeric($image) && (int) $image > 0) {
+        $source = wp_get_attachment_image_src((int) $image, 'full');
+
+        if ($source) {
+            return [
+                'attachment_id' => (int) $image,
+                'url' => $source[0],
+                'alt' => (string) get_post_meta((int) $image, '_wp_attachment_image_alt', true) ?: $default['alt'],
+                'width' => (int) $source[1],
+                'height' => (int) $source[2],
+            ];
+        }
     }
 
     return $default;
@@ -316,13 +352,17 @@ function cbn_get_home_team_cards(array $fallback): array
         static function (WP_Post $team, int $index) use ($fallback): array {
             $terms = get_the_terms($team, 'cbn_sport_category');
             $label = is_array($terms) && isset($terms[0]) ? $terms[0]->name : 'Equipo';
-            $fallback_image = $fallback[$index]['image'] ?? get_theme_file_uri('assets/src/images/home-team-community.png');
+            $fallback_image = $fallback[$index]['image'] ?? cbn_get_club_photo_url('club-057');
+            $featured_image_id = get_post_thumbnail_id($team);
+            $featured_image = $featured_image_id ? get_the_post_thumbnail_url($team, 'large') : '';
 
             return [
                 'label' => $label,
                 'title' => get_the_title($team),
                 'url' => get_permalink($team),
-                'image' => get_the_post_thumbnail_url($team, 'large') ?: $fallback_image,
+                'image' => $featured_image ?: $fallback_image,
+                'photo_id' => $featured_image ? null : ($fallback[$index]['photo_id'] ?? 'club-057'),
+                'attachment_id' => $featured_image_id ?: 0,
             ];
         },
         $teams,
@@ -344,6 +384,8 @@ function cbn_get_home_news_items(array $fallback): array
         static function (WP_Post $post, int $index) use ($fallback): array {
             $categories = get_the_category($post->ID);
             $fallback_item = $fallback[$index] ?? ($fallback[0] ?? []);
+            $featured_image_id = get_post_thumbnail_id($post);
+            $featured_image = $featured_image_id ? get_the_post_thumbnail_url($post, 'large') : '';
 
             return [
                 'category' => isset($categories[0]) ? $categories[0]->name : ($fallback_item['category'] ?? 'Club'),
@@ -351,7 +393,9 @@ function cbn_get_home_news_items(array $fallback): array
                 'excerpt' => get_the_excerpt($post) ?: ($fallback_item['excerpt'] ?? ''),
                 'date' => get_the_date('j F Y', $post),
                 'url' => get_permalink($post),
-                'image' => get_the_post_thumbnail_url($post, 'large') ?: ($fallback_item['image'] ?? get_theme_file_uri('assets/src/images/home-team-community.png')),
+                'image' => $featured_image ?: ($fallback_item['image'] ?? cbn_get_club_photo_url('club-002')),
+                'photo_id' => $featured_image ? null : ($fallback_item['photo_id'] ?? 'club-002'),
+                'attachment_id' => $featured_image_id ?: 0,
             ];
         },
         $posts,

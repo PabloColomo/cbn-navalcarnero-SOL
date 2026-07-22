@@ -1,0 +1,105 @@
+body.login {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  background:
+    linear-gradient(115deg, rgba(201, 0, 24, 0.94) 0 38%, transparent 38%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 54px,
+      rgba(17, 17, 19, 0.045) 54px 55px
+    ),
+    #f3efe8;
+}
+
+#login {
+  width: min(420px, calc(100vw - 36px));
+  padding: 30px 0;
+}
+
+.login h1 a {
+  width: 110px;
+  height: 110px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background-image: var(--cbn-login-logo);
+  background-size: contain;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.25));
+}
+
+.cbn-login-intro {
+  margin: 0 0 12px;
+  padding: 14px 18px;
+  border-left: 5px solid #c90018;
+  background: #111113;
+  color: #fff;
+  font-weight: 600;
+}
+
+.login form {
+  margin-top: 0;
+  padding: 30px;
+  border: 0;
+  border-top: 8px solid #c90018;
+  box-shadow: 0 25px 60px rgba(20, 10, 10, 0.22);
+}
+
+.login label {
+  color: #111113;
+  font-weight: 700;
+}
+
+.login form .input,
+.login input[type="text"] {
+  min-height: 48px;
+  border: 1px solid #bcb5aa;
+  border-radius: 0;
+  background: #faf8f4;
+}
+
+.login .button-primary {
+  min-height: 42px;
+  border-color: #c90018;
+  border-radius: 0;
+  background: #c90018;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.login #nav a,
+.login #backtoblog a,
+.login .privacy-policy-page-link a {
+  color: #111113;
+  font-weight: 700;
+}
+
+.login input:focus-visible,
+.login button:focus-visible,
+.login a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #c90018;
+}
+
+@media (max-width: 700px) {
+  body.login {
+    background: linear-gradient(180deg, #c90018 0 25%, #f3efe8 25% 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login *,
+  .login *::before,
+  .login *::after {
+    transition: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .cbn-login-intro,
+  .login form {
+    border: 2px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+}

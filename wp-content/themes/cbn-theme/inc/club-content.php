@@ -61,6 +61,10 @@ function cbn_get_club_content(): array
 
 function cbn_get_club_defaults(): array
 {
+    $hero_photo_ids = cbn_get_club_photo_features('club_hero', ['club-031', 'club-052', 'club-064']);
+    $facility_photo_ids = cbn_get_club_photo_features('club_facilities', ['club-057', 'club-026']);
+    $school_photo_id = cbn_get_club_photo_feature('club_school') ?: 'club-061';
+
     return [
         'intro' => [
             'label' => 'El club',
@@ -76,10 +80,11 @@ function cbn_get_club_defaults(): array
                 'url' => home_url('/contacto/'),
             ],
             'image' => [
-                'url' => get_theme_file_uri('assets/src/images/home-team-community.png'),
-                'alt' => 'Grupo genérico de jugadoras y jugadores de baloncesto no identificables.',
-                'width' => 1672,
-                'height' => 941,
+                'url' => cbn_get_club_photo_url($hero_photo_ids[0]),
+                'alt' => 'Jugadores y cuerpo técnico del CBN reunidos junto al banquillo.',
+                'width' => 960,
+                'height' => 1450,
+                'photo_ids' => $hero_photo_ids,
             ],
         ],
         'values_heading' => 'Nuestros valores',
@@ -110,12 +115,14 @@ function cbn_get_club_defaults(): array
             [
                 'title' => 'Pabellón Municipal La Estación',
                 'text' => 'Sede principal de entrenamientos y partidos del club.',
-                'image' => get_theme_file_uri('assets/src/images/home-hero-training.png'),
+                'image' => cbn_get_club_photo_url($facility_photo_ids[0]),
+                'photo_id' => $facility_photo_ids[0],
             ],
             [
                 'title' => 'Pabellones del Colegio María Martín',
                 'text' => 'Instalaciones complementarias para escuela y categorías inferiores.',
-                'image' => get_theme_file_uri('assets/src/images/home-hero-basketball.jpg'),
+                'image' => cbn_get_club_photo_url($facility_photo_ids[1]),
+                'photo_id' => $facility_photo_ids[1],
             ],
         ],
         'school' => [
@@ -130,10 +137,11 @@ function cbn_get_club_defaults(): array
             'cta_label' => 'Ver equipos',
             'cta_url' => home_url('/equipos/'),
             'image' => [
-                'url' => get_theme_file_uri('assets/src/images/home-hero-basketball.jpg'),
-                'alt' => 'Jugador genérico de baloncesto entrenando, sin identificar.',
-                'width' => 1717,
-                'height' => 916,
+                'url' => cbn_get_club_photo_url($school_photo_id),
+                'alt' => 'Balones de baloncesto preparados junto a la pista.',
+                'width' => 960,
+                'height' => 1450,
+                'photo_id' => $school_photo_id,
             ],
         ],
         'stats_heading' => 'El club en datos',
@@ -156,12 +164,10 @@ function cbn_get_club_defaults(): array
 
 function cbn_get_club_acf_field(string $field_name, mixed $default): mixed
 {
-    if (!function_exists('get_field')) {
-        return $default;
-    }
-
     $source_id = get_queried_object_id();
-    $value = get_field($field_name, $source_id ?: false);
+    $value = function_exists('get_field')
+        ? get_field($field_name, $source_id ?: false)
+        : ($source_id ? get_post_meta($source_id, $field_name, true) : null);
 
     if ($value === null || $value === false || $value === '') {
         return $default;

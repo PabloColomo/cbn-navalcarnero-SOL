@@ -41,7 +41,7 @@ get_header();
       <article <?php post_class('cbn-sol-info-article'); ?>>
         <header class="cbn-sol-info-page__hero">
           <div data-sol-reveal>
-            <p class="cbn-sol-section-index"><?php esc_html_e('Pagina informativa', 'cbn'); ?> &middot; CBN</p>
+            <p class="cbn-sol-section-index"><?php esc_html_e('Página informativa', 'cbn'); ?> &middot; CBN</p>
             <h1><?php the_title(); ?></h1>
           </div>
           <span class="cbn-sol-info-page__index" data-sol-reveal aria-hidden="true">CBN</span>
@@ -69,8 +69,8 @@ get_header();
           <?php else : ?>
             <div class="cbn-sol-info-inline-empty" data-sol-reveal>
               <p class="cbn-sol-section-index"><?php esc_html_e('Contenido pendiente', 'cbn'); ?></p>
-              <h2><?php esc_html_e('Informacion pendiente de publicacion', 'cbn'); ?></h2>
-              <p><?php esc_html_e('Esta pagina todavia no contiene informacion publicada por el club.', 'cbn'); ?></p>
+              <h2><?php esc_html_e('Información pendiente de publicación', 'cbn'); ?></h2>
+              <p><?php esc_html_e('Esta página todavía no contiene información publicada por el club.', 'cbn'); ?></p>
               <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/contacto/')); ?>">
                 <?php esc_html_e('Contactar', 'cbn'); ?> <span aria-hidden="true">&#8599;</span>
               </a>

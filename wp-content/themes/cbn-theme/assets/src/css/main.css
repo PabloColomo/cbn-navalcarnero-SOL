@@ -37,7 +37,6 @@ body {
   line-height: 1.55;
 }
 
-body,
 button,
 input,
 textarea,
@@ -457,7 +456,7 @@ button {
 .cbn-ticker__game > div > span {
   margin-top: 3px;
   color: rgba(255, 255, 255, 0.86);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 850;
   line-height: 1.15;
   white-space: normal;
@@ -631,7 +630,7 @@ button {
   border-radius: var(--cbn-radius);
   background:
     linear-gradient(180deg, rgba(15, 15, 16, 0.08), rgba(15, 15, 16, 0.86)),
-    url("../images/home-hero-basketball.jpg") center / cover;
+    url("../images/club/club-002-960.webp") center / cover;
   color: var(--cbn-color-white);
   overflow: hidden;
   text-decoration: none;
@@ -1521,7 +1520,7 @@ button {
   border-radius: 50%;
   background: var(--cbn-color-white);
   color: var(--cbn-color-black);
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -2206,6 +2205,23 @@ button {
     overflow: hidden;
     clip-path: inset(50%);
     white-space: nowrap;
+  }
+}
+
+@media (forced-colors: active) {
+  .cbn-nav-toggle {
+    border: 2px solid ButtonText;
+  }
+
+  .cbn-nav-toggle__bars span {
+    forced-color-adjust: none;
+    background: ButtonText;
+  }
+}
+
+@media (forced-colors: active) and (max-width: 760px) {
+  .cbn-nav-toggle__label {
+    display: inline;
   }
 }
 

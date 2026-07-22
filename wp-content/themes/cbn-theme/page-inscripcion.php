@@ -37,21 +37,6 @@ get_header();
 <main id="primary" class="cbn-sol cbn-sol-registration-page" data-cbn-sol data-cbn-registration-page>
   <div class="cbn-sol__grain" aria-hidden="true"></div>
 
-  <div class="cbn-sol-route cbn-sol-registration-page__route" aria-hidden="true" data-cbn-route-wrap>
-    <svg viewBox="0 0 100 1200" preserveAspectRatio="none" focusable="false">
-      <path
-        class="cbn-sol-route__ghost"
-        d="M14 0 C14 88 86 104 86 194 S20 294 20 386 S82 490 82 582 S18 688 18 780 S82 886 82 980 S52 1104 52 1200"
-      ></path>
-      <path
-        class="cbn-sol-route__active"
-        data-cbn-route
-        d="M14 0 C14 88 86 104 86 194 S20 294 20 386 S82 490 82 582 S18 688 18 780 S82 886 82 980 S52 1104 52 1200"
-      ></path>
-    </svg>
-    <span class="cbn-sol-route__ball" data-cbn-route-ball></span>
-  </div>
-
   <section class="cbn-sol-registration-hero" aria-labelledby="cbn-registration-title">
     <div class="cbn-sol-registration-hero__court" aria-hidden="true">
       <svg viewBox="0 0 900 780" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -77,7 +62,6 @@ get_header();
       <div class="cbn-sol-registration-hero__actions">
         <a class="cbn-sol-button cbn-sol-button--shot" href="#solicitud-inscripcion" data-cbn-swish>
           <span>Enviar solicitud</span>
-          <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
         </a>
         <a class="cbn-sol-text-link" href="#como-funciona" data-cbn-swish>
           Ver el proceso <span aria-hidden="true">↓</span>
@@ -95,7 +79,7 @@ get_header();
       </button>
     </div>
 
-    <aside class="cbn-sol-registration-board" aria-labelledby="cbn-registration-board-title" data-sol-reveal data-cbn-parallax>
+    <aside class="cbn-sol-registration-board" aria-labelledby="cbn-registration-board-title" data-sol-reveal>
       <header class="cbn-sol-registration-board__header">
         <span><i aria-hidden="true"></i> Solicitud CBN</span>
         <span><?php echo esc_html($cbn_registration['intro']['season']); ?></span>
@@ -153,20 +137,19 @@ get_header();
 
     <ol class="cbn-sol-registration-process__list" role="list">
       <?php foreach ($cbn_registration['steps'] as $cbn_step_index => $cbn_step) : ?>
-        <li data-sol-reveal data-cbn-tilt>
+        <li data-sol-reveal>
           <header>
             <span><?php echo esc_html(str_pad((string) ($cbn_step_index + 1), 2, '0', STR_PAD_LEFT)); ?></span>
             <small><?php echo esc_html($cbn_step_index + 1 === count($cbn_registration['steps']) ? 'Fin de la jugada' : 'Siguiente pase'); ?></small>
           </header>
-          <div class="cbn-sol-registration-process__diagram" aria-hidden="true">
-            <span></span><i></i>
-          </div>
           <h3><?php echo esc_html($cbn_step['title']); ?></h3>
           <p><?php echo esc_html($cbn_step['text']); ?></p>
         </li>
       <?php endforeach; ?>
     </ol>
   </section>
+
+  <?php cbn_render_club_photo_story('registration'); ?>
 
   <section id="solicitud-inscripcion" class="cbn-sol-registration-form-zone" aria-labelledby="cbn-registration-form-title">
     <div class="cbn-sol-registration-form-zone__intro" data-sol-reveal>
@@ -326,7 +309,6 @@ get_header();
 
         <button class="cbn-sol-button cbn-sol-button--shot cbn-sol-registration-form__submit" type="submit" data-cbn-swish>
           <span>Enviar solicitud</span>
-          <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
         </button>
       </form>
     </div>

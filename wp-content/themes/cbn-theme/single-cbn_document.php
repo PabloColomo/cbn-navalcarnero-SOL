@@ -99,7 +99,7 @@ get_header();
           </nav>
         <?php endif; ?>
         <a class="cbn-sol-button" href="<?php echo esc_url(home_url('/documentacion/')); ?>" data-cbn-swish>
-          <?php esc_html_e('Volver a documentacion', 'cbn'); ?> <span aria-hidden="true">&#8599;</span>
+          <?php esc_html_e('Volver a documentación', 'cbn'); ?> <span aria-hidden="true">&#8599;</span>
         </a>
       </footer>
     </article>

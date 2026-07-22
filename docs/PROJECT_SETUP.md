@@ -51,10 +51,18 @@ Para inscripciones, hay dos caminos posibles:
 
 ## Comandos
 
+En Windows, la opcion reproducible recomendada es:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\bootstrap-local.ps1
+```
+
+Flujo manual equivalente:
+
 ```bash
 cp .env.example .env
 docker compose up -d
-npm install
+npm ci
 npm run build
 ```
 

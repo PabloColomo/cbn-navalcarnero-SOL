@@ -26,8 +26,8 @@ ha copiado código, layout, texto, recursos ni identidad de otra web.
 
 ## Interacción y sonido
 
-- Cursor del escudo CBN para ratón/trackpad, con cursor estándar en táctil,
-  reduced motion y forced colors.
+- Flecha convencional en granate CBN para ratón/trackpad, con cursores nativos
+  en campos editables, táctil y `forced-colors`.
 - Control de sonido visible y apagado por defecto en la primera visita de la
   sesión.
 - Pisadas y chirridos de zapatilla sobre parqué sintetizados con Web Audio al
@@ -76,6 +76,29 @@ reales, sus consultas siguen prevaleciendo sobre los fallbacks.
 bundle existente y también funcionan en el fallback previo al build, de modo
 que la nueva Home, el sonido, el cursor y la navegación móvil se pueden revisar
 en un checkout sin `node_modules`.
+
+## Expansión completa por superficies
+
+Tras validar la Home, el sistema visual se extendió por separado a:
+
+- El Club.
+- Equipos y ficha de equipo.
+- Partidos y ficha de partido.
+- Noticias, categorías y noticia individual.
+- Patrocinadores y ficha de patrocinador.
+- Contacto e inscripción.
+- Tienda honesta sin catálogo o pagos ficticios.
+- Documentación, documentos individuales, privacidad y aviso legal.
+- Búsqueda y error 404.
+
+Cada superficie carga su propia hoja `sol-{surface}.css` solo cuando corresponde.
+Los templates conservan consultas, metadatos, paginación, formularios y estados
+vacíos de WordPress. Los singles deportivos, sponsors y documentos permanecen
+preparados para datos reales, aunque la base local todavía no contiene registros
+publicados con los que capturar esas fichas.
+
+El modelo de acceso público/administrador y la gestión editorial se documentan
+en `docs/access-model-cbn-2026-07-10.md`.
 
 ## Preview local aislada
 

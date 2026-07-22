@@ -32,14 +32,6 @@ get_header();
 <main id="primary" class="cbn-sol cbn-sol-teams-page cbn-sol-team-detail" data-cbn-sol data-cbn-teams-page>
   <div class="cbn-sol__grain" aria-hidden="true"></div>
 
-  <div class="cbn-sol-route cbn-sol-teams-route" aria-hidden="true" data-cbn-route-wrap>
-    <svg viewBox="0 0 100 650" preserveAspectRatio="none" focusable="false">
-      <path class="cbn-sol-route__ghost" d="M78 0 C15 63 18 132 70 173 S86 284 30 326 S14 438 72 478 S81 579 42 616 S34 642 50 650"></path>
-      <path class="cbn-sol-route__active" data-cbn-route d="M78 0 C15 63 18 132 70 173 S86 284 30 326 S14 438 72 478 S81 579 42 616 S34 642 50 650"></path>
-    </svg>
-    <span class="cbn-sol-route__ball" data-cbn-route-ball></span>
-  </div>
-
   <?php while (have_posts()) : the_post(); ?>
     <?php
     $cbn_team_id = get_the_ID();
@@ -113,7 +105,6 @@ get_header();
         <div class="cbn-sol-team-detail-hero__actions">
           <a class="cbn-sol-button cbn-sol-button--shot" href="#ficha-equipo" data-cbn-swish>
             <span>Conocer el equipo</span>
-            <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
           </a>
           <a class="cbn-sol-text-link" href="#partidos-equipo" data-cbn-swish>Ver partidos <span aria-hidden="true">↓</span></a>
         </div>
@@ -139,10 +130,8 @@ get_header();
             <img src="<?php echo esc_url($cbn_logo_url); ?>" alt="" width="400" height="400">
           </span>
         <?php endif; ?>
-        <span class="cbn-sol-team-detail-hero__number" aria-hidden="true"><?php echo esc_html($cbn_team_number); ?></span>
-        <figcaption>
-          <span>Ficha de equipo</span>
-          <strong><?php echo esc_html($cbn_category); ?></strong>
+        <figcaption aria-hidden="true">
+          <strong class="cbn-photo-credit">&copy; CBN</strong>
         </figcaption>
       </figure>
     </section>
@@ -203,7 +192,7 @@ get_header();
           <?php endif; ?>
           <?php if ($cbn_meta['external_url']) : ?>
             <a class="cbn-sol-text-link" href="<?php echo esc_url($cbn_meta['external_url']); ?>" rel="external noopener" data-cbn-swish>
-              Ficha oficial en la federación <span aria-hidden="true">↗</span>
+              Ficha oficial en la federación <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
             </a>
           <?php endif; ?>
         </aside>

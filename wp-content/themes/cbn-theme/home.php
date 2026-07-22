@@ -35,8 +35,6 @@ get_header();
 
 <main id="primary" class="cbn-sol cbn-sol-news cbn-sol-news--archive" data-cbn-sol>
   <div class="cbn-sol__grain" aria-hidden="true"></div>
-  <div class="cbn-sol-news__route" aria-hidden="true"><span></span><i></i><b></b></div>
-
   <section class="cbn-sol-news-hero" aria-labelledby="cbn-sol-news-title">
     <div class="cbn-sol-news-hero__copy" data-sol-reveal>
       <p class="cbn-sol-section-index">Actualidad &middot; Club Baloncesto Navalcarnero</p>
@@ -57,7 +55,7 @@ get_header();
     <header class="cbn-sol-news-feed__header" data-sol-reveal>
       <div>
         <p class="cbn-sol-section-index">01 &middot; Archivo</p>
-        <h2 id="cbn-sol-news-feed-title"><?php esc_html_e('Ultimas noticias', 'cbn'); ?></h2>
+        <h2 id="cbn-sol-news-feed-title"><?php esc_html_e('Últimas noticias', 'cbn'); ?></h2>
       </div>
       <p>Selecciona una categor&iacute;a o recorre todas las publicaciones.</p>
     </header>
@@ -65,6 +63,8 @@ get_header();
     <?php get_template_part('template-parts/news-filters'); ?>
     <?php get_template_part('template-parts/news-listing'); ?>
   </section>
+
+  <?php cbn_render_club_photo_story('news'); ?>
 </main>
 
 <?php get_footer(); ?>

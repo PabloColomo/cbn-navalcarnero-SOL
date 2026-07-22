@@ -1,43 +1,51 @@
-<#
-Arranca Docker Compose y espera a que el servicio de base de datos esté healthy.
+[CmdletBinding()]
+param()
 
-Uso: ejecutar desde la raíz del repo:
-  .\scripts\start-docker.ps1
+<#
+Arranca Docker Compose y espera a que el servicio database esté healthy.
+No depende del nombre del proyecto definido en .env.
 #>
 
-Write-Host "Ejecutando: docker compose up -d" -ForegroundColor Cyan
-docker compose up -d
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 
-Write-Host "Mostrando el estado de los servicios (docker compose ps):" -ForegroundColor Cyan
-docker compose ps
+Push-Location $repoRoot
 
-Write-Host "Esperando a que el servicio de base de datos esté healthy (buscando contenedor con 'cbn-database')..." -ForegroundColor Cyan
-
-function Get-DatabaseContainerId {
-    $ids = docker ps -q --filter "name=cbn-database" 2>$null
-    if ($ids) { return $ids[0] }
-    return $null
-}
-
-$maxWait = 300 # segundos
-$interval = 5
-$elapsed = 0
-
-while ($elapsed -lt $maxWait) {
-    $cid = Get-DatabaseContainerId
-    if ($cid) {
-        $health = docker inspect --format '{{.State.Health.Status}}' $cid 2>$null
-        if ($health -and $health -eq 'healthy') {
-            Write-Host "Base de datos healthy (container: $cid)" -ForegroundColor Green
-            exit 0
-        } else {
-            Write-Host "Estado actual: $health. Esperando... ($elapsed/$maxWait s)"
-        }
-    } else {
-        Write-Host "No se encontró contenedor con 'cbn-database' todavía. Esperando... ($elapsed/$maxWait s)"
+try {
+    if (-not (Get-Command docker -ErrorAction SilentlyContinue)) {
+        throw 'Instala Docker Desktop y vuelve a abrir PowerShell.'
     }
-    Start-Sleep -Seconds $interval
-    $elapsed += $interval
-}
 
-Write-Warning "Tiempo de espera agotado. Revisa 'docker compose ps' y los logs: docker compose logs cbn-database" 
+    & docker compose up -d
+    if ($LASTEXITCODE -ne 0) {
+        throw "docker compose up -d falló (exit $LASTEXITCODE)."
+    }
+
+    $ready = $false
+    $deadline = (Get-Date).AddMinutes(5)
+
+    while ((Get-Date) -lt $deadline) {
+        $containerId = ([string](& docker compose ps -q database 2>$null)).Trim()
+
+        if ($containerId) {
+            $health = ([string](& docker inspect --format '{{.State.Health.Status}}' $containerId 2>$null)).Trim()
+
+            if ($LASTEXITCODE -eq 0 -and $health -eq 'healthy') {
+                $ready = $true
+                break
+            }
+        }
+
+        Start-Sleep -Seconds 2
+    }
+
+    if (-not $ready) {
+        throw 'MariaDB no alcanzó el estado healthy. Ejecuta docker compose logs database.'
+    }
+
+    & docker compose ps
+    Write-Host 'Docker está listo.' -ForegroundColor Green
+} finally {
+    Pop-Location
+}

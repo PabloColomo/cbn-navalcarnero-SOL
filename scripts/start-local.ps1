@@ -1,53 +1,42 @@
+[CmdletBinding()]
+param()
+
 <#
-Script de ayuda para arrancar localmente: comprueba `node`/`npm`, ofrece
-instalar Node.js vía `winget` si está disponible, y ejecuta `npm install`
-y `npm run build` en la raíz del repo.
-
-Uso:
-  - Abre PowerShell en la raíz del repo
-  - Ejecuta: .\scripts\start-local.ps1
-
-Nota: para instalar con `winget` necesitas ejecutar PowerShell con permisos
-de administrador. Si la política de ejecución bloquea el script, ejecuta
-`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force`
+Instala las dependencias exactas del lockfile y compila los assets.
+Para preparar también Docker y WordPress usa bootstrap-local.ps1.
 #>
 
-function Test-Command($name) {
-    return (Get-Command $name -ErrorAction SilentlyContinue) -ne $null
-}
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 
-Write-Host "Comprobando Node.js / npm en el sistema..."
+Push-Location $repoRoot
 
-$hasNode = Test-Command node
-$hasNpm = Test-Command npm
-
-if ($hasNode -and $hasNpm) {
-    Write-Host "node y npm detectados:" -ForegroundColor Green
-    node -v
-    npm -v
-    Write-Host "Ejecutando 'npm install'..."
-    npm install
-    if ($LASTEXITCODE -ne 0) { Write-Error "'npm install' falló"; exit $LASTEXITCODE }
-    Write-Host "Ejecutando 'npm run build'..."
-    npm run build
-    exit $LASTEXITCODE
-}
-
-Write-Warning "No se ha detectado 'node' o 'npm' en PATH."
-
-if (Test-Command winget) {
-    $ans = Read-Host "¿Deseas instalar Node.js LTS automáticamente con winget ahora? (Y/N)"
-    if ($ans -match '^[Yy]') {
-        Write-Host "Instalando Node.js LTS vía winget (necesita permisos de administrador)..."
-        Start-Process -FilePath winget -ArgumentList 'install','--id','OpenJS.NodeJS.LTS','-e','--silent' -Wait -Verb runAs
-        Write-Host "Instalación finalizada. Cierra y vuelve a abrir PowerShell y vuelve a ejecutar este script." -ForegroundColor Cyan
-        exit 0
+try {
+    if (-not (Get-Command node -ErrorAction SilentlyContinue) -or -not (Get-Command npm -ErrorAction SilentlyContinue)) {
+        throw 'Instala Node.js 22 LTS o superior y vuelve a abrir PowerShell.'
     }
+
+    $nodeVersion = (& node --version).TrimStart('v')
+    $nodeMajor = [int]($nodeVersion.Split('.')[0])
+
+    if ($nodeMajor -lt 22) {
+        throw "Se necesita Node.js 22 o superior. Versión detectada: $nodeVersion"
+    }
+
+    Write-Host 'Ejecutando npm ci...' -ForegroundColor Cyan
+    & npm ci
+    if ($LASTEXITCODE -ne 0) {
+        throw "npm ci falló (exit $LASTEXITCODE)."
+    }
+
+    Write-Host 'Ejecutando npm run build...' -ForegroundColor Cyan
+    & npm run build
+    if ($LASTEXITCODE -ne 0) {
+        throw "npm run build falló (exit $LASTEXITCODE)."
+    }
+
+    Write-Host 'Assets compilados correctamente.' -ForegroundColor Green
+} finally {
+    Pop-Location
 }
-
-Write-Host "Opciones:
-- Instala Node.js 20+ desde https://nodejs.org y luego vuelve a ejecutar este script.
-- Usa Git Bash o WSL (si los tienes) y ejecuta en la raíz del repo: npm install && npm run build
-" -ForegroundColor Yellow
-
-Write-Host "Si quieres que intente otra cosa, dime y lo ajusto." -ForegroundColor Gray

@@ -79,10 +79,22 @@
   font-family: var(--cbn-font-display);
   font-size: clamp(66px, 8.5vw, 138px);
   font-weight: 950;
-  letter-spacing: -0.06em;
+  letter-spacing: var(--cbn-sol-track-hero);
   line-height: 0.75;
   overflow-wrap: anywhere;
   text-transform: uppercase;
+}
+
+.cbn-sol-shop-heading h2,
+.cbn-sol-shop-contact h2 {
+  letter-spacing: var(--cbn-sol-track-section);
+}
+
+.cbn-sol-shop-hero h1 {
+  font-size: clamp(66px, 8vw, 132px);
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: nowrap;
 }
 
 .cbn-sol-shop-status {
@@ -276,7 +288,9 @@
   border-right: 1px solid var(--cbn-sol-line);
   border-bottom: 1px solid var(--cbn-sol-line);
   background: white;
-  transition: background-color 180ms ease, color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
 }
 
 .cbn-sol-shop-roadmap__grid li > span {
@@ -302,7 +316,7 @@
   font-family: var(--cbn-font-display);
   font-size: clamp(31px, 3.4vw, 49px);
   font-weight: 950;
-  letter-spacing: -0.04em;
+  letter-spacing: var(--cbn-sol-track-card);
   line-height: 0.88;
   text-transform: uppercase;
 }
@@ -379,8 +393,11 @@
 }
 
 .cbn-sol-shop-contact__copy {
+  container-type: inline-size;
   position: relative;
   z-index: 3;
+  width: 100%;
+  min-width: 0;
   max-width: 1040px;
 }
 
@@ -391,6 +408,8 @@
 .cbn-sol-shop-contact h2 {
   max-width: 1020px;
   font-size: clamp(58px, 8vw, 126px);
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .cbn-sol-shop-contact__copy > p:not(.cbn-sol-section-index) {
@@ -423,41 +442,6 @@
 .cbn-sol-shop-contact__link span {
   margin-left: 20px;
   font-size: 18px;
-}
-
-.cbn-sol-shop-contact__ball {
-  position: absolute;
-  right: -14vw;
-  bottom: -26vw;
-  width: min(70vw, 980px);
-  aspect-ratio: 1;
-  border: 4px solid rgba(255, 255, 255, 0.14);
-  border-radius: 50%;
-}
-
-.cbn-sol-shop-contact__ball :is(span, i, b) {
-  position: absolute;
-  display: block;
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.cbn-sol-shop-contact__ball span {
-  top: 50%;
-  width: 100%;
-  height: 4px;
-}
-
-.cbn-sol-shop-contact__ball i {
-  left: 50%;
-  width: 4px;
-  height: 100%;
-}
-
-.cbn-sol-shop-contact__ball b {
-  inset: 18%;
-  border: 4px solid rgba(255, 255, 255, 0.14);
-  border-radius: 50%;
-  background: transparent;
 }
 
 .cbn-sol-shop-missing {
@@ -537,6 +521,10 @@
     font-size: clamp(47px, 16vw, 72px);
   }
 
+  .cbn-sol-shop-contact h2 {
+    font-size: clamp(44px, 14vw, 60px);
+  }
+
   .cbn-sol-shop-hero__actions {
     align-items: flex-start;
     flex-direction: column;
@@ -570,6 +558,12 @@
   }
 }
 
+@supports (font-size: 1cqw) {
+  .cbn-sol-shop-contact h2 {
+    font-size: clamp(44px, 15cqw, 126px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cbn-sol-shop-status span {
     animation: none;
@@ -577,8 +571,7 @@
 }
 
 @media (forced-colors: active) {
-  .cbn-sol-shop-hero__court,
-  .cbn-sol-shop-contact__ball {
+  .cbn-sol-shop-hero__court {
     display: none;
   }
 
@@ -595,8 +588,7 @@
   .cbn-sol-shop-hero__court,
   .cbn-sol-shop-hero__actions,
   .cbn-sol-shop-hero .cbn-sol-audio-invite,
-  .cbn-sol-shop-contact,
-  .cbn-sol-shop-contact__ball {
+  .cbn-sol-shop-contact {
     display: none !important;
   }
 

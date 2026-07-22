@@ -20,19 +20,6 @@ body.single-cbn_team {
   display: none !important;
 }
 
-.cbn-sol-teams-page .cbn-sol-teams-route {
-  opacity: 0.72;
-}
-
-.cbn-sol-teams-page .cbn-sol-route__ghost {
-  stroke: rgba(201, 0, 24, 0.13);
-}
-
-.cbn-sol-teams-page .cbn-sol-route__ball {
-  width: 30px;
-  height: 30px;
-}
-
 .cbn-sol-teams-page .cbn-sol-section-heading {
   max-width: var(--cbn-sol-max);
   margin-inline: auto;
@@ -107,10 +94,11 @@ body.single-cbn_team {
 .cbn-sol-teams-hero h1 {
   margin: clamp(24px, 4vh, 42px) 0 0;
   font-family: var(--cbn-font-display);
-  font-size: clamp(72px, 8.5vw, 140px);
+  max-width: 7em;
+  font-size: clamp(56px, 5.4vw, 88px);
   font-weight: 950;
-  letter-spacing: -0.065em;
-  line-height: 0.73;
+  letter-spacing: var(--cbn-sol-track-hero);
+  line-height: 0.9;
   text-transform: uppercase;
 }
 
@@ -119,9 +107,9 @@ body.single-cbn_team {
 }
 
 .cbn-sol-teams-hero h1 span:nth-child(2) {
-  margin-left: clamp(0px, 5vw, 74px);
-  color: transparent;
-  -webkit-text-stroke: 2px var(--cbn-sol-red);
+  margin-left: 0;
+  color: var(--cbn-sol-ink);
+  -webkit-text-stroke: 0;
 }
 
 .cbn-sol-teams-hero h1 span:last-child {
@@ -147,31 +135,6 @@ body.single-cbn_team {
   box-shadow: 22px 22px 0 var(--cbn-sol-red);
   color: white;
   clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
-}
-
-.cbn-sol-teams-hero__board::before,
-.cbn-sol-teams-hero__board::after {
-  position: absolute;
-  pointer-events: none;
-  content: "";
-}
-
-.cbn-sol-teams-hero__board::before {
-  inset: 14% -28% -30% 29%;
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 90px transparent,
-    0 0 0 91px rgba(255, 255, 255, 0.09),
-    0 0 0 182px transparent,
-    0 0 0 183px rgba(255, 255, 255, 0.07);
-}
-
-.cbn-sol-teams-hero__board::after {
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .cbn-sol-teams-hero__board-top,
@@ -206,43 +169,10 @@ body.single-cbn_team {
 .cbn-sol-teams-hero__crest img {
   position: relative;
   z-index: 2;
-  width: 68%;
+  width: min(72%, 220px);
   border: 7px solid white;
   border-radius: 50%;
   filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.4));
-}
-
-.cbn-sol-teams-hero__orbit {
-  position: absolute;
-  inset: 0;
-  border: 1px dashed rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  animation: cbn-sol-team-orbit 24s linear infinite;
-}
-
-.cbn-sol-teams-hero__orbit::before,
-.cbn-sol-teams-hero__orbit::after {
-  position: absolute;
-  border-radius: 50%;
-  content: "";
-}
-
-.cbn-sol-teams-hero__orbit::before {
-  top: 5%;
-  left: 14%;
-  width: 16px;
-  height: 16px;
-  border: 2px solid var(--cbn-sol-ink);
-  background: var(--cbn-sol-red);
-  box-shadow: 0 0 0 3px white;
-}
-
-.cbn-sol-teams-hero__orbit::after {
-  right: 7%;
-  bottom: 18%;
-  width: 7px;
-  height: 7px;
-  background: white;
 }
 
 .cbn-sol-teams-hero__stats {
@@ -489,7 +419,12 @@ body.single-cbn_team {
   place-items: center;
   overflow: hidden;
   background:
-    linear-gradient(135deg, transparent 0 49.7%, rgba(255, 255, 255, 0.08) 50% 50.3%, transparent 50.6%),
+    linear-gradient(
+      135deg,
+      transparent 0 49.7%,
+      rgba(255, 255, 255, 0.08) 50% 50.3%,
+      transparent 50.6%
+    ),
     var(--cbn-sol-ink);
 }
 
@@ -540,34 +475,15 @@ body.single-cbn_team {
   border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.cbn-sol-teams-card__number,
-.cbn-sol-teams-card__category {
+.cbn-sol-teams-card__credit {
   position: absolute;
-  z-index: 2;
-}
-
-.cbn-sol-teams-card__number {
-  top: 18px;
-  right: 20px;
-  color: rgba(255, 255, 255, 0.78);
-  font-family: var(--cbn-font-display);
-  font-size: clamp(42px, 5.2vw, 76px);
-  font-weight: 950;
-  line-height: 0.8;
-}
-
-.cbn-sol-teams-card__category {
+  right: 18px;
   bottom: 18px;
-  left: 18px;
-  max-width: calc(100% - 36px);
+  z-index: 2;
   padding: 7px 10px;
-  background: var(--cbn-sol-red);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(14, 14, 15, 0.76);
   color: white;
-  font-size: 9px;
-  font-weight: 950;
-  letter-spacing: 0.1em;
-  line-height: 1.2;
-  text-transform: uppercase;
 }
 
 .cbn-sol-teams-card__body {
@@ -610,7 +526,7 @@ body.single-cbn_team {
   font-family: var(--cbn-font-display);
   font-size: clamp(34px, 3.3vw, 55px);
   font-weight: 950;
-  letter-spacing: -0.035em;
+  letter-spacing: var(--cbn-sol-track-card);
   line-height: 0.88;
   text-transform: uppercase;
   overflow-wrap: anywhere;
@@ -663,10 +579,9 @@ body.single-cbn_team {
 
 .cbn-sol-teams-empty {
   display: grid;
-  grid-template-columns: minmax(220px, 0.6fr) minmax(0, 1.4fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
-  gap: clamp(38px, 7vw, 100px);
-  max-width: var(--cbn-sol-max);
+  max-width: 980px;
   min-height: 430px;
   margin: 0 auto;
   padding: clamp(32px, 6vw, 82px);
@@ -674,25 +589,11 @@ body.single-cbn_team {
   border: 1px solid var(--cbn-sol-line);
 }
 
-.cbn-sol-teams-empty__ball {
-  position: relative;
-  justify-self: center;
-  width: clamp(160px, 22vw, 300px);
-  aspect-ratio: 1;
-  border: 5px solid var(--cbn-sol-ink);
-  border-radius: 50%;
-  background:
-    linear-gradient(90deg, transparent 48%, var(--cbn-sol-ink) 48% 52%, transparent 52%),
-    linear-gradient(0deg, transparent 48%, var(--cbn-sol-ink) 48% 52%, transparent 52%),
-    var(--cbn-sol-red);
-  box-shadow: 18px 18px 0 var(--cbn-sol-paper-deep);
-}
-
 .cbn-sol-teams-empty h2 {
   margin: 13px 0 0;
   font-family: var(--cbn-font-display);
   font-size: clamp(45px, 6vw, 88px);
-  letter-spacing: -0.04em;
+  letter-spacing: var(--cbn-sol-track-section);
   line-height: 0.88;
   text-transform: uppercase;
 }
@@ -714,17 +615,6 @@ body.single-cbn_team {
   color: white;
 }
 
-.cbn-sol-teams-join::before {
-  position: absolute;
-  top: -47%;
-  left: -9%;
-  width: 58vw;
-  aspect-ratio: 1;
-  border: 2px solid rgba(255, 255, 255, 0.17);
-  border-radius: 50%;
-  content: "";
-}
-
 .cbn-sol-teams-join > * {
   position: relative;
   z-index: 2;
@@ -735,12 +625,13 @@ body.single-cbn_team {
 }
 
 .cbn-sol-teams-join h2 {
+  max-width: 7.6em;
   margin: 12px 0 0;
   font-family: var(--cbn-font-display);
-  font-size: clamp(58px, 8.7vw, 132px);
+  font-size: clamp(54px, 6.5vw, 104px);
   font-weight: 950;
-  letter-spacing: -0.05em;
-  line-height: 0.78;
+  letter-spacing: var(--cbn-sol-track-section);
+  line-height: 0.9;
   text-transform: uppercase;
 }
 
@@ -778,7 +669,8 @@ body.single-cbn_team {
 
 .cbn-sol-team-detail-hero__copy {
   align-self: center;
-  padding: clamp(58px, 8vw, 120px) clamp(34px, 5vw, 84px) clamp(70px, 9vw, 130px) var(--cbn-sol-pad);
+  padding: clamp(58px, 8vw, 120px) clamp(34px, 5vw, 84px)
+    clamp(70px, 9vw, 130px) var(--cbn-sol-pad);
 }
 
 .cbn-sol-team-back {
@@ -811,7 +703,7 @@ body.single-cbn_team {
   font-family: var(--cbn-font-display);
   font-size: clamp(68px, 8.6vw, 138px);
   font-weight: 950;
-  letter-spacing: -0.06em;
+  letter-spacing: var(--cbn-sol-track-hero);
   line-height: 0.76;
   text-transform: uppercase;
   overflow-wrap: anywhere;
@@ -929,20 +821,6 @@ body.single-cbn_team {
   bottom: 0;
   left: 50%;
   border-left: 2px solid rgba(255, 255, 255, 0.28);
-}
-
-.cbn-sol-team-detail-hero__number {
-  position: absolute;
-  top: clamp(24px, 4vw, 58px);
-  right: clamp(22px, 4vw, 58px);
-  z-index: 3;
-  color: transparent;
-  font-family: var(--cbn-font-display);
-  font-size: clamp(88px, 14vw, 220px);
-  font-weight: 950;
-  letter-spacing: -0.08em;
-  line-height: 0.7;
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.75);
 }
 
 .cbn-sol-team-detail-hero figcaption {
@@ -1147,7 +1025,7 @@ body.single-cbn_team {
   font-family: var(--cbn-font-display);
   font-size: clamp(38px, 4.5vw, 66px);
   font-weight: 950;
-  letter-spacing: -0.035em;
+  letter-spacing: var(--cbn-sol-track-card);
   line-height: 0.86;
   text-transform: uppercase;
 }
@@ -1241,7 +1119,7 @@ body.single-cbn_team {
   font-family: var(--cbn-font-display);
   font-size: clamp(58px, 7.5vw, 110px);
   font-weight: 950;
-  letter-spacing: -0.05em;
+  letter-spacing: var(--cbn-sol-track-section);
   line-height: 0.78;
   text-transform: uppercase;
 }
@@ -1382,7 +1260,7 @@ body.single-cbn_team {
   font-family: var(--cbn-font-display);
   font-size: clamp(35px, 4.4vw, 62px);
   font-weight: 950;
-  letter-spacing: -0.035em;
+  letter-spacing: var(--cbn-sol-track-card);
   line-height: 0.86;
   text-transform: uppercase;
 }
@@ -1450,7 +1328,7 @@ body.single-cbn_team {
   font-family: var(--cbn-font-display);
   font-size: clamp(38px, 4vw, 58px);
   font-weight: 950;
-  letter-spacing: -0.035em;
+  letter-spacing: var(--cbn-sol-track-card);
   line-height: 0.8;
   text-transform: uppercase;
 }
@@ -1532,7 +1410,7 @@ body.single-cbn_team {
   font-family: var(--cbn-font-display);
   font-size: clamp(38px, 5vw, 72px);
   font-weight: 950;
-  letter-spacing: -0.035em;
+  letter-spacing: var(--cbn-sol-track-card);
   line-height: 0.86;
   text-transform: uppercase;
 }
@@ -1625,16 +1503,10 @@ body.single-cbn_team {
   font-family: var(--cbn-font-display);
   font-size: clamp(38px, 5vw, 76px);
   font-weight: 950;
-  letter-spacing: -0.04em;
+  letter-spacing: var(--cbn-sol-track-card);
   line-height: 0.82;
   text-transform: uppercase;
   overflow-wrap: anywhere;
-}
-
-@keyframes cbn-sol-team-orbit {
-  to {
-    transform: rotate(1turn);
-  }
 }
 
 @media (max-width: 1180px) {
@@ -1718,10 +1590,6 @@ body.single-cbn_team {
 }
 
 @media (max-width: 760px) {
-  .cbn-sol-teams-page .cbn-sol-teams-route {
-    display: none;
-  }
-
   .cbn-sol-teams-page .cbn-sol-section-heading h2 {
     font-size: clamp(46px, 13vw, 70px);
   }
@@ -1732,12 +1600,12 @@ body.single-cbn_team {
   }
 
   .cbn-sol-teams-hero h1 {
-    font-size: clamp(58px, 17vw, 90px);
+    font-size: clamp(44px, 13vw, 64px);
   }
 
   .cbn-sol-teams-hero h1 span:nth-child(2) {
     margin-left: 0;
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke: 0;
   }
 
   .cbn-sol-teams-hero__lead {
@@ -1963,6 +1831,15 @@ body.single-cbn_team {
   }
 }
 
+@media (max-width: 440px) {
+  .cbn-sol-teams-empty h2 {
+    max-width: 100%;
+    font-size: clamp(32px, 9.5vw, 42px);
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
+
 @media (max-width: 430px) {
   .cbn-sol-teams-hero__stats {
     grid-template-columns: 1fr;
@@ -1997,10 +1874,6 @@ body.single-cbn_team {
     min-height: 420px;
   }
 
-  .cbn-sol-team-detail-hero__number {
-    -webkit-text-stroke-width: 1px;
-  }
-
   .cbn-sol-team-inline-empty {
     grid-template-columns: 1fr;
   }
@@ -2020,13 +1893,16 @@ body.single-cbn_team {
     transition-duration: 0.01ms !important;
   }
 
-  .cbn-sol-teams-hero__orbit {
-    animation: none;
-  }
-
   .cbn-sol-teams-card:hover > a,
   .cbn-sol-team-detail-hero__media {
     transform: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .cbn-sol-teams-empty h2,
+  .cbn-sol-teams-join h2 {
+    font-size: 28px;
   }
 }
 

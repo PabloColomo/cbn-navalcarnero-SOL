@@ -9,7 +9,6 @@
   const finePointer = window.matchMedia(
     "(hover: hover) and (pointer: fine)",
   ).matches;
-  const forcedColors = window.matchMedia("(forced-colors: active)").matches;
 
   const initFallbackNavigation = () => {
     if (config.mainBundle) {
@@ -90,52 +89,6 @@
     elements.forEach((element) => observer.observe(element));
   };
 
-  const initRoute = () => {
-    if (!root || reducedMotion) {
-      return;
-    }
-
-    const path = root.querySelector("[data-cbn-route]");
-    const ball = root.querySelector("[data-cbn-route-ball]");
-    const svg = path?.ownerSVGElement;
-
-    if (!path || !ball || !svg || typeof path.getTotalLength !== "function") {
-      return;
-    }
-
-    const length = path.getTotalLength();
-    path.style.strokeDasharray = `${length}`;
-    path.style.strokeDashoffset = `${length}`;
-    let ticking = false;
-
-    const render = () => {
-      const available = Math.max(
-        1,
-        document.documentElement.scrollHeight - window.innerHeight,
-      );
-      const progress = Math.min(1, Math.max(0, window.scrollY / available));
-      const point = path.getPointAtLength(length * progress);
-      const viewBox = svg.viewBox.baseVal;
-
-      path.style.strokeDashoffset = `${length * (1 - progress)}`;
-      ball.style.left = `${((point.x - viewBox.x) / viewBox.width) * 100}%`;
-      ball.style.top = `${((point.y - viewBox.y) / viewBox.height) * 100}%`;
-      ball.style.transform = `translate(-50%, -50%) rotate(${progress * 1080}deg)`;
-      ticking = false;
-    };
-
-    const requestRender = () => {
-      if (!ticking) {
-        ticking = true;
-        window.requestAnimationFrame(render);
-      }
-    };
-
-    window.addEventListener("scroll", requestRender, { passive: true });
-    window.addEventListener("resize", requestRender);
-    render();
-  };
-
   const initTeamFilters = () => {
     if (!root) {
       return;
@@ -143,6 +96,7 @@
 
     const filters = [...root.querySelectorAll("[data-cbn-team-filter]")];
     const cards = [...root.querySelectorAll("[data-cbn-team]")];
+    const status = root.querySelector("[data-cbn-team-filter-status]");
 
     filters.forEach((filter) => {
       filter.addEventListener("click", () => {
@@ -154,10 +108,23 @@
           item.setAttribute("aria-pressed", active ? "true" : "false");
         });
 
+        let visibleCount = 0;
+
         cards.forEach((card) => {
           const visible = value === "all" || card.dataset.cbnTeam === value;
           card.classList.toggle("is-filtered-out", !visible);
+          card.hidden = !visible;
+
+          if (visible) {
+            visibleCount += 1;
+          }
         });
+
+        if (status) {
+          const resultLabel =
+            visibleCount === 1 ? "grupo visible" : "grupos visibles";
+          status.textContent = `${visibleCount} ${resultLabel}: ${filter.textContent.trim()}.`;
+        }
       });
     });
   };
@@ -210,68 +177,6 @@
       value = value <= 0 ? 24 : value - 1;
       clock.textContent = String(value).padStart(2, "0");
     }, 1000);
-  };
-
-  const initCursor = () => {
-    if (!finePointer || reducedMotion || forcedColors) {
-      return;
-    }
-
-    const logoUrl =
-      config.logoUrl || document.querySelector(".cbn-brand-mark")?.currentSrc;
-
-    if (!logoUrl) {
-      return;
-    }
-
-    const cursor = document.createElement("span");
-    cursor.className = "cbn-custom-cursor";
-    cursor.setAttribute("aria-hidden", "true");
-    const image = document.createElement("img");
-    image.src = logoUrl;
-    image.alt = "";
-    cursor.append(image);
-    document.body.append(cursor);
-    document.documentElement.classList.add("cbn-cursor-active");
-
-    let x = -100;
-    let y = -100;
-    let frame = 0;
-
-    const render = () => {
-      cursor.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
-      frame = 0;
-    };
-
-    document.addEventListener(
-      "pointermove",
-      (event) => {
-        x = event.clientX;
-        y = event.clientY;
-        cursor.classList.add("is-visible");
-        cursor.classList.toggle(
-          "is-active",
-          Boolean(event.target.closest("a, button, [role='button']")),
-        );
-
-        if (!frame) {
-          frame = window.requestAnimationFrame(render);
-        }
-      },
-      { passive: true },
-    );
-
-    document.addEventListener("pointerdown", () => {
-      cursor.classList.add("is-down");
-    });
-    document.addEventListener("pointerup", () => {
-      cursor.classList.remove("is-down");
-    });
-    document.addEventListener("pointerout", (event) => {
-      if (!event.relatedTarget) {
-        cursor.classList.remove("is-visible");
-      }
-    });
   };
 
   const initCourtSound = () => {
@@ -377,7 +282,10 @@
       const squeakFilter = context.createBiquadFilter();
       squeak.type = "triangle";
       squeak.frequency.setValueAtTime(1280 * variation, now);
-      squeak.frequency.exponentialRampToValueAtTime(710 * variation, now + 0.095);
+      squeak.frequency.exponentialRampToValueAtTime(
+        710 * variation,
+        now + 0.095,
+      );
       squeakFilter.type = "bandpass";
       squeakFilter.frequency.value = 1250 * variation;
       squeakFilter.Q.value = 7;
@@ -576,10 +484,8 @@
 
   initFallbackNavigation();
   initReveals();
-  initRoute();
   initTeamFilters();
   initPointerEffects();
   initShotClock();
-  initCursor();
   initCourtSound();
 })();

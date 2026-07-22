@@ -1,0 +1,963 @@
+.cbn-club-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cbn-club-photo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--cbn-photo-position, 50% 50%);
+}
+
+.cbn-photo-story {
+  --cbn-story-accent: var(--cbn-sol-red, #c90018);
+  --cbn-story-ink: var(--cbn-sol-ink, #0e0e0f);
+  position: relative;
+  z-index: 1;
+  padding: clamp(68px, 8vw, 118px) var(--cbn-sol-pad);
+  overflow: hidden;
+  background: var(--cbn-sol-paper);
+  color: #0e0e0f;
+}
+
+.cbn-photo-story--home,
+.cbn-photo-story--news,
+.cbn-photo-story--contact {
+  background: #fff;
+}
+
+.cbn-photo-story--matches,
+.cbn-photo-story--teams {
+  background: #0e0e0f;
+  color: #fff;
+}
+
+.cbn-photo-story--matches .cbn-photo-story__header p,
+.cbn-photo-story--teams .cbn-photo-story__header p {
+  color: #ff7a87;
+}
+
+.cbn-photo-story__header {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.55fr) minmax(0, 1.65fr);
+  align-items: end;
+  gap: clamp(20px, 4vw, 70px);
+  max-width: 1540px;
+  margin: 0 auto clamp(34px, 5vw, 64px);
+}
+
+.cbn-photo-story__header p {
+  margin: 0;
+  color: #c90018;
+  font-size: var(--cbn-sol-text-micro, 11px);
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.cbn-photo-story__header h2 {
+  max-width: 900px;
+  margin: 0;
+  font-family: var(--cbn-font-display);
+  font-size: clamp(44px, 6vw, 92px);
+  font-weight: 950;
+  letter-spacing: var(--cbn-sol-track-editorial-serif);
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.cbn-photo-story__rail {
+  display: grid;
+  grid-auto-columns: clamp(210px, 22vw, 340px);
+  grid-auto-flow: column;
+  gap: clamp(10px, 1.2vw, 18px);
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 18px 2px 28px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-padding-inline: 2px;
+  scroll-snap-type: inline mandatory;
+  scrollbar-color: var(--cbn-story-accent) rgba(14, 14, 15, 0.12);
+  scrollbar-width: thin;
+}
+
+.cbn-photo-story__rail:focus-visible {
+  outline: 3px solid #c90018;
+  outline-offset: 8px;
+}
+
+.cbn-photo-story__rail::-webkit-scrollbar {
+  height: 5px;
+}
+
+.cbn-photo-story__rail::-webkit-scrollbar-track {
+  background: rgba(14, 14, 15, 0.12);
+}
+
+.cbn-photo-story__rail::-webkit-scrollbar-thumb {
+  background: var(--cbn-story-accent);
+}
+
+.cbn-photo-story__item {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #171719;
+  isolation: isolate;
+  scroll-snap-align: center;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+
+.cbn-photo-story__item .cbn-club-photo {
+  aspect-ratio: 2 / 3;
+  transition:
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-radius 420ms ease,
+    box-shadow 420ms ease;
+}
+
+.cbn-photo-story__item img {
+  transform: scale(1.002);
+  filter: saturate(0.94) contrast(1.025);
+  transition:
+    transform 620ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 360ms ease;
+}
+
+.cbn-photo-story__item:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.03) contrast(1.02);
+}
+
+.cbn-photo-story__caption {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 7px 9px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(14, 14, 15, 0.76);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+
+.cbn-photo-story__credit {
+  font-size: var(--cbn-sol-text-micro, 11px);
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* Home: a cinematic opening sequence with alternating editorial crops. */
+.cbn-photo-story--home {
+  background:
+    linear-gradient(90deg, var(--cbn-story-accent) 0 7px, transparent 7px), #fff;
+}
+
+.cbn-photo-story--home .cbn-photo-story__header {
+  position: relative;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(14, 14, 15, 0.16);
+}
+
+.cbn-photo-story--home .cbn-photo-story__header h2 {
+  max-width: 11em;
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 0.9;
+}
+
+.cbn-photo-story--home .cbn-photo-story__header::after {
+  position: absolute;
+  bottom: -2px;
+  left: 36%;
+  width: min(180px, 22vw);
+  height: 3px;
+  background: var(--cbn-story-accent);
+  content: "";
+}
+
+.cbn-photo-story--home .cbn-photo-story__rail {
+  grid-auto-columns: max-content;
+  align-items: end;
+  gap: clamp(12px, 1.5vw, 24px);
+  padding-block: 22px 32px;
+}
+
+.cbn-photo-story--home .cbn-photo-story__item {
+  width: clamp(240px, 22vw, 350px);
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+}
+
+.cbn-photo-story--home .cbn-photo-story__item:nth-child(5n + 1) {
+  width: clamp(350px, 42vw, 650px);
+}
+
+.cbn-photo-story--home
+  .cbn-photo-story__item:nth-child(5n + 1)
+  .cbn-club-photo {
+  aspect-ratio: 1;
+}
+
+.cbn-photo-story--home .cbn-photo-story__item:nth-child(3n + 2) {
+  margin-bottom: clamp(26px, 4vw, 58px);
+}
+
+.cbn-photo-story--home .cbn-photo-story__item:nth-child(4n) .cbn-club-photo {
+  aspect-ratio: 3 / 4;
+}
+
+.cbn-photo-story--home .cbn-photo-story__item::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  content: "";
+  pointer-events: none;
+}
+
+/* Club: a tactile archive of prints with changing formats. */
+.cbn-photo-story--club {
+  background:
+    linear-gradient(rgba(147, 0, 18, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 0, 18, 0.045) 1px, transparent 1px),
+    var(--cbn-sol-paper);
+  background-size: 30px 30px;
+}
+
+.cbn-photo-story--club .cbn-photo-story__header {
+  padding-top: 18px;
+  border-top: 6px solid var(--cbn-story-ink);
+}
+
+.cbn-photo-story--club .cbn-photo-story__rail {
+  grid-auto-columns: max-content;
+  align-items: center;
+  gap: clamp(18px, 2.2vw, 34px);
+  padding: 42px 10px 48px;
+}
+
+.cbn-photo-story--club .cbn-photo-story__item {
+  width: clamp(230px, 23vw, 340px);
+  padding: 10px 10px 42px;
+  overflow: visible;
+  clip-path: none;
+  background: #fff;
+  box-shadow:
+    0 22px 48px rgba(14, 14, 15, 0.13),
+    0 2px 0 rgba(14, 14, 15, 0.08);
+}
+
+.cbn-photo-story--club .cbn-photo-story__item::before {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  z-index: 3;
+  width: 54px;
+  height: 21px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(236, 224, 194, 0.86);
+  box-shadow: 0 1px 2px rgba(14, 14, 15, 0.12);
+  content: "";
+}
+
+.cbn-photo-story--club .cbn-photo-story__item .cbn-club-photo {
+  aspect-ratio: 4 / 5;
+}
+
+.cbn-photo-story--club
+  .cbn-photo-story__item:nth-child(3n + 2)
+  .cbn-club-photo {
+  aspect-ratio: 1;
+}
+
+.cbn-photo-story--club .cbn-photo-story__item:nth-child(3n) .cbn-club-photo {
+  aspect-ratio: 3 / 4;
+}
+
+.cbn-photo-story--club .cbn-photo-story__item:nth-child(even) {
+  margin-top: 36px;
+}
+
+.cbn-photo-story--club .cbn-photo-story__caption {
+  right: 12px;
+  bottom: 11px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--cbn-story-ink);
+  backdrop-filter: none;
+}
+
+/* Teams: a dark, overlapping line-up inspired by locker-room cards. */
+.cbn-photo-story--teams {
+  --cbn-story-accent: #ff7a87;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0 58%,
+      rgba(201, 0, 24, 0.14) 58% 59%,
+      transparent 59%
+    ),
+    #0e0e0f;
+}
+
+.cbn-photo-story--teams .cbn-photo-story__header {
+  align-items: center;
+  padding-inline-start: clamp(18px, 3vw, 44px);
+  border-left: 5px solid #c90018;
+}
+
+.cbn-photo-story--teams .cbn-photo-story__rail {
+  grid-auto-columns: clamp(230px, 25vw, 365px);
+  align-items: start;
+  gap: 0;
+  padding: 34px 18px 52px;
+}
+
+.cbn-photo-story--teams .cbn-photo-story__item {
+  z-index: 1;
+  border: 1px solid rgba(255, 122, 135, 0.68);
+  clip-path: polygon(13% 0, 100% 0, 100% 92%, 87% 100%, 0 100%, 0 8%);
+  background: #171719;
+  box-shadow: -18px 20px 44px rgba(0, 0, 0, 0.34);
+}
+
+.cbn-photo-story--teams .cbn-photo-story__item + .cbn-photo-story__item {
+  margin-left: clamp(-42px, -2.5vw, -20px);
+}
+
+.cbn-photo-story--teams .cbn-photo-story__item:nth-child(even) {
+  margin-top: clamp(34px, 5vw, 70px);
+}
+
+.cbn-photo-story--teams .cbn-photo-story__item:hover {
+  z-index: 4;
+}
+
+.cbn-photo-story--teams .cbn-photo-story__item::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 2;
+  width: 7px;
+  background: linear-gradient(#ff7a87, #c90018 55%, #930012);
+  content: "";
+  pointer-events: none;
+}
+
+.cbn-photo-story--teams .cbn-photo-story__item .cbn-club-photo {
+  aspect-ratio: 3 / 4;
+}
+
+.cbn-photo-story--teams .cbn-photo-story__item img {
+  filter: saturate(0.82) contrast(1.08);
+}
+
+/* Matches: wide action bursts cut like a broadcast package. */
+.cbn-photo-story--matches {
+  --cbn-story-accent: #ff7a87;
+  background:
+    radial-gradient(
+      circle at 9% 110%,
+      transparent 0 152px,
+      rgba(255, 255, 255, 0.12) 153px 155px,
+      transparent 156px
+    ),
+    linear-gradient(103deg, #0e0e0f 0 58%, #171719 58% 100%);
+}
+
+.cbn-photo-story--matches .cbn-photo-story__header h2 {
+  max-width: 1080px;
+  font-size: clamp(46px, 7.2vw, 112px);
+}
+
+.cbn-photo-story--matches .cbn-photo-story__rail {
+  grid-auto-columns: max-content;
+  align-items: end;
+  gap: clamp(9px, 1vw, 16px);
+  padding-block: 30px 48px;
+}
+
+.cbn-photo-story--matches .cbn-photo-story__item {
+  width: clamp(360px, 48vw, 720px);
+  clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+}
+
+.cbn-photo-story--matches .cbn-photo-story__item:nth-child(even) {
+  width: clamp(300px, 39vw, 580px);
+  margin-bottom: clamp(32px, 5vw, 72px);
+  clip-path: polygon(0 0, 94% 0, 100% 100%, 6% 100%);
+}
+
+.cbn-photo-story--matches .cbn-photo-story__item::before {
+  position: absolute;
+  inset: 1px;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  content: "";
+  pointer-events: none;
+}
+
+.cbn-photo-story--matches .cbn-photo-story__item .cbn-club-photo {
+  aspect-ratio: 4 / 3;
+}
+
+.cbn-photo-story--matches [data-cbn-photo-id="club-023"] {
+  --cbn-photo-position: 50% 12% !important;
+}
+
+.cbn-photo-story--matches .cbn-photo-story__caption {
+  top: 14px;
+  right: 16px;
+  bottom: auto;
+  border-color: rgba(255, 122, 135, 0.54);
+  background: #930012;
+}
+
+/* News: a two-level contact sheet with feature images spanning the grid. */
+.cbn-photo-story--news {
+  background:
+    linear-gradient(90deg, transparent 0 72%, rgba(201, 0, 24, 0.045) 72%), #fff;
+}
+
+.cbn-photo-story--news .cbn-photo-story__header {
+  grid-template-columns: minmax(130px, 0.42fr) minmax(0, 1.8fr);
+}
+
+.cbn-photo-story--news .cbn-photo-story__header h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: var(--cbn-sol-track-editorial-serif);
+  text-transform: none;
+}
+
+.cbn-photo-story--news .cbn-photo-story__rail {
+  grid-template-rows: repeat(2, clamp(170px, 18vw, 280px));
+  grid-auto-columns: clamp(180px, 19vw, 300px);
+  grid-auto-flow: column dense;
+  gap: clamp(8px, 1vw, 14px);
+  padding-block: 12px 30px;
+}
+
+.cbn-photo-story--news .cbn-photo-story__item {
+  height: 100%;
+  clip-path: none;
+}
+
+.cbn-photo-story--news .cbn-photo-story__item:nth-child(3n + 1) {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+.cbn-photo-story--news .cbn-photo-story__item .cbn-club-photo {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.cbn-photo-story--news .cbn-photo-story__item::before {
+  position: absolute;
+  inset: 8px;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  content: "";
+  pointer-events: none;
+}
+
+.cbn-photo-story--news .cbn-photo-story__caption {
+  right: auto;
+  bottom: 14px;
+  left: 14px;
+  border: 0;
+  border-left: 3px solid #c90018;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0e0e0f;
+}
+
+/* Registration: ascending academy arches over a subtle court diagram. */
+.cbn-photo-story--registration {
+  background:
+    radial-gradient(
+      circle at 50% 110%,
+      transparent 0 210px,
+      rgba(201, 0, 24, 0.12) 211px 213px,
+      transparent 214px
+    ),
+    linear-gradient(90deg, rgba(14, 14, 15, 0.04) 1px, transparent 1px),
+    var(--cbn-sol-paper);
+  background-size:
+    auto,
+    80px 100%,
+    auto;
+}
+
+.cbn-photo-story--registration .cbn-photo-story__header {
+  text-align: center;
+}
+
+.cbn-photo-story--registration .cbn-photo-story__header p {
+  align-self: start;
+  padding-top: 10px;
+}
+
+.cbn-photo-story--registration .cbn-photo-story__rail {
+  grid-auto-columns: max-content;
+  align-items: end;
+  gap: clamp(16px, 2vw, 32px);
+  padding: 42px 8px 52px;
+}
+
+.cbn-photo-story--registration .cbn-photo-story__item {
+  width: clamp(230px, 24vw, 350px);
+  overflow: visible;
+  clip-path: none;
+  background: transparent;
+}
+
+.cbn-photo-story--registration .cbn-photo-story__item:nth-child(4n + 2) {
+  margin-bottom: 34px;
+}
+
+.cbn-photo-story--registration .cbn-photo-story__item:nth-child(4n + 3) {
+  margin-bottom: 68px;
+}
+
+.cbn-photo-story--registration .cbn-photo-story__item:nth-child(4n) {
+  margin-bottom: 20px;
+}
+
+.cbn-photo-story--registration .cbn-photo-story__item .cbn-club-photo {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 7px solid #fff;
+  border-radius: 50% 50% 22px 22px / 30% 30% 22px 22px;
+  box-shadow:
+    0 22px 44px rgba(14, 14, 15, 0.16),
+    0 0 0 1px rgba(14, 14, 15, 0.09);
+}
+
+.cbn-photo-story--registration .cbn-photo-story__caption {
+  right: 18px;
+  bottom: 18px;
+  border-radius: 999px;
+  background: #fff;
+  color: #930012;
+}
+
+/* Shop: square lookbook images presented on bold offset pedestals. */
+.cbn-photo-story--shop {
+  --cbn-story-accent: #fff;
+  background:
+    linear-gradient(135deg, rgba(14, 14, 15, 0.11) 25%, transparent 25%) 0 0 /
+      42px 42px,
+    #c90018;
+  color: #fff;
+}
+
+.cbn-photo-story--shop .cbn-photo-story__header p {
+  color: #fff;
+}
+
+.cbn-photo-story--shop .cbn-photo-story__header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.46);
+}
+
+.cbn-photo-story--shop .cbn-photo-story__rail {
+  grid-auto-columns: max-content;
+  gap: clamp(30px, 4vw, 62px);
+  padding: 28px 24px 62px 4px;
+  scrollbar-color: #fff rgba(255, 255, 255, 0.28);
+}
+
+.cbn-photo-story--shop .cbn-photo-story__rail::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.cbn-photo-story--shop .cbn-photo-story__rail:focus-visible {
+  outline-color: #fff;
+}
+
+.cbn-photo-story--shop .cbn-photo-story__item {
+  width: clamp(250px, 29vw, 420px);
+  padding: 13px 13px 48px;
+  overflow: visible;
+  clip-path: none;
+  background: #fff;
+  box-shadow: 15px 15px 0 #73000e;
+}
+
+.cbn-photo-story--shop .cbn-photo-story__item:nth-child(even) {
+  margin-top: 46px;
+}
+
+.cbn-photo-story--shop .cbn-photo-story__item .cbn-club-photo {
+  aspect-ratio: 1;
+}
+
+.cbn-photo-story--shop .cbn-photo-story__caption {
+  right: 14px;
+  bottom: 16px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #73000e;
+  backdrop-filter: none;
+}
+
+/* Contact: a connected three-panel portrait of the club community. */
+.cbn-photo-story--contact {
+  background:
+    linear-gradient(180deg, #fff 0 72%, var(--cbn-sol-paper) 72%), #fff;
+}
+
+.cbn-photo-story--contact .cbn-photo-story__header {
+  grid-template-columns: 1fr;
+  max-width: 1180px;
+  text-align: center;
+}
+
+.cbn-photo-story--contact .cbn-photo-story__header p {
+  margin-inline: auto;
+}
+
+.cbn-photo-story--contact .cbn-photo-story__header h2 {
+  margin-inline: auto;
+}
+
+.cbn-photo-story--contact .cbn-photo-story__rail {
+  grid-template-columns: minmax(210px, 0.85fr) minmax(300px, 1.3fr) minmax(
+      210px,
+      0.85fr
+    );
+  grid-auto-columns: auto;
+  grid-auto-flow: row;
+  gap: 0;
+  max-width: 1320px;
+  padding: 18px 0 38px;
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+.cbn-photo-story--contact .cbn-photo-story__item {
+  min-height: clamp(430px, 48vw, 680px);
+  clip-path: none;
+}
+
+.cbn-photo-story--contact .cbn-photo-story__item:first-child {
+  border-radius: 190px 0 0 18px;
+}
+
+.cbn-photo-story--contact .cbn-photo-story__item:nth-child(2) {
+  z-index: 2;
+  margin-block: -22px;
+  border: 10px solid #fff;
+  box-shadow: 0 22px 54px rgba(14, 14, 15, 0.2);
+}
+
+.cbn-photo-story--contact .cbn-photo-story__item:last-child {
+  border-radius: 0 190px 18px 0;
+}
+
+.cbn-photo-story--contact .cbn-photo-story__item .cbn-club-photo {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.cbn-photo-story--contact .cbn-photo-story__caption {
+  border-radius: 999px;
+}
+
+/* Sponsors: premium arena lightboxes with panoramic crops. */
+.cbn-photo-story--sponsors {
+  --cbn-story-accent: #ff7a87;
+  background:
+    radial-gradient(circle at 20% 0, rgba(201, 0, 24, 0.3), transparent 28%),
+    radial-gradient(
+      circle at 80% 100%,
+      rgba(255, 255, 255, 0.09),
+      transparent 34%
+    ),
+    #0e0e0f;
+  color: #fff;
+}
+
+.cbn-photo-story--sponsors .cbn-photo-story__header p {
+  color: #ff7a87;
+}
+
+.cbn-photo-story--sponsors .cbn-photo-story__header {
+  padding: 20px 0;
+  border-block: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.cbn-photo-story--sponsors .cbn-photo-story__rail {
+  grid-auto-columns: max-content;
+  align-items: start;
+  gap: clamp(20px, 2.5vw, 42px);
+  padding: 38px 10px 54px;
+}
+
+.cbn-photo-story--sponsors .cbn-photo-story__item {
+  width: clamp(360px, 46vw, 690px);
+  padding: 7px;
+  clip-path: polygon(
+    34px 0,
+    100% 0,
+    100% calc(100% - 34px),
+    calc(100% - 34px) 100%,
+    0 100%,
+    0 34px
+  );
+  background: linear-gradient(
+    135deg,
+    var(--cbn-sol-paper),
+    #69686a 48%,
+    #fff 52%,
+    #171719
+  );
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+}
+
+.cbn-photo-story--sponsors .cbn-photo-story__item:nth-child(even) {
+  margin-top: 58px;
+}
+
+.cbn-photo-story--sponsors .cbn-photo-story__item::before {
+  position: absolute;
+  inset: 14px;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  content: "";
+  pointer-events: none;
+}
+
+.cbn-photo-story--sponsors .cbn-photo-story__item .cbn-club-photo {
+  aspect-ratio: 4 / 3;
+}
+
+.cbn-photo-story--sponsors .cbn-photo-story__caption {
+  top: 19px;
+  right: 19px;
+  bottom: auto;
+  border-color: rgba(255, 255, 255, 0.48);
+  background: rgba(14, 14, 15, 0.86);
+}
+
+@media (hover: hover) {
+  .cbn-photo-story__item:hover .cbn-club-photo {
+    box-shadow: 0 24px 54px rgba(14, 14, 15, 0.2);
+  }
+
+  .cbn-photo-story--teams .cbn-photo-story__item:hover .cbn-club-photo {
+    transform: perspective(900px) rotateY(-3deg) translateY(-8px);
+  }
+
+  .cbn-photo-story--registration .cbn-photo-story__item:hover .cbn-club-photo {
+    transform: translateY(-10px);
+  }
+
+  .cbn-photo-story--shop .cbn-photo-story__item:hover .cbn-club-photo {
+    transform: translate(-4px, -4px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .cbn-photo-story--contact .cbn-photo-story__rail {
+    grid-template-columns: none;
+    grid-auto-columns: min(76vw, 440px);
+    grid-auto-flow: column;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .cbn-photo-story--contact .cbn-photo-story__item,
+  .cbn-photo-story--contact .cbn-photo-story__item:first-child,
+  .cbn-photo-story--contact .cbn-photo-story__item:nth-child(2),
+  .cbn-photo-story--contact .cbn-photo-story__item:last-child {
+    min-height: 0;
+    margin-block: 0;
+    border: 0;
+    border-radius: 90px 0 18px;
+  }
+
+  .cbn-photo-story--contact .cbn-photo-story__item .cbn-club-photo {
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (max-width: 760px) {
+  [data-cbn-photo-id="club-051"] > img {
+    object-position: 54% 40%;
+  }
+
+  [data-cbn-photo-id="club-030"] > img {
+    object-position: 50% 34%;
+  }
+
+  [data-cbn-photo-id="club-027"] > img {
+    object-position: 50% 46%;
+  }
+
+  [data-cbn-photo-id="club-031"] > img {
+    object-position: 54% 48%;
+  }
+
+  [data-cbn-photo-id="club-052"] > img {
+    object-position: 60% 46%;
+  }
+
+  [data-cbn-photo-id="club-064"] > img {
+    object-position: 52% 46%;
+  }
+
+  [data-cbn-photo-id="club-025"] > img {
+    object-position: 50% 44%;
+  }
+
+  .cbn-photo-story {
+    padding-right: 0;
+  }
+
+  .cbn-photo-story__header {
+    grid-template-columns: 1fr;
+    padding-right: var(--cbn-sol-pad);
+  }
+
+  .cbn-photo-story--news .cbn-photo-story__header {
+    grid-template-columns: 1fr;
+  }
+
+  .cbn-photo-story__header p {
+    grid-column: 1 / -1;
+  }
+
+  .cbn-photo-story__header h2,
+  .cbn-photo-story--matches .cbn-photo-story__header h2 {
+    font-size: clamp(31px, 8.4vw, 44px);
+    letter-spacing: var(--cbn-sol-track-editorial-serif);
+    line-height: 0.9;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .cbn-photo-story__rail {
+    grid-auto-columns: min(72vw, 300px);
+    padding-right: var(--cbn-sol-pad);
+  }
+
+  .cbn-photo-story--home .cbn-photo-story__item {
+    width: min(68vw, 290px);
+  }
+
+  .cbn-photo-story--home .cbn-photo-story__item:nth-child(5n + 1) {
+    width: min(86vw, 420px);
+  }
+
+  .cbn-photo-story--home .cbn-photo-story__item:nth-child(3n + 2),
+  .cbn-photo-story--club .cbn-photo-story__item:nth-child(even),
+  .cbn-photo-story--shop .cbn-photo-story__item:nth-child(even),
+  .cbn-photo-story--sponsors .cbn-photo-story__item:nth-child(even) {
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+
+  .cbn-photo-story--club .cbn-photo-story__item,
+  .cbn-photo-story--teams .cbn-photo-story__item,
+  .cbn-photo-story--registration .cbn-photo-story__item {
+    width: min(70vw, 300px);
+  }
+
+  .cbn-photo-story--teams .cbn-photo-story__rail {
+    grid-auto-columns: min(70vw, 300px);
+  }
+
+  .cbn-photo-story--teams .cbn-photo-story__item + .cbn-photo-story__item {
+    margin-left: -22px;
+  }
+
+  .cbn-photo-story--matches .cbn-photo-story__item,
+  .cbn-photo-story--matches .cbn-photo-story__item:nth-child(even) {
+    width: min(86vw, 480px);
+  }
+
+  .cbn-photo-story--matches .cbn-photo-story__item:nth-child(even) {
+    margin-bottom: 28px;
+  }
+
+  .cbn-photo-story--news .cbn-photo-story__rail {
+    grid-template-rows: repeat(2, min(42vw, 180px));
+    grid-auto-columns: min(40vw, 180px);
+  }
+
+  .cbn-photo-story--registration .cbn-photo-story__item:nth-child(4n + 2) {
+    margin-bottom: 20px;
+  }
+
+  .cbn-photo-story--registration .cbn-photo-story__item:nth-child(4n + 3) {
+    margin-bottom: 40px;
+  }
+
+  .cbn-photo-story--registration .cbn-photo-story__item:nth-child(4n) {
+    margin-bottom: 10px;
+  }
+
+  .cbn-photo-story--shop .cbn-photo-story__item {
+    width: min(72vw, 320px);
+  }
+
+  .cbn-photo-story--contact .cbn-photo-story__rail {
+    grid-auto-columns: min(78vw, 340px);
+  }
+
+  .cbn-photo-story--sponsors .cbn-photo-story__item {
+    width: min(86vw, 460px);
+  }
+
+  .cbn-photo-story--club .cbn-photo-story__rail,
+  .cbn-photo-story--registration .cbn-photo-story__rail,
+  .cbn-photo-story--contact .cbn-photo-story__rail,
+  .cbn-photo-story--sponsors .cbn-photo-story__rail {
+    padding-right: var(--cbn-sol-pad);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cbn-photo-story__item .cbn-club-photo,
+  .cbn-photo-story__item img,
+  .cbn-photo-story__item:hover img {
+    transform: none !important;
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .cbn-photo-story__item {
+    border: 2px solid CanvasText;
+    clip-path: none;
+    box-shadow: none;
+  }
+
+  .cbn-photo-story__item::before,
+  .cbn-photo-story__item::after {
+    display: none;
+  }
+
+  .cbn-photo-story__caption {
+    border: 1px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+}
