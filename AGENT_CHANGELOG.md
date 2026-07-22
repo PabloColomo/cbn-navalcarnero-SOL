@@ -1,5 +1,17 @@
 # Agent Changelog
 
+### 2026-07-22 21:14 +02:00 - PR #1 publicado y listo para la validación final
+
+- Agent: github_operator + changelog_keeper + pull_request_agent + final_validator.
+- Action: Se creó el commit `0bd84f69df2b77ee37049235b47ddf4078df1b0c` (`fix: consolidar la version definitiva de CBN Sol`) con los 35 archivos auditados y se empujó a `origin/codex/reproducible-cbn-sol`. Se actualizaron el título y el cuerpo del PR #1, se cambió de borrador a listo para revisión y la CI `quality` terminó correctamente sobre ese SHA. Esta entrada se publicará en un commit documental posterior, que deberá superar su propia CI antes de considerar el PR técnicamente listo.
+- Reason: Dejar trazabilidad verificable de las acciones GitHub autorizadas por el usuario y del estado exacto de la candidata que representa `http://localhost:8084/`.
+- Files affected: este `AGENT_CHANGELOG.md` en el commit documental de seguimiento; PR #1 de `codex/reproducible-cbn-sol` hacia `main`.
+- Relation to original instruction: La rama contiene el estado aprobado de `localhost:8084`; `localhost:8082` no se tocó. `.playwright-cli/`, `output/`, base de datos, uploads, usuarios, secretos y configuración local permanecen fuera de Git.
+- Result: commit funcional, push y preparación del PR completados. No se ejecutó la fusión en `main`; queda pendiente la confirmación humana explícita exigida por el workflow del repositorio.
+- Validation: `npm.cmd run verify`, PHP lint, `node --check`, parseo y rerun idempotente del bootstrap, `git diff --check` y auditoría visual/responsive pasaron antes de publicar. La CI fresca del commit funcional pasó en `https://github.com/PabloColomo/cbn-navalcarnero-SOL/actions/runs/29949748663/job/89024162905`; el PR informó `MERGEABLE/CLEAN` y el checkout quedó limpio y sincronizado.
+- Risks or doubts: Git no reproduce por sí solo la base editorial, usuarios, uploads, secretos ni configuración de producción. Siguen pendientes no bloqueantes los envíos reales de formularios, lector de pantalla, zoom nativo al 200 %, datos deportivos reales y textos legales definitivos.
+- Next recommended action: Publicar este registro documental, esperar la CI del nuevo SHA, ejecutar la validación final y solicitar al usuario la confirmación literal para fusionar el PR #1.
+
 ### 2026-07-22 21:04 +02:00 - Autorizada la publicación GitHub del estado validado de 8084
 
 - Agent: coordinator + alignment_guard + code_reviewer + github_operator + pull_request_agent + final_validator.
