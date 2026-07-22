@@ -38,21 +38,6 @@ get_header();
 <main id="primary" class="cbn-sol cbn-sol-contact-page" data-cbn-sol data-cbn-contact-page>
   <div class="cbn-sol__grain" aria-hidden="true"></div>
 
-  <div class="cbn-sol-route cbn-sol-contact-page__route" aria-hidden="true" data-cbn-route-wrap>
-    <svg viewBox="0 0 100 1000" preserveAspectRatio="none" focusable="false">
-      <path
-        class="cbn-sol-route__ghost"
-        d="M14 0 C14 92 86 108 86 205 S20 318 20 415 S82 525 82 620 S18 728 18 815 S74 925 52 1000"
-      ></path>
-      <path
-        class="cbn-sol-route__active"
-        data-cbn-route
-        d="M14 0 C14 92 86 108 86 205 S20 318 20 415 S82 525 82 620 S18 728 18 815 S74 925 52 1000"
-      ></path>
-    </svg>
-    <span class="cbn-sol-route__ball" data-cbn-route-ball></span>
-  </div>
-
   <section class="cbn-sol-contact-hero" aria-labelledby="cbn-contact-title">
     <div class="cbn-sol-contact-hero__court" aria-hidden="true">
       <svg viewBox="0 0 900 780" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -78,10 +63,9 @@ get_header();
       <div class="cbn-sol-contact-hero__actions">
         <a class="cbn-sol-button cbn-sol-button--shot" href="#formulario-contacto" data-cbn-swish>
           <span>Escribir al club</span>
-          <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
         </a>
         <a class="cbn-sol-text-link" href="<?php echo esc_url($cbn_contact_email_url); ?>" data-cbn-swish>
-          Enviar email <span aria-hidden="true">↗</span>
+          Enviar email <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
         </a>
       </div>
 
@@ -96,7 +80,7 @@ get_header();
       </button>
     </div>
 
-    <aside class="cbn-sol-contact-board" aria-labelledby="cbn-contact-channels-title" data-sol-reveal data-cbn-parallax>
+    <aside class="cbn-sol-contact-board" aria-labelledby="cbn-contact-channels-title" data-sol-reveal>
       <header class="cbn-sol-contact-board__header">
         <span><i aria-hidden="true"></i> Canales del club</span>
         <span>CBN · Navalcarnero</span>
@@ -114,12 +98,12 @@ get_header();
         <li>
           <span aria-hidden="true">01</span>
           <div><small>Email</small><a href="<?php echo esc_url($cbn_contact_email_url); ?>" data-cbn-swish><?php echo esc_html($cbn_contact['channels']['email']); ?></a></div>
-          <i aria-hidden="true">↗</i>
+          <i class="cbn-sol-arrow-up-right" aria-hidden="true"></i>
         </li>
         <li>
           <span aria-hidden="true">02</span>
           <div><small>Teléfono</small><a href="<?php echo esc_url($cbn_contact_phone_url); ?>" data-cbn-swish><?php echo esc_html($cbn_contact['channels']['phone']); ?></a></div>
-          <i aria-hidden="true">↗</i>
+          <i class="cbn-sol-arrow-up-right" aria-hidden="true"></i>
         </li>
         <li>
           <span aria-hidden="true">03</span>
@@ -223,7 +207,6 @@ get_header();
 
         <button class="cbn-sol-button cbn-sol-button--shot cbn-sol-contact-form__submit" type="submit" data-cbn-swish>
           <span>Enviar mensaje</span>
-          <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
         </button>
       </form>
     </div>
@@ -242,10 +225,7 @@ get_header();
 
     <div class="cbn-sol-contact-locations__grid">
       <?php foreach ($cbn_contact['location']['facilities'] as $cbn_facility_index => $cbn_facility) : ?>
-        <article class="cbn-sol-contact-location-card" data-sol-reveal data-cbn-tilt>
-          <div class="cbn-sol-contact-location-card__court" aria-hidden="true">
-            <span></span><i></i>
-          </div>
+        <article class="cbn-sol-contact-location-card" data-sol-reveal>
           <header>
             <span><?php echo esc_html(str_pad((string) ($cbn_facility_index + 1), 2, '0', STR_PAD_LEFT)); ?></span>
             <small>Instalación CBN</small>
@@ -255,7 +235,7 @@ get_header();
           <p><?php echo esc_html($cbn_facility['note']); ?></p>
           <?php if (!empty($cbn_facility['maps_url'])) : ?>
             <a href="<?php echo esc_url($cbn_facility['maps_url']); ?>" target="_blank" rel="noopener noreferrer" data-cbn-swish>
-              Ver en Google Maps <span aria-hidden="true">↗</span>
+              Ver en Google Maps <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
             </a>
           <?php endif; ?>
         </article>
@@ -264,9 +244,6 @@ get_header();
   </section>
 
   <section class="cbn-sol-contact-social" aria-labelledby="cbn-contact-social-title">
-    <div class="cbn-sol-contact-social__court" aria-hidden="true">
-      <span></span><span></span><span></span>
-    </div>
     <header data-sol-reveal>
       <p class="cbn-sol-section-index">03 · Sigue la jugada</p>
       <h2 id="cbn-contact-social-title"><?php echo esc_html($cbn_contact['social']['heading']); ?></h2>
@@ -281,7 +258,7 @@ get_header();
           <a class="cbn-sol-contact-social__link" href="<?php echo esc_url($cbn_social_item['url']); ?>" target="_blank" rel="noopener noreferrer" data-cbn-swish>
             <small><?php echo esc_html(str_pad((string) ($cbn_social_index + 1), 2, '0', STR_PAD_LEFT)); ?></small>
             <strong><?php echo esc_html($cbn_social_item['label']); ?></strong>
-            <em aria-hidden="true">↗</em>
+            <em class="cbn-sol-arrow-up-right" aria-hidden="true"></em>
           </a>
         </li>
       <?php endforeach; ?>
@@ -289,7 +266,7 @@ get_header();
 
     <footer class="cbn-sol-contact-social__footer" data-sol-reveal>
       <span>¿Prefieres un pase directo?</span>
-      <a href="<?php echo esc_url($cbn_contact_email_url); ?>" data-cbn-swish><?php echo esc_html($cbn_contact['channels']['email']); ?> <i aria-hidden="true">↗</i></a>
+      <a href="<?php echo esc_url($cbn_contact_email_url); ?>" data-cbn-swish><?php echo esc_html($cbn_contact['channels']['email']); ?> <i class="cbn-sol-arrow-up-right" aria-hidden="true"></i></a>
     </footer>
   </section>
 </main>

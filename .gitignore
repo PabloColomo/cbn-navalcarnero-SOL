@@ -12,6 +12,7 @@ __pycache__/
 *.py[cod]
 
 output/playwright/
+.playwright-cli/
 
 wp-content/cache/
 wp-content/languages/

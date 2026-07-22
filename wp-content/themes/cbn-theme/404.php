@@ -45,13 +45,12 @@ get_header();
       <nav class="cbn-sol-system-404__actions" aria-label="Volver a una sección disponible">
         <a class="cbn-sol-button cbn-sol-button--shot" href="<?php echo esc_url(home_url('/')); ?>" data-cbn-swish>
           <span>Volver al inicio</span>
-          <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
         </a>
         <a class="cbn-sol-text-link" href="<?php echo esc_url($cbn_system_teams_url); ?>" data-cbn-swish>
-          Ver equipos <span aria-hidden="true">↗</span>
+          Ver equipos <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
         </a>
         <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/contacto/')); ?>" data-cbn-swish>
-          Contacto <span aria-hidden="true">↗</span>
+          Contacto <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
         </a>
       </nav>
     </div>
@@ -75,7 +74,7 @@ get_header();
         <div>
           <input id="cbn-404-search" type="search" name="s" placeholder="Noticias, equipos, partidos…">
           <button type="submit" data-cbn-swish>
-            <span class="cbn-visually-hidden">Buscar</span><span aria-hidden="true">↗</span>
+            <span class="cbn-visually-hidden">Buscar</span><span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
           </button>
         </div>
       </form>

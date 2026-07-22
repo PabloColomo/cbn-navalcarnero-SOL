@@ -1,5 +1,77 @@
 # Agent Changelog
 
+### 2026-07-22 21:04 +02:00 - Autorizada la publicación GitHub del estado validado de 8084
+
+- Agent: coordinator + alignment_guard + code_reviewer + github_operator + pull_request_agent + final_validator.
+- Action: El usuario declaró definitiva y principal la versión validada en `http://localhost:8084/` y autorizó realizar el trabajo de GitHub. Se fijó como alcance de publicación el conjunto de 35 archivos tracked que representa el tema, plantillas, estilos, JavaScript, bootstrap, exclusiones locales e historial operativo auditados; se excluyeron expresamente `.playwright-cli/`, `output/`, base de datos, uploads, credenciales y cualquier estado local no versionable.
+- Reason: Convertir la versión visualmente aprobada en la candidata oficial del repositorio sin introducir artefactos temporales ni afirmar que Git captura el estado completo de WordPress.
+- Files affected: los 35 archivos tracked listados por `git diff --name-only`, incluidos `.gitignore` y este changelog; PR existente `#1` (`codex/reproducible-cbn-sol` hacia `main`).
+- Relation to original instruction: La rama y el PR corresponden al clon aislado de `8084`; `localhost:8082` permanece fuera de alcance. La validación humana de escritorio y móvil ya fue recibida. No se borró evidencia local; se añadió únicamente `.playwright-cli/` a `.gitignore` para impedir que el navegador de QA pueda entrar en futuros commits.
+- Result: approved for commit, push, actualización del PR #1 y cambio de draft a ready. La fusión en `main` queda condicionada a CI fresca del nuevo SHA, validación final sin bloqueos y confirmación humana explícita de merge conforme al workflow del repositorio.
+- Validation: Antes de versionar pasan `npm.cmd run verify`, PHP lint completo, `node --check`, parseo y rerun idempotente de `bootstrap-local.ps1 -SkipBuild`, `git diff --check`, 11 rutas públicas y búsqueda con HTTP 200, responsive 390/430/768/1440/1920 y aceptación visual `ACCEPT` con P0/P1 en cero.
+- Risks or doubts: Git no incluye la base editorial, usuarios, uploads, secretos ni configuración de producción. Siguen pendientes no bloqueantes los envíos reales de formularios, lector de pantalla, zoom nativo al 200 %, datos deportivos reales y textos legales definitivos.
+- Next recommended action: Crear el commit intencional, empujar la rama, actualizar y marcar listo el PR #1, esperar la nueva CI y solicitar la confirmación final de merge.
+
+### 2026-07-22 20:50 +02:00 - Correcciones guiadas por las 30 capturas azules
+
+- Agent: coordinator + creative_director + frontend_craftsperson + responsive_qa + accessibility_qa + originality_guard + code_reviewer + alignment_guard + visual_acceptance_director.
+- Action: Se identificaron y etiquetaron individualmente las 30 capturas de `Desktop\correcciones`, se congeló la dirección «Pista Viva sin trazo literal» y se aplicó una pasada transversal sobre las superficies señaladas. Se eliminó por completo la ruta/línea roja, su inicializador JS y sus variantes; se retiraron órbitas, dianas, pelotas decorativas, cruces radiales y arcos punteados de botones; se reforzaron títulos, estados deportivos, formularios y el proceso de inscripción; se corrigió el reflow de legends y consultas largas; y se activó de forma reproducible el idioma español de WordPress.
+- Reason: El usuario pidió procesar y razonar primero las capturas marcadas en azul y, después, usar ese material para arreglar la web en todos los lugares afectados.
+- Files affected: plantillas públicas de Home, Club, Equipos, Partidos, Noticias, Tienda, Sponsors, Contacto, Inscripción y estados de sistema; `assets/src/css/{main,sol,sol-club,sol-contact,sol-info,sol-matches,sol-news,sol-photography,sol-registration,sol-shop,sol-sponsors,sol-system,sol-teams}.css`; `assets/src/js/sol.js`; `scripts/bootstrap-local.ps1`; `AGENT_CHANGELOG.md`. Auditoría fuente en `C:\Users\EMPRESA\Desktop\correcciones - procesadas 2026-07-22\`; evidencia final en `output/playwright/2026-07-22-correcciones-azules/final/`.
+- Relation to original instruction: Todo el trabajo de código, WordPress y navegador quedó limitado al clon `club naval - CBN Sol - correcciones auditoria` y a `http://localhost:8084/`; `localhost:8082` permaneció sin tocar. Se conservaron rutas, enlaces, nonces, formularios, fotografía real, escudo oficial y la jerarquía editorial aprobada. No se hizo staging, commit, push, PR ni merge.
+- Result: completed locally; aceptación visual final `ACCEPT`, con P0/P1 en cero. Las revisiones finales de responsive, accesibilidad, originalidad y código también cerraron sin P0/P1.
+- Validation: Las 11 rutas públicas devolvieron HTTP 200, `lang="es"`, un H1 y cero imágenes rotas. El tema y el DOM devuelven cero restos de ruta, órbita, diana, pelota decorativa o arco de botón. Se validaron 390/430/768/1440/1920 px y cobertura adicional de Club, Tienda, búsqueda vacía, Privacidad y Aviso legal; no hubo overflow documental ni titulares fuera del viewport. `npm.cmd run verify`, PHP 8.3 lint, `node --check`, parseo PowerShell y `git diff --check` pasaron.
+- Risks or doubts: Quedan pendientes no bloqueantes un envío real de ambos formularios, lector de pantalla, zoom nativo al 200 %, estados deportivos con datos reales y validación visual humana. Privacidad y Aviso legal conservan contenido editorial pendiente; las consultas de búsqueda excepcionalmente largas pueden tener saltos tipográficos poco elegantes, aunque permanecen completas y contenidas.
+- Next recommended action: Revisar las capturas finales y versionar únicamente si el usuario lo solicita expresamente.
+
+### 2026-07-22 17:09 +02:00 - Tracking de títulos abierto en toda la web
+
+- Agent: coordinator + site_inventory + creative_director + responsive_qa + accessibility_qa + visual_acceptance_director.
+- Action: Tras la aclaración del usuario, se corrigió específicamente el espacio entre letras de los títulos, no el margen de sus bloques. Se definieron tokens locales de tracking (`0.015em` para hero, `0.02em` para sección y `0` para tarjetas/editorial serif) y se sustituyeron los valores negativos de los títulos de las 11 rutas, preservando kickers, etiquetas, marcadores, números y tickers. Se añadieron compensaciones de tamaño únicamente donde el tracking positivo produjo un recorte real en 320 px, en Inscripción de escritorio y en la H1 de Tienda a 1920 px.
+- Reason: El usuario indicó que los títulos se veían con las letras demasiado pegadas y pidió aplicar el criterio a todas las capturas de la web.
+- Files affected: `wp-content/themes/cbn-theme/assets/src/css/sol.css`, `sol-{club,contact,info,matches,news,photography,registration,shop,sponsors,system,teams}.css`, `AGENT_CHANGELOG.md`; evidencia en `output/playwright/2026-07-22-titulos-tracking/`.
+- Relation to original instruction: Todo el trabajo y la validación HTTP se limitaron al clon aislado y a `http://localhost:8084/`; `localhost:8082` permaneció sin tocar. No se cambió contenido, rutas, formularios, pagos, datos deportivos ni JavaScript.
+- Result: completed locally; aceptación visual final `ACCEPT`, con P0/P1/P2 en cero. No se hizo staging, commit, push, PR ni merge.
+- Validation: Se revisaron 75 títulos y se regeneraron 66 capturas finales (11 rutas × 320/390/430/768/1440/1920), seis hojas de contacto y una comparativa antes/después. Las 33 comprobaciones móviles de 320/390/430 no mostraron overflow y todos los H1 conservaron tracking positivo. El caso de Tienda a 1920 detectado en la primera aceptación quedó corregido y revalidado en una sola línea en los seis anchos. Las 11 rutas devolvieron HTTP 200; `npm.cmd run verify` y `git diff --check` pasaron.
+- Risks or doubts: Quedan pendientes no bloqueantes el zoom nativo al 200 %, lector de pantalla real y una revisión manual exhaustiva de foco.
+- Next recommended action: Validación visual humana de las hojas de contacto; versionar únicamente si el usuario lo solicita expresamente.
+
+### 2026-07-22 16:12 +02:00 - Títulos y espaciados revisados en las 11 rutas
+
+- Agent: coordinator + responsive_qa + accessibility_qa + creative_director + visual_acceptance_director.
+- Action: Se auditó la jerarquía, escala, espaciado y recorte de los títulos de las 11 rutas públicas en `http://localhost:8084/`. Se corrigieron de forma localizada los títulos secundarios de Partidos, Instalaciones, Equipos, Sponsors e Inscripción; la rejilla móvil del titular fotográfico de Noticias; la jerarquía del estado vacío legal; dos antetítulos de bajo contraste sobre negro; y las tildes visibles de Noticias, Tienda y páginas informativas. Se preservaron los H1 principales, la firma Pista Viva y el centrado de Contacto/Inscripción en escritorio.
+- Reason: El usuario pidió revisar los títulos y sus espaciados en toda la web, continuando la auditoría exclusivamente sobre `localhost:8084` y sin tocar `localhost:8082`.
+- Files affected: `wp-content/themes/cbn-theme/assets/src/css/sol-{club,info,matches,news,photography,registration,sponsors,teams}.css`, `wp-content/themes/cbn-theme/home.php`, `page.php`, `page-tienda.php`, `AGENT_CHANGELOG.md`; evidencia en `output/playwright/2026-07-22-titulos-espaciados/`.
+- Relation to original instruction: Los cambios se limitan a tipografía, composición responsive, contraste y ortografía de títulos en el clon aislado. No cambian rutas, datos deportivos, formularios, pagos, JavaScript ni la dirección visual aprobada; `localhost:8082` permaneció protegido.
+- Result: completed locally; aceptación visual final con P0/P1/P2 técnicos en cero. No se hizo staging, commit, push, PR ni merge.
+- Validation: Las 11 rutas devolvieron HTTP 200. Responsive QA revalidó 55 vistas a 390/430/768/1440/1920 px, con un H1 por ruta, cero overflow documental, palabras partidas o títulos recortados. La evidencia dirigida adicional confirmó `NO HAY PARTIDOS PROGRAMADOS` completo a 320/390/430 px y aire positivo contra el panel. Los dos antetítulos oscuros alcanzan 6.14:1. `npm.cmd run verify`, PHP 8.3 lint de los tres archivos PHP editados y `git diff --check` pasaron.
+- Risks or doubts: Quedan fuera de esta pasada una captura física exacta de todas las rutas a 1920 px, zoom nativo al 200 %, lector de pantalla real y una revisión manual exhaustiva de foco. Privacidad y Aviso legal conservan contenido editorial pendiente, sin defecto visual confirmado.
+- Next recommended action: Revisión humana de las hojas de contacto y evidencias dirigidas; versionar únicamente si el usuario lo solicita expresamente.
+
+### 2026-07-22 09:22 +02:00 - Cierre de auditoría visual sobre todas las capturas públicas
+
+- Agent: coordinator + site_inventory + responsive_qa + accessibility_qa + visual_acceptance_director + changelog_keeper.
+- Action: Se revisaron las 11 rutas públicas de `http://localhost:8084/` en escritorio y móvil, se corrigieron colisiones de estilos, titulares y paneles con reflow deficiente, palabras partidas, el ancho intrínseco del formulario móvil de Inscripción y dos rótulos de bajo contraste sobre negro. Se regeneraron 66 capturas finales de viewport y seis hojas de contacto, además de evidencias dirigidas para los paneles corregidos.
+- Reason: El usuario pidió continuar la última auditoría y aplicar el mismo criterio a todas las capturas de la web, sin tocar `localhost:8082`.
+- Files affected: `wp-content/themes/cbn-theme/assets/src/css/sol.css`, `sol-info.css`, `sol-matches.css`, `sol-news.css`, `sol-shop.css`, `sol-contact.css`, `sol-registration.css`, `sol-photography.css` y `AGENT_CHANGELOG.md`; evidencia en `output/playwright/2026-07-22-auditoria-todas-rutas/`.
+- Relation to original instruction: Todo el trabajo quedó limitado al clon `club naval - CBN Sol - correcciones auditoria` y a `localhost:8084`; no se accedió a `localhost:8082`, no se cambió contenido, rutas, pagos o datos editoriales y no se realizó ninguna acción Git de publicación.
+- Result: completed locally; aceptación visual final y accesibilidad con P0/P1 en cero. No se hizo staging, commit, push, PR ni merge. La validación visual humana de las capturas sigue pendiente.
+- Validation: `npm.cmd run verify` y `git diff --check` pasaron; las 11 rutas devolvieron HTTP 200. La auditoría de 44 vistas a 390/768/1440/1920 y la pasada adicional a 430 no detectaron overflow de documento ni palabras partidas. El formulario de Inscripción conservó todos sus controles dentro del panel a 390/430/768/1440/1920. `prefers-reduced-motion`, `forced-colors`, semántica y 45 tabulaciones en Contacto/Inscripción no mostraron bloqueos; los dos rótulos corregidos alcanzan 6.14:1 de contraste.
+- Risks or doubts: Quedan como P2 no bloqueantes varios microtextos auxiliares de 7–10 px y numeraciones secundarias de contraste débil. No se completaron una captura física exacta de todas las rutas a 1920, zoom nativo al 200 %, lector de pantalla real, envío efectivo de formularios ni estados con datos reales. Privacidad y Aviso legal mantienen contenido editorial pendiente.
+- Next recommended action: Revisión humana de las hojas de contacto y de las evidencias dirigidas; versionar únicamente si el usuario lo solicita expresamente.
+
+### 2026-07-22 09:05 +02:00 - Auditoría visual ampliada a todas las rutas públicas
+
+- Agent: coordinator + site_inventory + changelog_keeper.
+- Action: Se amplió la auditoría visual de `http://localhost:8084/` a las 11 rutas públicas (`/`, `/el-club/`, `/equipos/`, `/partidos/`, `/noticias/`, `/tienda/`, `/sponsors/`, `/contacto/`, `/inscripcion/`, `/privacidad/`, `/aviso-legal/`) y se corrigió la tipografía de las páginas informativas para evitar la rotura del título en móvil.
+- Reason: El usuario pidió aplicar el mismo criterio a todas las capturas de pantalla tomadas de la web, manteniendo el trabajo fuera de `localhost:8082`.
+- Files affected: `wp-content/themes/cbn-theme/assets/src/css/sol-info.css` y `AGENT_CHANGELOG.md`.
+- Relation to original instruction: La ampliación se mantuvo en el clon de correcciones y sólo tocó una regla de presentación compartida; no cambió contenido, rutas, datos editoriales, pagos ni plantillas estructurales.
+- Result: completed locally; `Privacidad` y `Aviso legal` ya no parten `PRIVACIDAD` por letras en móvil. No se hizo staging, commit, push, PR ni merge.
+- Validation: Inventario read-only de las 11 rutas y capturas existentes 390/1440 completado; la nueva captura de `http://localhost:8084/privacidad/` a 390 px confirmó el ajuste tipográfico. `npm.cmd run verify` y `git diff --check` pasaron.
+- Risks or doubts: Sólo se validó visualmente `Privacidad` con la nueva regla; `Aviso legal` comparte el mismo selector y debería quedar cubierto, pero conviene revisar la captura correspondiente si el usuario quiere cierre visual exhaustivo.
+- Next recommended action: Revisar `Aviso legal` y, si el usuario lo pide, generar/mostrar la matriz completa de capturas finales antes de cualquier acción Git.
+
 Operational history for the GitHub multiagent workflow.
 
 Every relevant action should add a new entry. Keep entries factual, short, and traceable.
@@ -18,6 +90,54 @@ Every relevant action should add a new entry. Keep entries factual, short, and t
 - Next recommended action:
 
 ## Entries
+
+### 2026-07-22 08:20 +02:00 - Continuación de auditoría P2 en localhost:8084
+
+- Agent: coordinator + responsive_qa + accessibility_qa + originality_guard + visual_acceptance_director.
+- Action: Se retomaron los P2 de la auditoría anterior exclusivamente en `http://localhost:8084/`. El marcador móvil reorganiza `Jornada / VS`, reserva más ancho a los equipos y evita la ruptura interna de «Confirmar». En `forced-colors`, el menú muestra icono y texto, y el control de sonido conserva icono y estado visible.
+- Reason: El usuario pidió continuar la última auditoría sobre `localhost:8084` sin tocar `localhost:8082`.
+- Files affected: `wp-content/themes/cbn-theme/assets/src/css/main.css`, `wp-content/themes/cbn-theme/assets/src/css/sol.css` y `AGENT_CHANGELOG.md`.
+- Relation to original instruction: La pasada quedó limitada al clon de correcciones y a dos defectos confirmados de reflow/alto contraste; no cambió contenido, rutas, JavaScript, plantillas, pagos, datos editoriales ni la dirección Pista Viva.
+- Result: completed locally; aceptación visual final con P0/P1 en cero. No se accedió ni modificó `localhost:8082` y no se realizaron staging, commit, push, PR o merge.
+- Validation: Capturas actuales validaron Home a 1440 × 1000 y 390 × 844, el marcador a 320, 390 y 430 px, y `forced-colors` a 390 px. A 390/430 px «POR / CONFIRMAR» queda en dos líneas completas y el documento conserva `scrollWidth === clientWidth`; 768/1440/1920 también mantuvieron reflow sin overflow. La emulación de reflow a 200 % produjo un viewport de 640 CSS px con DPR 2 y cero overflow de documento. `npm.cmd run verify`, `git diff --check` y once rutas HTTP 200 pasaron.
+- Risks or doubts: El control del navegador integrado no permitió comprobar zoom nativo al 200 %; se usó una equivalencia de métricas a 640 CSS px con DPR 2. Quedan sin evaluar una prueba manual con lector de pantalla y un recorrido humano completo de teclado. La aceptación visual final se circunscribe a la Home y a las superficies corregidas.
+- Next recommended action: Validación humana de las capturas y de `http://localhost:8084/`; versionar únicamente si el usuario lo solicita.
+
+### 2026-07-21 18:54 +02:00 - Auditoría visual corregida en un clon aislado
+
+- Agent: coordinator + code_reviewer + visual_acceptance_director.
+- Action: Se clonó `codex/reproducible-cbn-sol` en `club naval - CBN Sol - correcciones auditoria`, se trasladó sin alterar la base local de cinco archivos de `localhost:8082` y se corrigieron el reset tipográfico del body, la escala y contraste del microtexto, el recorte de títulos de equipos, las alturas rígidas móviles, las flechas convertidas en emoji, la falta de anuncio accesible de los filtros y la publicación de `Hello world!` en instalaciones locales nuevas.
+- Reason: El usuario pidió clonar primero el código detrás de `localhost:8082` y aplicar los problemas identificados por la auditoría visual de la Home.
+- Files affected: `scripts/bootstrap-local.ps1`, `wp-content/themes/cbn-theme/assets/src/css/{main,sol,sol-photography}.css`, `assets/src/js/sol.js`, `front-page.php` y las plantillas que muestran la flecha diagonal; además de los cinco cambios locales preexistentes conservados en el clon.
+- Relation to original instruction: Las correcciones se limitaron al clon nuevo y a los hallazgos auditados; no se modificaron pagos, rutas, contenido editorial aprobado ni la identidad visual CBN.
+- Result: completed locally; el clon está servido de forma aislada en `http://localhost:8084/`, con P0/P1 en cero y aceptación visual final aprobada. No se realizaron staging, commit, push, PR o merge.
+- Validation: `npm run verify`, `git diff --check`, sintaxis JavaScript, análisis sintáctico de PowerShell y PHP lint en contenedor pasaron. Once rutas devolvieron HTTP 200; `Hello world!` quedó en borrador; el navegador verificó fuente UI, cero microtextos directos de 8–10 px, cero flechas emoji, títulos completos, filtros y región viva, contraste corregido y ausencia de overflow horizontal. Las capturas actuales de escritorio y móvil a 390 × 844 validaron hero, marcador y equipos; en móvil las tarjetas bajaron a 431–474 px, las instalaciones a 267–299 px y el documento mantuvo `scrollWidth === clientWidth`.
+- Risks or doubts: No se inventaron logotipos de patrocinadores porque no existen recursos oficiales en el repositorio. Quedan como P2 no bloqueante el corte de línea de «Por confirmar» en el marcador estrecho, zoom real al 200 %, forced colors y una prueba manual con lector de pantalla. Un agente de inventario excedió por error el alcance de solo lectura sobre la copia fuente; el coordinador restauró inmediatamente sus archivos y el estado editorial, y verificó que `localhost:8082` conserva exactamente sus cinco cambios previos.
+- Next recommended action: Validación humana en `http://localhost:8084/`; versionar únicamente si el usuario lo solicita.
+
+### 2026-07-20 20:58 +02:00 - Segunda pasada visual SOL cerrada y validada
+
+- Agent: coordinator + site_inventory + design_debt_mapper + creative_director + frontend_craftsperson + responsive_qa + accessibility_qa + visual_acceptance_director.
+- Action: Se convirtió el blanco en superficie dominante del sistema SOL, se relegó el crema al token secundario, se redujo el grano y se normalizaron los fondos fotográficos mediante `var(--cbn-sol-paper)`. También se estabilizaron los titulares de Club y Contacto con contenedores flexibles y escalas móviles específicas, preservando sin cambios la Home ya aprobada.
+- Reason: El usuario validó la primera corrección de cabecera y pidió continuar el pulido; la segunda pasada detectó exceso de crema y recortes en los H1 de Club y Contacto.
+- Files affected: `wp-content/themes/cbn-theme/assets/src/css/sol.css`, `wp-content/themes/cbn-theme/assets/src/css/sol-club.css`, `wp-content/themes/cbn-theme/assets/src/css/sol-contact.css`, `wp-content/themes/cbn-theme/assets/src/css/sol-photography.css`, `AGENT_CHANGELOG.md`.
+- Relation to original instruction: Acerca la copia local a la dirección visual de Pablo y mejora su consistencia responsive sin cambiar contenido, rutas, plantillas, JavaScript ni la firma Pista Viva.
+- Result: completed locally; no se realizaron staging, commit, push, PR o merge.
+- Validation: `npm run verify` y `git diff --check` pasaron. Las once rutas principales devolvieron HTTP 200. Las capturas actuales comprobaron Home, Club, Equipos y Contacto a 390 y 1440 px, además de Club a 320 y 430 px; todas mantuvieron un H1, ancho de documento igual al viewport y títulos completos. Un recorrido completo en móvil cargó 119 imágenes sin recursos rotos, respuestas 4xx/5xx ni peticiones fallidas. Responsive QA, accesibilidad y aceptación visual cerraron con P0/P1 en cero.
+- Risks or doubts: Quedan como P2 opcional una prueba manual de zoom al 200 %, teclado/lector de pantalla y el ajuste de partición del email en Contacto. Se detectó y revirtió de inmediato un ajuste aplicado por error en la copia original antes de continuar; la pasada válida quedó limitada al clon de Pablo.
+- Next recommended action: Validación humana en Brave al 100 % sobre `http://localhost:8082/`; versionar solo si el usuario lo solicita.
+
+### 2026-07-20 20:18 +02:00 - Cabecera y hero estabilizados para Brave y reflow
+
+- Agent: coordinator + site_inventory + design_debt_mapper + creative_director + frontend_craftsperson + responsive_qa + accessibility_qa + visual_acceptance_director.
+- Action: Se reprodujo la portada de la rama de Pablo en una instancia WordPress aislada y se corrigieron en `sol.css` la reaparición de textos auxiliares de la cabecera por encima de 1500 px, el crecimiento excesivo del H1, el recorte del hero en móvil y el desbordamiento del titular del footer a 320 px. Se mantuvieron Pista Viva, contenido, plantillas, JavaScript, colores y assets generados sin cambios manuales.
+- Reason: El usuario detectó que el espaciado de la barra superior no coincidía en Brave y que la versión todavía necesitaba pulido responsive.
+- Files affected: `wp-content/themes/cbn-theme/assets/src/css/sol.css`, `AGENT_CHANGELOG.md`.
+- Relation to original instruction: Corrige la diferencia visible en la copia local de Pablo sin modificar la copia de trabajo anterior ni ampliar la pasada a un rediseño transversal.
+- Result: completed locally; no se realizaron staging, commit, push, PR o merge.
+- Validation: `npm run verify` y `git diff --check` pasaron; Docker mantuvo WordPress y MariaDB activos; Inicio, Club, Equipos, Partidos, Noticias, Tienda, Sponsors, Contacto, Inscripción, Privacidad y Aviso legal devolvieron HTTP 200. Capturas actuales validaron 320, 390, 430, 760, 1180, 1181, 1280, 1440, 1501 y 1920 px, con P0/P1 en cero, sin colisiones ni overflow horizontal, y aceptación visual final.
+- Risks or doubts: La ventana Brave del usuario no pudo inspeccionarse directamente porque el control de Windows no pudo confirmar su URL con seguridad. Quedan como pulido P2 opcional el empaquetado de una tipografía condensada licenciada y la revisión transversal de grano/superficies crema.
+- Next recommended action: Validación visual humana en `http://localhost:8082/` con Brave al 100 % antes de versionar cualquier cambio.
 
 ### 2026-07-16 17:51 +02:00 - Galerías diferenciadas y cursor granate
 

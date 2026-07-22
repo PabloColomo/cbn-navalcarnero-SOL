@@ -78,21 +78,6 @@ get_header();
 <main id="primary" class="cbn-home cbn-sol" data-cbn-sol>
   <div class="cbn-sol__grain" aria-hidden="true"></div>
 
-  <div class="cbn-sol-route" aria-hidden="true" data-cbn-route-wrap>
-    <svg viewBox="0 0 100 1200" preserveAspectRatio="none" focusable="false">
-      <path
-        class="cbn-sol-route__ghost"
-        d="M12 0 C12 90 88 105 88 190 S18 290 18 385 S82 485 82 585 S22 690 22 790 S84 905 84 1000 S48 1110 48 1200"
-      ></path>
-      <path
-        class="cbn-sol-route__active"
-        data-cbn-route
-        d="M12 0 C12 90 88 105 88 190 S18 290 18 385 S82 485 82 585 S22 690 22 790 S84 905 84 1000 S48 1110 48 1200"
-      ></path>
-    </svg>
-    <span class="cbn-sol-route__ball" data-cbn-route-ball></span>
-  </div>
-
   <section class="cbn-sol-hero" aria-labelledby="cbn-sol-title">
     <div class="cbn-sol-hero__court" aria-hidden="true">
       <svg viewBox="0 0 900 720" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -118,12 +103,9 @@ get_header();
       <div class="cbn-sol-hero__actions">
         <a class="cbn-sol-button cbn-sol-button--shot" href="<?php echo esc_url($cbn_home['hero']['primary_cta']['url']); ?>" data-cbn-swish>
           <span><?php echo esc_html($cbn_home['hero']['primary_cta']['label']); ?></span>
-          <span class="cbn-sol-button__arc" aria-hidden="true">
-            <span></span>
-          </span>
         </a>
         <a class="cbn-sol-text-link" href="<?php echo esc_url($cbn_home['hero']['secondary_cta']['url']); ?>" data-cbn-swish>
-          <?php echo esc_html($cbn_home['hero']['secondary_cta']['label']); ?> <span aria-hidden="true">↗</span>
+          <?php echo esc_html($cbn_home['hero']['secondary_cta']['label']); ?> <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
         </a>
       </div>
 
@@ -200,7 +182,7 @@ get_header();
     <article class="cbn-sol-match-card">
       <div class="cbn-sol-match-card__topline">
         <span><i></i><?php echo esc_html($cbn_home['match']['label']); ?></span>
-        <a href="<?php echo esc_url(home_url('/partidos/')); ?>">Calendario completo ↗</a>
+        <a href="<?php echo esc_url(home_url('/partidos/')); ?>">Calendario completo <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
       </div>
       <div class="cbn-sol-match-card__score">
         <div>
@@ -222,9 +204,9 @@ get_header();
     </article>
 
     <nav class="cbn-sol-scoreboard__links" aria-label="Información deportiva">
-      <a href="<?php echo esc_url(home_url('/partidos/')); ?>" data-cbn-swish><span>01</span><strong>Próximos partidos</strong><i>↗</i></a>
-      <a href="<?php echo esc_url(home_url('/partidos/')); ?>" data-cbn-swish><span>02</span><strong>Resultados verificados</strong><i>↗</i></a>
-      <a href="<?php echo esc_url(home_url('/equipos/')); ?>" data-cbn-swish><span>03</span><strong>Temporada 26/27</strong><i>↗</i></a>
+      <a href="<?php echo esc_url(home_url('/partidos/')); ?>" data-cbn-swish><span>01</span><strong>Próximos partidos</strong><i class="cbn-sol-arrow-up-right" aria-hidden="true"></i></a>
+      <a href="<?php echo esc_url(home_url('/partidos/')); ?>" data-cbn-swish><span>02</span><strong>Resultados verificados</strong><i class="cbn-sol-arrow-up-right" aria-hidden="true"></i></a>
+      <a href="<?php echo esc_url(home_url('/equipos/')); ?>" data-cbn-swish><span>03</span><strong>Temporada 26/27</strong><i class="cbn-sol-arrow-up-right" aria-hidden="true"></i></a>
     </nav>
   </section>
 
@@ -243,7 +225,7 @@ get_header();
           <small><?php echo esc_html($cbn_quick_play['label']); ?></small>
           <strong><?php echo esc_html($cbn_quick_play['title']); ?></strong>
           <p><?php echo esc_html($cbn_quick_play['text']); ?></p>
-          <span class="cbn-sol-quick-card__arrow" aria-hidden="true">↗</span>
+          <span class="cbn-sol-quick-card__arrow" aria-hidden="true"><span class="cbn-sol-arrow-up-right"></span></span>
           <span class="cbn-sol-quick-card__line" aria-hidden="true"></span>
         </a>
       <?php endforeach; ?>
@@ -260,14 +242,16 @@ get_header();
     </header>
 
     <div class="cbn-sol-team-filters" role="group" aria-label="Filtrar grupos de equipos" data-sol-reveal>
-      <button type="button" class="is-active" data-cbn-team-filter="all" aria-pressed="true">Todos</button>
-      <button type="button" data-cbn-team-filter="escuela" aria-pressed="false">Escuela</button>
-      <button type="button" data-cbn-team-filter="femenino" aria-pressed="false">Femenino</button>
-      <button type="button" data-cbn-team-filter="masculino" aria-pressed="false">Masculino</button>
-      <button type="button" data-cbn-team-filter="senior" aria-pressed="false">Senior</button>
+      <button type="button" class="is-active" data-cbn-team-filter="all" aria-pressed="true" aria-controls="cbn-team-grid">Todos</button>
+      <button type="button" data-cbn-team-filter="escuela" aria-pressed="false" aria-controls="cbn-team-grid">Escuela</button>
+      <button type="button" data-cbn-team-filter="femenino" aria-pressed="false" aria-controls="cbn-team-grid">Femenino</button>
+      <button type="button" data-cbn-team-filter="masculino" aria-pressed="false" aria-controls="cbn-team-grid">Masculino</button>
+      <button type="button" data-cbn-team-filter="senior" aria-pressed="false" aria-controls="cbn-team-grid">Senior</button>
     </div>
+    <p class="cbn-sol-team-filters__hint" aria-hidden="true">Desliza para ver más <span>→</span></p>
+    <p class="cbn-visually-hidden" role="status" aria-live="polite" aria-atomic="true" data-cbn-team-filter-status></p>
 
-    <div class="cbn-sol-team-grid">
+    <div class="cbn-sol-team-grid" id="cbn-team-grid">
       <?php foreach ($cbn_team_groups as $cbn_team_group) : ?>
         <article class="cbn-sol-team-card" data-cbn-team="<?php echo esc_attr($cbn_team_group['filter']); ?>" data-sol-reveal data-cbn-tilt>
           <a href="<?php echo esc_url($cbn_team_group['url']); ?>" data-cbn-swish>
@@ -297,7 +281,7 @@ get_header();
               <small><?php echo esc_html($cbn_team_group['eyebrow']); ?></small>
               <strong><?php echo esc_html($cbn_team_group['title']); ?></strong>
               <p><?php echo esc_html($cbn_team_group['text']); ?></p>
-              <i aria-hidden="true">Ver equipos ↗</i>
+              <i aria-hidden="true">Ver equipos <span class="cbn-sol-arrow-up-right"></span></i>
             </span>
           </a>
         </article>
@@ -319,7 +303,7 @@ get_header();
         <div><dt>Cantera primero</dt><dd>Una estructura que acompaña cada etapa.</dd></div>
         <div><dt>Comunidad local</dt><dd>Navalcarnero juega unido.</dd></div>
       </dl>
-      <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/el-club/')); ?>" data-cbn-swish>Conoce el club <span aria-hidden="true">↗</span></a>
+      <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/el-club/')); ?>" data-cbn-swish>Conoce el club <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
     </div>
   </section>
 
@@ -331,7 +315,7 @@ get_header();
         <p class="cbn-sol-section-index">05 · Actualidad</p>
         <h2 id="cbn-news-title"><?php echo esc_html($cbn_home['news_heading']); ?></h2>
       </div>
-      <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/noticias/')); ?>">Todas las noticias <span aria-hidden="true">↗</span></a>
+      <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/noticias/')); ?>">Todas las noticias <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
     </header>
 
     <div class="cbn-sol-news__grid">
@@ -364,7 +348,7 @@ get_header();
               <small><?php echo esc_html($cbn_news_item['date']); ?></small>
               <strong><?php echo esc_html($cbn_news_item['title']); ?></strong>
               <p><?php echo esc_html($cbn_news_item['excerpt']); ?></p>
-              <i aria-hidden="true">Leer ↗</i>
+              <i aria-hidden="true">Leer <span class="cbn-sol-arrow-up-right"></span></i>
             </span>
           </a>
         </article>
@@ -378,7 +362,7 @@ get_header();
         <p class="cbn-sol-section-index">06 · Siguiente jugada</p>
         <h2><?php echo esc_html($cbn_home['registration']['title']); ?></h2>
         <p><?php echo esc_html($cbn_home['registration']['text']); ?></p>
-        <a class="cbn-sol-button cbn-sol-button--light" href="<?php echo esc_url($cbn_home['registration']['url']); ?>" data-cbn-swish><?php echo esc_html($cbn_home['registration']['label']); ?> <span aria-hidden="true">↗</span></a>
+        <a class="cbn-sol-button cbn-sol-button--light" href="<?php echo esc_url($cbn_home['registration']['url']); ?>" data-cbn-swish><?php echo esc_html($cbn_home['registration']['label']); ?> <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
       </div>
       <?php cbn_render_club_photo($cbn_home['registration']['image']['photo_id'] ?? 'club-064', ['sizes' => '(max-width: 760px) 100vw, 28vw']); ?>
     </article>
@@ -388,7 +372,7 @@ get_header();
         <p class="cbn-sol-section-index">Tienda CBN</p>
         <h2><?php echo esc_html($cbn_home['shop']['title']); ?></h2>
         <p><?php echo esc_html($cbn_home['shop']['text']); ?></p>
-        <a class="cbn-sol-button cbn-sol-button--dark" href="<?php echo esc_url($cbn_home['shop']['url']); ?>" data-cbn-swish><?php echo esc_html($cbn_home['shop']['label']); ?> <span aria-hidden="true">↗</span></a>
+        <a class="cbn-sol-button cbn-sol-button--dark" href="<?php echo esc_url($cbn_home['shop']['url']); ?>" data-cbn-swish><?php echo esc_html($cbn_home['shop']['label']); ?> <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
       </div>
       <?php cbn_render_club_photo($cbn_home['shop']['image']['photo_id'] ?? 'club-025', ['sizes' => '(max-width: 760px) 100vw, 28vw']); ?>
     </article>
@@ -409,20 +393,20 @@ get_header();
         <small>Sede principal · Oficina 1.ª planta</small>
         <h3>Pabellón Municipal<br>La Estación</h3>
         <p>C/ Río Ebro, s/n<br>28600 Navalcarnero, Madrid</p>
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=Pabellon+Municipal+La+Estacion+Navalcarnero" target="_blank" rel="noreferrer">Abrir en Maps ↗</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Pabellon+Municipal+La+Estacion+Navalcarnero" target="_blank" rel="noreferrer">Abrir en Maps <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
       </article>
       <article class="cbn-sol-place-card" data-sol-reveal>
         <small>Instalación complementaria</small>
         <h3>Colegio<br>María Martín</h3>
         <p>C/ Víctimas del Terrorismo, s/n<br>Navalcarnero, Madrid</p>
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=Colegio+Maria+Martin+Navalcarnero" target="_blank" rel="noreferrer">Abrir en Maps ↗</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Colegio+Maria+Martin+Navalcarnero" target="_blank" rel="noreferrer">Abrir en Maps <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
       </article>
       <aside class="cbn-sol-contact-card" data-sol-reveal>
         <img src="<?php echo esc_url($cbn_logo_url); ?>" alt="" width="400" height="400" loading="lazy">
         <p>¿Tienes una pregunta?</p>
         <a href="tel:+34696849235">(+34) 696 849 235</a>
         <a href="mailto:administracion@cbnavalcarnero.es">administracion@cbnavalcarnero.es</a>
-        <a class="cbn-sol-contact-card__cta" href="<?php echo esc_url(home_url('/contacto/')); ?>" data-cbn-swish>Hablemos ↗</a>
+        <a class="cbn-sol-contact-card__cta" href="<?php echo esc_url(home_url('/contacto/')); ?>" data-cbn-swish>Hablemos <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
       </aside>
     </div>
   </section>
@@ -437,7 +421,7 @@ get_header();
         <span><?php echo esc_html($cbn_sponsor); ?></span>
       <?php endforeach; ?>
     </div>
-    <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/sponsors/')); ?>">Patrocina al CBN <span aria-hidden="true">↗</span></a>
+    <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/sponsors/')); ?>">Patrocina al CBN <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
   </section>
 </main>
 

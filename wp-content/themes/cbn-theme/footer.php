@@ -64,7 +64,7 @@
               <?php continue; ?>
             <?php endif; ?>
             <a href="<?php echo esc_url((string) $cbn_footer_social['url']); ?>" target="_blank" rel="noopener noreferrer">
-              <?php echo esc_html((string) $cbn_footer_social['label']); ?> ↗
+              <?php echo esc_html((string) $cbn_footer_social['label']); ?> <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
             </a>
           <?php endforeach; ?>
         </div>

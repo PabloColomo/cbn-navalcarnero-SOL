@@ -58,7 +58,7 @@ get_header();
           <div class="cbn-sol-shop-hero__copy" data-sol-reveal>
             <p class="cbn-sol-section-index">Tienda oficial &middot; Club Baloncesto Navalcarnero</p>
             <h1 id="cbn-sol-shop-title"><?php echo esc_html($cbn_shop_title); ?></h1>
-            <p class="cbn-sol-shop-status"><span aria-hidden="true"></span><?php esc_html_e('Catalogo en preparacion', 'cbn'); ?></p>
+            <p class="cbn-sol-shop-status"><span aria-hidden="true"></span><?php esc_html_e('Catálogo en preparación', 'cbn'); ?></p>
 
             <?php if ($cbn_shop_content) : ?>
               <div class="cbn-sol-shop-hero__editorial">
@@ -75,7 +75,6 @@ get_header();
             <div class="cbn-sol-shop-hero__actions">
               <a class="cbn-sol-button cbn-sol-button--shot" href="<?php echo esc_url(home_url('/contacto/')); ?>" data-cbn-swish>
                 <span><?php esc_html_e('Consultar al club', 'cbn'); ?></span>
-                <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
               </a>
               <a class="cbn-sol-text-link" href="<?php echo esc_url(home_url('/inscripcion/')); ?>" data-cbn-swish>
                 <?php esc_html_e('Ir a inscripciones', 'cbn'); ?> <span aria-hidden="true">&#8599;</span>
@@ -129,7 +128,7 @@ get_header();
             <li data-sol-reveal data-cbn-tilt>
               <span>01</span>
               <small><?php esc_html_e('Pendiente', 'cbn'); ?></small>
-              <h3><?php esc_html_e('Catalogo real', 'cbn'); ?></h3>
+              <h3><?php esc_html_e('Catálogo real', 'cbn'); ?></h3>
               <p><?php esc_html_e('Productos, tallas, precios y disponibilidad deben ser facilitados y confirmados por el club.', 'cbn'); ?></p>
               <i aria-hidden="true"></i>
             </li>
@@ -159,7 +158,6 @@ get_header();
         <?php cbn_render_club_photo_story('shop'); ?>
 
         <section class="cbn-sol-shop-contact" aria-labelledby="cbn-sol-shop-contact-title">
-          <div class="cbn-sol-shop-contact__ball" aria-hidden="true"><span></span><i></i><b></b></div>
           <div class="cbn-sol-shop-contact__copy" data-sol-reveal>
             <p class="cbn-sol-section-index">02 &middot; Mientras tanto</p>
             <h2 id="cbn-sol-shop-contact-title"><?php esc_html_e('Hablemos fuera de la cancha', 'cbn'); ?></h2>
@@ -179,7 +177,7 @@ get_header();
   <?php else : ?>
     <section class="cbn-sol-shop-missing" aria-labelledby="cbn-sol-shop-missing-title">
       <p class="cbn-sol-section-index">Tienda CBN</p>
-      <h1 id="cbn-sol-shop-missing-title"><?php esc_html_e('Catalogo en preparacion', 'cbn'); ?></h1>
+      <h1 id="cbn-sol-shop-missing-title"><?php esc_html_e('Catálogo en preparación', 'cbn'); ?></h1>
       <p><?php esc_html_e('Todavía no hay contenido de tienda publicado.', 'cbn'); ?></p>
       <a class="cbn-sol-button" href="<?php echo esc_url(home_url('/contacto/')); ?>"><?php esc_html_e('Contactar', 'cbn'); ?></a>
     </section>

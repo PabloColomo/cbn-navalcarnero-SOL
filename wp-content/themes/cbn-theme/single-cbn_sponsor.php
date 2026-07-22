@@ -65,14 +65,6 @@ get_header();
 <main id="primary" class="cbn-sol cbn-sol-sponsors-page cbn-sol-sponsor-detail" data-cbn-sol>
   <div class="cbn-sol__grain" aria-hidden="true"></div>
 
-  <div class="cbn-sol-route cbn-sol-sponsors-route" aria-hidden="true" data-cbn-route-wrap>
-    <svg viewBox="0 0 100 610" preserveAspectRatio="none" focusable="false">
-      <path class="cbn-sol-route__ghost" d="M80 0 C18 58 15 119 65 163 S87 270 34 315 S15 425 70 470 S82 560 47 595 S40 604 50 610"></path>
-      <path class="cbn-sol-route__active" data-cbn-route d="M80 0 C18 58 15 119 65 163 S87 270 34 315 S15 425 70 470 S82 560 47 595 S40 604 50 610"></path>
-    </svg>
-    <span class="cbn-sol-route__ball" data-cbn-route-ball></span>
-  </div>
-
   <?php while (have_posts()) : the_post(); ?>
     <section class="cbn-sol-sponsor-detail-hero" aria-labelledby="cbn-sponsor-title">
       <div class="cbn-sol-sponsor-detail-hero__copy" data-sol-reveal>
@@ -90,7 +82,6 @@ get_header();
           <?php if ('' !== $cbn_sponsor['url']) : ?>
             <a class="cbn-sol-button cbn-sol-button--shot" href="<?php echo esc_url($cbn_sponsor['url']); ?>" rel="external noopener" data-cbn-swish>
               <span>Visitar sitio web</span>
-              <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
             </a>
           <?php endif; ?>
           <a class="cbn-sol-text-link" href="#historia-alianza" data-cbn-swish>Conocer la alianza <span aria-hidden="true">↓</span></a>
@@ -170,7 +161,7 @@ get_header();
           <p>El apoyo de patrocinadores y colaboradores acompaña la actividad del club y su compromiso con el baloncesto en Navalcarnero.</p>
           <?php if ('' !== $cbn_sponsor['url']) : ?>
             <a class="cbn-sol-text-link" href="<?php echo esc_url($cbn_sponsor['url']); ?>" rel="external noopener" data-cbn-swish>
-              Ir a su sitio web <span aria-hidden="true">↗</span>
+              Ir a su sitio web <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
             </a>
           <?php endif; ?>
         </aside>
@@ -186,7 +177,6 @@ get_header();
         <p>Contacta con el club para conocer las opciones de colaboración disponibles.</p>
         <a class="cbn-sol-button cbn-sol-button--light cbn-sol-button--shot" href="<?php echo esc_url(home_url('/contacto/')); ?>" data-cbn-swish>
           <span>Hablar con el CBN</span>
-          <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
         </a>
       </div>
     </section>

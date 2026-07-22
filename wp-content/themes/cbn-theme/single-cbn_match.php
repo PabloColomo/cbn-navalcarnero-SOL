@@ -197,14 +197,6 @@ get_header();
 <main id="primary" class="cbn-sol cbn-sol-matches cbn-sol-match-detail" data-cbn-sol data-cbn-match-detail>
   <div class="cbn-sol__grain" aria-hidden="true"></div>
 
-  <div class="cbn-sol-route cbn-sol-matches__route cbn-sol-match-detail__route" aria-hidden="true" data-cbn-route-wrap>
-    <svg viewBox="0 0 100 650" preserveAspectRatio="none" focusable="false">
-      <path class="cbn-sol-route__ghost" d="M78 0 C18 62 18 127 69 169 S87 278 31 324 S16 436 70 479 S82 575 42 612 S35 640 50 650"></path>
-      <path class="cbn-sol-route__active" data-cbn-route d="M78 0 C18 62 18 127 69 169 S87 278 31 324 S16 436 70 479 S82 575 42 612 S35 640 50 650"></path>
-    </svg>
-    <span class="cbn-sol-route__ball" data-cbn-route-ball></span>
-  </div>
-
   <?php while (have_posts()) : the_post(); ?>
     <section class="cbn-sol-match-detail-hero" aria-labelledby="cbn-match-detail-title">
       <div class="cbn-sol-match-detail-hero__court" aria-hidden="true">
@@ -231,11 +223,10 @@ get_header();
         <div class="cbn-sol-match-detail-hero__actions">
           <a class="cbn-sol-button cbn-sol-button--shot" href="#ficha-partido" data-cbn-swish>
             <span>Ver ficha del partido</span>
-            <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
           </a>
           <?php if ($cbn_team_url) : ?>
             <a class="cbn-sol-text-link" href="<?php echo esc_url($cbn_team_url); ?>" data-cbn-swish>
-              Ver equipo CBN <span aria-hidden="true">↗</span>
+              Ver equipo CBN <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
             </a>
           <?php endif; ?>
         </div>
@@ -405,7 +396,7 @@ get_header();
           </dl>
           <?php if ($cbn_team_url) : ?>
             <a class="cbn-sol-text-link" href="<?php echo esc_url($cbn_team_url); ?>" data-cbn-swish>
-              Abrir ficha del equipo <span aria-hidden="true">↗</span>
+              Abrir ficha del equipo <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
             </a>
           <?php endif; ?>
         </aside>
@@ -421,7 +412,6 @@ get_header();
         <p>Consulta el calendario y los resultados publicados del resto de equipos del club.</p>
         <a class="cbn-sol-button cbn-sol-button--light cbn-sol-button--shot" href="<?php echo esc_url($cbn_matches_archive_url); ?>" data-cbn-swish>
           <span>Ver todos los partidos</span>
-          <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
         </a>
       </div>
     </section>

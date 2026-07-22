@@ -83,7 +83,7 @@ $cbn_render_match_list = static function (array $matches, string $context): void
 
             <?php if ($cbn_team_url) : ?>
               <a href="<?php echo esc_url($cbn_team_url); ?>" data-cbn-swish>
-                Ver equipo <span aria-hidden="true">↗</span>
+                Ver equipo <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
               </a>
             <?php endif; ?>
           </footer>
@@ -98,21 +98,6 @@ get_header();
 
 <main id="primary" class="cbn-sol cbn-sol-matches" data-cbn-sol data-cbn-matches>
   <div class="cbn-sol__grain" aria-hidden="true"></div>
-
-  <div class="cbn-sol-route cbn-sol-matches__route" aria-hidden="true" data-cbn-route-wrap>
-    <svg viewBox="0 0 100 1000" preserveAspectRatio="none" focusable="false">
-      <path
-        class="cbn-sol-route__ghost"
-        d="M15 0 C15 80 85 95 85 180 S20 285 20 370 S82 475 82 560 S18 665 18 750 S80 855 80 930 S52 975 52 1000"
-      ></path>
-      <path
-        class="cbn-sol-route__active"
-        data-cbn-route
-        d="M15 0 C15 80 85 95 85 180 S20 285 20 370 S82 475 82 560 S18 665 18 750 S80 855 80 930 S52 975 52 1000"
-      ></path>
-    </svg>
-    <span class="cbn-sol-route__ball" data-cbn-route-ball></span>
-  </div>
 
   <section class="cbn-sol-matches-hero" aria-labelledby="cbn-matches-title">
     <div class="cbn-sol-matches-hero__court" aria-hidden="true">
@@ -142,10 +127,9 @@ get_header();
       <div class="cbn-sol-matches-hero__actions">
         <a class="cbn-sol-button cbn-sol-button--shot" href="#proximos-partidos" data-cbn-swish>
           <span>Ver la jornada</span>
-          <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
         </a>
         <a class="cbn-sol-text-link" href="<?php echo esc_url($cbn_teams_url); ?>" data-cbn-swish>
-          Explorar equipos <span aria-hidden="true">↗</span>
+          Explorar equipos <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
         </a>
       </div>
 
@@ -294,14 +278,13 @@ get_header();
       <?php $cbn_render_match_list($cbn_upcoming, 'upcoming'); ?>
     <?php else : ?>
       <div class="cbn-sol-match-empty" role="status" data-sol-reveal>
-        <span class="cbn-sol-match-empty__ball" aria-hidden="true"></span>
         <div>
           <p class="cbn-sol-section-index">Tiempo muerto</p>
           <h3>No hay partidos programados</h3>
           <p>Esta zona se activará automáticamente cuando el club publique el siguiente encuentro.</p>
         </div>
         <a class="cbn-sol-text-link" href="<?php echo esc_url($cbn_teams_url); ?>" data-cbn-swish>
-          Ver equipos <span aria-hidden="true">↗</span>
+          Ver equipos <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
         </a>
       </div>
     <?php endif; ?>
@@ -326,7 +309,6 @@ get_header();
       <?php $cbn_render_match_list($cbn_results, 'results'); ?>
     <?php else : ?>
       <div class="cbn-sol-match-empty cbn-sol-match-empty--inverse" role="status" data-sol-reveal>
-        <span class="cbn-sol-match-empty__ball" aria-hidden="true"></span>
         <div>
           <p class="cbn-sol-section-index">Acta pendiente</p>
           <h3>Todavía no hay resultados</h3>
@@ -342,9 +324,6 @@ get_header();
   <?php cbn_render_club_photo_story('matches'); ?>
 
   <section class="cbn-sol-matches-cta" aria-labelledby="cbn-matches-cta-title">
-    <div class="cbn-sol-matches-cta__court" aria-hidden="true">
-      <span></span><span></span><span></span>
-    </div>
     <div data-sol-reveal>
       <p class="cbn-sol-section-index">La próxima jugada</p>
       <h2 id="cbn-matches-cta-title">No mires la pista.<br><em>Entra en ella.</em></h2>
@@ -353,7 +332,6 @@ get_header();
       <p>Conoce los equipos del CBN o solicita información para formar parte del club.</p>
       <a class="cbn-sol-button cbn-sol-button--light cbn-sol-button--shot" href="<?php echo esc_url(home_url('/inscripcion/')); ?>" data-cbn-swish>
         <span>Quiero jugar</span>
-        <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
       </a>
     </div>
   </section>

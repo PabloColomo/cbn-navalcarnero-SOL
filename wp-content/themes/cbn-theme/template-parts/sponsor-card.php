@@ -63,7 +63,7 @@ $cbn_sponsor_permalink = get_permalink((int) $cbn_sponsor['id']);
     </a>
     <?php if ('' !== $cbn_sponsor['url']) : ?>
       <a href="<?php echo esc_url($cbn_sponsor['url']); ?>" rel="external noopener" data-cbn-swish>
-        Visitar web <span aria-hidden="true">↗</span>
+        Visitar web <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
       </a>
     <?php endif; ?>
   </div>

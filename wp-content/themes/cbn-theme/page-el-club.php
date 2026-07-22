@@ -35,21 +35,6 @@ get_header();
 <main id="primary" class="cbn-sol cbn-sol-club" data-cbn-sol>
   <div class="cbn-sol__grain" aria-hidden="true"></div>
 
-  <div class="cbn-sol-route cbn-sol-club__route" aria-hidden="true" data-cbn-route-wrap>
-    <svg viewBox="0 0 100 900" preserveAspectRatio="none" focusable="false">
-      <path
-        class="cbn-sol-route__ghost"
-        d="M16 0 C16 82 84 92 84 176 S20 272 20 358 S80 454 80 540 S24 640 24 720 S72 812 54 900"
-      ></path>
-      <path
-        class="cbn-sol-route__active"
-        data-cbn-route
-        d="M16 0 C16 82 84 92 84 176 S20 272 20 358 S80 454 80 540 S24 640 24 720 S72 812 54 900"
-      ></path>
-    </svg>
-    <span class="cbn-sol-route__ball" data-cbn-route-ball></span>
-  </div>
-
   <section class="cbn-sol-club-hero" aria-labelledby="cbn-sol-club-title">
     <div class="cbn-sol-club-hero__court" aria-hidden="true">
       <svg viewBox="0 0 960 720" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -73,7 +58,6 @@ get_header();
       <div class="cbn-sol-club-hero__actions">
         <a class="cbn-sol-button cbn-sol-button--shot" href="<?php echo esc_url($cbn_club['intro']['primary_cta']['url']); ?>" data-cbn-swish>
           <span><?php echo esc_html($cbn_club['intro']['primary_cta']['label']); ?></span>
-          <span class="cbn-sol-button__arc" aria-hidden="true"><span></span></span>
         </a>
         <a class="cbn-sol-text-link" href="<?php echo esc_url($cbn_club['intro']['secondary_cta']['url']); ?>" data-cbn-swish>
           <?php echo esc_html($cbn_club['intro']['secondary_cta']['label']); ?> <span aria-hidden="true">&#8599;</span>
@@ -222,7 +206,6 @@ get_header();
         >
       <?php endif; ?>
       <span class="cbn-sol-club-school__word" aria-hidden="true">CRECER</span>
-      <span class="cbn-sol-club-school__ball" aria-hidden="true"></span>
     </div>
 
     <div class="cbn-sol-club-school__copy" data-sol-reveal>
@@ -246,9 +229,6 @@ get_header();
   <?php cbn_render_club_photo_story('club'); ?>
 
   <section class="cbn-sol-club-cta" aria-labelledby="cbn-sol-club-cta-title">
-    <div class="cbn-sol-club-cta__mark" aria-hidden="true">
-      <span></span><i></i><b></b>
-    </div>
     <div class="cbn-sol-club-cta__copy" data-sol-reveal>
       <p class="cbn-sol-section-index">05 &middot; Tu siguiente jugada</p>
       <h2 id="cbn-sol-club-cta-title"><?php echo esc_html($cbn_club['cta']['title']); ?></h2>

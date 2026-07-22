@@ -73,7 +73,7 @@ get_header();
           placeholder="Noticias, equipos, partidos…"
         >
         <button type="submit" data-cbn-swish>
-          <span>Buscar</span><span aria-hidden="true">↗</span>
+          <span>Buscar</span><span class="cbn-sol-arrow-up-right" aria-hidden="true"></span>
         </button>
       </div>
     </form>
@@ -132,7 +132,7 @@ get_header();
                     <img src="<?php echo esc_url($cbn_search_image); ?>" alt="" width="768" height="512" loading="lazy" decoding="async">
                   </span>
                 <?php else : ?>
-                  <span class="cbn-sol-system-result-card__mark" aria-hidden="true"><i></i></span>
+                  <span class="cbn-sol-system-result-card__placeholder" aria-hidden="true">CBN</span>
                 <?php endif; ?>
                 <span class="cbn-sol-system-result-card__copy">
                   <small><?php echo esc_html($cbn_search_type_label); ?></small>
@@ -140,7 +140,7 @@ get_header();
                   <?php if ('' !== $cbn_search_excerpt) : ?>
                     <span class="cbn-sol-system-result-card__excerpt"><?php echo esc_html($cbn_search_excerpt); ?></span>
                   <?php endif; ?>
-                  <span class="cbn-sol-system-result-card__arrow" aria-hidden="true">Abrir <i>↗</i></span>
+                  <span class="cbn-sol-system-result-card__arrow" aria-hidden="true">Abrir <i class="cbn-sol-arrow-up-right"></i></span>
                 </span>
               </a>
             </article>
@@ -163,16 +163,15 @@ get_header();
       </nav>
     <?php else : ?>
       <article class="cbn-sol-system-empty" aria-labelledby="cbn-system-empty-title" data-sol-reveal>
-        <span class="cbn-sol-system-empty__ball" aria-hidden="true"></span>
         <div>
           <p class="cbn-sol-section-index">Tiempo muerto</p>
           <h3 id="cbn-system-empty-title">No hemos encontrado resultados</h3>
           <p>Prueba con otro término o vuelve a una de las secciones principales.</p>
         </div>
         <nav aria-label="Secciones principales">
-          <a href="<?php echo esc_url(home_url('/')); ?>" data-cbn-swish>Inicio <span aria-hidden="true">↗</span></a>
-          <a href="<?php echo esc_url($cbn_search_teams_url); ?>" data-cbn-swish>Equipos <span aria-hidden="true">↗</span></a>
-          <a href="<?php echo esc_url(home_url('/contacto/')); ?>" data-cbn-swish>Contacto <span aria-hidden="true">↗</span></a>
+          <a href="<?php echo esc_url(home_url('/')); ?>" data-cbn-swish>Inicio <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
+          <a href="<?php echo esc_url($cbn_search_teams_url); ?>" data-cbn-swish>Equipos <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
+          <a href="<?php echo esc_url(home_url('/contacto/')); ?>" data-cbn-swish>Contacto <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
         </nav>
       </article>
     <?php endif; ?>

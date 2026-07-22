@@ -250,8 +250,29 @@ try {
         $createdLocalAdmin = $true
     }
 
+    if ($createdLocalAdmin) {
+        $samplePostLookup = Invoke-WpCli -Capture -Arguments @(
+            'post', 'list',
+            '--post_type=post',
+            '--post_status=any',
+            '--name=hello-world',
+            '--field=ID',
+            '--format=ids'
+        )
+        $samplePostId = Get-NumericOutput -Output $samplePostLookup.Output
+
+        if ($samplePostId) {
+            Invoke-WpCli -Arguments @(
+                'post', 'update',
+                $samplePostId,
+                '--post_status=draft'
+            ) | Out-Null
+        }
+    }
+
     Write-Host 'Activando CBN Theme y preparando la estructura pública...' -ForegroundColor Cyan
     Invoke-WpCli -Arguments @('theme', 'activate', 'cbn-theme') | Out-Null
+    Invoke-WpCli -Arguments @('language', 'core', 'install', 'es_ES', '--activate') | Out-Null
 
     $homePageId = Ensure-Page -Title 'Inicio' -Slug 'inicio'
     $newsPageId = Ensure-Page -Title 'Noticias' -Slug 'noticias'

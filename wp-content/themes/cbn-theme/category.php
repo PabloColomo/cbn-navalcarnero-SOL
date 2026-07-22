@@ -34,8 +34,6 @@ get_header();
 
 <main id="primary" class="cbn-sol cbn-sol-news cbn-sol-news--archive cbn-sol-news--category" data-cbn-sol>
   <div class="cbn-sol__grain" aria-hidden="true"></div>
-  <div class="cbn-sol-news__route" aria-hidden="true"><span></span><i></i><b></b></div>
-
   <section class="cbn-sol-news-hero" aria-labelledby="cbn-sol-news-title">
     <div class="cbn-sol-news-hero__copy" data-sol-reveal>
       <p class="cbn-sol-section-index">Categor&iacute;a &middot; Archivo CBN</p>

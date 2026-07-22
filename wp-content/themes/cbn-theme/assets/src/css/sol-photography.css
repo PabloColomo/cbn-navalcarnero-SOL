@@ -19,7 +19,7 @@
   z-index: 1;
   padding: clamp(68px, 8vw, 118px) var(--cbn-sol-pad);
   overflow: hidden;
-  background: #f5f2eb;
+  background: var(--cbn-sol-paper);
   color: #0e0e0f;
 }
 
@@ -52,7 +52,7 @@
 .cbn-photo-story__header p {
   margin: 0;
   color: #c90018;
-  font-size: 9px;
+  font-size: var(--cbn-sol-text-micro, 11px);
   font-weight: 950;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -64,7 +64,7 @@
   font-family: var(--cbn-font-display);
   font-size: clamp(44px, 6vw, 92px);
   font-weight: 950;
-  letter-spacing: -0.045em;
+  letter-spacing: var(--cbn-sol-track-editorial-serif);
   line-height: 0.86;
   text-transform: uppercase;
 }
@@ -151,7 +151,7 @@
 }
 
 .cbn-photo-story__credit {
-  font-size: 9px;
+  font-size: var(--cbn-sol-text-micro, 11px);
   font-weight: 950;
   letter-spacing: 0.14em;
   line-height: 1;
@@ -166,8 +166,14 @@
 
 .cbn-photo-story--home .cbn-photo-story__header {
   position: relative;
-  padding-bottom: 22px;
+  padding-bottom: 32px;
   border-bottom: 1px solid rgba(14, 14, 15, 0.16);
+}
+
+.cbn-photo-story--home .cbn-photo-story__header h2 {
+  max-width: 11em;
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 0.9;
 }
 
 .cbn-photo-story--home .cbn-photo-story__header::after {
@@ -224,7 +230,7 @@
   background:
     linear-gradient(rgba(147, 0, 18, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(147, 0, 18, 0.045) 1px, transparent 1px),
-    #f5f2eb;
+    var(--cbn-sol-paper);
   background-size: 30px 30px;
 }
 
@@ -431,7 +437,7 @@
 .cbn-photo-story--news .cbn-photo-story__header h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 700;
-  letter-spacing: -0.055em;
+  letter-spacing: var(--cbn-sol-track-editorial-serif);
   text-transform: none;
 }
 
@@ -486,7 +492,8 @@
       rgba(201, 0, 24, 0.12) 211px 213px,
       transparent 214px
     ),
-    linear-gradient(90deg, rgba(14, 14, 15, 0.04) 1px, transparent 1px), #f5f2eb;
+    linear-gradient(90deg, rgba(14, 14, 15, 0.04) 1px, transparent 1px),
+    var(--cbn-sol-paper);
   background-size:
     auto,
     80px 100%,
@@ -610,7 +617,8 @@
 
 /* Contact: a connected three-panel portrait of the club community. */
 .cbn-photo-story--contact {
-  background: linear-gradient(180deg, #fff 0 72%, #f5f2eb 72%), #fff;
+  background:
+    linear-gradient(180deg, #fff 0 72%, var(--cbn-sol-paper) 72%), #fff;
 }
 
 .cbn-photo-story--contact .cbn-photo-story__header {
@@ -711,7 +719,13 @@
     0 100%,
     0 34px
   );
-  background: linear-gradient(135deg, #f5f2eb, #69686a 48%, #fff 52%, #171719);
+  background: linear-gradient(
+    135deg,
+    var(--cbn-sol-paper),
+    #69686a 48%,
+    #fff 52%,
+    #171719
+  );
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
 }
 
@@ -822,16 +836,21 @@
     padding-right: var(--cbn-sol-pad);
   }
 
+  .cbn-photo-story--news .cbn-photo-story__header {
+    grid-template-columns: 1fr;
+  }
+
   .cbn-photo-story__header p {
     grid-column: 1 / -1;
   }
 
   .cbn-photo-story__header h2,
   .cbn-photo-story--matches .cbn-photo-story__header h2 {
-    font-size: clamp(34px, 9.5vw, 46px);
-    letter-spacing: -0.035em;
+    font-size: clamp(31px, 8.4vw, 44px);
+    letter-spacing: var(--cbn-sol-track-editorial-serif);
     line-height: 0.9;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .cbn-photo-story__rail {
