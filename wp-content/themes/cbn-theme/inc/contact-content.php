@@ -80,6 +80,7 @@ function cbn_get_contact_defaults(): array
             'messages' => [
                 'ok' => 'Gracias por tu mensaje. Te responderemos lo antes posible.',
                 'invalid' => 'Revisa los campos obligatorios y el consentimiento antes de enviar el formulario.',
+                'rate_limited' => 'Has enviado varios mensajes seguidos. Espera un rato antes de volver a escribirnos, o llámanos por teléfono si es urgente.',
                 'error' => 'No se ha podido enviar el mensaje. Inténtalo de nuevo más tarde.',
             ],
         ],
@@ -158,9 +159,23 @@ function cbn_handle_contact_submit(): void
         : '';
     $redirect_base = wp_validate_redirect($redirect_raw, $fallback_redirect);
 
+    // Rate limit before anything else, and count every attempt including the
+    // ones that fail below: a bot probing with a stale nonce must burn its
+    // allowance too, otherwise the counter is trivial to sidestep.
+    $client_ip = cbn_form_client_ip();
+
+    if (cbn_form_rate_limit_exceeded('cbn_contact', 'ip', $client_ip)) {
+        cbn_form_log_rejection('cbn_contact', 'rate limit por IP');
+        wp_safe_redirect(add_query_arg('cbn_contact', 'rate_limited', $redirect_base));
+        exit;
+    }
+
+    cbn_form_register_attempt('cbn_contact', 'ip', $client_ip);
+
     $nonce = isset($_POST['cbn_contact_nonce']) ? sanitize_text_field(wp_unslash($_POST['cbn_contact_nonce'])) : '';
 
     if (!wp_verify_nonce($nonce, 'cbn_contact_submit')) {
+        cbn_form_log_rejection('cbn_contact', 'nonce inválido');
         wp_safe_redirect(add_query_arg('cbn_contact', 'error', $redirect_base));
         exit;
     }
@@ -176,10 +191,34 @@ function cbn_handle_contact_submit(): void
         exit;
     }
 
-    $name = isset($_POST['cbn_contact_name']) ? sanitize_text_field(wp_unslash($_POST['cbn_contact_name'])) : '';
-    $email = isset($_POST['cbn_contact_email']) ? sanitize_email(wp_unslash($_POST['cbn_contact_email'])) : '';
-    $subject_key = isset($_POST['cbn_contact_subject']) ? sanitize_text_field(wp_unslash($_POST['cbn_contact_subject'])) : '';
-    $message = isset($_POST['cbn_contact_message']) ? sanitize_textarea_field(wp_unslash($_POST['cbn_contact_message'])) : '';
+    // Time trap: a human cannot read and complete this form in under three
+    // seconds. Unlike the honeypot this redirects to 'invalid' rather than a
+    // silent "ok": a hidden field can only ever be filled by a bot, but a real
+    // visitor with browser autofill could conceivably submit very fast, and
+    // silently dropping their message would be worse than the spam we avoid.
+    // Resubmitting from the reloaded page passes.
+    $time_token = isset($_POST['cbn_form_ts']) ? sanitize_text_field(wp_unslash($_POST['cbn_form_ts'])) : '';
+
+    if (!cbn_form_time_trap_passed('cbn_contact', $time_token)) {
+        cbn_form_log_rejection('cbn_contact', 'trampa temporal');
+        wp_safe_redirect(add_query_arg('cbn_contact', 'invalid', $redirect_base));
+        exit;
+    }
+
+    $lengths = cbn_form_max_lengths();
+
+    $name = isset($_POST['cbn_contact_name'])
+        ? cbn_form_limit_length(sanitize_text_field(wp_unslash($_POST['cbn_contact_name'])), $lengths['name'])
+        : '';
+    $email = isset($_POST['cbn_contact_email'])
+        ? cbn_form_limit_length(sanitize_email(wp_unslash($_POST['cbn_contact_email'])), $lengths['email'])
+        : '';
+    $subject_key = isset($_POST['cbn_contact_subject'])
+        ? cbn_form_limit_length(sanitize_text_field(wp_unslash($_POST['cbn_contact_subject'])), $lengths['short'])
+        : '';
+    $message = isset($_POST['cbn_contact_message'])
+        ? cbn_form_limit_length(sanitize_textarea_field(wp_unslash($_POST['cbn_contact_message'])), $lengths['message'])
+        : '';
     $consent = isset($_POST['cbn_contact_consent']) ? sanitize_text_field(wp_unslash($_POST['cbn_contact_consent'])) : '';
 
     $subject_options = cbn_get_contact_defaults()['form']['subject_options'];
@@ -196,6 +235,16 @@ function cbn_handle_contact_submit(): void
         exit;
     }
 
+    // Second bucket, keyed on the address: stops a single sender rotating
+    // through IPs, and stops one address being used to bomb the club inbox.
+    if (cbn_form_rate_limit_exceeded('cbn_contact', 'email', $email)) {
+        cbn_form_log_rejection('cbn_contact', 'rate limit por email');
+        wp_safe_redirect(add_query_arg('cbn_contact', 'rate_limited', $redirect_base));
+        exit;
+    }
+
+    cbn_form_register_attempt('cbn_contact', 'email', $email);
+
     $admin_email = get_option('admin_email');
     $mail_subject = sprintf('[Contacto CBN] %s', $subject_label);
     $mail_body = implode(
@@ -210,7 +259,7 @@ function cbn_handle_contact_submit(): void
         ]
     );
 
-    $sent = wp_mail($admin_email, $mail_subject, $mail_body, ['Reply-To: ' . $name . ' <' . $email . '>']);
+    $sent = wp_mail($admin_email, $mail_subject, $mail_body, cbn_form_mail_headers($email, $name));
 
     wp_safe_redirect(add_query_arg('cbn_contact', $sent ? 'ok' : 'error', $redirect_base));
     exit;

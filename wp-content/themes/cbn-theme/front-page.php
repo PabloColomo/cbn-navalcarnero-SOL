@@ -393,13 +393,13 @@ get_header();
         <small>Sede principal · Oficina 1.ª planta</small>
         <h3>Pabellón Municipal<br>La Estación</h3>
         <p>C/ Río Ebro, s/n<br>28600 Navalcarnero, Madrid</p>
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=Pabellon+Municipal+La+Estacion+Navalcarnero" target="_blank" rel="noreferrer">Abrir en Maps <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Pabellon+Municipal+La+Estacion+Navalcarnero" target="_blank" rel="noopener noreferrer">Abrir en Maps <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
       </article>
       <article class="cbn-sol-place-card" data-sol-reveal>
         <small>Instalación complementaria</small>
         <h3>Colegio<br>María Martín</h3>
         <p>C/ Víctimas del Terrorismo, s/n<br>Navalcarnero, Madrid</p>
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=Colegio+Maria+Martin+Navalcarnero" target="_blank" rel="noreferrer">Abrir en Maps <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Colegio+Maria+Martin+Navalcarnero" target="_blank" rel="noopener noreferrer">Abrir en Maps <span class="cbn-sol-arrow-up-right" aria-hidden="true"></span></a>
       </article>
       <aside class="cbn-sol-contact-card" data-sol-reveal>
         <img src="<?php echo esc_url($cbn_logo_url); ?>" alt="" width="400" height="400" loading="lazy">

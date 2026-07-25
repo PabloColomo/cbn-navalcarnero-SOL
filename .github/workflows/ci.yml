@@ -6,6 +6,11 @@ on:
     branches:
       - main
 
+# The workflow only reads the repository. Without this block the GITHUB_TOKEN
+# inherits the permissive repository default.
+permissions:
+  contents: read
+
 jobs:
   quality:
     runs-on: ubuntu-latest
@@ -22,6 +27,13 @@ jobs:
 
       - name: Install frontend dependencies
         run: npm ci
+
+      # Reports known vulnerabilities in the npm tree. Non-blocking for now so
+      # it cannot stop an unrelated PR on its first run; once the report is
+      # clean, drop continue-on-error to make it a real gate.
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+        continue-on-error: true
 
       - name: Check formatting
         run: npm run format:check

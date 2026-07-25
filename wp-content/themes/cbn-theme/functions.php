@@ -16,6 +16,7 @@ $cbn_theme_files = [
     'inc/assets.php',
     'inc/acf.php',
     'inc/format-utils.php',
+    'inc/form-security.php',
     'inc/photo-library.php',
     'inc/home-content.php',
     'inc/club-content.php',

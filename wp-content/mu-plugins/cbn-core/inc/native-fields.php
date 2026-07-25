@@ -12,7 +12,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-add_action('add_meta_boxes', 'cbn_native_fields_register_meta_box');
+// accepted_args = 2: the callback needs ($post_type, $post) and WordPress
+// only passes the second argument when asked. Without it every edit screen
+// with a CBN field group died with an ArgumentCountError fatal.
+add_action('add_meta_boxes', 'cbn_native_fields_register_meta_box', 10, 2);
 add_action('save_post', 'cbn_native_fields_save', 10, 2);
 add_action('admin_enqueue_scripts', 'cbn_native_fields_enqueue_assets');
 
@@ -301,8 +304,17 @@ function cbn_native_fields_render_post_select(array $field, string $name, string
     >
       <?php if (!$multiple) : ?><option value="">Sin relación</option><?php endif; ?>
       <?php foreach ($posts as $related_post) : ?>
+        <?php
+        // get_post_type_object() returns null for an unregistered type (a
+        // deactivated plugin, orphaned content); dereferencing it would be a
+        // fatal error in the editor.
+        $related_type = get_post_type_object($related_post->post_type);
+        $related_label = $related_type instanceof WP_Post_Type
+            ? $related_type->labels->singular_name
+            : $related_post->post_type;
+        ?>
         <option value="<?php echo esc_attr((string) $related_post->ID); ?>" <?php selected(in_array($related_post->ID, $selected_ids, true)); ?>>
-          <?php echo esc_html(get_the_title($related_post) . ' · ' . get_post_type_object($related_post->post_type)->labels->singular_name); ?>
+          <?php echo esc_html(get_the_title($related_post) . ' · ' . $related_label); ?>
         </option>
       <?php endforeach; ?>
     </select>

@@ -193,6 +193,7 @@ get_header();
         <input type="hidden" name="action" value="cbn_registration_submit">
         <input type="hidden" name="cbn_registration_redirect" value="<?php echo esc_url(get_permalink()); ?>">
         <?php wp_nonce_field('cbn_registration_submit', 'cbn_registration_nonce'); ?>
+        <?php cbn_form_time_trap_field('cbn_registration'); ?>
 
         <div class="cbn-contact-form__hp" aria-hidden="true">
           <label for="cbn-registration-website">Sitio web (dejar en blanco)</label>
