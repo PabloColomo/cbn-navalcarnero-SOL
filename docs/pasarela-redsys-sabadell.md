@@ -6,6 +6,28 @@
 
 ---
 
+> **Actualización 2026-07-29 — corrección de la premisa de este documento.**
+> Se escribió asumiendo que el TPV serviría para vender ropa. **No es así.**
+>
+> - La **tienda de ropa la vende y la cobra otra empresa**; la web del club sólo
+>   muestra catálogo y redirige. Sin TPV, sin WooCommerce y sin obligaciones de
+>   vendedor para esa parte.
+> - El TPV se necesita para **inscripciones, cuotas y actividades**, que sí se
+>   cobran en la web del club.
+>
+> Todo lo técnico de este documento (§2 firma HMAC, §3 elección de plugin, §4
+> impacto en seguridad) **sigue siendo válido**, porque el protocolo es el mismo.
+> Lo que cambia es _qué_ se cobra y, con ello, los documentos legales exigibles:
+> ya no «condiciones de compra» y «devoluciones» de un producto, sino
+> **condiciones de contratación** y **política de cancelación** de un servicio.
+> Ver `PAYMENTS.md` §2 y §7.
+>
+> Queda además una decisión de arquitectura abierta: WooCommerce se eligió por
+> la tienda. Sin tienda propia, sostiene sólo el cobro de inscripciones. Sigue
+> siendo la recomendación —la integración con Redsys está resuelta y mantenida,
+> y hacerla a mano es el error caro descrito en §2— pero conviene tomarla como
+> decisión consciente y no heredada.
+
 ## 1. Lo primero: el banco no está evaluando vuestro código
 
 Han pedido el enlace de la web. Lo que revisan en ese paso **no es la calidad
