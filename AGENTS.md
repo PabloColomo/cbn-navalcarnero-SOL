@@ -23,7 +23,7 @@ Use Manchester Basketball Club only as conceptual inspiration for sports energy,
 - GSAP + ScrollTrigger for selective animation.
 - Lenis for progressive smooth scroll.
 - Swiper for real carousel needs.
-- WooCommerce + Redsys (bank virtual TPV, client decision 2026-07-02) is the payment direction, with Stripe as documented fallback only; payment implementation requires explicit scope and test mode. See `PAYMENTS.md` section 2.
+- Payments split in two (client decision 2026-07-29): the **clothing shop is sold and charged by a third-party company** — the site only shows a catalog and redirects, so no TPV and no WooCommerce for that. **Registrations, fees and activities are charged on the club's own site** via a bank virtual TPV (Redsys / Banco Sabadell), with Stripe as documented fallback only. Payment implementation requires explicit scope and test mode, and is blocked until registrations have a persistent data model with payment state. See `PAYMENTS.md` sections 2, 3 and 7.
 
 ## Commands
 

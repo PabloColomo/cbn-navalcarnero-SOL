@@ -147,45 +147,51 @@ function cbn_query_matches(string $mode, int $limit, int $team_id = 0): array
 
     $today = wp_date('Y-m-d');
 
+    // Named meta_query clauses instead of the meta_key + orderby => meta_value
+    // pair. With both set, WP_Meta_Query merges the implicit primary clause
+    // with the explicit one and joins wp_postmeta twice on the same key.
+    // Ordering by a named clause is the documented way to avoid that.
+    // ACF stores date_picker as Ymd while imports may use Y-m-d; casting to
+    // DATE keeps ordering correct across both.
     $args = [
         'post_type' => 'cbn_match',
         'posts_per_page' => $limit,
         'post_status' => 'publish',
         'no_found_rows' => true,
-        'meta_key' => 'cbn_match_date',
-        'orderby' => 'meta_value',
-        // ACF stores date_picker as Ymd while imports may use Y-m-d;
-        // casting to DATE keeps ordering correct across both.
-        'meta_type' => 'DATE',
     ];
 
     if ('upcoming' === $mode) {
-        $args['order'] = 'ASC';
         $args['meta_query'] = [
-            [
+            'match_date' => [
                 'key' => 'cbn_match_date',
                 'value' => $today,
                 'compare' => '>=',
                 'type' => 'DATE',
             ],
-            [
+            'match_status' => [
                 'key' => 'cbn_match_status',
                 'value' => ['scheduled', 'live'],
                 'compare' => 'IN',
             ],
         ];
+        $args['orderby'] = ['match_date' => 'ASC'];
     } else {
-        $args['order'] = 'DESC';
         $args['meta_query'] = [
-            [
+            'match_date' => [
+                'key' => 'cbn_match_date',
+                'compare' => 'EXISTS',
+                'type' => 'DATE',
+            ],
+            'match_status' => [
                 'key' => 'cbn_match_status',
                 'value' => 'final',
             ],
         ];
+        $args['orderby'] = ['match_date' => 'DESC'];
     }
 
     if ($team_id) {
-        $args['meta_query'][] = [
+        $args['meta_query']['club_team'] = [
             'key' => 'cbn_match_club_team',
             'value' => $team_id,
         ];

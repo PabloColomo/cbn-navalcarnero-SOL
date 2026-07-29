@@ -19,6 +19,25 @@ Out of scope for the first safe payment cycle:
 
 ## 2. Provider Decision
 
+> **Actualización 2026-07-29 — cambio de alcance confirmado por el cliente.**
+> El circuito de pago ya no es único. Se separa en dos:
+>
+> - **Tienda de ropa:** el club **no cobra**. La web muestra catálogo con
+>   imágenes y precios, y redirige a la web de **otra empresa**, que es quien
+>   vende y cobra. El club no es el vendedor. No requiere TPV, ni WooCommerce,
+>   ni condiciones de compra ni política de devoluciones propias: sólo
+>   identificar al vendedor real y enlazar sus condiciones.
+> - **Inscripciones, cuotas y actividades:** se cobran **en la propia web del
+>   club**. Aquí sí aplica todo lo que sigue en este documento, con una
+>   diferencia importante: lo que se contrata es un **servicio**, no un bien.
+>   Eso cambia el derecho de desistimiento (ver §7) y sustituye «condiciones de
+>   compra» por **condiciones de contratación de inscripciones y cuotas**.
+>
+> Consecuencia técnica bloqueante: el formulario de inscripción **no persiste
+> nada** hoy — envía un correo y termina. Eso es incompatible con cobrar. Antes
+> de integrar la pasarela hay que crear el modelo de datos de inscripciones con
+> estado de pago (ver §3). No se puede conciliar un cobro contra un correo.
+
 Decision (2026-07-02): the club chose a bank virtual TPV, which means **WooCommerce + Redsys** as the primary path. The bank (Banco Sabadell or Ibercaja) is pending confirmation of costs and setup; both use Redsys, so the technical integration does not depend on which bank is chosen.
 
 Why WooCommerce:
@@ -106,6 +125,14 @@ Requirements:
 - Webhooks must fail safely and be retryable.
 
 ## 7. Production Preconditions
+
+> **Nota 2026-07-29 — servicios, no bienes.** Lo que se cobra en la web son
+> inscripciones, cuotas y actividades: servicios. El derecho de desistimiento
+> de 14 días sigue aplicando, pero si el servicio **empieza antes** de que ese
+> plazo termine —y una temporada o un campus siempre empiezan— el usuario puede
+> renunciar a él, sólo con **consentimiento expreso, previo y separado** de la
+> aceptación general. Es un requisito de interfaz además de legal: hacen falta
+> dos casillas distintas, ninguna premarcada.
 
 Production payments are blocked until all items are true:
 

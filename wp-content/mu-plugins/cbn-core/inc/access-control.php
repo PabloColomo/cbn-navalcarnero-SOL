@@ -96,11 +96,48 @@ function cbn_disable_public_user_registration(): string
 }
 
 /**
- * Ensures legacy Author/Editor-style accounts cannot mutate site content.
+ * Capabilities a non-administrator account may keep.
  *
- * We do not delete WordPress roles or user records. Instead, non-admin users
- * retain read access while all publishing primitives are denied at runtime.
- * This also covers authenticated REST requests without breaking public forms.
+ * Everything outside this list is denied. See
+ * cbn_enforce_administrator_only_writes() for why this is an allow list.
+ *
+ * @return array<string, true>
+ */
+function cbn_get_non_admin_allowed_capabilities(): array
+{
+    /**
+     * Filters the minimal capability set kept for non-administrator accounts.
+     *
+     * Intended for future roles (for example a coach who may only upload
+     * files). Keep any addition as narrow as possible.
+     *
+     * @param array<string, true> $allowed
+     */
+    return (array) apply_filters(
+        'cbn_non_admin_allowed_capabilities',
+        [
+            'read' => true,
+            'level_0' => true,
+        ]
+    );
+}
+
+/**
+ * Ensures non-administrator accounts cannot mutate the site.
+ *
+ * We do not delete WordPress roles or user records. Instead, every account
+ * without `manage_options` is reduced at runtime to a read-only capability
+ * set. This also covers authenticated REST requests without breaking the
+ * public admin-post handlers, which run unauthenticated.
+ *
+ * This is an ALLOW list on purpose. The previous implementation enumerated
+ * the capabilities to deny, which left `promote_users`, `create_users`,
+ * `install_plugins`, `activate_plugins`, `switch_themes`, `export` and
+ * `unfiltered_html` reachable: an account holding `promote_users` without
+ * `manage_options` could have escalated itself to administrator and bypassed
+ * the whole model. Denying by default also means capabilities introduced
+ * later by a plugin (WooCommerce, for instance) are covered automatically
+ * instead of silently slipping through.
  *
  * @param array<string, bool> $allcaps
  * @param string[]            $caps
@@ -113,36 +150,12 @@ function cbn_enforce_administrator_only_writes(array $allcaps, array $caps, arra
         return $allcaps;
     }
 
-    $blocked = [
-        'edit_posts',
-        'edit_others_posts',
-        'edit_private_posts',
-        'edit_published_posts',
-        'publish_posts',
-        'read_private_posts',
-        'delete_posts',
-        'delete_others_posts',
-        'delete_private_posts',
-        'delete_published_posts',
-        'edit_pages',
-        'edit_others_pages',
-        'edit_private_pages',
-        'edit_published_pages',
-        'publish_pages',
-        'read_private_pages',
-        'delete_pages',
-        'delete_others_pages',
-        'delete_private_pages',
-        'delete_published_pages',
-        'upload_files',
-        'manage_categories',
-        'moderate_comments',
-        'edit_theme_options',
-        'customize',
-    ];
+    $allowed = cbn_get_non_admin_allowed_capabilities();
 
-    foreach (array_merge($blocked, cbn_get_custom_content_capabilities()) as $capability) {
-        $allcaps[$capability] = false;
+    foreach ($allcaps as $capability => $granted) {
+        if (!isset($allowed[$capability])) {
+            $allcaps[$capability] = false;
+        }
     }
 
     return $allcaps;
@@ -160,7 +173,12 @@ function cbn_restrict_non_admin_dashboard(): void
 
     global $pagenow;
 
-    if (wp_doing_ajax() || in_array($pagenow, ['admin-post.php', 'admin-ajax.php'], true)) {
+    // profile.php is allowed so a non-administrator account can still change
+    // its own password. Blocking it would leave such a user unable to rotate
+    // a compromised credential without an administrator's help.
+    $allowed = ['admin-post.php', 'admin-ajax.php', 'profile.php'];
+
+    if (wp_doing_ajax() || in_array($pagenow, $allowed, true)) {
         return;
     }
 

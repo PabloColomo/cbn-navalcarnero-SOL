@@ -290,6 +290,14 @@ function cbn_admin_translate_essential_core_labels(string $translation, string $
         return $translation;
     }
 
+    // Static: this filter fires on every single translation call, thousands of
+    // times per admin page load. Rebuilding the array each time is waste.
+    static $labels = null;
+
+    if (null !== $labels) {
+        return $labels[$text] ?? $translation;
+    }
+
     $labels = [
         'Username or Email Address' => 'Usuario o correo electrónico',
         'Password' => 'Contraseña',

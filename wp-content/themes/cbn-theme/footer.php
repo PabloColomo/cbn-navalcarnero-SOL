@@ -71,7 +71,7 @@
       </div>
 
       <div class="cbn-sol-footer__bottom">
-        <p>&copy; <?php echo esc_html(date('Y')); ?> Club Baloncesto Navalcarnero · CIF G-80115298</p>
+        <p>&copy; <?php echo esc_html(wp_date('Y')); ?> Club Baloncesto Navalcarnero · CIF G-80115298</p>
         <p>Hecho para vivir la pista.</p>
       </div>
     </footer>

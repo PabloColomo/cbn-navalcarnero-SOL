@@ -11,6 +11,8 @@ $cbn_core_files = [
     'inc/post-types.php',
     'inc/taxonomies.php',
     'inc/access-control.php',
+    'inc/hardening.php',
+    'inc/login-security.php',
     'inc/native-fields.php',
     'inc/admin-dashboard.php',
 ];
